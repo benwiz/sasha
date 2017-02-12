@@ -24,4 +24,14 @@ module.exports = [
             validate: Validator.nlp
         }
     },
+
+    // POST text-to-speech
+    {
+        method: 'POST',
+        path: '/text-to-speech',
+        handler: Handler.textToSpeech,
+        config: {
+            validate: Validator.textToSpeech
+        }
+    },
 ];

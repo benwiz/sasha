@@ -14,3 +14,10 @@ module.exports.nlp = {
         text: Joi.string().required()
     })
 };
+
+// POST text-to-speech
+module.exports.textToSpeech = {
+    payload: Joi.object({
+        text: Joi.string().required()
+    })
+};
