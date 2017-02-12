@@ -9,9 +9,9 @@ const Private = require('./private'); // TODO: switch to env vars
 
 // TODO: look into session based websocket approach to watson speech api
 
-const speech_to_text  = new SpeechToTextV1({
-  username: Private.username,
-  password: Private.password
+const watson = new SpeechToTextV1({
+    username: Private.username,
+    password: Private.password
 });
 
 const service = (request, reply) => {
@@ -22,7 +22,7 @@ const service = (request, reply) => {
         customization_id: '77148170-ece4-11e6-ba16-9d7ea578c8c5'
     };
 
-    speech_to_text.recognize(params, (err, res) => {
+    watson.recognize(params, (err, res) => {
         if (err) {
             console.log(err);
         } else {
