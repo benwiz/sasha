@@ -3,7 +3,7 @@
 // external libraries
 const Promise = require('bluebird');
 const SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
-const Fs = Promise.promisifyAll(require('fs'));
+const Streamifier = require('streamifier');
 // internal libraries
 const Private = require('./private'); // TODO: switch to env var
 
@@ -16,17 +16,28 @@ const speech_to_text  = new SpeechToTextV1({
 
 const service = (request, reply) => {
 
-    console.log(request.payload);
-    reply('hey');
-    // const params = {
-    //     content_type: 'audio/l16; rate=16000',
-    //     customization_id: '77148170-ece4-11e6-ba16-9d7ea578c8c5'
-    // };
-    //
+    const params = {
+        audio: Streamifier.createReadStream(request.payload),
+        content_type: 'audio/l16; rate=16000',
+        customization_id: '77148170-ece4-11e6-ba16-9d7ea578c8c5'
+    };
+
+    speech_to_text.recognize(params, (err, res) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(JSON.stringify(res, null, 2));
+            const result = res.results[res.result_index].alternatives[0].transcript;
+            reply(result);
+        }
+    });
+
     // const chunks = [];
-    // audio_stream.pipe(speech_to_text.createRecognizeStream(params))
+    // Streamifier.createReadStream(request.payload)
+    //     .pipe(speech_to_text.createRecognizeStream(params))
     //     .on('data', (chunk) => {
     //
+    //         console.log('chunk', chunk);
     //         chunks.push(chunk.toString());
     //     })
     //     .on('end', () => {
@@ -38,7 +49,7 @@ const service = (request, reply) => {
     //         };
     //
     //         console.log('new_msg:', new_msg);
-    //         resolve(new_msg);
+    //         reply(new_msg);
     //     });
 };
 
