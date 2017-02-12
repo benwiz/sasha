@@ -53,5 +53,35 @@ module.exports = [
         config: {
             validate: Validator.fact
         }
+    },
+
+    // POST /play/spotify
+    {
+        method: 'POST',
+        path: '/play/spotify',
+        handler: Handler.mopidy.spotify,
+        config: {
+            validate: Validator.playSpotify
+        }
+    },
+
+    // POST /play/buffer
+    {
+        method: 'POST',
+        path: '/play/buffer',
+        handler: Handler.mopidy.buffer,
+        config: {
+            validate: Validator.playBuffer
+        }
+    },
+
+    // POST /play/url
+    {
+        method: 'POST',
+        path: '/play/url',
+        handler: Handler.mopidy.url,
+        config: {
+            validate: Validator.playUrl
+        }
     }
 ];

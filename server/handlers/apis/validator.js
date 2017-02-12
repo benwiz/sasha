@@ -35,3 +35,20 @@ module.exports.fact = {
     //
     // })
 };
+
+// POST /play/spotify
+module.exports.playSpotify = {
+
+};
+
+// POST /play/audiobuffer
+module.exports.playBuffer = {
+    payload: Joi.binary().required()
+};
+
+// POST /play/url
+module.exports.playUrl = {
+    payload: Joi.object({
+        url: Joi.string().required() // TODO: validate true uri/url
+    })
+}
