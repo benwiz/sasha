@@ -28,7 +28,8 @@
     "path": "^0.12.7",
     "request": "^2.79.0",
     "supervisor": "^0.12.0",
-    "vision": "^4.1.1"
+    "vision": "^4.1.1",
+    "watson-developer-cloud": "^2.18.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
