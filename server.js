@@ -14,7 +14,7 @@ const Routes = require('./server/routes/index');
 // create server
 const server = new Hapi.Server();
 server.connection({
-    port: Number(process.env.PORT || 8080), // env var used in elastic beanstalk
+    port: Number(process.env.PORT || 8081), // env var used in elastic beanstalk
     host: '0.0.0.0'
 });
 

@@ -5,83 +5,43 @@ const Validator = require('../../handlers/apis/validator');
 
 module.exports = [
 
-    // POST speech-to-text
+    // POST /text
     {
         method: 'POST',
-        path: '/speech-to-text',
-        handler: Handler.speechToText,
+        path: '/text',
+        handler: Handler.text,
         config: {
-            validate: Validator.speechToText
+            validate: Validator.text
         }
     },
 
-    // POST nlp
+    // POST /audio
     {
         method: 'POST',
-        path: '/nlp',
-        handler: Handler.nlp,
+        path: '/audio',
+        handler: Handler.audio,
         config: {
-            validate: Validator.nlp
+            validate: Validator.audio
         }
     },
 
-    // POST text-to-speech
+    // POST /image
     {
         method: 'POST',
-        path: '/text-to-speech',
-        handler: Handler.textToSpeech,
+        path: '/image',
+        handler: Handler.image,
         config: {
-            validate: Validator.textToSpeech
+            validate: Validator.image
         }
     },
 
-    // GET joke
-    {
-        method: 'GET',
-        path: '/joke',
-        handler: Handler.joke,
-        config: {
-            validate: Validator.joke
-        }
-    },
-
-    // GET fact
-    {
-        method: 'GET',
-        path: '/fact',
-        handler: Handler.fact,
-        config: {
-            validate: Validator.fact
-        }
-    },
-
-    // POST /play/spotify
+    // POST /video
     {
         method: 'POST',
-        path: '/play/spotify',
-        handler: Handler.mopidy.spotify,
+        path: '/video',
+        handler: Handler.video,
         config: {
-            validate: Validator.playSpotify
-        }
-    },
-
-    // POST /play/buffer
-    {
-        method: 'POST',
-        path: '/play/buffer',
-        handler: Handler.mopidy.buffer,
-        config: {
-            validate: Validator.playBuffer
-        }
-    },
-
-    // POST /play/url
-    {
-        method: 'POST',
-        path: '/play/url',
-        handler: Handler.mopidy.url,
-        config: {
-            validate: Validator.playUrl
+            validate: Validator.video
         }
     }
 ];

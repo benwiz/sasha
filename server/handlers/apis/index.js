@@ -1,16 +1,30 @@
 'use strict';
 
-const SpeechToText = require('./lib/speech-to-text');
-const NLP = require('./lib/nlp');
-const textToSpeech = require('./lib/text-to-speech');
-const Converse = require('./lib/converse');
-const Mopidy = require('./lib/mopidy');
+
+const text = (request, reply) => {
+
+    reply('text');
+};
+
+const audio = (request, reply) => {
+
+    reply('audio');
+};
+
+const image = (request, reply) => {
+
+    reply('image handling not implemented');
+};
+
+const video = (request, reply) => {
+
+    reply('video handling not implemented');
+}
+
 
 module.exports = {
-    speechToText: SpeechToText.watson,
-    nlp: NLP.luis,
-    textToSpeech: textToSpeech.goolgeTranslate,
-    joke: Converse.joke,
-    fact: Converse.fact,
-    mopidy: Mopidy
+    text: text,
+    audio: audio,
+    image: image,
+    video: video
 };

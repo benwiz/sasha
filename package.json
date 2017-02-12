@@ -1,5 +1,5 @@
 {
-  "name": "sasha-http",
+  "name": "sasha-brain",
   "version": "1.0.0",
   "description": "restful api http version",
   "main": "server.js",
