@@ -38,7 +38,11 @@ module.exports.fact = {
 
 // POST /play/spotify
 module.exports.playSpotify = {
-
+    payload: Joi.object({
+        song: Joi.string().optional(),
+        artist: Joi.string().optional(),
+        playlist: Joi.string().optional()
+    })
 };
 
 // POST /play/audiobuffer
