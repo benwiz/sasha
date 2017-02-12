@@ -34,4 +34,24 @@ module.exports = [
             validate: Validator.textToSpeech
         }
     },
+
+    // GET joke
+    {
+        method: 'GET',
+        path: '/joke',
+        handler: Handler.joke,
+        config: {
+            validate: Validator.joke
+        }
+    },
+
+    // GET fact
+    {
+        method: 'GET',
+        path: '/fact',
+        handler: Handler.fact,
+        config: {
+            validate: Validator.fact
+        }
+    }
 ];

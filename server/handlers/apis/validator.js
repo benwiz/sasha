@@ -21,3 +21,17 @@ module.exports.textToSpeech = {
         text: Joi.string().required()
     })
 };
+
+// GET joke
+module.exports.joke = {
+    // params: Joi.object({
+    //
+    // })
+};
+
+// GET fact
+module.exports.fact = {
+    // params: Joi.object({
+    //
+    // })
+};
