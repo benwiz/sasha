@@ -5,7 +5,7 @@ const Validator = require('../../handlers/apis/validator');
 
 module.exports = [
 
-    // speech-to-text
+    // POST speech-to-text
     {
         method: 'POST',
         path: '/speech-to-text',
@@ -13,5 +13,15 @@ module.exports = [
         config: {
             validate: Validator.speechToText
         }
-    }
+    },
+
+    // POST nlp
+    {
+        method: 'POST',
+        path: '/nlp',
+        handler: Handler.nlp,
+        config: {
+            validate: Validator.nlp
+        }
+    },
 ];
