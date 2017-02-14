@@ -7,9 +7,6 @@ const Request = require('request');
 const SDK = require('./lib/sdk');
 const IntentHandler = require('./lib/intent-handler');
 
-// TODO: this should be in a configuration file
-const sasha_api_url = 'http://localhost:8080';
-
 
 const text = (request, reply) => {
 
