@@ -5,9 +5,7 @@ const Joi = require('joi');
 
 // POST /text
 module.exports.text = {
-    payload: Joi.object({
-        text: Joi.string().required()
-    })
+    payload: Joi.string().required()
 };
 
 // POST /audio
