@@ -1,3 +1,6 @@
 # TO DO
 
-- real logging, possibly bunyan
+ARCHITECTURE LEVEL:
+- use boom
+- auto documentation
+- logging

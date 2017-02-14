@@ -4,6 +4,7 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
+const SDK = require('./lib/sdk');
 const IntentHandler = require('./lib/intent-handler');
 
 // TODO: this should be in a configuration file
@@ -19,35 +20,28 @@ const text = (request, reply) => {
         })
         .catch((err) => {
 
-            reply(err);
+            console.log(err);
+            reply(500); // TODO: use boom
         });
 };
 
 const audio = (request, reply) => {
 
     // post to sasha-api /speech-to-text
-    Request.post({
-        url: sasha_api_url + '/speech-to-text',
-        headers: {'Content-Type': 'application/octet-stream'},
-        body: request.payload,
-    }, (error, response, body) => {
+    SDK.speechToText(request.payload)
+        .then((res) => {
 
-        if (error) {
-            console.log(error);
-            reply(error);
-        }
+            return textHandler(res);
+        })
+        .then((res) => {
 
-        console.log(body);
-        textHandler(body)
-            .then((res) => {
+            reply(res);
+        })
+        .catch((err) => {
 
-                reply(res);
-            })
-            .catch((err) => {
-
-                reply(err);
-            });
-    });
+            console.log(err);
+            reply(500); // TODO: use boom
+        });
 };
 
 const image = (request, reply) => {
@@ -65,21 +59,23 @@ const textHandler = (text) => {
     return new Promise((resolve, reject) => {
 
         // post to sasha-api /nlp
-        Request.post({
-            url: sasha_api_url + '/nlp',
-            body: JSON.stringify({'text': text})
-        }, (error, response, body) => {
+        const options = {
+            'text': text
+        };
+        SDK.nlp(options)
+            .then((res) => {
 
-            if (error) {
-                console.log(error);
-                reject(error);
-            }
+                const handler = IntentHandler.selector(res.intent.split('.')[0]);
+                return handler(res);
+            })
+            .then((res) => {
 
-            const parsed = JSON.parse(body);
-            const handler = IntentHandler.selector(parsed.intent.split('.')[0]);
-            const res = handler(parsed);
-            resolve(res);
-        });
+                resolve(res);
+            })
+            .catch((err) => {
+
+                reject(err);
+            });
     });
 };
 
