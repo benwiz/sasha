@@ -2,6 +2,7 @@
 
 // external libs
 const Promise = require('bluebird');
+const WtoN = require('words-to-num');
 // internal libs
 const SDK = require('./sdk');
 
@@ -23,6 +24,8 @@ const genericHandler = (options) => {
 };
 
 const playMusicHandler = (options) => {
+
+    console.log('options:', options);
 
     return new Promise((resolve, reject) => {
 
@@ -59,19 +62,6 @@ const playMusicHandler = (options) => {
                     });
             }
 
-        // } else if (subintent === 'play') {
-        //
-        //     SDK.playNext()
-        //         .then((res) => {
-        //
-        //             console.log(res);
-        //             resolve(res);
-        //         })
-        //         .catch((err) => {
-        //
-        //             reject(err);
-        //         });
-
         } else if (subintent === 'pause') {
 
             SDK.playPause()
@@ -87,6 +77,23 @@ const playMusicHandler = (options) => {
         } else if (subintent === 'next') {
 
             SDK.playNext()
+                .then((res) => {
+
+                    console.log();
+                    resolve();
+                })
+                .catch((err) => {
+
+                    reject(err);
+                });
+
+        } else if (subintent === 'volume') {
+
+            console.log('vol', options);
+            const payload = {
+                volume: WtoN.convert(options.volume)
+            };
+            SDK.playVolume(payload)
                 .then((res) => {
 
                     console.log(res);

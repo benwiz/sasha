@@ -1,10 +1,11 @@
 # TO DO
 
-- spotify play/shuffle playlist
-- music louder quieter
+- spotify play/shuffle playlist (partially enabled, but mopidy doesn't handle searching for playlists like it does for songs/artists)
+- music set volume
+- music adjust volume up/down
 - remind me in X minutes or at X:XX o'clock
 
-ARCHITECTURE LEVEL:
+ARCHITECTURE LEVEL (for api too):
 - use boom
 - auto documentation
 - logging

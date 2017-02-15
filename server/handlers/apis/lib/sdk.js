@@ -97,6 +97,24 @@ const playNext = (options) => {
     });
 };
 
+// POST /play/volume
+const playVolume = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/play/volume',
+            body: JSON.stringify(options),
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve(JSON.parse(body));
+        });
+    });
+};
+
 // POST /play/spotify
 const playSpotify = (options) => {
 
@@ -121,5 +139,6 @@ module.exports = {
     playPlay: playPlay,
     playPause: playPause,
     playNext: playNext,
+    playVolume: playVolume,
     playSpotify: playSpotify,
 };
