@@ -30,16 +30,54 @@ const playMusicHandler = (options) => {
 
         if (subintent === 'play') {
 
-            const payload = {
-                song: options.song,
-                artist: options.artist,
-                playlist: options.playlist
-            };
-            SDK.playSpotify(payload)
+            if (options.song || options.artist || options.playlist) {
+                const payload = {
+                    song: options.song,
+                    artist: options.artist,
+                    playlist: options.playlist
+                };
+                SDK.playSpotify(payload)
+                    .then((res) => {
+
+                        console.log(res);
+                        resolve(res);
+                    })
+                    .catch((err) => {
+
+                        reject(err);
+                    });
+            } else {
+                SDK.playPlay()
+                    .then((res) => {
+
+                        console.log(res);
+                        resolve(res);
+                    })
+                    .catch((err) => {
+
+                        reject(err);
+                    });
+            }
+
+        // } else if (subintent === 'play') {
+        //
+        //     SDK.playNext()
+        //         .then((res) => {
+        //
+        //             console.log(res);
+        //             resolve(res);
+        //         })
+        //         .catch((err) => {
+        //
+        //             reject(err);
+        //         });
+
+        } else if (subintent === 'pause') {
+
+            SDK.playPause()
                 .then((res) => {
 
-                    console.log(res);
-                    resolve(res);
+                    resolve();
                 })
                 .catch((err) => {
 

@@ -1,10 +1,8 @@
 # TO DO
 
 - spotify play/shuffle playlist
-- spotify next
 - music louder quieter
-- spotify pause
-- spotify play
+- remind me in X minutes or at X:XX o'clock
 
 ARCHITECTURE LEVEL:
 - use boom

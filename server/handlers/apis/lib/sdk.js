@@ -46,6 +46,40 @@ const nlp = (options) => {
     });
 };
 
+// POST /play/play
+const playPlay = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/play/play',
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve();
+        });
+    });
+};
+
+// POST /play/pause
+const playPause = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/play/pause',
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve();
+        });
+    });
+};
+
 // POST /play/next
 const playNext = (options) => {
 
@@ -84,6 +118,8 @@ const playSpotify = (options) => {
 module.exports = {
     speechToText: speechToText,
     nlp: nlp,
+    playPlay: playPlay,
+    playPause: playPause,
     playNext: playNext,
     playSpotify: playSpotify,
 };
