@@ -10,19 +10,22 @@ const IntentHandler = require('./lib/intent-handler');
 
 const text = (request, reply) => {
 
+    reply();
+
     textHandler(request.payload)
         .then((res) => {
 
-            reply(res);
+            console.log('text res:', res);
         })
         .catch((err) => {
 
-            console.log(err);
-            reply(500); // TODO: use boom
+            console.log('text err:', err);
         });
 };
 
 const audio = (request, reply) => {
+
+    reply();
 
     // post to sasha-api /speech-to-text
     SDK.speechToText(request.payload)
@@ -32,12 +35,11 @@ const audio = (request, reply) => {
         })
         .then((res) => {
 
-            reply(res);
+            console.log('audio res:', res);
         })
         .catch((err) => {
 
-            console.log(err);
-            reply(500); // TODO: use boom
+            console.log('audio err:', err);
         });
 };
 
@@ -50,6 +52,9 @@ const video = (request, reply) => {
 
     reply('video handling not implemented');
 };
+
+///////
+///////
 
 const textHandler = (text) => {
 
