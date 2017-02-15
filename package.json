@@ -12,7 +12,7 @@
     "url": "git+https://github.com/benwiz/sasha-http.git"
   },
   "author": "Ben Wisialowski",
-  "license": "GPL-3.0",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/benwiz/sasha-http/issues"
   },
