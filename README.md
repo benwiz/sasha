@@ -1,3 +1,3 @@
-# sasha-brain
+# sasha-api
 
 logic layer
