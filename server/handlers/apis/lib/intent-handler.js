@@ -46,6 +46,19 @@ const playMusicHandler = (options) => {
                     reject(err);
                 });
 
+        } else if (subintent === 'next') {
+
+            SDK.playNext()
+                .then((res) => {
+
+                    console.log(res);
+                    resolve(res);
+                })
+                .catch((err) => {
+
+                    reject(err);
+                });
+
         } else {
 
             resolve(`unknown subintent: ${subintent}`);

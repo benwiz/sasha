@@ -46,7 +46,24 @@ const nlp = (options) => {
     });
 };
 
-// POST /playSpotify
+// POST /play/next
+const playNext = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/play/next',
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve();
+        });
+    });
+};
+
+// POST /play/spotify
 const playSpotify = (options) => {
 
     return new Promise((resolve, reject) => {
@@ -67,5 +84,6 @@ const playSpotify = (options) => {
 module.exports = {
     speechToText: speechToText,
     nlp: nlp,
-    playSpotify: playSpotify
+    playNext: playNext,
+    playSpotify: playSpotify,
 };
