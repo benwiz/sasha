@@ -11,7 +11,7 @@ const handler = (options) => {
 
     return new Promise((resolve, rejct) => {
 
-        SDK.textToSpeech({text: 'I don\`t understand.'})
+        SDK.textToSpeech({text: `I don't understand.`})
             .then((res) => {
 
                 return SDK.playUrl({url: res.url});
