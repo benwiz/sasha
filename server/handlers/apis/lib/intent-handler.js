@@ -3,6 +3,7 @@
 // external libs
 const Promise = require('bluebird');
 // internal libs
+const Fallback = require('./fallback');
 const Music = require('./music');
 const Converse = require('./converse');
 
@@ -16,13 +17,8 @@ const selector = (intent) => {
         return Converse.handler;
 
     } else {
-        return genericHandler;
+        return Fallback.handler;
     }
-};
-
-const genericHandler = (options) => {
-
-    return 'generic handler';
 };
 
 module.exports = {

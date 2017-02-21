@@ -18,29 +18,7 @@ const handler = (options) => {
             return joke({/*subject: ''*/});
         } else if (subintent === 'fact') {
             return fact({/*subject: ''*/});
-        } else {
-            return unkown();
         }
-    });
-};
-
-const unkown = () => {
-
-    return new Promise((resolve, rejct) => {
-
-        SDK.textToSpeech({text: 'I don\`t understand.'})
-            .then((res) => {
-
-                return SDK.playUrl({url: res.url});
-            })
-            .then((res) => {
-
-                resolve(res);
-            })
-            .catch((err) => {
-
-                reject(err);
-            });
     });
 };
 
