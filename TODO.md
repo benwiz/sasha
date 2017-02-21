@@ -17,3 +17,4 @@
 - train it's music knowledge
 - snowboy trainer
 - introduction / skill at meeting people
+- gui to watch realtime what's going on inside sasha

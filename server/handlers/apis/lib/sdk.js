@@ -151,13 +151,31 @@ const playSpotify = (options) => {
     });
 };
 
+// POST /play/url
+const playUrl = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/play/url',
+            body: JSON.stringify(options),
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve(JSON.parse(body));
+        });
+    });
+};
+
 // POST /tell/joke
 const tellJoke = (options) => {
 
     return new Promise((resolve, reject) => {
 
         Request.post({
-            url: sasha_api_url + '/tell/joke/' + options.subject,
+            url: sasha_api_url + '/tell/joke',
             body: JSON.stringify(options)
         }, (error, response, body) => {
 
@@ -175,7 +193,7 @@ const tellFact = (options) => {
     return new Promise((resolve, reject) => {
 
         Request.post({
-            url: sasha_api_url + '/tell/fact/' + options.subject,
+            url: sasha_api_url + '/tell/fact',
             body: JSON.stringify(options)
         }, (error, response, body) => {
 
@@ -197,6 +215,7 @@ module.exports = {
     playNext: playNext,
     playVolume: playVolume,
     playSpotify: playSpotify,
+    playUrl: playUrl,
     tellJoke: tellJoke,
     tellFact: tellFact
 };

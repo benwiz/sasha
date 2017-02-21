@@ -4,9 +4,7 @@
 const Promise = require('bluebird');
 // internal libs
 const Music = require('./music');
-
-
-// NOTE: this will probably be split up into many files inside this lib/ folder
+const Converse = require('./converse');
 
 
 const selector = (intent) => {
@@ -14,7 +12,7 @@ const selector = (intent) => {
     if (intent === 'music') {
         return Music.playMusicHandler;
 
-    if (intent === 'converse')
+    } else if (intent === 'converse') {
         return Converse.handler;
 
     } else {

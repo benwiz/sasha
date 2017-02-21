@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
-const SDK = require('./lib/sdk');
+const SDK = require('./sdk');
 
 
 const handler = (options) => {
@@ -15,12 +15,32 @@ const handler = (options) => {
         const subintent = options.intent.split('.')[1];
 
         if (subintent === 'joke') {
-            return joke(options);
+            return joke({/*subject: ''*/});
         } else if (subintent === 'fact') {
-            return fact(options);
+            return fact({/*subject: ''*/});
         } else {
-            return SDK.textToSpeech({text: 'I don\'t understand'});
+            return unkown();
         }
+    });
+};
+
+const unkown = () => {
+
+    return new Promise((resolve, rejct) => {
+
+        SDK.textToSpeech({text: 'I don\`t understand.'})
+            .then((res) => {
+
+                return SDK.playUrl({url: res.url});
+            })
+            .then((res) => {
+
+                resolve(res);
+            })
+            .catch((err) => {
+
+                reject(err);
+            });
     });
 };
 
@@ -32,6 +52,10 @@ const joke = (options) => {
             .then((res) => {
 
                 return SDK.textToSpeech({text: res.joke});
+            })
+            .then((res) => {
+
+                return SDK.playUrl({url: res.url});
             })
             .then((res) => {
 
@@ -52,6 +76,10 @@ const fact = (options) => {
             .then((res) => {
 
                 return SDK.textToSpeech({text: res.fact});
+            })
+            .then((res) => {
+
+                return SDK.playUrl({url: res.url});
             })
             .then((res) => {
 
