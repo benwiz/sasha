@@ -67,6 +67,7 @@ const textHandler = (text) => {
         SDK.nlp(options)
             .then((res) => {
 
+                console.log(res);
                 const handler = IntentHandler.selector(res.intent.split('.')[0]);
                 return handler(res);
             })

@@ -1,19 +1,19 @@
-# TO DO
+# TO DO FOR ABSOLUTE MVP
 
-- spotify play playlist (partially enabled, but mopidy doesn't handle searching for playlists like it does for songs/artists)
-- music adjust volume up/down
-- remind me in X minutes or at X:XX o'clock
-- music trainer
-    - scrape spotify to train Watson speech-to-text and Luis.ai nlp
-    - maybe it's a sasha-brain endpoint that leverages sasha-api endpoints that scrape mopidy. Hit the brain endpoint on a cron?
-    - or maybe it should be a standalone service that leverages sasha-api
-    - the biffer question is: should sasha-brain be in charge of training?
-
-ARCHITECTURE LEVEL (for api too):
-- use boom
-- auto documentation
+- boom
+- docs
 - logging
+- extract all config settings from api to here
+- gui env variable setter?
 
+- spotify play playlist
+- set reminders
+- tell a fact
+- what is the weather?
+- have a database of people (human:[id, first name, last name, nickname, d.o.b., address], human_visit:[id, human_id, start_date, end_date])
+
+# TO DO AFTER ABSOLUTE MVP
+- volume louder/quieter
+- train it's music knowledge
 - snowboy trainer
-    - webapp allows people to record "sasha" 3 times, select gender, age, email me
-    - maybe do in express... one file webapp???
+- introduction / skill at meeting people

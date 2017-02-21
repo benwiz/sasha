@@ -46,6 +46,24 @@ const nlp = (options) => {
     });
 };
 
+// POST /text-to-speech
+const textToSpeech = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/text-to-speech',
+            body: JSON.stringify(options)
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve(JSON.parse(body));
+        });
+    });
+};
+
 // POST /play/play
 const playPlay = (options) => {
 
@@ -133,12 +151,52 @@ const playSpotify = (options) => {
     });
 };
 
+// POST /tell/joke
+const tellJoke = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/tell/joke/' + options.subject,
+            body: JSON.stringify(options)
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve(JSON.parse(body));
+        });
+    });
+};
+
+// POST /tell/fact
+const tellFact = (options) => {
+
+    return new Promise((resolve, reject) => {
+
+        Request.post({
+            url: sasha_api_url + '/tell/fact/' + options.subject,
+            body: JSON.stringify(options)
+        }, (error, response, body) => {
+
+            if (error) {
+                reject(error);
+            }
+            resolve(JSON.parse(body));
+        });
+    });
+};
+
+
 module.exports = {
     speechToText: speechToText,
+    textToSpeech: textToSpeech,
     nlp: nlp,
     playPlay: playPlay,
     playPause: playPause,
     playNext: playNext,
     playVolume: playVolume,
     playSpotify: playSpotify,
+    tellJoke: tellJoke,
+    tellFact: tellFact
 };
