@@ -36,70 +36,25 @@ const textToSpeech = (options) => {
 // POST /play/play
 const playPlay = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/play',
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve();
-        });
-    });
+    return Mopidy.play(options);
 };
 
 // POST /play/pause
 const playPause = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/pause',
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve();
-        });
-    });
+    return Mopidy.pause(options);
 };
 
 // POST /play/next
 const playNext = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/next',
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve();
-        });
-    });
+    return Mopidy.next(options);
 };
 
 // POST /play/volume
 const playVolume = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/volume',
-            body: JSON.stringify(options),
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return Mopidy.setVolume(options);
 };
 
 // POST /play/spotify

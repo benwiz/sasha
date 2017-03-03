@@ -5,88 +5,103 @@ const Mopidy = require('mopidy');
 const Request = require('request');
 const Streamifier = require('streamifier');
 
-// TODO: come up with a real reply
+// TODO: come up with a real resolve
 
 const mopidy = new Mopidy({
     webSocketUrl: `ws://192.168.1.10:6680/mopidy/ws/`,
     callingConvention: 'by-position-or-by-name'
 });
 
-const play = (request, reply) => {
+const play = (options) => {
 
-    console.log('play song');
-    mopidy.playback.play()
-        .then((res) => {
+    return new Promise((resolve, reject) => {
 
-            console.log(res);
-            reply();
-        })
-        .catch((err) => {
+        console.log('play song');
+        mopidy.playback.play()
+            .then((res) => {
 
-            console.log('error:', err);
-            reply(err);
-        });
+                console.log(res);
+                resolve();
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                resolve(err);
+            });
+    });
 };
 
-const pause = (request, reply) => {
+const pause = (options) => {
 
-    console.log('pause song');
-    mopidy.playback.pause()
-        .then((res) => {
+    return new Promise((resolve, reject) => {
 
-            reply();
-        })
-        .catch((err) => {
+        console.log('pause song');
+        mopidy.playback.pause()
+            .then((res) => {
 
-            console.log('error:', err);
-            reply(err);
-        });
+                resolve();
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                resolve(err);
+            });
+    });
 };
 
-const next = (request, reply) => {
+const next = (options) => {
 
-    console.log('next song');
-    mopidy.playback.next()
-        .then((res) => {
+    return new Promise((resolve, reject) => {
 
-            reply();
-        })
-        .catch((err) => {
+        console.log('next song');
+        mopidy.playback.next()
+            .then((res) => {
 
-            console.log('error:', err);
-            reply(err);
-        });
+                resolve();
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                resolve(err);
+            });
+    });
 };
 
-const getVolume = (request, reply) => {
+const getVolume = (options) => {
 
-    mopidy.mixer.getVolume({})
-        .then((res) => {
+    return new Promise((resolve, reject) => {
 
-            console.log(res);
-            reply(res);
-        })
-        .catch((err) => {
+        mopidy.mixer.getVolume({})
+            .then((res) => {
 
-            console.log('error:', err);
-            reply(err);
-        });
+                console.log(res);
+                resolve(res);
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                reject(err);
+            });
+    });
 }
 
 const setVolume = (options) => {
 
-    console.log('set vol:', options.volume);
-    mopidy.mixer.setVolume({'volume': options.volume})
-        .then((res) => {
+    return new Promise((resolve, reject) => {
 
-            console.log(res);
-            reply(res);
-        })
-        .catch((err) => {
+        console.log('set vol:', options.volume);
+        mopidy.mixer.setVolume({'volume': options.volume})
+            .then((res) => {
 
-            console.log('error:', err);
-            reply(err);
-        });
+                console.log(res);
+                resolve(res);
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                reject(err);
+            });
+    });
 };
 
 const spotify = (options) => {
@@ -155,14 +170,14 @@ const url = (options) => {
             })
             .catch((err) => {
 
-                reject(err); // TODO: reply 500 with boom
+                reject(err);
             });
     });
 };
 
-const buffer = (request, reply) => {
+const buffer = (options) => {
 
-    reply('not yet implemented');
+    resolve('not yet implemented');
 };
 
 module.exports = {
