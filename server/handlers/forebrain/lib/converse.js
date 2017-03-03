@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
-const SDK = require('./sdk');
+const SDK = require('../../actuators/index');
 
 
 const handler = (options) => {

@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const WtoN = require('words-to-num');
 // internal libs
-const SDK = require('./sdk');
+const SDK = require('../../actuators/index');
 
 const playMusicHandler = (options) => {
 

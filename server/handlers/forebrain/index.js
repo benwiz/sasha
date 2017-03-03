@@ -4,9 +4,11 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
-const SDK = require('./lib/sdk');
+const SDK = require('../actuators/index');
 const IntentHandler = require('./lib/intent-handler');
 
+
+// TODO: These functions will eventually no longer be HTTP handlers. Instead they will be normal functions that are called by a message queue listener.
 
 const text = (request, reply) => {
 
