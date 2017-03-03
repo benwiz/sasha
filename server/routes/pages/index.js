@@ -1,7 +1,6 @@
 'use strict';
 
 const Handler = require('../../handlers/pages/index');
-const Validator = require('../../handlers/pages/validator');
 
 module.exports = [
 
