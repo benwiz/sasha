@@ -5,7 +5,6 @@
 - boom
 - docs
 - logging
-- extract all config settings from api to here
 - gui env variable setter?
 - swap supervisor with nodemon
 
