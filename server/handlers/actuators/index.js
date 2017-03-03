@@ -3,66 +3,33 @@
 // external libraries
 const Promise = require('bluebird');
 const Request = require('request');
+// internal libraries
+const Converse = require('./lib/converse');
+const NLP = require('./lib/nlp');
+const SpeechToText = require('./lib/speech-to-text');
+const TextToSpeech = require('./lib/text-to-speech');
 
 // TODO: this should be in a configuration file
 const sasha_api_url = 'http://localhost:8080';
 
-// TODO: this is not the SDK but actually the actuators. 
+// TODO: this is not the SDK but actually the actuators.
 
 // POST /speech-to-text
 const speechToText = (binary) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/speech-to-text',
-            headers: {'Content-Type': 'application/octet-stream'},
-            body: binary
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            console.log(body);
-            resolve(body);
-        });
-    });
+    return SpeechToText.watson(binary);
 };
 
 // POST /nlp
 const nlp = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/nlp',
-            body: JSON.stringify(options)
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return NLP.luis(options);
 };
 
 // POST /text-to-speech
 const textToSpeech = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/text-to-speech',
-            body: JSON.stringify(options)
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return textToSpeech.googleTranslate(options);
 };
 
 // POST /play/play
@@ -173,37 +140,13 @@ const playUrl = (options) => {
 // POST /tell/joke
 const tellJoke = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/tell/joke',
-            body: JSON.stringify(options)
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return Converse.joke(options);
 };
 
 // POST /tell/fact
 const tellFact = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/tell/fact',
-            body: JSON.stringify(options)
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return Converse.fact(options);
 };
 
 
