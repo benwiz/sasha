@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const WtoN = require('words-to-num');
 // internal libs
-const SDK = require('../../actuators/index');
+const Actuators = require('../../actuators/index');
 
 const playMusicHandler = (options) => {
 
@@ -22,7 +22,7 @@ const playMusicHandler = (options) => {
                     artist: options.artist,
                     playlist: options.playlist
                 };
-                SDK.playSpotify(payload)
+                Actuators.playSpotify(payload)
                     .then((res) => {
 
                         console.log(res);
@@ -33,7 +33,7 @@ const playMusicHandler = (options) => {
                         reject(err);
                     });
             } else {
-                SDK.playPlay()
+                Actuators.playPlay()
                     .then((res) => {
 
                         console.log(res);
@@ -47,7 +47,7 @@ const playMusicHandler = (options) => {
 
         } else if (subintent === 'pause') {
 
-            SDK.playPause()
+            Actuators.playPause()
                 .then((res) => {
 
                     resolve();
@@ -59,7 +59,7 @@ const playMusicHandler = (options) => {
 
         } else if (subintent === 'next') {
 
-            SDK.playNext()
+            Actuators.playNext()
                 .then((res) => {
 
                     console.log();
@@ -76,7 +76,7 @@ const playMusicHandler = (options) => {
             const payload = {
                 volume: WtoN.convert(options.volume)
             };
-            SDK.playVolume(payload)
+            Actuators.playVolume(payload)
                 .then((res) => {
 
                     console.log(res);

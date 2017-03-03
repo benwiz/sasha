@@ -13,7 +13,7 @@ const Mopidy = require('./lib/mopidy');
 // TODO: this should be in a configuration file
 const sasha_api_url = 'http://localhost:8080';
 
-// TODO: this is not the SDK but actually the actuators.
+// TODO: this is not the Actuators but actually the actuators.
 
 // POST /speech-to-text
 const speechToText = (binary) => {

@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
-const SDK = require('../actuators/index');
+const Actuators = require('../actuators/index');
 const IntentHandler = require('./lib/intent-handler');
 
 
@@ -29,7 +29,7 @@ const text = (request, reply) => {
 const audio = (request, reply) => {
 
     // post to sasha-api /speech-to-text
-    SDK.speechToText(request.payload)
+    Actuators.speechToText(request.payload)
         .then((res) => {
 
             return textHandler(res);
@@ -67,7 +67,7 @@ const textHandler = (text) => {
         const options = {
             'text': text
         };
-        SDK.nlp(options)
+        Actuators.nlp(options)
             .then((res) => {
 
                 console.log(res);

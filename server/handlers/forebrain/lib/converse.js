@@ -4,7 +4,7 @@
 const Promise = require('bluebird');
 const Request = require('request');
 // internal libs
-const SDK = require('../../actuators/index');
+const Actuators = require('../../actuators/index');
 
 
 const handler = (options) => {
@@ -24,14 +24,14 @@ const joke = (options) => {
 
     return new Promise((resolve, reject) => {
 
-        SDK.tellJoke(options)
+        Actuators.tellJoke(options)
             .then((res) => {
 
-                return SDK.textToSpeech({text: res.joke});
+                return Actuators.textToSpeech({text: res.joke});
             })
             .then((res) => {
 
-                return SDK.playUrl({url: res.url});
+                return Actuators.playUrl({url: res.url});
             })
             .then((res) => {
 
@@ -48,14 +48,14 @@ const fact = (options) => {
 
     return new Promise((resolve, reject) => {
 
-        SDK.tellFact(options)
+        Actuators.tellFact(options)
             .then((res) => {
 
-                return SDK.textToSpeech({text: res.fact});
+                return Actuators.textToSpeech({text: res.fact});
             })
             .then((res) => {
 
-                return SDK.playUrl({url: res.url});
+                return Actuators.playUrl({url: res.url});
             })
             .then((res) => {
 
