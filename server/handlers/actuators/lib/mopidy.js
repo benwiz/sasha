@@ -4,11 +4,11 @@
 const Mopidy = require('mopidy');
 const Request = require('request');
 const Streamifier = require('streamifier');
-
-// TODO: come up with a real resolve
+// internal libraries
+const Config = require('./config');
 
 const mopidy = new Mopidy({
-    webSocketUrl: `ws://192.168.1.10:6680/mopidy/ws/`,
+    webSocketUrl: `ws://${Config.mopidy_host}:6680/mopidy/ws/`,
     callingConvention: 'by-position-or-by-name'
 });
 
