@@ -9,7 +9,10 @@ const IntentHandler = require('./lib/intent-handler');
 
 
 // TODO: These functions will eventually no longer be HTTP handlers. Instead they will be normal functions that are called by a message queue listener.
-// The idea is that this "forebrain" subscribes to the most updated state of the world. Then makes decisions off of that.
+
+// The idea is that this Forebrain subscribes to the most updated state of the world. Then makes decisions off of that and hits the Actuators
+
+// For senses to reach Sasha, either the sensors will have to http post (like they do now) to SenseReceivers (http endpoint) which will pass it the Hindbrain (handlers) which will update the state of the world and publish it.
 
 const text = (request, reply) => {
 
