@@ -23,7 +23,7 @@ const text = (request, reply) => {
             console.log('text err:', err);
         });
 
-        reply();
+    reply();
 };
 
 const audio = (request, reply) => {
@@ -43,7 +43,7 @@ const audio = (request, reply) => {
             console.log('audio err:', err);
         });
 
-        reply();
+    reply();
 };
 
 const image = (request, reply) => {
