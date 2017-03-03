@@ -13,8 +13,6 @@ const IntentHandler = require('./lib/intent-handler');
 
 const text = (request, reply) => {
 
-    reply();
-
     textHandler(request.payload)
         .then((res) => {
 
@@ -24,11 +22,11 @@ const text = (request, reply) => {
 
             console.log('text err:', err);
         });
+
+        reply();
 };
 
 const audio = (request, reply) => {
-
-    reply();
 
     // post to sasha-api /speech-to-text
     SDK.speechToText(request.payload)
@@ -44,6 +42,8 @@ const audio = (request, reply) => {
 
             console.log('audio err:', err);
         });
+
+        reply();
 };
 
 const image = (request, reply) => {
