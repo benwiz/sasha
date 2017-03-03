@@ -1,3 +1,1 @@
-# sasha-brain
-
-logic layer
+# sasha
