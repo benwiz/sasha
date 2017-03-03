@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "source private.sh && supervisor js,html server.js"
+    "start": "source env_vars/private.sh && source env_vars/public.sh && supervisor js,html server.js"
   },
   "repository": {
     "type": "git",
