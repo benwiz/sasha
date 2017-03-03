@@ -10,21 +10,19 @@ const SDK = require('../../actuators/index');
 const handler = (options) => {
 
     console.log('options:', options);
-    return new Promise((resolve, reject) => {
 
-        const subintent = options.intent.split('.')[1];
+    const subintent = options.intent.split('.')[1];
 
-        if (subintent === 'joke') {
-            return joke({/*subject: ''*/});
-        } else if (subintent === 'fact') {
-            return fact({/*subject: ''*/});
-        }
-    });
+    if (subintent === 'joke') {
+        return joke({/*subject: ''*/});
+    } else if (subintent === 'fact') {
+        return fact({/*subject: ''*/});
+    }
 };
 
 const joke = (options) => {
 
-    return new Promise((resolve, rejct) => {
+    return new Promise((resolve, reject) => {
 
         SDK.tellJoke(options)
             .then((res) => {
@@ -48,7 +46,7 @@ const joke = (options) => {
 
 const fact = (options) => {
 
-    return new Promise((resolve, rejct) => {
+    return new Promise((resolve, reject) => {
 
         SDK.tellFact(options)
             .then((res) => {

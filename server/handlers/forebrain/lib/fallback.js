@@ -9,7 +9,7 @@ const SDK = require('../../actuators/index');
 
 const handler = (options) => {
 
-    return new Promise((resolve, rejct) => {
+    return new Promise((resolve, reject) => {
 
         SDK.textToSpeech({text: `I don't understand.`})
             .then((res) => {

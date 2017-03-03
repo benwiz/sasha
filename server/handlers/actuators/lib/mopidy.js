@@ -73,10 +73,10 @@ const getVolume = (request, reply) => {
         });
 }
 
-const setVolume = (request, reply) => {
+const setVolume = (options) => {
 
-    console.log('set vol:', request.payload.volume);
-    mopidy.mixer.setVolume({'volume': request.payload.volume})
+    console.log('set vol:', options.volume);
+    mopidy.mixer.setVolume({'volume': options.volume})
         .then((res) => {
 
             console.log(res);
@@ -89,70 +89,75 @@ const setVolume = (request, reply) => {
         });
 };
 
-const spotify = (request, reply) => {
+const spotify = (options) => {
 
-    const artist = request.payload.artist;
-    const song = request.payload.song;
-    const playlist = request.payload.playlist;
+    return new Promise((resolve, reject) => {
 
-    let top_track = null;
-    const query = {};
-    if (artist) query.artist = [artist];
-    if (song) query.track_name = [song];
-    // if (playlist) query.any = [playlist + ' playlist'];
-    console.log('query:', query);
+        const artist = options.artist;
+        const song = options.song;
+        const playlist = options.playlist;
 
-    mopidy.library.search({'query': query, 'uris': ['spotify:']})
-        .then((data) => {
+        let top_track = null;
+        const query = {};
+        if (artist) query.artist = [artist];
+        if (song) query.track_name = [song];
+        // if (playlist) query.any = [playlist + ' playlist'];
+        console.log('query:', query);
 
-            console.log('search results:', data);
-            top_track = data[0].tracks[0];
-            return top_track;
-        })
-        .then(() => {
+        mopidy.library.search({'query': query, 'uris': ['spotify:']})
+            .then((data) => {
 
-            return mopidy.tracklist.clear({});
-        })
-        .then(() => {
+                console.log('search results:', data);
+                top_track = data[0].tracks[0];
+                return top_track;
+            })
+            .then(() => {
 
-            const add_options = {
-                tracks: [top_track]
-                // at_position: null,
-                // uri: null,
-                // uris: null
-            };
-            return mopidy.tracklist.add(add_options);
-        })
-        .then((data) => {
+                return mopidy.tracklist.clear({});
+            })
+            .then(() => {
 
-            console.log('added to tracklist:', data[0]);
-            mopidy.playback.play({'tlid': data[0].tlid});
-            reply(JSON.stringify(data[0]));
-        })
-        .catch((err) => {
+                const add_options = {
+                    tracks: [top_track]
+                    // at_position: null,
+                    // uri: null,
+                    // uris: null
+                };
+                return mopidy.tracklist.add(add_options);
+            })
+            .then((data) => {
 
-            console.log('error:', err);
-            reject(err);
-        });
+                console.log('added to tracklist:', data[0]);
+                mopidy.playback.play({'tlid': data[0].tlid});
+                resolve(JSON.stringify(data[0]));
+            })
+            .catch((err) => {
+
+                console.log('error:', err);
+                reject(err);
+            });
+    });
 };
 
-const url = (request, reply) => {
+const url = (options) => {
 
-    mopidy.tracklist.clear({})
-        .then(() => {
+    return new Promise((resolve, reject) => {
 
-            return mopidy.tracklist.add({uri: request.payload.url});
-        })
-        .then((data) => {
+        mopidy.tracklist.clear({})
+            .then(() => {
 
-            mopidy.playback.play({'tlid': data[0].tlid});
-            reply({status: 'playing'});
-        })
-        .catch((err) => {
+                return mopidy.tracklist.add({uri: options.url});
+            })
+            .then((data) => {
 
-            console.log('error:', err);
-            reply(err); // TODO: reply 500 with boom
-        });
+                mopidy.playback.play({'tlid': data[0].tlid});
+                resolve({status: 'playing'});
+            })
+            .catch((err) => {
+
+                reject(err); // TODO: reply 500 with boom
+            });
+    });
 };
 
 const buffer = (request, reply) => {

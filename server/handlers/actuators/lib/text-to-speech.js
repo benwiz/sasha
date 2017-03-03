@@ -12,7 +12,7 @@ const googleTranslate = (options) => {
             .then((url) => {
 
                 console.log(url);
-                reply({url: url});
+                resolve({url: url});
             })
             .catch((err) => {
 

@@ -1,5 +1,7 @@
 # TO DO FOR ABSOLUTE MVP
 
+- remove logs from all upstream sources
+
 - boom
 - docs
 - logging

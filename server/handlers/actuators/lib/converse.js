@@ -14,6 +14,7 @@ const joke = (options) => {
         Request(endpoint, (error, response, body) => {
 
             if (error || response.statusCode !== 200) {
+                console.log('CCC');
                 console.log('joke', 'error', error);
                 reject(error);
             }
@@ -24,19 +25,22 @@ const joke = (options) => {
     });
 };
 
-const fact = (request, reply) => {
+const fact = (options) => {
 
-    reply({fact: 'not yet implemented'});
-    // const endpoint = ``;
-    // Request(endpoint, (error, response, body) => {
-    //
-    //     if (error || response.statusCode !== 200) {
-    //         console.log('fact', 'error', error);
-    //         reply(error); // TODO: reply 500 instead
-    //     }
-    //
-    //     reply(body);
-    // });
+    return new Promise((resolve, reject) => {
+
+        resolve({fact: 'not yet implemented'});
+        // const endpoint = ``;
+        // Request(endpoint, (error, response, body) => {
+        //
+        //     if (error || response.statusCode !== 200) {
+        //         console.log('fact', 'error', error);
+        //         reply(error); // TODO: reply 500 instead
+        //     }
+        //
+        //     resolve(body);
+        // });
+    });
 };
 
 module.exports = {

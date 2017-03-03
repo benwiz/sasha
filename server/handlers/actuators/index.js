@@ -8,6 +8,7 @@ const Converse = require('./lib/converse');
 const NLP = require('./lib/nlp');
 const SpeechToText = require('./lib/speech-to-text');
 const TextToSpeech = require('./lib/text-to-speech');
+const Mopidy = require('./lib/mopidy');
 
 // TODO: this should be in a configuration file
 const sasha_api_url = 'http://localhost:8080';
@@ -29,7 +30,7 @@ const nlp = (options) => {
 // POST /text-to-speech
 const textToSpeech = (options) => {
 
-    return textToSpeech.googleTranslate(options);
+    return TextToSpeech.googleTranslate(options);
 };
 
 // POST /play/play
@@ -104,37 +105,13 @@ const playVolume = (options) => {
 // POST /play/spotify
 const playSpotify = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/spotify',
-            body: JSON.stringify(options),
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return Mopidy.spotify(options);
 };
 
 // POST /play/url
 const playUrl = (options) => {
 
-    return new Promise((resolve, reject) => {
-
-        Request.post({
-            url: sasha_api_url + '/play/url',
-            body: JSON.stringify(options),
-        }, (error, response, body) => {
-
-            if (error) {
-                reject(error);
-            }
-            resolve(JSON.parse(body));
-        });
-    });
+    return Mopidy.url(options);
 };
 
 // POST /tell/joke
