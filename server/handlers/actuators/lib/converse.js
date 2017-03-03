@@ -14,7 +14,6 @@ const joke = (options) => {
         Request(endpoint, (error, response, body) => {
 
             if (error || response.statusCode !== 200) {
-                console.log('CCC');
                 console.log('joke', 'error', error);
                 reject(error);
             }
@@ -29,17 +28,18 @@ const fact = (options) => {
 
     return new Promise((resolve, reject) => {
 
-        resolve({fact: 'not yet implemented'});
-        // const endpoint = ``;
-        // Request(endpoint, (error, response, body) => {
-        //
-        //     if (error || response.statusCode !== 200) {
-        //         console.log('fact', 'error', error);
-        //         reply(error); // TODO: reply 500 instead
-        //     }
-        //
-        //     resolve(body);
-        // });
+        const subject = options.subject; // TODO: utilize subject
+        const endpoint = `http://catfacts-api.appspot.com/api/facts`;
+        Request(endpoint, (error, response, body) => {
+
+            if (error || response.statusCode !== 200) {
+                console.log('joke', 'error', error);
+                reject(error);
+            }
+
+            const parsed_body = JSON.parse(body);
+            resolve({joke: parsed_body.facts[0]});
+        });
     });
 };
 
