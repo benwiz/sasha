@@ -5,13 +5,13 @@ const Promise = require('bluebird');
 const SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
 const Streamifier = require('streamifier');
 // internal libraries
-const Private = require('./private'); // TODO: switch to env vars
+const Config = require('./config');
 
 // TODO: look into session based websocket approach to watson speech api
 
 const WatsonSTT = new SpeechToTextV1({
-    username: Private.username,
-    password: Private.password
+    username: Config.watson_username,
+    password: Config.watson_password
 });
 
 const watson = (binary) => {
