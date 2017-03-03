@@ -1,6 +1,6 @@
 'use strict';
 
-const APIs = require('./apis/index');
 const Pages = require('./pages/index');
+const Forebrain = require('./lib/forebrain');
 
-module.exports = APIs.concat(Pages);
+module.exports = Pages.concat(Forebrain);

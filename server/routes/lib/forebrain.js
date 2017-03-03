@@ -1,7 +1,9 @@
 'use strict';
 
-const Handler = require('../../handlers/apis/index');
-const Validator = require('../../handlers/apis/validator');
+// external libs
+const Joi = require('joi');
+// internal libs
+const Handler = require('../../handlers/forebrain/index');
 
 module.exports = [
 
@@ -11,7 +13,9 @@ module.exports = [
         path: '/text',
         handler: Handler.text,
         config: {
-            validate: Validator.text
+            validate: {
+                payload: Joi.string().required()
+            }
         }
     },
 
@@ -21,7 +25,9 @@ module.exports = [
         path: '/audio',
         handler: Handler.audio,
         config: {
-            validate: Validator.audio
+            validate: {
+                payload: Joi.binary().required()
+            }
         }
     },
 
@@ -31,7 +37,9 @@ module.exports = [
         path: '/image',
         handler: Handler.image,
         config: {
-            validate: Validator.image
+            validate: {
+                payload: Joi.binary().required()
+            }
         }
     },
 
@@ -41,7 +49,9 @@ module.exports = [
         path: '/video',
         handler: Handler.video,
         config: {
-            validate: Validator.video
+            validate: {
+                payload: Joi.binary().required()
+            }
         }
     }
 ];
