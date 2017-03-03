@@ -7,7 +7,6 @@
 
 - spotify play playlist
 - set reminders
-- tell a fact
 - what is the weather?
 
 # TO DO AFTER ABSOLUTE MVP

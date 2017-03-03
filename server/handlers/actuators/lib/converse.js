@@ -38,7 +38,7 @@ const fact = (options) => {
             }
 
             const parsed_body = JSON.parse(body);
-            resolve({joke: parsed_body.facts[0]});
+            resolve({fact: parsed_body.facts[0]});
         });
     });
 };
