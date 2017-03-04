@@ -21,9 +21,13 @@ module.exports = [
     {
         method: 'GET',
         path: '/',
-        handler: Handler.index,
-        // config: {
-        //     validate: Validator.index
-        // }
+        handler: Handler.index
+    },
+
+    // config
+    {
+        method: 'GET',
+        path: '/config',
+        handler: Handler.config
     }
 ];
