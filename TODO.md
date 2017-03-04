@@ -1,8 +1,13 @@
 # TO DO FOR MVP
 
 - update config from api endpoint correctly
+- create executable files
+- README basics on how run
 
 # TO DO FOR PUBLISH
+
+- internal functionality docs
+- mature README
 
 - architecture modifications
     - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
