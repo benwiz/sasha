@@ -1,8 +1,16 @@
-# TO DO FOR ABSOLUTE MVP
+# TO DO FOR MVP
 
 - update config from api endpoint correctly
 
-# TO DO AFTER ABSOLUTE MVP
+# TO DO FOR PUBLISH
+
+- architecture modifications
+    - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
+        - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
+    - decide when Sensors should reply to requester
+    - real logging
+
+# TO DO
 
 - skills
     - set reminders
@@ -12,12 +20,6 @@
 - training tools
     - train it's music knowledge
     - snowboy trainer
-
-- architecture modifications
-    - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
-        - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
-    - decide when Sensors should reply to requester
-    - real logging
 
 - other
     - gui to watch realtime what's going on inside sasha
