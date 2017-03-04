@@ -15,9 +15,9 @@ module.exports = [
         config: {
             validate: {
                 payload: Joi.object({
-                    mopidy_host: Joi.string().optional(),
-                    watson_username: Joi.string().optional(),
-                    watson_password: Joi.string().optional()
+                    mopidy_host: Joi.string().allow('').optional(),
+                    watson_username: Joi.string().allow('').optional(),
+                    watson_password: Joi.string().allow('').optional()
                 })
             },
             description: 'Post config',
