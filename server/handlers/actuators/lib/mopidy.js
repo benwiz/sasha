@@ -126,7 +126,11 @@ const spotify = (options) => {
                     };
                     return mopidy.tracklist.add(add_options);
                 })
-                .then((data) => {
+                .then(() => {
+
+                    return mopidy.tracklist.shuffle();
+                })
+                .then(() => {
 
                     mopidy.playback.play();
                     resolve({playlist: playlist});
