@@ -1,6 +1,5 @@
 # TO DO FOR ABSOLUTE MVP
 
-- docs
 - logging cleanup
 - gui env variable setter?
 

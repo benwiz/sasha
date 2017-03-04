@@ -69,6 +69,7 @@ const textHandler = (text) => {
             })
             .then((res) => {
 
+                console.log(res);
                 resolve(res);
             })
             .catch((err) => {

@@ -14,7 +14,6 @@ const joke = (options) => {
         Request(endpoint, (error, response, body) => {
 
             if (error || response.statusCode !== 200) {
-                console.log('joke', 'error', error);
                 reject(error);
             }
 
@@ -33,7 +32,6 @@ const fact = (options) => {
         Request(endpoint, (error, response, body) => {
 
             if (error || response.statusCode !== 200) {
-                console.log('joke', 'error', error);
                 reject(error);
             }
 

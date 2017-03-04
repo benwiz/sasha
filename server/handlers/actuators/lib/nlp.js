@@ -16,7 +16,6 @@ const luis = (options) => {
         Request(endpoint, (error, response, body) => {
 
             if (error || response.statusCode !== 200) {
-                console.log('luis', 'error', error);
                 reject(error);
             }
 

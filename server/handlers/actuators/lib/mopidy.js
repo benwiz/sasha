@@ -93,12 +93,10 @@ const setVolume = (options) => {
         mopidy.mixer.setVolume({'volume': options.volume})
             .then((res) => {
 
-                console.log(res);
                 resolve(res);
             })
             .catch((err) => {
 
-                console.log('error:', err);
                 reject(err);
             });
     });
@@ -137,7 +135,6 @@ const spotify = (options) => {
                 })
                 .catch((err) => {
 
-                    console.log('error:', err);
                     reject(err);
                 });
 
@@ -172,13 +169,11 @@ const spotify = (options) => {
                 })
                 .then((data) => {
 
-                    console.log('added to tracklist:', data[0]);
                     mopidy.playback.play({'tlid': data[0].tlid});
                     resolve(JSON.stringify(data[0]));
                 })
                 .catch((err) => {
 
-                    console.log('error:', err);
                     reject(err);
                 });
         }
