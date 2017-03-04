@@ -1,6 +1,5 @@
 # TO DO FOR ABSOLUTE MVP
 
-- logging cleanup
 - gui env variable setter?
 
 # TO DO AFTER ABSOLUTE MVP
@@ -18,6 +17,7 @@
     - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
         - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
     - decide when Sensors should reply to requester
+    - real logging
 
 - other
     - gui to watch realtime what's going on inside sasha
