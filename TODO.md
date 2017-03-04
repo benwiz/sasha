@@ -1,6 +1,7 @@
 # TO DO FOR MVP
 
 - update config from api endpoint correctly
+- display current config in view
 - create executable files
 - README basics on how run
 

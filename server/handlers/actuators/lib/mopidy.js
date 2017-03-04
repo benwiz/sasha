@@ -7,8 +7,10 @@ const Streamifier = require('streamifier');
 // internal libraries
 const Config = require('./config');
 
+console.log('hey');
+
 const mopidy = new Mopidy({
-    webSocketUrl: `ws://${Config.mopidy_host}:6680/mopidy/ws/`,
+    webSocketUrl: `ws://${Config.get('mopidy_host')}:6680/mopidy/ws/`,
     callingConvention: 'by-position-or-by-name'
 });
 
@@ -207,6 +209,7 @@ const buffer = (options) => {
 };
 
 module.exports = {
+    mopidy: mopidy,
     play: play,
     pause: pause,
     next: next,

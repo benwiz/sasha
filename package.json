@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js"
+    "start": "forever server.js",
+    "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js",
+    "dev2": "source env_vars/private.sh && source env_vars/public.sh && forever -c \"nodemon --exitcrash\" server.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "mopidy": "^0.5.0",
     "path": "^0.12.7",
     "request": "^2.79.0",
+    "require-reload": "^0.2.2",
     "streamifier": "^0.1.1",
     "vision": "^4.1.1",
     "watson-developer-cloud": "^2.18.0",
