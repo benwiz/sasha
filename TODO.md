@@ -1,6 +1,6 @@
 # TO DO FOR ABSOLUTE MVP
 
-- gui env variable setter?
+- update config from api endpoint correctly
 
 # TO DO AFTER ABSOLUTE MVP
 
