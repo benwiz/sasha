@@ -4,7 +4,7 @@
 const config = (request, reply) => {
 
     console.log(request.payload);
-    reply('hey');
+    reply.redirect('/');
 };
 
 module.exports = {
