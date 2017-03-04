@@ -9,7 +9,12 @@ const index = (request, reply) => {
 // GET config
 const config = (request, reply) => {
 
-    reply.view('config');
+    const data = {
+        watson_username: 'secret',
+        watson_password: 'secret',
+        mopidy_host: process.env.MOPIDY_HOST
+    };
+    reply.view('config', data);
 };
 
 

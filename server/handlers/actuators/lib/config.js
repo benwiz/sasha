@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('hi');
-
 let config = {};
 
 config.watson_username = process.env.WATSON_USERNAME;
