@@ -8,15 +8,11 @@ const Actuators = require('../actuators/index');
 const IntentHandler = require('./lib/intent-handler');
 
 
-// TODO: These functions will eventually no longer be HTTP handlers. Instead they will be normal functions that are called by a message queue listener.
+// TODO: These functions will be called not by the Sensors but instead by a part of the forebrain that reads the most up-to-date State of the World
 
-// The idea is that this Forebrain subscribes to the most updated state of the world. Then makes decisions off of that and hits the Actuators
+const text = (options) => {
 
-// For senses to reach Sasha, either the sensors will have to http post (like they do now) to SenseReceivers (http endpoint) which will pass it the Hindbrain (handlers) which will update the state of the world and publish it.
-
-const text = (request, reply) => {
-
-    textHandler(request.payload)
+    textHandler(options)
         .then((res) => {
 
             console.log('text res:', res);
@@ -25,14 +21,12 @@ const text = (request, reply) => {
 
             console.log('text err:', err);
         });
-
-    reply();
 };
 
-const audio = (request, reply) => {
+const audio = (options) => {
 
     // post to sasha-api /speech-to-text
-    Actuators.speechToText(request.payload)
+    Actuators.speechToText(options)
         .then((res) => {
 
             return textHandler(res);
@@ -45,18 +39,14 @@ const audio = (request, reply) => {
 
             console.log('audio err:', err);
         });
-
-    reply();
 };
 
-const image = (request, reply) => {
+const image = (options) => {
 
-    reply('image handling not implemented');
 };
 
-const video = (request, reply) => {
+const video = (options) => {
 
-    reply('video handling not implemented');
 };
 
 ///////

@@ -3,7 +3,7 @@
 // external libs
 const Joi = require('joi');
 // internal libs
-const Handler = require('../../handlers/forebrain/index');
+const Handler = require('../../handlers/sensors/index');
 
 module.exports = [
 
