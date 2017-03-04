@@ -15,7 +15,10 @@ module.exports = [
         config: {
             validate: {
                 payload: Joi.string().required()
-            }
+            },
+            description: 'Post text',
+            notes: 'Post plain text.',
+            tags: ['api']
         }
     },
 
@@ -27,7 +30,10 @@ module.exports = [
         config: {
             validate: {
                 payload: Joi.binary().required()
-            }
+            },
+            description: 'Post audio',
+            notes: 'Post audio file.',
+            tags: ['api']
         }
     },
 
@@ -39,7 +45,10 @@ module.exports = [
         config: {
             validate: {
                 payload: Joi.binary().required()
-            }
+            },
+            description: 'Post image',
+            notes: 'Post binary image file.',
+            tags: ['api']
         }
     },
 
@@ -51,7 +60,10 @@ module.exports = [
         config: {
             validate: {
                 payload: Joi.binary().required()
-            }
+            },
+            description: 'Post video',
+            notes: 'Post binary video file.',
+            tags: ['api']
         }
     }
 ];

@@ -3,9 +3,6 @@
 - docs
 - logging cleanup
 - gui env variable setter?
-- swap supervisor with nodemon
-
-- spotify play playlist
 
 # TO DO AFTER ABSOLUTE MVP
 

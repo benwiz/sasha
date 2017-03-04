@@ -7,6 +7,7 @@ const Hoek = require('hoek');
 const Vision = require('vision');
 const Inert = require('inert');
 const Handlebars = require('handlebars');
+const Swagger = require('hapi-swagger');
 
 // internal libs
 const Routes = require('./server/routes/index');
@@ -18,7 +19,13 @@ server.connection({
     host: '0.0.0.0'
 });
 
-server.register([Vision, Inert], (err) => {
+const swagger_options = {
+    info: {
+        'title': 'Sasha Sensor API',
+    }
+};
+
+server.register([Vision, Inert, {register: Swagger, options: swagger_options}], (err) => {
 
     Hoek.assert(!err, err);
 
