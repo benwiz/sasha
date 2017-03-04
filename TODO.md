@@ -21,6 +21,7 @@
 - architecture modifications
     - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
         - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
+    - decide when Sensors should reply to requester
 
 - tools
     - gui to watch realtime what's going on inside sasha
