@@ -112,45 +112,72 @@ const spotify = (options) => {
         const song = options.song;
         const playlist = options.playlist;
 
-        let top_track = null;
-        const query = {};
-        if (artist) query.artist = [artist];
-        if (song) query.track_name = [song];
-        // if (playlist) query.any = [playlist + ' playlist'];
-        console.log('query:', query);
+        if (playlist) {
 
-        mopidy.library.search({'query': query, 'uris': ['spotify:']})
-            .then((data) => {
+            mopidy.tracklist.clear({})
+                .then(() => {
 
-                console.log('search results:', data);
-                top_track = data[0].tracks[0];
-                return top_track;
-            })
-            .then(() => {
+                    return mopidy.playlists.filter({'criteria':{name:playlist}});
+                })
+                .then((data) => {
 
-                return mopidy.tracklist.clear({});
-            })
-            .then(() => {
+                    const add_options = {
+                        tracks: data[0].tracks
+                    };
+                    return mopidy.tracklist.add(add_options);
+                })
+                .then((data) => {
 
-                const add_options = {
-                    tracks: [top_track]
-                    // at_position: null,
-                    // uri: null,
-                    // uris: null
-                };
-                return mopidy.tracklist.add(add_options);
-            })
-            .then((data) => {
+                    mopidy.playback.play();
+                    resolve({playlist: playlist});
+                })
+                .catch((err) => {
 
-                console.log('added to tracklist:', data[0]);
-                mopidy.playback.play({'tlid': data[0].tlid});
-                resolve(JSON.stringify(data[0]));
-            })
-            .catch((err) => {
+                    console.log('error:', err);
+                    reject(err);
+                });
 
-                console.log('error:', err);
-                reject(err);
-            });
+        } else {
+            let top_track = null;
+            const query = {};
+            if (artist) query.artist = [artist];
+            if (song) query.track_name = [song];
+            // if (playlist) query.any = [playlist + ' playlist'];
+            console.log('query:', query);
+
+            mopidy.library.search({'query': query, 'uris': ['spotify:']})
+                .then((data) => {
+
+                    console.log('search results:', data);
+                    top_track = data[0].tracks[0];
+                    return top_track;
+                })
+                .then(() => {
+
+                    return mopidy.tracklist.clear({});
+                })
+                .then(() => {
+
+                    const add_options = {
+                        tracks: [top_track]
+                        // at_position: null,
+                        // uri: null,
+                        // uris: null
+                    };
+                    return mopidy.tracklist.add(add_options);
+                })
+                .then((data) => {
+
+                    console.log('added to tracklist:', data[0]);
+                    mopidy.playback.play({'tlid': data[0].tlid});
+                    resolve(JSON.stringify(data[0]));
+                })
+                .catch((err) => {
+
+                    console.log('error:', err);
+                    reject(err);
+                });
+        }
     });
 };
 
