@@ -1,6 +1,6 @@
 # TO DO FOR MVP
 
-- create executable files
+- create executable files in dist/ dir
 - README basics on how run
 
 # TO DO FOR PUBLISH

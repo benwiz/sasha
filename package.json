@@ -2,12 +2,13 @@
   "name": "sasha-brain",
   "version": "1.0.0",
   "description": "restful api http version",
-  "main": "server.js",
+  "main": "electron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "forever server.js",
+    "app": "source env_vars/private.sh && source env_vars/public.sh && electron .",
+    "build": "electron-packager . sasha --icon \"./public/assets/wizatd-hat.icns\"",
     "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js",
-    "dev2": "source env_vars/private.sh && source env_vars/public.sh && forever -c \"nodemon --exitcrash\" server.js"
+    "prod": "forever server.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.22.0",
+    "electron": "^1.6.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-minify-css": "^1.2.4",
