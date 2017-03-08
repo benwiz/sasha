@@ -1,5 +1,6 @@
 # TO DO FOR MVP
 
+- electron app should load external webpage (http://localhost:8080/config) in it's window
 - create executable files in dist/ dir
 - README basics on how run
 
