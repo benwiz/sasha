@@ -2,7 +2,8 @@
 
 - electron app should load external webpage (http://localhost:8080/config) in it's window
 - create executable files in dist/ dir
-- README basics on how run
+- deploy onto server so sasha can be used as a webapp
+- README
 
 # TO DO FOR PUBLISH
 
