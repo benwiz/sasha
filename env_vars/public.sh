@@ -1,1 +1,1 @@
-export MOPIDY_HOST='localhost'
+export MOPIDY_HOST='192.168.1.15'
