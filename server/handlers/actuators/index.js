@@ -54,7 +54,11 @@ const playNext = (options) => {
 // POST /play/volume
 const playVolume = (options) => {
 
-    return Mopidy.setVolume(options);
+    if (options.volume) {
+        return Mopidy.setVolume(options);
+    } else {
+        return Mopidy.getVolume(options);
+    }
 };
 
 // POST /play/spotify

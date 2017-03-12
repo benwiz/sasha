@@ -1,6 +1,11 @@
 # TO DO FOR MVP
 
+- sign up for bluemix watson speech-to-text or find alternative tool
 - make music quieter after hearing "sasha" (a.k.a. update listener)
+    - get volume
+    - set volume 10
+    - listen to command
+    - set volume to original
 - fix volume bug
 
 - package with listener (consider electron and webapp strategies)
@@ -8,10 +13,14 @@
 - package with mopidy (consider electron and webapp strategies)
 - deploy onto server so sasha can be used as a webapp (instead of electron? means no installs)
 
-- sign up for bluemix watson speech-to-text or find alternative tool
 - basic README
 
 # TO DO FOR PUBLISH
+
+- views
+    - home page links
+    - logs browser
+- sensor endpoints need to return more info
 
 - internal functionality docs
 - good README

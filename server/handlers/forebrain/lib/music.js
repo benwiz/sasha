@@ -71,10 +71,8 @@ const playMusicHandler = (options) => {
 
         } else if (subintent === 'volume') {
 
-            console.log('vol', options);
-            const payload = {
-                volume: WtoN.convert(options.volume)
-            };
+            const payload = {};
+            if (options.volume) payload.volume = WtoN.convert(options.volume);
             Actuators.playVolume(payload)
                 .then((res) => {
 
@@ -89,7 +87,6 @@ const playMusicHandler = (options) => {
         } else {
 
             resolve(`unknown subintent: ${subintent}`);
-
         }
     });
 };
