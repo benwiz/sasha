@@ -1,12 +1,6 @@
 # TO DO FOR MVP
 
 - sign up for bluemix watson speech-to-text or find alternative tool
-- make music quieter after hearing "sasha" (a.k.a. update listener)
-    - get volume
-    - set volume 10
-    - listen to command
-    - set volume to original
-- fix volume bug
 
 - package with listener (consider electron and webapp strategies)
     - webpage to speak with sasha via TEXT and AUDIO
@@ -20,7 +14,7 @@
 - views
     - home page links
     - logs browser
-- sensor endpoints need to return more info
+- sensor endpoints need to return more info (e.g. response to get volume)
 
 - internal functionality docs
 - good README

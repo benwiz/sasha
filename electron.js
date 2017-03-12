@@ -22,4 +22,5 @@ app.on('ready', () => {
 
     mainWindow.loadURL('http://localhost:8081/config');
     require('./server');
+    require('./sasha-listener/service');
 });
