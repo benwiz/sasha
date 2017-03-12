@@ -10,8 +10,8 @@ const Config = require('./config');
 // TODO: look into session based websocket approach to watson speech api
 
 const WatsonSTT = new SpeechToTextV1({
-    username: Config.get('watson_username'),
-    password: Config.get('watson_password')
+    username: Config.watson_username,
+    password: Config.watson_password
 });
 
 const watson = (binary) => {

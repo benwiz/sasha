@@ -2,6 +2,6 @@
 
 const Pages = require('./pages/index');
 const Api = require('./lib/api');
-const Forebrain = require('./lib/forebrain');
+const Sensors = require('./lib/sensors');
 
-module.exports = Pages.concat(Api).concat(Forebrain);
+module.exports = Pages.concat(Api).concat(Sensors);

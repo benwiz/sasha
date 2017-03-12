@@ -9,7 +9,6 @@ const Actuators = require('../../actuators/index');
 const playMusicHandler = (options) => {
 
     console.log('options:', options);
-
     return new Promise((resolve, reject) => {
 
         const subintent = options.intent.split('.')[1];
