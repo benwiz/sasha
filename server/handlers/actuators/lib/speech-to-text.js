@@ -21,7 +21,7 @@ const watson = (binary) => {
         const params = {
             audio: Streamifier.createReadStream(binary),
             content_type: 'audio/l16; rate=16000',
-            customization_id: '77148170-ece4-11e6-ba16-9d7ea578c8c5'
+            customization_id: '77148170-ece4-11e6-ba16-9d7ea578c8c5' // what is this?
         };
 
         WatsonSTT.recognize(params, (err, res) => {

@@ -5,12 +5,13 @@
 - figure out how to distribute sasha-listener
     - try to package with sasha.app with an optional 'use' feature
 - deploy onto server so sasha can be used as a webapp
-- README
+- sign up for bluemix watson speech-to-text or find alternative tool
+- basic README
 
 # TO DO FOR PUBLISH
 
 - internal functionality docs
-- mature README
+- good README
 
 - architecture modifications
     - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
@@ -24,6 +25,11 @@
     - set reminders
     - what is the weather?
     - volume louder/quieter
+    - spotify
+        - shuffle artist
+        - play playlist
+    - dj
+        - machine learning & composing on songs, then samples, then sounds
 
 - training tools
     - train it's music knowledge
@@ -32,7 +38,6 @@
 - other
     - gui to watch realtime what's going on inside sasha
     - auto docs for internal functionality
-
 
 - long term intelligence
     - have a database of people (human:[id, first name, last name, nickname, d.o.b., address], human_visit:[id, human_id, start_date, end_date])
