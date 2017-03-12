@@ -1,11 +1,10 @@
 # TO DO FOR MVP
 
 - sign up for bluemix watson speech-to-text or find alternative tool
-
-- package with listener (consider electron and webapp strategies)
-    - webpage to speak with sasha via TEXT and AUDIO
 - package with mopidy (consider electron and webapp strategies)
-- deploy onto server so sasha can be used as a webapp (instead of electron? means no installs)
+
+- deploy onto server so sasha can be used as a webapp
+    - include mopidy and listener
 
 - basic README
 

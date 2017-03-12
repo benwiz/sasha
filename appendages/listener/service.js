@@ -6,15 +6,24 @@ const RecordB = require('node-record-lpcm16');
 const {Detector, Models} = require('snowboy');
 const Request = require('request');
 const Fs = require('fs');
-const Beep = require('beepbeep');
+const Play = require('play');
 const Chalk = require('chalk');
 // internal libs
 const Config = require('./config');
 
 
+const ding = () => {
+
+    Play.sound(__dirname + '/resources/ding.wav');
+};
+
+const dong = () => {
+
+    Play.sound(__dirname + '/resources/dong.wav');
+};
+
 // create models object
 const models = new Models();
-
 
 // my sasha model
 models.add({
@@ -35,7 +44,7 @@ models.add({
     file: __dirname + '/resources/snowboy.umdl',
     sensitivity: 0.5,
     hotwords: 'snowboy'
-})
+});
 
 const detector = new Detector({
     models: models,
@@ -66,7 +75,7 @@ detector.on('silence', () => {
 
 detector.on('sound', () => {
 
-    process.stdout.write(Chalk.red('sound  \r'));
+    process.stdout.write(Chalk.red('sound\r'));
     if (is_recording) {
         last_recorded_sound = new Date().getTime() / 1000;
     }
@@ -92,7 +101,7 @@ detector.on('hotword', (index, hotword) => {
         if (err) console.log(err);
     });
 
-    Beep();
+    ding();
     is_recording = true;
     started_recording = new Date().getTime() / 1000;
     RecordB.start({
@@ -110,7 +119,7 @@ detector.on('hotword', (index, hotword) => {
 
         if (err) console.log(err);
         console.log('post complete');
-        Beep(2, 150);
+        dong();
 
         // increase volume
         Request.post({
