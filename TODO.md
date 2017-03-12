@@ -1,6 +1,8 @@
 # TO DO FOR MVP
 
 - create executable files in dist/ dir
+- figure out how to distribute sasha-listener
+    - try to package with sasha.app with an optional 'use' feature
 - README basics on how run
 
 # TO DO FOR PUBLISH
