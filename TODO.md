@@ -1,5 +1,6 @@
 # TO DO FOR MVP
 
+- make music quieter after hearing "sasha"
 - electron app should load external webpage (http://localhost:8080/config) in it's window
 - create executable files in dist/ dir
 - figure out how to distribute sasha-listener
@@ -28,8 +29,8 @@
     - spotify
         - shuffle artist
         - play playlist
-    - dj
-        - machine learning & composing on songs, then samples, then sounds
+    * dj
+        * machine learning & composing on songs, then samples, then sounds
 
 - training tools
     - train it's music knowledge

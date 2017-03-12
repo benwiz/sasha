@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "app": "source env_vars/private.sh && source env_vars/public.sh && electron .",
-    "build": "electron-packager . sasha --icon \"./public/assets/wizatd-hat.icns\"",
+    "build": "electron-packager . sasha --out dist/ --icon \"./public/assets/wizard-hat.icns\" --overwrite",
     "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js",
     "prod": "forever server.js"
   },
