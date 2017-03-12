@@ -7,7 +7,14 @@ process.env.MOPIDY_HOST='0.0.0.0';
 process.env.WATSON_USERNAME='';
 process.env.WATSON_PASSWORD='';
 
+let processes = [];
 const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
+processes.push(mopidy);
+
+mopidy.on('exit', function () {
+
+    processes.splice(processes.indexOf(newProcess), 1);
+});
 mopidy.stdout.on('data', data => {
 
     console.log(`mopidy_stdout: ${data}`);
@@ -19,12 +26,22 @@ mopidy.stderr.on('data', data => {
 
 let mainWindow;
 
+// App close handler
+app.on('before-quit', () => {
+
+    console.log('hi');
+    processes.forEach((proc) => {
+        console.log('kill', proc);
+        proc.kill();
+    });
+});
+
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd+Q
     if (process.platform !== 'darwin') {
-        App.quit();
+        app.quit();
     }
 });
 
