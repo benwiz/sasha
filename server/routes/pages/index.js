@@ -29,5 +29,12 @@ module.exports = [
         method: 'GET',
         path: '/config',
         handler: Handler.config
-    }
+    },
+
+    // mopidy
+    {
+        method: 'GET',
+        path: '/mopidy',
+        handler: Handler.mopidy
+    },
 ];

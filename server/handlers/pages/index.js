@@ -19,8 +19,14 @@ const config = (request, reply) => {
     reply.view('config', data);
 };
 
+// GET mopidy
+const mopidy = (request, reply) => {
+
+    reply.view('mopidy');
+}
 
 module.exports = {
-    index: index,
-    config: config
+    index,
+    config,
+    mopidy
 };
