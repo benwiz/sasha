@@ -2,7 +2,6 @@
 
 - make music quieter after hearing "sasha"
 - electron app should load external webpage (http://localhost:8080/config) in it's window
-- create executable files in dist/ dir
 - figure out how to distribute sasha-listener
     - try to package with sasha.app with an optional 'use' feature
 - deploy onto server so sasha can be used as a webapp
