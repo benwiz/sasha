@@ -58,5 +58,6 @@ const watson = (binary) => {
 };
 
 module.exports = {
-    watson: watson
+    watson: watson,
+    WatsonSTT
 };

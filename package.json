@@ -34,7 +34,6 @@
     "mopidy": "^0.5.0",
     "path": "^0.12.7",
     "request": "^2.79.0",
-    "require-reload": "^0.2.2",
     "streamifier": "^0.1.1",
     "vision": "^4.1.1",
     "watson-developer-cloud": "^2.18.0",

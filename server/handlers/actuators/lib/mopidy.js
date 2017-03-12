@@ -8,7 +8,7 @@ const Streamifier = require('streamifier');
 const Config = require('./config');
 
 const mopidy = new Mopidy({
-    webSocketUrl: `ws://${Config.mopidy_host}:6680/mopidy/ws/`,
+    webSocketUrl: `ws://${process.env.MOPIDY_HOST}:6680/mopidy/ws/`,
     callingConvention: 'by-position-or-by-name'
 });
 

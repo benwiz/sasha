@@ -20,6 +20,6 @@ app.on('ready', () => {
         width: 800
     });
 
-    mainWindow.loadURL('file://' + __dirname + '/public/index.html');
+    mainWindow.loadURL('http://localhost:8081/config');
     require('./server');
 });
