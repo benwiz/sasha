@@ -1,12 +1,12 @@
 {
   "name": "sasha-brain",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "restful api http version",
   "main": "electron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "source env_vars/private.sh && source env_vars/public.sh && electron .",
-    "build": "electron-packager . sasha --out dist/ --icon \"./public/assets/wizard-hat.icns\" --overwrite",
+    "build": "source env_vars/private.sh && source env_vars/public.sh && electron-packager . sasha --out dist/ --icon \"./public/assets/wizard-hat.icns\" --overwrite",
     "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js",
     "prod": "forever server.js"
   },
