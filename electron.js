@@ -1,13 +1,13 @@
 'use strict';
 
 const {app, BrowserWindow} = require('electron');
-const Spawn = require('child_process').spawn;
+const Exec = require('child_process').exec;
 
-process.env.MOPIDY_HOST='localhost';
+process.env.MOPIDY_HOST='0.0.0.0';
 process.env.WATSON_USERNAME='';
 process.env.WATSON_PASSWORD='';
 
-const mopidy = Spawn(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
+const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
 mopidy.stdout.on('data', data => {
 
     console.log(`mopidy_stdout: ${data}`);
@@ -39,7 +39,7 @@ app.on('ready', () => {
 
         require('./server');
         mainWindow.loadURL('http://localhost:8081/config');
-    }, 5000);
+    }, 10000);
 
     // embeded appendages
     require('./appendages/listener/service');
