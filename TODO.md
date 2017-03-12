@@ -2,6 +2,7 @@
 
 - deploy onto server (thinkpad) so sasha can be used as a webapp
     - include mopidy and listener
+    - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
 
 - basic README
 
