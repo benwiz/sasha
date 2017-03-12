@@ -1,10 +1,10 @@
 # TO DO FOR MVP
 
-- make music quieter after hearing "sasha"
+- make music quieter after hearing "sasha" (a.k.a. update listener)
 - electron app should load external webpage (http://localhost:8080/config) in it's window
-- figure out how to distribute sasha-listener
-    - try to package with sasha.app with an optional 'use' feature
-- deploy onto server so sasha can be used as a webapp
+- package with listener (consider electron and webapp strategies)
+- package with mopidy (consider electron and webapp strategies)
+- deploy onto server so sasha can be used as a webapp (instead of electron? means no installs)
 - sign up for bluemix watson speech-to-text or find alternative tool
 - basic README
 
