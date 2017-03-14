@@ -8,9 +8,13 @@ const Vision = require('vision');
 const Inert = require('inert');
 const Handlebars = require('handlebars');
 const Swagger = require('hapi-swagger');
+const Fs = require('fs');
 
 // internal libs
 const Routes = require('./server/routes/index');
+
+const logfile = Fs.createWriteStream('./server/views/logs.html');
+process.stdout.write = process.stderr.write = logfile.write.bind(logfile);
 
 // create server
 const server = new Hapi.Server();

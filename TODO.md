@@ -1,8 +1,8 @@
 # TO DO FOR MVP
 
-- homepage
 - gui logging
 - text input page
+- use mopidy library to watch until mopidy is up, then start server
 - package up in downloadable electron apps
     - include mopidy and listener
 - host sasha-v1 somewhere online for easy download

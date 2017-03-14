@@ -37,4 +37,11 @@ module.exports = [
         path: '/speak',
         handler: Handler.speak
     },
+
+    // logs
+    {
+        method: 'GET',
+        path: '/logs',
+        handler: Handler.logs
+    },
 ];
