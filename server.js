@@ -13,8 +13,11 @@ const Fs = require('fs');
 // internal libs
 const Routes = require('./server/routes/index');
 
-const logfile = Fs.createWriteStream('./server/views/logs.html');
-process.stdout.write = process.stderr.write = logfile.write.bind(logfile);
+var access = Fs.createWriteStream(dir + '/node.access.log', { flags: 'a' })
+    , error = Fs.createWriteStream(dir + '/node.error.log', { flags: 'a' });
+// redirect stdout / stderr
+proc.stdout.pipe(access);
+proc.stderr.pipe(error);
 
 // create server
 const server = new Hapi.Server();
