@@ -13,8 +13,8 @@ const Fs = require('fs');
 // internal libs
 const Routes = require('./server/routes/index');
 
-var access = Fs.createWriteStream(dir + '/node.access.log', { flags: 'a' })
-    , error = Fs.createWriteStream(dir + '/node.error.log', { flags: 'a' });
+var access = Fs.createWriteStream('./server/views/logs.html', { flags: 'a' })
+    , error = Fs.createWriteStream('./server/views/logs.html', { flags: 'a' });
 // redirect stdout / stderr
 proc.stdout.pipe(access);
 proc.stderr.pipe(error);
