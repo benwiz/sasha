@@ -1,8 +1,11 @@
 # TO DO FOR MVP
 
-- deploy onto server (thinkpad) so sasha can be used as a webapp
+- validate existence of environment variables before starting server
+- logging in gui (webpage)
+- package up in downloadable electron apps
     - include mopidy and listener
     - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
+- host sasha-v1 somewhere online for easy download
 
 - basic README
 
