@@ -4,3 +4,4 @@ node_modules/
 private.sh
 dist/*
 mopidy.conf
+private.js

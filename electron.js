@@ -2,11 +2,12 @@
 
 const {app, BrowserWindow} = require('electron');
 const Exec = require('child_process').exec;
+// local libraries
+const Private = require('./private');
 
-process.env.MOPIDY_HOST='0.0.0.0';
-process.env.WATSON_USERNAME='';
-process.env.WATSON_PASSWORD='';
-
+process.env.MOPIDY_HOST = '0.0.0.0';
+process.env.WATSON_USERNAME = Private.watson_username;
+process.env.WATSON_PASSWORD = Private.watson_password;
 
 //
 // mopidy
