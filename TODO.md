@@ -1,6 +1,5 @@
 # TO DO FOR MVP
 
-- validate existence of environment variables before starting server
 - homepage
 - gui logging
 - package up in downloadable electron apps
