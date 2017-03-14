@@ -7,10 +7,16 @@ process.env.MOPIDY_HOST='0.0.0.0';
 process.env.WATSON_USERNAME='';
 process.env.WATSON_PASSWORD='';
 
+
+//
+// mopidy
+//
+// start mopidy
 let processes = [];
 const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
 processes.push(mopidy);
 
+// mopidy event handlers
 mopidy.on('exit', function () {
 
     processes.splice(processes.indexOf(newProcess), 1);
@@ -24,6 +30,9 @@ mopidy.stderr.on('data', data => {
     console.log(`mopidy_stderr: ${data}`);
 });
 
+//
+// electron
+//
 let mainWindow;
 
 // App close handler
@@ -58,6 +67,6 @@ app.on('ready', () => {
         mainWindow.loadURL('http://localhost:8081/config');
     }, 10000);
 
-    // embeded appendages
-    require('./appendages/listener/service');
+    // // embeded appendages
+    // require('./appendages/listener/service');
 });

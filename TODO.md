@@ -1,23 +1,22 @@
 # TO DO FOR MVP
 
 - validate existence of environment variables before starting server
-- logging in gui (webpage)
+- homepage
+- gui logging
 - package up in downloadable electron apps
     - include mopidy and listener
-    - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
 - host sasha-v1 somewhere online for easy download
-
 - basic README
 
 # TO DO FOR PUBLISH
 
-- views
-    - home page links
-    - logs browser
 - sensor endpoints need to return more info (e.g. response to get volume)
 
 - internal functionality docs
 - good README
+
+- stream mopidy to any device that subscribes
+    - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
 
 - architecture modifications
     - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
