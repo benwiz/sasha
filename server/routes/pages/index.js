@@ -31,10 +31,10 @@ module.exports = [
         handler: Handler.config
     },
 
-    // mopidy
+    // speak
     {
         method: 'GET',
-        path: '/mopidy',
-        handler: Handler.mopidy
+        path: '/speak',
+        handler: Handler.speak
     },
 ];

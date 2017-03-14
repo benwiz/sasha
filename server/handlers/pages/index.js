@@ -2,13 +2,13 @@
 
 // local libraries
 
-// GET index
+// GET /
 const index = (request, reply) => {
 
     reply.view('index');
 };
 
-// GET config
+// GET /config
 const config = (request, reply) => {
 
     const data = {
@@ -19,14 +19,14 @@ const config = (request, reply) => {
     reply.view('config', data);
 };
 
-// GET mopidy
-const mopidy = (request, reply) => {
+// GET /speak
+const speak = (request, reply) => {
 
-    reply.view('mopidy');
+    reply.view('speak');
 }
 
 module.exports = {
     index,
     config,
-    mopidy
+    speak
 };

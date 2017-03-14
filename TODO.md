@@ -41,6 +41,7 @@
 - other
     - gui to watch realtime what's going on inside sasha
     - auto docs for internal functionality
+    - handle no song found `./server/handlers/actuators/lib/mopidy.js:153:47`
 
 - long term intelligence
     - have a database of people (human:[id, first name, last name, nickname, d.o.b., address], human_visit:[id, human_id, start_date, end_date])
