@@ -65,7 +65,7 @@ app.on('ready', () => {
         });
 
         require('./server');
-        mainWindow.loadURL('http://localhost:8081/config');
+        mainWindow.loadURL('http://localhost:8081/');
     }, 10000);
 
     // // embeded appendages

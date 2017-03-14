@@ -2,6 +2,7 @@
 
 - homepage
 - gui logging
+- text input page
 - package up in downloadable electron apps
     - include mopidy and listener
 - host sasha-v1 somewhere online for easy download
