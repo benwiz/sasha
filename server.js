@@ -9,15 +9,10 @@ const Inert = require('inert');
 const Handlebars = require('handlebars');
 const Swagger = require('hapi-swagger');
 const Fs = require('fs');
-
 // internal libs
 const Routes = require('./server/routes/index');
+const Logfile = require('./logfile.js')('./public/assets/node_log.txt');
 
-var access = Fs.createWriteStream('./server/views/logs.html', { flags: 'a' })
-    , error = Fs.createWriteStream('./server/views/logs.html', { flags: 'a' });
-// redirect stdout / stderr
-proc.stdout.pipe(access);
-proc.stderr.pipe(error);
 
 // create server
 const server = new Hapi.Server();

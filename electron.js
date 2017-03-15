@@ -41,6 +41,7 @@ app.on('before-quit', () => {
 
     console.log('hi');
     processes.forEach((proc) => {
+
         console.log('kill', proc);
         proc.kill();
     });
@@ -66,7 +67,7 @@ app.on('ready', () => {
 
         require('./server');
         mainWindow.loadURL('http://localhost:8081/');
-    }, 10000);
+    }, 8000);
 
     // // embeded appendages
     // require('./appendages/listener/service');

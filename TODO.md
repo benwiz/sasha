@@ -1,6 +1,5 @@
 # TO DO FOR MVP
 
-- gui logging
 - text input page
 - use mopidy library to watch until mopidy is up, then start server
 - package up in downloadable electron apps
