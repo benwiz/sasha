@@ -69,6 +69,6 @@ app.on('ready', () => {
         mainWindow.loadURL('http://localhost:8081/');
     }, 8000);
 
-    // // embeded appendages
-    // require('./appendages/listener/service');
+    // embeded appendages
+    require('./appendages/listener/service');
 });
