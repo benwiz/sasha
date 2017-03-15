@@ -39,7 +39,6 @@ let mainWindow;
 // App close handler
 app.on('before-quit', () => {
 
-    console.log('hi');
     processes.forEach((proc) => {
 
         console.log('kill', proc);

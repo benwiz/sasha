@@ -2,6 +2,7 @@
 
 - text input page
 - use mopidy library to watch until mopidy is up, then start server
+- gui log scroll to bottom
 - package up in downloadable electron apps
     - include mopidy and listener
 - host sasha-v1 somewhere online for easy download
