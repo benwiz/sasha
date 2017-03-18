@@ -1,8 +1,10 @@
 'use strict';
 
+const Promise = require('bluebird');
 const {app, BrowserWindow} = require('electron');
 const Exec = require('child_process').exec;
 // local libraries
+const Server = require('./server');
 const Private = require('./private');
 
 process.env.MOPIDY_HOST = '0.0.0.0';
@@ -57,16 +59,16 @@ app.on('window-all-closed', () => {
 
 app.on('ready', () => {
 
-    setTimeout(() => {
+    mainWindow = new BrowserWindow({
+        height: 600,
+        width: 800
+    });
 
-        mainWindow = new BrowserWindow({
-            height: 600,
-            width: 800
-        });
+    // require('./server');
+    Server.start().then(() => {
 
-        require('./server');
         mainWindow.loadURL('http://localhost:8081/');
-    }, 8000);
+    });
 
     // embeded appendages
     require('./appendages/listener/service');

@@ -1,9 +1,7 @@
 # TO DO FOR MVP
 
 - use mopidy library to watch until mopidy is up, then start server
-- package up in downloadable electron apps
-    - include mopidy and listener
-- host sasha-v1 somewhere online for easy download
+- build & host sasha-v1 somewhere online for easy download
 - basic README
 
 # TO DO FOR PUBLISH

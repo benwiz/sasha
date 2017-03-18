@@ -1,6 +1,7 @@
 'use strict';
 
 // external libraries
+const Promise = require('bluebird');
 const Mopidy = require('mopidy');
 const Request = require('request');
 const Streamifier = require('streamifier');
@@ -11,6 +12,19 @@ const mopidy = new Mopidy({
     webSocketUrl: `ws://${process.env.MOPIDY_HOST}:6680/mopidy/ws/`,
     callingConvention: 'by-position-or-by-name'
 });
+
+const ready = () => {
+
+    return new Promise((resolve) => {
+
+        console.log('waiting for mopidy to be online...');
+        mopidy.on('state:online', () => {
+
+            console.log('...mopidy is online');
+            resolve();
+        });
+    })
+};
 
 const play = (options) => {
 
@@ -207,13 +221,14 @@ const buffer = (options) => {
 };
 
 module.exports = {
-    mopidy: mopidy,
-    play: play,
-    pause: pause,
-    next: next,
-    getVolume: getVolume,
-    setVolume: setVolume,
-    spotify: spotify,
-    url: url,
-    buffer: buffer
+    ready,
+    mopidy,
+    play,
+    pause,
+    next,
+    getVolume,
+    setVolume,
+    spotify,
+    url,
+    buffer
 };

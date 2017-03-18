@@ -1,6 +1,7 @@
 'use strict';
 
 // external libs
+const Promise = require('bluebird');
 const Path = require('path');
 const Hapi = require('hapi');
 const Hoek = require('hoek');
@@ -10,6 +11,7 @@ const Handlebars = require('handlebars');
 const Swagger = require('hapi-swagger');
 const Fs = require('fs');
 // internal libs
+const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
 if (module.parent) { const Logfile = require('./logfile.js')('./public/assets/node_log.txt'); }
 
@@ -27,31 +29,42 @@ const swagger_options = {
     }
 };
 
-server.register([Vision, Inert, {register: Swagger, options: swagger_options}], (err) => {
+const start = () => {
 
-    Hoek.assert(!err, err);
+    return new Promise((resolve) => {
+        Mopidy.ready().then(() => {
 
-    // set up views and layouts using handlebars
-    server.views({
-        engines: {
-            html: Handlebars
-        },
-        relativeTo: __dirname,
-        path: 'server/views',
-        layout: true,
-        layoutPath: 'server/views/layouts',
-        partialsPath: 'server/views/partials'
+            server.register([Vision, Inert, {register: Swagger, options: swagger_options}], (err) => {
+
+                Hoek.assert(!err, err);
+
+                // set up views and layouts using handlebars
+                server.views({
+                    engines: {
+                        html: Handlebars
+                    },
+                    relativeTo: __dirname,
+                    path: 'server/views',
+                    layout: true,
+                    layoutPath: 'server/views/layouts',
+                    partialsPath: 'server/views/partials'
+                });
+
+                // set up routes
+                server.route(Routes);
+
+                // start server
+                server.start((err) => {
+
+                    if (err) {
+                        console.log('Error starting server:', err);
+                    }
+                    console.log('Server started at:', server.info.uri);
+                    resolve();
+                });
+            });
+        });
     });
+};
 
-    // set up routes
-    server.route(Routes);
-
-    // start server
-    server.start((err) => {
-
-        if (err) {
-            console.log('Error starting server:', err);
-        }
-        console.log('Server started at:', server.info.uri);
-    });
-});
+module.exports = { start };
