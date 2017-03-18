@@ -11,7 +11,7 @@ const Swagger = require('hapi-swagger');
 const Fs = require('fs');
 // internal libs
 const Routes = require('./server/routes/index');
-const Logfile = require('./logfile.js')('./public/assets/node_log.txt');
+if (module.parent) { const Logfile = require('./logfile.js')('./public/assets/node_log.txt'); }
 
 
 // create server
