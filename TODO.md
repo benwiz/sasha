@@ -1,6 +1,6 @@
 # TO DO FOR MVP
 
-- use mopidy library to watch until mopidy is up, then start server
+- handle non-existent env vars (fail fast or ask)
 - build & host sasha-v1 somewhere online for easy download
 - basic README
 
