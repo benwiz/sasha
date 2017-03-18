@@ -31,6 +31,13 @@ module.exports = [
         handler: Handler.config
     },
 
+    // text
+    {
+        method: 'GET',
+        path: '/text',
+        handler: Handler.text
+    },
+
     // speak
     {
         method: 'GET',

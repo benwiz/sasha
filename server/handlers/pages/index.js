@@ -19,21 +19,28 @@ const config = (request, reply) => {
     reply.view('config', data);
 };
 
+// GET /text
+const text = (request, reply) => {
+
+    reply.view('text');
+};
+
 // GET /speak
 const speak = (request, reply) => {
 
     reply.view('speak');
-}
+};
 
 // GET /logs
 const logs = (request, reply) => {
 
     reply.view('logs');
-}
+};
 
 module.exports = {
     index,
     config,
+    text,
     speak,
     logs
 };

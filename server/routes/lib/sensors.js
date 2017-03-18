@@ -14,7 +14,9 @@ module.exports = [
         handler: Handler.text,
         config: {
             validate: {
-                payload: Joi.string().required()
+                payload: Joi.object({
+                    text: Joi.string().required()
+                })
             },
             description: 'Post text',
             notes: 'Post plain text.',

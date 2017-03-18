@@ -7,7 +7,7 @@ const Forebrain = require('../forebrain/index');
 
 const text = (request, reply) => {
 
-    Forebrain.text(request.payload);
+    Forebrain.text(request.payload.text);
     reply();
 };
 

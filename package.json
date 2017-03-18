@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "electron .",
     "build": "electron-packager . sasha --out ../sasha-dist/ --icon \"./public/assets/wizard-hat.icns\" --overwrite",
-    "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon server.js",
+    "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon -e html,js server.js",
     "prod": "forever server.js"
   },
   "repository": {
