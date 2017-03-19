@@ -16,7 +16,6 @@ const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
 if (module.parent) { const Logfile = require('./logfile.js')('./public/assets/node_log.txt'); }
 
-
 // create server
 const server = new Hapi.Server();
 server.connection({
@@ -69,7 +68,7 @@ const start = () => {
 };
 
 // redirect global console object to log file
-const logfile => (file) {
+const logfile = (file) => {
 
     const con = new Console(Fs.createWriteStream(file));
     Object.keys(Console.prototype).forEach((name) => {
@@ -80,4 +79,8 @@ const logfile => (file) {
     });
 };
 
-module.exports = { start };
+if (module.parent) {
+    module.exports = { start };
+} else {
+    start();
+}
