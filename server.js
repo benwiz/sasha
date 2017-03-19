@@ -10,6 +10,7 @@ const Inert = require('inert');
 const Handlebars = require('handlebars');
 const Swagger = require('hapi-swagger');
 const Fs = require('fs');
+const Console = console.constructor;
 // internal libs
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
@@ -64,6 +65,18 @@ const start = () => {
                 });
             });
         });
+    });
+};
+
+// redirect global console object to log file
+const logfile => (file) {
+
+    const con = new Console(Fs.createWriteStream(file));
+    Object.keys(Console.prototype).forEach((name) => {
+
+        console[name] = () => {
+            con[name].apply(con, arguments);
+        };
     });
 };
 

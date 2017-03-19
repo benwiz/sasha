@@ -1,5 +1,6 @@
 'use strict';
 
+// external libraries
 const Promise = require('bluebird');
 const {app, BrowserWindow} = require('electron');
 const Exec = require('child_process').exec;
@@ -20,7 +21,7 @@ const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './app
 processes.push(mopidy);
 
 // mopidy event handlers
-mopidy.on('exit', function () {
+mopidy.on('exit', () => {
 
     processes.splice(processes.indexOf(newProcess), 1);
 });
