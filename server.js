@@ -32,6 +32,7 @@ const swagger_options = {
 const start = () => {
 
     return new Promise((resolve) => {
+
         Mopidy.ready().then(() => {
 
             server.register([Vision, Inert, {register: Swagger, options: swagger_options}], (err) => {
