@@ -1,1 +1,13 @@
-waiting for mopidy to be online...
+<a href="/">< home</a><br>
+<a href="/logs">refresh</a>
+
+<p><iframe src="/public/assets/node_log.txt" frameborder="0" height="400" width="95%"></iframe></p>
+<p><iframe id="frame" src="/public/assets/node_log.txt" frameborder="0" height="400" width="95%"></iframe></p>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#frame').on('load', function() {
+            this.contentWindow.scrollBy(0,100000);
+        });
+    });
+</script>

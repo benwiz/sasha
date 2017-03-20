@@ -15,7 +15,7 @@ const Console = console.constructor;
 // internal libs
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
-if (module.parent) { require('./server/util/logfile')('./server/views/logs.html'); }
+if (module.parent) { require('./server/util/logfile')('./public/assets/node_log.txt'); }
 
 
 // check for environment variables

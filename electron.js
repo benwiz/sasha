@@ -65,6 +65,7 @@ app.on('ready', () => {
         height: 600,
         width: 800
     });
+    // mainWindow.openDevTools();
 
     Server.start().then(() => {
 
