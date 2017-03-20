@@ -1,16 +1,17 @@
 'use strict';
 
+// set environment variables
+const Private = require('./private');
+process.env.MOPIDY_HOST = '0.0.0.0';
+process.env.WATSON_USERNAME = Private.watson_username;
+process.env.WATSON_PASSWORD = Private.watson_password;
+
 // external libraries
 const Promise = require('bluebird');
 const {app, BrowserWindow} = require('electron');
 const Exec = require('child_process').exec;
 // local libraries
 const Server = require('./server');
-const Private = require('./private');
-
-process.env.MOPIDY_HOST = '0.0.0.0';
-process.env.WATSON_USERNAME = Private.watson_username;
-process.env.WATSON_PASSWORD = Private.watson_password;
 
 //
 // mopidy
@@ -65,12 +66,11 @@ app.on('ready', () => {
         width: 800
     });
 
-    // require('./server');
     Server.start().then(() => {
 
         mainWindow.loadURL('http://localhost:8081/');
     });
 
     // embeded appendages
-    require('./appendages/listener/service');
+    // require('./appendages/listener/service');
 });

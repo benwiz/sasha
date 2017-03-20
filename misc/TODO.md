@@ -2,8 +2,6 @@
 
 - fix electron-snowboy issue
 - make sure in-file logfile works
-
-- handle non-existent env vars (fail fast or ask)
 - build & host sasha-v1 somewhere online for easy download
 - basic README
 

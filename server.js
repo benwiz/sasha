@@ -16,6 +16,7 @@ const Console = console.constructor;
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
 
+
 // check for environment variables
 const env_vars = ['MOPIDY_HOST', 'WATSON_USERNAME', 'WATSON_PASSWORD'];
 _.forEach(env_vars, (env_var) => {
