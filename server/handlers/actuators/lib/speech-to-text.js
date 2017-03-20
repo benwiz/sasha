@@ -11,7 +11,8 @@ const Config = require('./config');
 
 const WatsonSTT = new SpeechToTextV1({
     username: Config.watson_username,
-    password: Config.watson_password
+    password: Config.watson_password,
+    use_unauthenticated: true
 });
 
 const watson = (binary) => {

@@ -11,7 +11,7 @@ const luis = (options) => {
     return new Promise((resolve, reject) => {
 
         const text = options.text;
-        const endpoint = `https://api.projectoxford.ai/luis/v2.0/apps/ee139b14-77a8-49ab-b35d-26bc200f599c?subscription-key=7df77afddcab477a9a63a7b9c5e4f2c7&q=${text}`
+        const endpoint = `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ee139b14-77a8-49ab-b35d-26bc200f599c?subscription-key=kk&verbose=true&q=${text}`
 
         Request(endpoint, (error, response, body) => {
 

@@ -9,12 +9,14 @@ const Vision = require('vision');
 const Inert = require('inert');
 const Handlebars = require('handlebars');
 const Swagger = require('hapi-swagger');
+const _ = require('lodash');
 const Fs = require('fs');
 const Console = console.constructor;
 // internal libs
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
-if (module.parent) { const Logfile = require('./logfile.js')('./public/assets/node_log.txt'); }
+
+// check for environment variables
 
 // create server
 const server = new Hapi.Server();
@@ -25,7 +27,7 @@ server.connection({
 
 const swagger_options = {
     info: {
-        'title': 'Sasha Sensor API',
+        title: 'Sasha Sensor API'
     }
 };
 
@@ -72,7 +74,7 @@ const start = () => {
 const logfile = (file) => {
 
     const con = new Console(Fs.createWriteStream(file));
-    Object.keys(Console.prototype).forEach((name) => {
+    _.forEach(Object.keys(Console.prototype), (name) => {
 
         console[name] = () => {
             con[name].apply(con, arguments);
@@ -81,6 +83,7 @@ const logfile = (file) => {
 };
 
 if (module.parent) {
+    logfile('./public/assets/node_log.txt');
     module.exports = { start };
 } else {
     start();
