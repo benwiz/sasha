@@ -17,18 +17,14 @@ const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
 
 // check for environment variables
-if (!process.env.MOPIDY_HOST) {
-    console.log('MOPIDY_HOST environment variable not set!\nexiting...');
-    process.exit(1);
-}
-if (!process.env.WATSON_USERNAME) {
-    console.log('WATSON_USERNAME environment variable not set!')
-    process.exit(1);
-}
-if (!process.env.WATSON_PASSWORD) {
-    console.log('WATSON_PASSWORD environment variable not set!')
-    process.exit(1);
-}
+const env_vars = ['MOPIDY_HOST', 'WATSON_USERNAME', 'WATSON_PASSWORD'];
+_.forEach(env_vars, (env_var) => {
+
+    if (!process.env[env_var]) {
+        console.log(`${env_var} environment variable not set!\nexiting...`);
+        process.exit(1);
+    }
+});
 
 // create server
 const server = new Hapi.Server();
