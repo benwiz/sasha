@@ -72,5 +72,5 @@ app.on('ready', () => {
     });
 
     // embeded appendages
-    // require('./appendages/listener/service');
+    require('./appendages/listener/service');
 });

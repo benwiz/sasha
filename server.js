@@ -15,6 +15,7 @@ const Console = console.constructor;
 // internal libs
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
+if (module.parent) { require('./server/util/logfile')('./server/views/logs.html'); }
 
 
 // check for environment variables
@@ -79,20 +80,7 @@ const start = () => {
     });
 };
 
-// redirect global console object to log file
-const logfile = (file) => {
-
-    const con = new Console(Fs.createWriteStream(file));
-    _.forEach(Object.keys(Console.prototype), (name) => {
-
-        console[name] = () => {
-            con[name].apply(con, arguments);
-        };
-    });
-};
-
 if (module.parent) {
-    logfile('./public/assets/node_log.txt');
     module.exports = { start };
 } else {
     start();

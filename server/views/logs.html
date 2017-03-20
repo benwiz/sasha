@@ -1,12 +1,380 @@
-<a href="/">< home</a>
-<a href="/logs">refresh</a>
+waiting for mopidy to be online...
+...mopidy is online
+Server started at: http://0.0.0.0:8081
+mopidy_stderr: INFO     Starting Mopidy 2.0.1
 
-<p><iframe id="frame" src="/public/assets/node_log.txt" frameborder="0" height="400" width="95%"></iframe></p>
+mopidy_stderr: INFO     Loading config from builtin defaults
+INFO     Loading config from /Users/benwiz/.config/mopidy/mopidy.conf
+INFO     Loading config from command line options
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#frame').on('load', function() {
-            this.contentWindow.scrollBy(0,100000);
-        });
-    });
-</script>
+
+!
+[35mplaying[39m[33m=>[39m[36m/Users/benwiz/github/personal/sasha/appendages/listener/resources/ding.wav[39m
+reduce: null {"statusCode":400,"error":"Bad Request","message":"\"value\" must be an object","validation":{"source":"payload","keys":["value"]}}
+mopidy_stderr: INFO     Enabled extensions: mopify, spotify, mpd, http, stream, spotmop, m3u, softwaremixer, file, local-images, party, api_explorer
+
+mopidy_stderr: INFO     Disabled extensions: local
+
+mopidy_stderr: WARNING  Found local configuration errors, the extension has been automatically disabled:
+
+mopidy_stderr: WARNING    local/media_dir must be set.
+
+mopidy_stderr: WARNING  Please fix the extension configuration errors or disable the extensions to silence these messages.
+
+mopidy_stderr: INFO     Starting Mopidy mixer: SoftwareMixer
+
+mopidy_stderr: INFO     Starting Mopidy audio
+
+mopidy_stderr: INFO     Starting Mopidy backends: StreamBackend, M3UBackend, FileBackend, SpotifyBackend
+
+mopidy_stderr: INFO     Audio output set to "autoaudiosink"
+
+[32mcompleted[39m[33m=>[39m[35m/Users/benwiz/github/personal/sasha/appendages/listener/resources/ding.wav[39m
+kill ChildProcess {
+  domain: null,
+  _events: 
+   { close: [Function: exithandler],
+     error: [Function: errorhandler],
+     exit: [Function] },
+  _eventsCount: 3,
+  _maxListeners: undefined,
+  _closesNeeded: 3,
+  _closesGot: 0,
+  connected: false,
+  signalCode: null,
+  exitCode: null,
+  killed: false,
+  spawnfile: '/bin/sh',
+  _handle: Process { owner: [Circular], onexit: [Function], pid: 1568 },
+  spawnargs: 
+   [ '/bin/sh',
+     '-c',
+     '/Users/benwiz/github/personal/sasha/appendages/mopidy/mopidy' ],
+  pid: 1568,
+  stdin: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      Pipe {
+        bytesRead: 0,
+        _externalStream: {},
+        fd: 20,
+        writeQueueSize: 0,
+        owner: [Circular],
+        onread: [Function: onread],
+        reading: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: null,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: false,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd] },
+     _eventsCount: 3,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: false,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _writev: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: null,
+     _server: null },
+  stdout: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      Pipe {
+        bytesRead: 0,
+        _externalStream: {},
+        fd: 22,
+        writeQueueSize: 0,
+        owner: [Circular],
+        onread: [Function: onread],
+        reading: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: [Object],
+        encoding: 'utf8' },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        close: [Function],
+        data: [Object] },
+     _eventsCount: 5,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: false,
+     allowHalfOpen: false,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _writev: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: null,
+     _server: null,
+     read: [Function],
+     _consuming: true },
+  stderr: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      Pipe {
+        bytesRead: 817,
+        _externalStream: {},
+        fd: 24,
+        writeQueueSize: 0,
+        owner: [Circular],
+        onread: [Function: onread],
+        reading: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: [Object],
+        encoding: 'utf8' },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        close: [Function],
+        data: [Object] },
+     _eventsCount: 5,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: false,
+     allowHalfOpen: false,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _writev: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: null,
+     _server: null,
+     read: [Function],
+     _consuming: true },
+  stdio: 
+   [ Socket {
+       connecting: false,
+       _hadError: false,
+       _handle: [Object],
+       _parent: null,
+       _host: null,
+       _readableState: [Object],
+       readable: false,
+       domain: null,
+       _events: [Object],
+       _eventsCount: 3,
+       _maxListeners: undefined,
+       _writableState: [Object],
+       writable: true,
+       allowHalfOpen: false,
+       destroyed: false,
+       _bytesDispatched: 0,
+       _sockname: null,
+       _writev: null,
+       _pendingData: null,
+       _pendingEncoding: '',
+       server: null,
+       _server: null },
+     Socket {
+       connecting: false,
+       _hadError: false,
+       _handle: [Object],
+       _parent: null,
+       _host: null,
+       _readableState: [Object],
+       readable: true,
+       domain: null,
+       _events: [Object],
+       _eventsCount: 5,
+       _maxListeners: undefined,
+       _writableState: [Object],
+       writable: false,
+       allowHalfOpen: false,
+       destroyed: false,
+       _bytesDispatched: 0,
+       _sockname: null,
+       _writev: null,
+       _pendingData: null,
+       _pendingEncoding: '',
+       server: null,
+       _server: null,
+       read: [Function],
+       _consuming: true },
+     Socket {
+       connecting: false,
+       _hadError: false,
+       _handle: [Object],
+       _parent: null,
+       _host: null,
+       _readableState: [Object],
+       readable: true,
+       domain: null,
+       _events: [Object],
+       _eventsCount: 5,
+       _maxListeners: undefined,
+       _writableState: [Object],
+       writable: false,
+       allowHalfOpen: false,
+       destroyed: false,
+       _bytesDispatched: 0,
+       _sockname: null,
+       _writev: null,
+       _pendingData: null,
+       _pendingEncoding: '',
+       server: null,
+       _server: null,
+       read: [Function],
+       _consuming: true } ] }
+post complete
+[35mplaying[39m[33m=>[39m[36m/Users/benwiz/github/personal/sasha/appendages/listener/resources/dong.wav[39m
