@@ -86,6 +86,7 @@ detector.on('hotword', (index, hotword) => {
     // NOTE: different hotwords can be handled
     // TODO: pause or decrease volumn of music
 
+    ding();
     console.log('\n!');
     // reduce volume
     Request.post({
@@ -101,7 +102,6 @@ detector.on('hotword', (index, hotword) => {
         if (err) console.log(err);
     });
 
-    ding();
     is_recording = true;
     started_recording = new Date().getTime() / 1000;
     RecordB.start({
