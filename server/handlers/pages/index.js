@@ -9,7 +9,7 @@ const index = (request, reply) => {
     const data = {
         version: Package.version
     };
-    reply.view('index');
+    reply.view('index', data);
 };
 
 // GET /config
