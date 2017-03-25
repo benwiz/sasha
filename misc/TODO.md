@@ -1,6 +1,6 @@
 # TO DO FOR MVP
 
-- fix electron-snowboy issue
+- 
 - build & host sasha-v1 somewhere online for easy download
 - basic README
 
