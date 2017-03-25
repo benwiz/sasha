@@ -10,8 +10,11 @@ process.env.WATSON_PASSWORD = Private.watson_password;
 const Promise = require('bluebird');
 const {app, BrowserWindow} = require('electron');
 const Exec = require('child_process').exec;
-// local libraries
-const Server = require('./server');
+
+//
+// electron
+//
+let mainWindow;
 
 //
 // mopidy
@@ -20,6 +23,8 @@ const Server = require('./server');
 let processes = [];
 const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
 processes.push(mopidy);
+
+let mopidy_is_ready = false;
 
 // mopidy event handlers
 mopidy.on('exit', () => {
@@ -33,12 +38,20 @@ mopidy.stdout.on('data', data => {
 mopidy.stderr.on('data', data => {
 
     console.log(`mopidy_stderr: ${data}`);
+    if (data.includes('MPD server running')) {
+        console.log('start!');
+
+        const Server = require('./server');
+        Server.start().then(() => {
+
+            mainWindow.loadURL('http://localhost:8081/');
+
+            // embeded appendages
+            require('./appendages/listener/service');
+        });
+    }
 });
 
-//
-// electron
-//
-let mainWindow;
 
 // App close handler
 app.on('before-quit', () => {
@@ -66,12 +79,4 @@ app.on('ready', () => {
         width: 800
     });
     // mainWindow.openDevTools();
-
-    Server.start().then(() => {
-
-        mainWindow.loadURL('http://localhost:8081/');
-    });
-
-    // embeded appendages
-    require('./appendages/listener/service');
 });
