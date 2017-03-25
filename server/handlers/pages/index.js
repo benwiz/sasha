@@ -34,7 +34,10 @@ const speak = (request, reply) => {
 // GET /logs
 const logs = (request, reply) => {
 
-    reply.view('logs');
+    const data = {
+        filepath: __dirname
+    };
+    reply.view('logs', data);
 };
 
 module.exports = {
