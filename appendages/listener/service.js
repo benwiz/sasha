@@ -91,9 +91,9 @@ detector.on('hotword', (index, hotword) => {
     Request.post({
         url: `http://${Config.sasha_host}:8081/text`,
         headers: {
-            'Content-Type': 'text/plain'
+            'Content-Type': 'application/json'
         },
-        body: 'set the volume to 20'
+        body: JSON.stringify({text:'set the volume to 20'})
     },
     (err, response, body) => {
 
@@ -125,9 +125,9 @@ detector.on('hotword', (index, hotword) => {
         Request.post({
             url: `http://${Config.sasha_host}:8081/text`,
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             },
-            body: 'set the volume to 90'
+            body: JSON.stringify({text:'set the volume to 90'})
         },
         (err, response, body) => {
 
