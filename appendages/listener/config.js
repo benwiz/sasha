@@ -2,6 +2,6 @@
 
 let config = {};
 
-config.sasha_host = 'localhost'; // process.env.SASHA_HOST;
+config.sasha_host = process.env.SASHA_HOST;
 
 module.exports = config;

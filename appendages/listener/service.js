@@ -11,6 +11,7 @@ const Chalk = require('chalk');
 // internal libs
 const Config = require('./config');
 
+console.log('HELLO!!!');
 
 const ding = () => {
 

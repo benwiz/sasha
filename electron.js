@@ -6,6 +6,7 @@ process.env.MOPIDY_HOST = '0.0.0.0';
 process.env.WATSON_USERNAME = Private.watson_username;
 process.env.WATSON_PASSWORD = Private.watson_password;
 process.env.LUIS_KEY = Private.luis_key;
+process.env.SASHA_HOST = '0.0.0.0';
 
 // external libraries
 const Promise = require('bluebird');
