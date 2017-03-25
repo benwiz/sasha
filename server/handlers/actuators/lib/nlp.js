@@ -11,7 +11,7 @@ const luis = (options) => {
     return new Promise((resolve, reject) => {
 
         const text = options.text;
-        const endpoint = `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ee139b14-77a8-49ab-b35d-26bc200f599c?subscription-key=kk&verbose=true&q=${text}`
+        const endpoint = `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ee139b14-77a8-49ab-b35d-26bc200f599c?subscription-key=${process.env.LUIS_KEY}&verbose=true&q=${text}`
 
         Request(endpoint, (error, response, body) => {
 
@@ -20,6 +20,7 @@ const luis = (options) => {
             }
 
             const parsed_body = JSON.parse(body);
+            console.log(parsed_body);
 
             let msg = {
                 intent: parsed_body.topScoringIntent.intent
