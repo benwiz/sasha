@@ -53,7 +53,7 @@ mopidy.stderr.on('data', data => {
             mainWindow.loadURL('http://localhost:8081/');
 
             // embeded appendages
-            // require('./appendages/listener/service');
+            require('./appendages/listener/service');
         });
     }
 });
