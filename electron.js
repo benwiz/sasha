@@ -1,5 +1,10 @@
 'use strict';
 
+// external libraries
+const FixPath = require('fix-path')();
+const Promise = require('bluebird');
+const {app, BrowserWindow} = require('electron');
+const Exec = require('child_process').exec;
 // set environment variables
 const Private = require('./private');
 process.env.MOPIDY_HOST = '0.0.0.0';
@@ -7,12 +12,6 @@ process.env.WATSON_USERNAME = Private.watson_username;
 process.env.WATSON_PASSWORD = Private.watson_password;
 process.env.LUIS_KEY = Private.luis_key;
 process.env.SASHA_HOST = 'localhost';
-
-// external libraries
-const Promise = require('bluebird');
-const {app, BrowserWindow} = require('electron');
-const Exec = require('child_process').exec;
-
 //
 // electron
 //
