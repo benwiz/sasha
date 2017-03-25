@@ -6,7 +6,7 @@ process.env.MOPIDY_HOST = '0.0.0.0';
 process.env.WATSON_USERNAME = Private.watson_username;
 process.env.WATSON_PASSWORD = Private.watson_password;
 process.env.LUIS_KEY = Private.luis_key;
-process.env.SASHA_HOST = '0.0.0.0';
+process.env.SASHA_HOST = 'localhost';
 
 // external libraries
 const Promise = require('bluebird');
@@ -25,8 +25,6 @@ let mainWindow;
 let processes = [];
 const mopidy = Exec(__dirname + '/appendages/mopidy/mopidy', ['--config', './appendages/mopidy/mopidy.conf']);
 processes.push(mopidy);
-
-let mopidy_is_ready = false;
 
 // mopidy event handlers
 mopidy.on('exit', () => {
@@ -49,7 +47,7 @@ mopidy.stderr.on('data', data => {
             mainWindow.loadURL('http://localhost:8081/');
 
             // embeded appendages
-            require('./appendages/listener/service');
+            // require('./appendages/listener/service');
         });
     }
 });
