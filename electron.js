@@ -44,7 +44,7 @@ mopidy.stderr.on('data', data => {
         const Server = require('./server');
         Server.start().then(() => {
 
-            // mainWindow.loadURL('http://localhost:8081/');
+            mainWindow.loadURL('http://localhost:8081/');
 
             // embeded appendages
             // require('./appendages/listener/service');

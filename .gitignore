@@ -5,4 +5,3 @@ private.sh
 dist/*
 mopidy.conf
 private.js
-node_log.txt
