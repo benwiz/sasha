@@ -1,7 +1,7 @@
 <a href="/">< home</a>
 
 <div style="margin-top:2%;">
-    <form id="text-form" method="post" enctype="application/json" action="/text" target="hidden-frame">
+    <form id="text-form" method="post" enctype="application/json" action="/text" target="hidden-frame" onsubmit="this.submit(); this.reset(); return false;">
         <input type="text" name="text">
         <input type="submit">
     </form>
