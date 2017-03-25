@@ -1,11 +1,5 @@
 'use strict';
 
-const Path = require('path');
-module.paths.push(Path.resolve('node_modules'));
-module.paths.push(Path.resolve('../node_modules'));
-module.paths.push(Path.resolve(__dirname, '..', '..', '..', '..', 'resources', 'app', 'node_modules'));
-module.paths.push(Path.resolve(__dirname, '..', '..', '..', '..', 'resources', 'app.asar', 'node_modules'));
-
 // set environment variables
 const Private = require('./private');
 process.env.MOPIDY_HOST = '0.0.0.0';
