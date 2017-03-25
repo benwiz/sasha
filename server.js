@@ -17,7 +17,6 @@ const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
 if (module.parent) { require('./logfile')('./public/assets/node_log.txt'); }
 
-
 // check for environment variables
 const env_vars = ['MOPIDY_HOST', 'WATSON_USERNAME', 'WATSON_PASSWORD'];
 _.forEach(env_vars, (env_var) => {

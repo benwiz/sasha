@@ -9,7 +9,7 @@ const Fs = require('fs');
 const Play = require('play');
 const Chalk = require('chalk');
 // internal libs
-const Config = require('./config');
+const Config = require('./config';
 
 
 const ding = () => {
