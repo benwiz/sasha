@@ -52,7 +52,9 @@ mopidy.stderr.on('data', data => {
     }
 });
 
-
+//
+// electron
+//
 // App close handler
 app.on('before-quit', () => {
 
