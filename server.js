@@ -15,7 +15,9 @@ const Console = console.constructor;
 // internal libs
 const Mopidy = require('./server/handlers/actuators/lib/mopidy');
 const Routes = require('./server/routes/index');
-if (module.parent) { require('./logfile')(__dirname + '/public/assets/node_log.txt'); }
+
+const log_filepath = __dirname + '/public/assets/node_log.txt';
+if (module.parent) { require('./logfile')(log_filepath); }
 
 // check for environment variables
 const env_vars = ['MOPIDY_HOST', 'WATSON_USERNAME', 'WATSON_PASSWORD'];
@@ -64,6 +66,13 @@ const start = () => {
 
                 // set up routes
                 server.route(Routes);
+                server.route({
+                    method: 'GET',
+                    path: '/node_log.txt',
+                    handler: (request, reply) => {
+                        reply.file(log_filepath);
+                    }
+                })
 
                 // start server
                 server.start((err) => {

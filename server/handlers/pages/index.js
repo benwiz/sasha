@@ -1,10 +1,14 @@
 'use strict';
 
 // local libraries
+const Package = require('../../../package.json');
 
 // GET /
 const index = (request, reply) => {
 
+    const data = {
+        version: Package.version
+    };
     reply.view('index');
 };
 

@@ -4,18 +4,18 @@ const Handler = require('../../handlers/pages/index');
 
 module.exports = [
 
-    // expose static files
-    {
-        method: 'GET',
-        path: '/public/{path*}',
-        handler: {
-            directory: {
-                path: '../../public',
-                listing: false,
-                index: false
-            }
-        }
-    },
+    // // expose static files
+    // {
+    //     method: 'GET',
+    //     path: '/public/{path*}',
+    //     handler: {
+    //         directory: {
+    //             path: '../../../public',
+    //             listing: true,
+    //             index: false
+    //         }
+    //     }
+    // },
 
     // index
     {
