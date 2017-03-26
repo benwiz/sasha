@@ -18,6 +18,11 @@
         - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
     - decide when Sensors should reply to requester
     - real logging
+    - sensors -> hindbrain (-> publish -> consume by forebrain) -> forebrain -> actuators
+        - sensor takes raw input and turns it into a useable format
+        - hindbrain ???
+        - forebrain ???
+        - actuators perform calculations and actions and make decisions
 
 # TO DO
 

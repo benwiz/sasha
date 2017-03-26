@@ -8,7 +8,7 @@ const Actuators = require('../actuators/index');
 const IntentHandler = require('./lib/intent-handler');
 
 
-// TODO: These functions will be called not by the Sensors but instead by a part of the forebrain that reads the most up-to-date State of the World
+// TODO: These functions will be called not by the Sensors but instead by a part of the hindbrain that reads the most up-to-date State of the World
 
 const text = (options) => {
 
