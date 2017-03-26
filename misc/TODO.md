@@ -1,7 +1,3 @@
-# TO DO FOR MVP
-
-- distribute sasha-v0.3.1
-
 # TO DO FOR PUBLISH
 
 - sensor endpoints need to return more info (e.g. response to get volume)
