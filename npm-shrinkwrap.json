@@ -1,6 +1,6 @@
 {
   "name": "sasha",
-  "version": "0.1.2",
+  "version": "0.3.0",
   "dependencies": {
     "ajv": {
       "version": "4.11.5",
@@ -233,6 +233,11 @@
       "version": "0.5.3",
       "from": "ctype@0.5.3",
       "resolved": "https://registry.npmjs.org/ctype/-/ctype-0.5.3.tgz"
+    },
+    "currify": {
+      "version": "2.0.3",
+      "from": "currify@>=2.0.3 <3.0.0",
+      "resolved": "https://registry.npmjs.org/currify/-/currify-2.0.3.tgz"
     },
     "dashdash": {
       "version": "1.14.1",
@@ -1070,6 +1075,11 @@
       "version": "3.0.2",
       "from": "signal-exit@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.2.tgz"
+    },
+    "smalltalk": {
+      "version": "2.2.0",
+      "from": "smalltalk@latest",
+      "resolved": "https://registry.npmjs.org/smalltalk/-/smalltalk-2.2.0.tgz"
     },
     "snowboy": {
       "version": "1.1.0",

@@ -15,3 +15,6 @@ Sensor docs at http://localhost:8081/documentation
 
 1. `git clone git@github:benwiz/sasha.git && cd sasha`
 2. ``
+
+
+`electron.js`, `logfile.js`, and `private.js` exist only for the sake of electron. Electron is a short term solution to distribute Sasha for early stage tests. I have not decided on any long term solution.

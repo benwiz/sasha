@@ -3,15 +3,21 @@
 // external libraries
 const FixPath = require('fix-path')();
 const Promise = require('bluebird');
-const {app, BrowserWindow} = require('electron');
+const Electron = require('electron');
 const Exec = require('child_process').exec;
-// set environment variables
+const _ = require('lodash');
+const Fs = require('fs');
+// local
 const Private = require('./private');
+
+const app = Electron.app;
+const BrowserWindow = Electron.BrowserWindow;
+const ipcMain = Electron.ipcMain;
+
+// set environment configuration env vars
 process.env.MOPIDY_HOST = '0.0.0.0';
-process.env.WATSON_USERNAME = Private.watson_username;
-process.env.WATSON_PASSWORD = Private.watson_password;
-process.env.LUIS_KEY = Private.luis_key;
 process.env.SASHA_HOST = 'localhost';
+
 //
 // electron
 //
@@ -77,7 +83,33 @@ app.on('ready', () => {
 
     mainWindow = new BrowserWindow({
         height: 600,
-        width: 800
+        width: 800,
+        preload: __dirname + '/prompt.js'
     });
     // mainWindow.openDevTools();
+
+    // handle any string replacements for mopidy.conf
+    const tags = [
+        {tag: '[%SPOTIFY_USERNAME%]', value: Private.spotify_username},
+        {tag: '[%SPOTIFY_PASSWORD%]', value: Private.spotify_password},
+    ];
+    replaceTags('./appendages/mopidy/mopidy.conf', tags);
+
+    // set environment variables for server
+    process.env.WATSON_USERNAME = Private.watson_username;
+    process.env.WATSON_PASSWORD = Private.watson_password;
+    process.env.LUIS_KEY = Private.luis_key;
 });
+
+
+const replaceTags = (filepath, tags) => {
+
+    console.log('readWriteSync()\n');
+    const data = Fs.readFileSync(filepath, 'utf-8');
+    let new_value = data;
+    tags.forEach((tag) => {
+
+        new_value = new_value.replace(tag.tag, tag.value);
+    });
+    Fs.writeFileSync(filepath, new_value, 'utf-8');
+};

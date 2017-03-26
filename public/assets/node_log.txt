@@ -4,8 +4,6 @@ INFO     Starting Spotmop 2.10.1
 INFO     Starting GLib mainloop
 INFO     Pusher server running at [0.0.0.0]:6681
 
-...mopidy is online
-Server started at: http://0.0.0.0:8081
 kill ChildProcess {
   domain: null,
   _events: 
@@ -21,12 +19,12 @@ kill ChildProcess {
   exitCode: null,
   killed: false,
   spawnfile: '/bin/sh',
-  _handle: Process { owner: [Circular], onexit: [Function], pid: 51239 },
+  _handle: Process { owner: [Circular], onexit: [Function], pid: 61619 },
   spawnargs: 
    [ '/bin/sh',
      '-c',
      '/Users/benwiz/github/personal/sasha/appendages/mopidy/mopidy' ],
-  pid: 51239,
+  pid: 61619,
   stdin: 
    Socket {
      connecting: false,
@@ -353,9 +351,468 @@ kill ChildProcess {
        read: [Function],
        _consuming: true } ] }
 mopidy_stderr: INFO     GLib mainloop got SIGTERM. Exiting...
-INFO     Stopping Mopidy frontends
+
+mopidy_stderr: INFO     Stopping Mopidy frontends
 INFO     Stopping Mopidy core
 INFO     Stopping Mopidy backends
-INFO     Stopping Mopidy audio
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: INFO     Stopping Mopidy audio
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
 INFO     Stopping Mopidy mixer
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
+
+mopidy_stderr: ERROR    SpotifyBackend backend caused an exception.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 18, in _backend_error_handling
+    yield
+  File "/usr/local/lib/python2.7/site-packages/mopidy/core/playlists.py", line 248, in lookup
+    playlist = backend.playlists.lookup(uri).get()
+  File "/usr/local/lib/python2.7/site-packages/pykka/threading.py", line 52, in get
+    compat.reraise(*self._data['exc_info'])
+  File "/usr/local/lib/python2.7/site-packages/pykka/compat.py", line 12, in reraise
+    exec('raise tp, value, tb')
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 431, in ask
+    self.tell(message)
+  File "/usr/local/lib/python2.7/site-packages/pykka/actor.py", line 398, in tell
+    raise ActorDeadError('%s not found' % self)
+ActorDeadError: SpotifyBackend (urn:uuid:485c9b4a-b9b5-4e19-b1d3-bbcfc783086b) not found
 
