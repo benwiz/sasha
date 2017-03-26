@@ -19,9 +19,9 @@
     - real logging
     - sensors -> hindbrain (-> publish -> consume by forebrain) -> forebrain -> actuators
         - sensor takes raw input and turns it into a useable format
-        - hindbrain ???
-        - forebrain ???
-        - actuators perform calculations and actions and make decisions
+        - hindbrain publishes compiled senses
+        - forebrain consumes compiled senses to update the model of the world and make decisions
+        - actuators perform calculations and actions
 
 # TO DO
 
