@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const WtoN = require('words-to-num');
 // internal libs
 const Actuators = require('../../actuators/index');
+const DJ = require('./dj');
 
 const playMusicHandler = (options) => {
 
@@ -83,6 +84,10 @@ const playMusicHandler = (options) => {
 
                     reject(err);
                 });
+
+        } else if (subintent === 'dj') {
+
+            DJ.start().catch(reject);
 
         } else {
 

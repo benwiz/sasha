@@ -25,7 +25,6 @@ const text = (options) => {
 
 const audio = (options) => {
 
-    // post to sasha-api /speech-to-text
     Actuators.speechToText(options)
         .then((res) => {
 

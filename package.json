@@ -5,9 +5,9 @@
   "main": "electron.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "source env_vars/private.sh && source env_vars/public.sh && nodemon -e html,js server.js",
     "electron": "./node_modules/.bin/electron .",
     "build": "./node_modules/.bin/electron-packager . sasha --out ../sasha-dist/ --icon \"./public/assets/wizard-hat.icns\" --ignore=env_vars --overwrite",
-    "dev": "source env_vars/private.sh && source env_vars/public.sh && nodemon -e html,js server.js",
     "prod": "forever server.js"
   },
   "repository": {
