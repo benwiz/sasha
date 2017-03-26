@@ -1,23 +1,22 @@
 # TO DO FOR PUBLISH
 
-- sensor endpoints need to return more info (e.g. response to get volume)
-
-- internal functionality docs
-- good README
-
-- stream mopidy to any device that subscribes
-    - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
+- a forebrain skill that leverages the mopidy actuator to intelligently pick songs based on a model trained by machine learning.
 
 - architecture modifications
-    - add SenseReceivers (find better name, maybe just sensors) & Hindbrain
-        - a.k.a. use a State of the World updated via a message stream that is read by the Forebrain
-    - decide when Sensors should reply to requester
-    - real logging
+    - use hindbrain
+    - use message stream between hindbrain and forebrain
+    - sensor endpoints need to reply better
     - sensors -> hindbrain (-> publish -> consume by forebrain) -> forebrain -> actuators
         - sensor takes raw input and turns it into a useable format
         - hindbrain publishes compiled senses
-        - forebrain consumes compiled senses to update the model of the world and make decisions
+        - forebrain consumes compiled senses to update the model of the world it maintains and makes decisions
         - actuators perform calculations and actions
+
+- stream mopidy to any device that subscribes, maybe
+    - https://docs.mopidy.com/en/latest/audio/#streaming-through-icecast
+
+- internal functionality docs
+- good README
 
 # TO DO
 
