@@ -27,23 +27,23 @@ const trainKMeans = () => {
     return new Promise((resolve, reject) => {
 
         const data = [
-            {'company': 'Microsoft' , 'size': 1, 'revenue': 1},
-            {'company': 'IBM' , 'size': 1, 'revenue': 1},
-            {'company': 'Skype' , 'size': 1, 'revenue': 1},
-            {'company': 'SAP' , 'size': 9, 'revenue': 9},
-            {'company': 'Yahoo!' , 'size': 9 , 'revenue': 9 },
-            {'company': 'eBay' , 'size': 9, 'revenue': 9},
+            {'company': 'Microsoft' , 'size': 1, 'revenue': 1, 'other': 1},
+            {'company': 'IBM' , 'size': 1, 'revenue': 1, 'other': 1},
+            {'company': 'Skype' , 'size': 1, 'revenue': 1, 'other': 1},
+            {'company': 'SAP' , 'size': 9, 'revenue': 9, 'other': 9},
+            {'company': 'Yahoo!' , 'size': 9 , 'revenue': 9 , 'other': 9},
+            {'company': 'eBay' , 'size': 10, 'revenue': 9, 'other': 9},
         ];
 
-        // Create the data 2D-array (vectors) describing the data
+        // Create the data M-Dimensional-array (vectors) describing the data (m = num_cols)
         const vectors = _.map(data, (datum) => {
 
-            return [ datum.size, datum.revenue ];
+            return [ datum.size, datum.revenue, datum.other ];
         });
 
 
         // run k-means clustering
-        Kmeans.clusterize(vectors, {k: 4}, (err, res) => {
+        Kmeans.clusterize(vectors, {k: 2}, (err, res) => {
 
             if (err) {
                 reject(err);
