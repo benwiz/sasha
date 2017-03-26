@@ -1,7 +1,7 @@
 # TO DO FOR MVP
 
-- build & host sasha-v1 somewhere online for easy download
 - basic README
+- build and distribute sasha-v0.3.0
 
 # TO DO FOR PUBLISH
 
