@@ -93,7 +93,7 @@ app.on('ready', () => {
         {tag: '[%SPOTIFY_USERNAME%]', value: Private.spotify_username},
         {tag: '[%SPOTIFY_PASSWORD%]', value: Private.spotify_password},
     ];
-    replaceTags('./appendages/mopidy/mopidy.conf', tags);
+    replaceTags(__dirname + '/appendages/mopidy/mopidy.conf', tags);
 
     // set environment variables for server
     process.env.WATSON_USERNAME = Private.watson_username;
