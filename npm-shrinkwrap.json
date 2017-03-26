@@ -1,6 +1,6 @@
 {
   "name": "sasha",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "dependencies": {
     "ajv": {
       "version": "4.11.5",
@@ -902,6 +902,11 @@
       "version": "1.6.3",
       "from": "node-fetch@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-1.6.3.tgz"
+    },
+    "node-kmeans": {
+      "version": "1.1.0",
+      "from": "node-kmeans@latest",
+      "resolved": "https://registry.npmjs.org/node-kmeans/-/node-kmeans-1.1.0.tgz"
     },
     "node-record-lpcm16": {
       "version": "0.2.0",
@@ -1891,6 +1896,11 @@
       "from": "uglify-to-browserify@>=1.0.0 <1.1.0",
       "resolved": "https://registry.npmjs.org/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz",
       "optional": true
+    },
+    "underscore": {
+      "version": "1.4.2",
+      "from": "underscore@1.4.2",
+      "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.4.2.tgz"
     },
     "util": {
       "version": "0.10.3",

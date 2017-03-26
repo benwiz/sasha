@@ -14,8 +14,6 @@ const WatsonSTT = new SpeechToTextV1({
     password: Config.watson_password
 });
 
-console.log(WatsonSTT);
-
 const watson = (binary) => {
 
     return new Promise((resolve, reject) => {
