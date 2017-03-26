@@ -1,7 +1,6 @@
 # TO DO FOR MVP
 
-- basic README
-- build and distribute sasha-v0.3.0
+- distribute sasha-v0.3.1
 
 # TO DO FOR PUBLISH
 
