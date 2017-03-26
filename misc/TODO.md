@@ -1,6 +1,6 @@
 # TO DO FOR PUBLISH
 
-- a forebrain skill that leverages the mopidy actuator to intelligently pick songs based on a model trained by machine learning.
+- a forebrain skill that leverages the mopidy actuator to intelligently pick songs based on a model trained by machine learning. First k-means clustering, then neural network.
 
 - architecture modifications
     - use hindbrain
