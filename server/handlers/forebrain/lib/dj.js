@@ -6,15 +6,18 @@
 // external libraries
 const Promise = require('bluebird');
 const Kmeans = require('node-kmeans');
+const _ = require('lodash');
 
 const start = () => {
-
-    console.log('hello, it\'s me the dj');
 
     return new Promise((resolve, reject) => {
 
         trainKMeans()
-            .then(resolve)
+            .then((res) => {
+
+                console.log(JSON.stringify(res,null,2));
+                resolve(res);
+            })
             .catch(reject);
     });
 };
@@ -24,26 +27,27 @@ const trainKMeans = () => {
     return new Promise((resolve, reject) => {
 
         const data = [
-            {'company': 'Microsoft' , 'size': 91259, 'revenue': 60420},
-            {'company': 'IBM' , 'size': 400000, 'revenue': 98787},
-            {'company': 'Skype' , 'size': 700, 'revenue': 716},
-            {'company': 'SAP' , 'size': 48000, 'revenue': 11567},
-            {'company': 'Yahoo!' , 'size': 14000 , 'revenue': 6426 },
-            {'company': 'eBay' , 'size': 15000, 'revenue': 8700},
+            {'company': 'Microsoft' , 'size': 1, 'revenue': 1},
+            {'company': 'IBM' , 'size': 1, 'revenue': 1},
+            {'company': 'Skype' , 'size': 1, 'revenue': 1},
+            {'company': 'SAP' , 'size': 9, 'revenue': 9},
+            {'company': 'Yahoo!' , 'size': 9 , 'revenue': 9 },
+            {'company': 'eBay' , 'size': 9, 'revenue': 9},
         ];
 
         // Create the data 2D-array (vectors) describing the data
-        let vectors = new Array();
-        for (let i = 0 ; i < data.length ; i++) {
-            vectors[i] = [ data[i]['size'] , data[i]['revenue']];
-        }
+        const vectors = _.map(data, (datum) => {
 
-        Kmeans.clusterize(vectors, {k: 4}, (err,res) => {
+            return [ datum.size, datum.revenue ];
+        });
+
+
+        // run k-means clustering
+        Kmeans.clusterize(vectors, {k: 4}, (err, res) => {
 
             if (err) {
-                console.error(err);
+                reject(err);
             } else {
-                console.log('hihi: %o',res);
                 resolve(res);
             }
         });
