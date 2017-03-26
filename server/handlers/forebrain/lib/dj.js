@@ -12,6 +12,7 @@ const start = () => {
 
     return new Promise((resolve, reject) => {
 
+        // NOTE: the model will have already been trained, so needs to be accessed here, not trained
         trainKMeans()
             .then((res) => {
 
