@@ -1,5 +1,7 @@
 # TO DO FOR PUBLISH
 
+- use spotify web api to allow spotify login!
+
 - actuators need to be cleaned up because they were copied from sasha-api, which had a very different design
 - a forebrain skill that leverages the mopidy actuator to intelligently pick songs based on a model trained by machine learning. First k-means clustering, then neural network.
 
