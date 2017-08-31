@@ -16,7 +16,7 @@ spreadsheet_id = '1cM-yDqosHzSQ-K9ITPRIMST-aTJ6mF22LfYZnjMqO3g'
 
 # The A1 notation of a range to search for a logical table of data.
 # Values will be appended after the last row of the table.
-range_ = 'A:B'
+range_ = 'Sheet1!A:B'
 
 # How the input data should be interpreted.
 value_input_option = 'USER_ENTERED'
