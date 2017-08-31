@@ -6,6 +6,8 @@ As views start to collect, they should be broken into smaller apps.
 
 import json
 
+from . import fb
+
 from django.shortcuts import render, HttpResponse
 
 

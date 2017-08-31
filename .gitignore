@@ -3,3 +3,4 @@
 *.cpython*
 db.sqlite3
 .env
+google-sheets-creds.json

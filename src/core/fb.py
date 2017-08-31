@@ -3,9 +3,14 @@ import os
 from fbchat import Client
 from fbchat.models import *
 
+print('start fb messenger bot')
 
 thread_id = '536288846'
 thread_type = ThreadType.GROUP
+
+authors = {
+    536288846: 'Ben Wiz'
+}
 
 class CustomClient(Client):
     def onMessage(self, mid, author_id, message, thread_id, thread_type, ts, metadata, msg, **kwargs):
@@ -20,16 +25,16 @@ class CustomClient(Client):
 
             # TODO: Record message.
 
+
+            # TODO: Respond with entry datetime.
             response = 'Thanks! I\'ve recorded this in your journal. ' + \
-                       'Anything else you send in this chat will also be ' + \
+                       'Anything else you send in this chat today will be ' + \
                        'recorded for today\'s entry.'
             self.sendMessage(response, thread_id=thread_id)
 
 # For early dev just manually set env vars
 client = CustomClient(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
-
-# Will send a message to the thread
-client.sendMessage('some message!', thread_id=thread_id)  #, thread_type=thread_type)
+client.listen()
 
 # # Will send the default `like` emoji
 # client.sendEmoji(emoji=None, size=EmojiSize.LARGE, thread_id=thread_id, thread_type=thread_type)
@@ -73,5 +78,3 @@ client.sendMessage('some message!', thread_id=thread_id)  #, thread_type=thread_
 
 # # Will react to a message with a 😍 emoji
 # client.reactToMessage('i luv robots', MessageReaction.LOVE)
-
-client.listen()
