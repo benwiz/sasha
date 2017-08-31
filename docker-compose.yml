@@ -1,0 +1,12 @@
+version: '3'
+services:
+
+  sasha:
+    build: .
+    container_name: sasha
+    ports:
+      - 8000:8000
+    volumes:
+      - ./src:/sasha/src
+    environment:
+      SECRET_KEY: lolthisisasecretkey
