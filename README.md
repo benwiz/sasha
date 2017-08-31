@@ -4,9 +4,16 @@
 docker-compose up
 ```
 
+```bash
+docker exec -it sasha bash
+```
+
 ## To Do
 
-- Use celery to text once a day for a journal.
+- Journal
+  - Use Twilio to send a text message.
+  - Handle a response by appending it to a database or google sheets document.
+  - Use celery to text once a day.
 
 ## Notes
 
