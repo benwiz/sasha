@@ -10,5 +10,5 @@ services:
       - ./src:/sasha/src
     environment:
       SECRET_KEY: lolthisisasecretkey
-      TWILIO_ACCOUNT: AC11c08e7ea6cb35f19ab7e535d997e2ae
-      TWILIO_TOKEN: ${TWILIO_TOKEN}
+      # TWILIO_ACCOUNT: AC11c08e7ea6cb35f19ab7e535d997e2ae
+      # TWILIO_TOKEN: ${TWILIO_TOKEN}

@@ -3,16 +3,33 @@ import os
 from fbchat import Client
 from fbchat.models import *
 
-# client = Client(settings.FB_ACCOUNT, settings.FB_PASSWORD)
 
-# For early dev just manually set env vars
-client = Client(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
-
-thread_id = '100021852848092'
+thread_id = '536288846'
 thread_type = ThreadType.GROUP
 
+class CustomClient(Client):
+    def onMessage(self, mid, author_id, message, thread_id, thread_type, ts, metadata, msg, **kwargs):
+        """
+        Handle a message.
+        """
+        self.markAsDelivered(author_id, thread_id)
+        self.markAsRead(author_id)
+
+        # If you're not the author
+        if author_id != self.uid:
+
+            # TODO: Record message.
+
+            response = 'Thanks! I\'ve recorded this in your journal. ' + \
+                       'Anything else you send in this chat will also be ' + \
+                       'recorded for today\'s entry.'
+            self.sendMessage(response, thread_id=thread_id)
+
+# For early dev just manually set env vars
+client = CustomClient(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
+
 # Will send a message to the thread
-client.sendMessage('hi', thread_id=thread_id)
+client.sendMessage('some message!', thread_id=thread_id)  #, thread_type=thread_type)
 
 # # Will send the default `like` emoji
 # client.sendEmoji(emoji=None, size=EmojiSize.LARGE, thread_id=thread_id, thread_type=thread_type)
@@ -57,4 +74,4 @@ client.sendMessage('hi', thread_id=thread_id)
 # # Will react to a message with a 😍 emoji
 # client.reactToMessage('i luv robots', MessageReaction.LOVE)
 
-client.listen()  # https://github.com/carpedm20/fbchat/blob/master/examples/echobot.py
+client.listen()

@@ -122,5 +122,5 @@ STATIC_URL = '/static/'
 
 # Custom
 
-TWILIO_ACCOUT = os.environ['TWILIO_ACCOUNT']
-TWILIO_TOKEN = os.environ['TWILIO_TOKEN']
+# TWILIO_ACCOUT = os.environ['TWILIO_ACCOUNT']
+# TWILIO_TOKEN = os.environ['TWILIO_TOKEN']
