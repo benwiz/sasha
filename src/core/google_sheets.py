@@ -22,7 +22,7 @@ range_ = 'Sheet1!A:B'
 value_input_option = 'USER_ENTERED'
 
 # How the input data should be inserted.
-insert_data_option = 'INSERT_ROWS'  # TODO: Update placeholder value.
+insert_data_option = 'INSERT_ROWS'
 
 value_range_body = {
     'values': [
