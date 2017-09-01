@@ -1,36 +1,68 @@
+"""
+Connect to Sasha's Facebook account and listen for messages. Handle certain
+threads.
+"""
+
 import os
+import datetime
 
 from fbchat import Client
 from fbchat.models import *
+import pytz
+
+from . import google_sheets
 
 print('start fb messenger bot')
 
 thread_id = '536288846'
-thread_type = ThreadType.GROUP
 
 authors = {
-    536288846: 'Ben Wiz'
+    '536288846': 'Ben Wiz',
+    '1806001818': 'Marg Dalton'
 }
+threads = {
+    'benmarg': '1372354939539577',
+    'benwiz': '536288846'
+}
+sheets = {
+    'benmarg': '1cM-yDqosHzSQ-K9ITPRIMST-aTJ6mF22LfYZnjMqO3g'
+}
+
 
 class CustomClient(Client):
     def onMessage(self, mid, author_id, message, thread_id, thread_type, ts, metadata, msg, **kwargs):
         """
         Handle a message.
         """
-        self.markAsDelivered(author_id, thread_id)
-        self.markAsRead(author_id)
 
         # If you're not the author
         if author_id != self.uid:
 
-            # TODO: Record message.
+            # Mark message as delivered and read
+            self.markAsDelivered(author_id, thread_id)
+            self.markAsRead(author_id)
 
+            # If the thread is the one with benmarg
+            if thread_id == threads['benmarg']:
 
-            # TODO: Respond with entry datetime.
-            response = 'Thanks! I\'ve recorded this in your journal. ' + \
-                       'Anything else you send in this chat today will be ' + \
-                       'recorded for today\'s entry.'
-            self.sendMessage(response, thread_id=thread_id)
+                sheet_id = sheets['benmarg']
+                timestamp = datetime.datetime.fromtimestamp(ts/1000)
+                timestamp = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+                author = authors[author_id]
+
+                rows = [
+                    [timestamp, message, author]
+                ]
+
+                # Record message
+                google_sheets.insert_data(sheet_id, rows)
+
+                # Better response. Probably just entry datetime.
+                response = 'I\'ve recorded %s\'s message for %s UTC.' \
+                           % (author, timestamp)
+                self.sendMessage(response,
+                                 thread_id=thread_id,
+                                 thread_type=ThreadType.GROUP)
 
 # For early dev just manually set env vars
 client = CustomClient(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
