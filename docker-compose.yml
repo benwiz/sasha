@@ -10,7 +10,5 @@ services:
       - ./src:/sasha/src
     environment:
       SECRET_KEY: lolthisisasecretkey
-      FB_ACCOUNT: sasha.benwiz@gmail.com
       FB_PASSWORD: ${FB_PASSWORD}
-      GOOGLE_SHEETS_API_CLIENT_ID: 675295018302-uh6snposhcp1bqffgatnq7n3on3h3819.apps.googleusercontent.com
       GOOGLE_SHEETS_API_SECRET: ${GOOGLE_SHEETS_API_SECRET}
