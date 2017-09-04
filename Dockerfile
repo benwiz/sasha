@@ -13,7 +13,7 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy all files (using volumes for development to make bulding faster)
-COPY src/ .
+COPY src ./src
 
 # # Run migrations and collectstatic
 # RUN python src/manage.py migrate
