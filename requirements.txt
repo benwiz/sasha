@@ -26,3 +26,9 @@ pyasn1-modules==0.1.1
 rsa==3.4.2
 six==1.10.0
 uritemplate==3.0.0
+amqp==2.2.1
+billiard==3.5.0.3
+celery==4.1.0
+kombu==4.1.0
+pytz==2017.2
+vine==1.1.4
