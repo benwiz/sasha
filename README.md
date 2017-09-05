@@ -11,9 +11,8 @@ docker exec -it sasha bash
 ## To Do
 
 - Journal
-  - Use Twilio to send a text message.
-  - Handle a response by appending it to a database or google sheets document.
   - Use celery to text once a day.
+  - Move the google sheets api credentials to a folder at root.s
 
 ## Notes
 
