@@ -10,7 +10,6 @@ import time
 from fbchat import Client
 from fbchat.models import *
 import pytz
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 from . import google_sheets
 
