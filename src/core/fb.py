@@ -14,7 +14,8 @@ import pytz
 from . import google_sheets
 
 
-thread_id = '536288846'
+# TODO: Leverage sessions cookies so I don't need to always log in.
+
 
 authors = {
     '536288846': 'Ben Wiz',
@@ -25,7 +26,8 @@ threads = {
     'benwiz': '536288846'
 }
 sheets = {
-    'benmarg': '1cM-yDqosHzSQ-K9ITPRIMST-aTJ6mF22LfYZnjMqO3g'
+    'benmarg': '1cM-yDqosHzSQ-K9ITPRIMST-aTJ6mF22LfYZnjMqO3g',
+    'margaridamoments': '1XiQgGHNkVAUlBm7nUSbMYXiS312Hh3gkKj8zUvKP8cY'
 }
 
 
@@ -57,12 +59,31 @@ class CustomClient(Client):
                 # Record message
                 google_sheets.insert_data(sheet_id, rows)
 
-                # Better response. Probably just entry datetime.
+                # Respond to thread.
                 response = 'I\'ve recorded %s\'s message for %s UTC.' \
                            % (author, timestamp)
                 self.sendMessage(response,
                                  thread_id=thread_id,
                                  thread_type=ThreadType.GROUP)
+
+            # If the thread is just from me
+            elif thread_id == threads['benwiz']:
+
+                sheet_id = sheets['margaridamoments']
+                timestamp = datetime.datetime.fromtimestamp(ts/1000)
+                timestamp = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+
+                rows = [
+                    [timestamp, message]
+                ]
+
+                # Record message
+                google_sheets.insert_data(sheet_id, rows)
+
+                # Respond to thread.
+                response = 'I\'ve recorded the entry for %s UTC.' \
+                           % (timestamp)
+                self.sendMessage(response, thread_id=thread_id)
 
 
 def listen():

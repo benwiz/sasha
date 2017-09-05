@@ -11,4 +11,3 @@ services:
     environment:
       SECRET_KEY: ${SECRET_KEY}
       FB_PASSWORD: ${FB_PASSWORD}
-      GOOGLE_SHEETS_API_SECRET: ${GOOGLE_SHEETS_API_SECRET}
