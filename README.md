@@ -12,7 +12,10 @@ docker exec -it sasha bash
 
 - Journal
   - Use celery to text once a day.
-  - Move the google sheets api credentials to a folder at root.s
+  - Move the google sheets api credentials to a folder at root.
+
+- Monitoring
+  - Somehow run a chatbot test when accessing the index and display whether that chatbot is working.
 
 ## Notes
 
