@@ -26,4 +26,3 @@ pyasn1-modules==0.1.1
 rsa==3.4.2
 six==1.10.0
 uritemplate==3.0.0
-APScheduler==3.3.1
