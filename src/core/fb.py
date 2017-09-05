@@ -13,8 +13,6 @@ import pytz
 
 from . import google_sheets
 
-sched = BlockingScheduler()
-
 
 thread_id = '536288846'
 
