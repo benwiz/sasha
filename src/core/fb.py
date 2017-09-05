@@ -12,7 +12,6 @@ import pytz
 
 from . import google_sheets
 
-print('start fb messenger bot')
 
 thread_id = '536288846'
 
@@ -64,9 +63,15 @@ class CustomClient(Client):
                                  thread_id=thread_id,
                                  thread_type=ThreadType.GROUP)
 
-# For early dev just manually set env vars
-client = CustomClient(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
-client.listen()
+
+def listen():
+    """
+    Listen to Facebook.
+    """
+
+    client = CustomClient(os.environ['FB_ACCOUNT'], os.environ['FB_PASSWORD'])
+    client.listen()
+
 
 # # Will send the default `like` emoji
 # client.sendEmoji(emoji=None, size=EmojiSize.LARGE, thread_id=thread_id, thread_type=thread_type)

@@ -24,4 +24,4 @@ ENV FB_ACCOUNT sasha.benwiz@gmail.com
 ENV GOOGLE_SHEETS_API_CLIENT_ID 675295018302-uh6snposhcp1bqffgatnq7n3on3h3819.apps.googleusercontent.com
 
 # Start webserver (not fit for production)
-CMD python src/manage.py runserver 0.0.0.0:$PORT
+CMD python src/manage.py runserver 0.0.0.0:8000
