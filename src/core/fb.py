@@ -5,12 +5,16 @@ threads.
 
 import os
 import datetime
+import time
 
 from fbchat import Client
 from fbchat.models import *
 import pytz
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 from . import google_sheets
+
+sched = BlockingScheduler()
 
 
 thread_id = '536288846'
@@ -73,18 +77,13 @@ def listen():
     client.listen()
 
 
-@app.on_after_configure.connect
-def setup_periodic_tasks(sender, **kwargs):
-    # Executes every Monday morning at 7:30 a.m.
-    sender.add_periodic_task(
-        # crontab(hour=7, minute=30, day_of_week=1),
-        5,
-        test.s('Happy Mondays!')
-    )
+# def cron():
+#     """
+#     Cronjobs.
+#     """
 
-@app.task
-def test(arg):
-    print(arg)
+#     while True:
+#         time.sleep(5)
 
 
 #
