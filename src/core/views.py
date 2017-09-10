@@ -1,7 +1,7 @@
 """
 Core views.
 
-As views start to collect, they should be broken into smaller apps.
+As views start to collect, they should be broken into smaller applications.
 """
 
 import json
