@@ -12,7 +12,7 @@ docker exec -it sasha bash
 
 - Journal
   - Use celery to text once a day.
-  - Move the google sheets api credentials to a folder at root.
+  - Move the google sheets api credentials to an assets or secrets folder at root.
   - Location from where message was sent.
   - CDT/CST time column. Or better yet, local time whatever that happens to be.
 
