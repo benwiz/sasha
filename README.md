@@ -15,6 +15,7 @@ docker exec -it sasha bash
   - Move the google sheets api credentials to an assets or secrets folder at root.
   - Location from where message was sent.
   - CDT/CST time column. Or better yet, local time whatever that happens to be.
+  - Reply with link to google sheets document on request.
 
 - Monitoring
   - Somehow run a chatbot test when accessing the index and display whether that chatbot is working.
