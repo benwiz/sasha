@@ -10,12 +10,19 @@ docker exec -it sasha bash
 
 ## To Do
 
+- Person object
+  + Can I connect with google contacts?
+  + Use Django's `user` class
+  - First name
+  - Last name
+  - Location
+
 - Journal
-  - Use celery to text once a day.
+  - Use celery or other tool to text once a day.
   - Move the google sheets api credentials to an assets or secrets folder at root.
-  - Location from where message was sent.
-  - CDT/CST time column. Or better yet, local time whatever that happens to be.
+  - Record location of Person.
   - Reply with link to google sheets document on request.
+  - Implement FetchUnread
 
 - Monitoring
   - Somehow run a chatbot test when accessing the index and display whether that chatbot is working.

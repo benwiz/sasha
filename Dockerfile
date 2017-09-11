@@ -12,7 +12,8 @@ WORKDIR /sasha
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-# Copy all files (using volumes for development to make bulding faster)
+# Copy all files
+COPY assets ./assets
 COPY src ./src
 
 # # Run migrations and collectstatic

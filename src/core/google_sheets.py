@@ -9,7 +9,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Connection
 scopes = ['https://www.googleapis.com/auth/spreadsheets']
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    '/sasha/src/core/google-sheets-creds.json', scopes=scopes)
+    '/sasha/assets/secrets/google-sheets-creds.json', scopes=scopes)
 service = discovery.build('sheets', 'v4', credentials=credentials)
 
 # Config
