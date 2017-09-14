@@ -1,8 +1,35 @@
 # Sasha
 
+Sasha is a decision center where decisions (internal or delivered by a human) cause Sasha to produce commands. In the Umbra, there are a myriad of microservices that are listening to Sasha waiting to hear the right trigger.
+
+Example uses:
+
+- Control the lights
+- Control the music
+- Analyze my journal and make predictions/suggestions
+- Be my to do list and reminder system
+- Wake me up in the morning
+
+Basically, my own personal assisant.
+
+## (the?) Umbra
+
+- The Umbra is not a part of this repo.
+
+- Sasha does not perform any actions.
+- Sasha does not know how to contact any actuators.
+- Sasha does not know about the Umbra.
+- The Umbra is a collection of consise microservices that listens to Sasha in order to know when to execute their singular task/purpose.
+
+## Get up and running locally
+
+Run Sasha
+
 ```bash
 docker-compose up
 ```
+
+Get inside Sasha
 
 ```bash
 docker exec -it sasha bash
