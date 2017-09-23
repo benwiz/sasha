@@ -17,6 +17,9 @@ from core.worldstate import WorldState
 current_state = WorldState('current')
 desired_state = WorldState('desired')
 
+# Set desired state for testing
+desired_state.set_state({'salt_lamp': {'state': 1}})
+
 
 def status(request):
     """
