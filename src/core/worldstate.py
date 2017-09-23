@@ -100,9 +100,10 @@ class WorldState:
         `future_state` is a WorldClass instance.
         """
 
-        return _identify_differences(state1, state2)
+        future = future_state.get_state()
+        return self._identify_differences(self._state, future)
 
-    def _idenfity_differences(state1, state2, differences={}):
+    def _identify_differences(self, state1, state2, differences={}):
         """
         Recursively identify the differences between two states and return
         it as a similarly shaped dictionary. This currently assumes the states
@@ -116,21 +117,24 @@ class WorldState:
         just looks at the top level.
         """
 
+        # Init differences dict
+        differences = {}
+
         # For each item in the base state
         for item in state1.items():
             # Get the value from old and new states
             key = item[0]
             value = item[1]
-            new_value = state2[key]
+            value2 = state2[key]
             # Check if the value is a dictionary
             if type(value) == dict:
                 # Recurse
-                differences[key] = _idenfity_differences(value, state, differences)
+                differences[key] = self._identify_differences(value, value2, differences)
             # Otherwise, compare the two values
             else:
-                if value != new_value:
+                if value != value2:
                     # Update the differences dict
-                    differences[key] = new_value
+                    differences[key] = value2
 
             # Return the differences dict
         return differences
