@@ -26,22 +26,12 @@ docker-compose up
 
 ## To Do
 
-- Person object
-  + Can I connect with google contacts?
-  + Use Django's `user` class
-  - First name
-  - Last name
-  - Location
+- Maintain the current state of the world (inmem?? stateful?? in redis? in mysql db?? trying to avoid rdb)
+- Maintain the desired state of the world
 
-- Journal
-  - Use celery or other tool to text once a day.
-  - Move the google sheets api credentials to an assets or secrets folder at root.
-  - Record location of Person.
-  - Reply with link to google sheets document on request.
-  - Implement FetchUnread
-
-- Monitoring
-  - Somehow run a chatbot test when accessing the index and display whether that chatbot is working.
+- Planning/architecture/design
+  - Design UI
+  - How are people (users) considered in logic? How are they tracked?
 
 ## Notes
 
