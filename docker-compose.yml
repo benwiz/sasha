@@ -11,4 +11,3 @@ services:
       - ./assets:/sasha/assets
     environment:
       SECRET_KEY: ${SECRET_KEY}
-      FB_PASSWORD: ${FB_PASSWORD}

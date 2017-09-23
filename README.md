@@ -1,6 +1,6 @@
 # Sasha
 
-Sasha is a decision center where decisions (internal or delivered by a human) cause Sasha to produce commands. In the Umbra, there are a myriad of microservices that are listening to Sasha waiting to hear the right trigger.
+Sasha is a decision center. Sasha tracks the current-state-of-the-world and the desired-state-of-the-world. Sasha can be queried for some or all of the world's properties. In addition to responding with both states of the world, Sasha will also include a set of commands/instructions/actions that must take place to modify the current-state-of-the-world so that it matches the desired-state-of-the-world.
 
 Example uses:
 
@@ -12,14 +12,9 @@ Example uses:
 
 Basically, my own personal assisant.
 
-## (the?) Umbra
+## Relationship to Umbra and Zing
 
-- The Umbra is not a part of this repo.
-
-- Sasha does not perform any actions.
-- Sasha does not know how to contact any actuators.
-- Sasha does not know about the Umbra.
-- The Umbra is a collection of consise microservices that listens to Sasha in order to know when to execute their singular task/purpose.
+Umbra and Zing are collections of microserves that query Sasha in order to know what action to take. They are also frequently reporting in to Sasha so that the current-state-of-the-world is as up-to-date as possible.
 
 ## Get up and running locally
 
@@ -27,12 +22,6 @@ Run Sasha
 
 ```bash
 docker-compose up
-```
-
-Get inside Sasha
-
-```bash
-docker exec -it sasha bash
 ```
 
 ## To Do
