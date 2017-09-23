@@ -73,12 +73,46 @@ class WorldState:
                 # Set the value
                 sub_state = value
 
-    def get_differences(self, future_state):
+    def get_commands(self, future_state):
         """
-        This functions what changes to this state are necessary to reach the
-        provided future state.
+        This functions determines what changes to this state are necessary to
+        reach the provided future state. For now, we know that all states have
+        the same properties.
 
         `future_state` is a WorldClass instance.
         """
 
-        return
+        return _identify_differences(state1, state2)
+
+    def _idenfity_differences(state1, state2, differences={}):
+        """
+        Recursively identify the differences between two states and return
+        it as a similarly shaped dictionary. This currently assumes the states
+        both have the exact same shape.
+
+        In the future, once properties can be added and removed from statues,
+        this function will need to validate the properties while traversing.
+
+        NOTE: This probably won't work without some messing around. Maybe
+        smarter to also create a `_idenfity_differences_simple()` function that
+        just looks at the top level.
+        """
+
+        # For each item in the base state
+        for item in state1.items():
+            # Get the value from old and new states
+            key = item[0]
+            value = item[1]
+            new_value = state2[key]
+            # Check if the value is a dictionary
+            if type(value) == dict:
+                # Recurse
+                differences[key] = _idenfity_differences(value, state, differences)
+            # Otherwise, compare the two values
+            else:
+                if value != new_value:
+                    # Update the differences dict
+                    differences[key] = new_value
+
+            # Return the differences dict
+        return differences

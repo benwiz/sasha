@@ -9,5 +9,3 @@ services:
     volumes:
       - ./src:/sasha/src
       - ./assets:/sasha/assets
-    environment:
-      SECRET_KEY: ${SECRET_KEY}
