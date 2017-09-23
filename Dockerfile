@@ -13,7 +13,6 @@ COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy all files
-COPY assets ./assets
 COPY src ./src
 
 # # Run migrations and collectstatic
