@@ -62,6 +62,9 @@ class WorldState:
         Set the property at the given, dot separated path. This function should
         not create new properties. For now, I want the dictionary hardcoded
         into the class.
+
+        TODO: This needs to become a recursive function that eventually calls
+        `set_state()`.
         """
 
         # Get the sequence of keys
@@ -73,18 +76,20 @@ class WorldState:
         # Iterate through sequence of keys
         for key in keys:
             # Get the next level of the state dictionary
-            sub_state = sub_state.get(key)
+            sub_state = sub_state.get(key, '&empty')
 
             # If there was no next level found
-            if sub_state is None:
+            if sub_state == '&empty':
                 # Raise an exception
                 raise KeyError('Could not find "%s" in provided path "%s"'
-                               % key, path)
+                               % (key, path))
 
             # If the final key
             if key == keys[-1]:
                 # Set the value
                 sub_state = value
+
+        print('ss:', sub_state)
 
     def get_commands(self, future_state):
         """
