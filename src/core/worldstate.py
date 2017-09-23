@@ -72,3 +72,13 @@ class WorldState:
             if key == keys[-1]:
                 # Set the value
                 sub_state = value
+
+    def get_differences(self, future_state):
+        """
+        This functions what changes to this state are necessary to reach the
+        provided future state.
+
+        `future_state` is a WorldClass instance.
+        """
+
+        return
