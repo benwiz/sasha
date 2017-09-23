@@ -64,7 +64,7 @@ class WorldState:
         into the class.
 
         TODO: This needs to become a recursive function that eventually calls
-        `set_state()`.
+        `set_state()`. It currently does not work.
         """
 
         # Get the sequence of keys
@@ -111,10 +111,6 @@ class WorldState:
 
         In the future, once properties can be added and removed from statues,
         this function will need to validate the properties while traversing.
-
-        NOTE: This probably won't work without some messing around. Maybe
-        smarter to also create a `_idenfity_differences_simple()` function that
-        just looks at the top level.
         """
 
         # Init differences dict
