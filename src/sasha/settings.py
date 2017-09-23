@@ -27,7 +27,7 @@ SECRET_KEY = 'w6z-e3&ixa&prjf4%1ewy6*=r4(lk7v6q*94p_=c4e)n56%0gz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sasha.benwiz.io']
+ALLOWED_HOSTS = ['sasha.benwiz.io', 'localhost']
 
 
 # Application definition

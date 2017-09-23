@@ -1,7 +1,10 @@
 """
 Core views.
 
-As views start to collect, they should be broken into smaller applications.
+The core application is for communication with external services and should do
+no more than calcuate differences between the current and desired states.
+
+Probably should not use this application for any front-end work.
 """
 
 import json
@@ -10,9 +13,9 @@ from multiprocessing import Process
 from django.shortcuts import render, HttpResponse
 
 
-def index(request):
+def status(request):
     """
-    Health.
+    Status. Health.
     """
 
     response = {
