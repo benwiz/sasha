@@ -20,16 +20,17 @@ class WorldState:
             }
         }
 
-    def get_state(self):
-        return self._state
+    def __str__(self):
+        return self._name
 
-    def set_state(self, state):
-        self._state = state
+    def get_state(self, path=None):
+        """
+        Get the state. If a path is provided that part of the dictionary will
+        be returned.
+        """
 
-    def get_property(self, path):
-        """
-        Get the property at the given, dot separated path.
-        """
+        if path is None:
+            return self._state
 
         # Get the squence of keys
         keys = path.split('.')
@@ -40,11 +41,21 @@ class WorldState:
         # Iterate through the sequence of keys
         for key in keys:
             # Get the next level of the state dictionary
-            sub_state = sub_state[key]
+            sub_state = sub_state.get(key, '&empty')
+
+            # If there was no next level found
+            if sub_state == '&empty':
+                # Raise an exception
+                raise KeyError('Could not find "%s" in provided path "%s"'
+                               % (key, path))
+
             # If the final key
             if key == keys[-1]:
                 # Return the current sub_state
                 return sub_state
+
+    def set_state(self, state):
+        self._state = state
 
     def set_property(self, path, value):
         """
@@ -63,11 +74,13 @@ class WorldState:
         for key in keys:
             # Get the next level of the state dictionary
             sub_state = sub_state.get(key)
+
             # If there was no next level found
             if sub_state is None:
                 # Raise an exception
                 raise KeyError('Could not find "%s" in provided path "%s"'
                                % key, path)
+
             # If the final key
             if key == keys[-1]:
                 # Set the value
