@@ -26,8 +26,7 @@ docker-compose up
 
 ## To Do
 
-- Maintain the current state of the world (going to see if inmem works, but must create using a module so it's easy to change)
-- Maintain the desired state of the world
+- Update the current state
 
 - Planning/architecture/design
   - Design UI
