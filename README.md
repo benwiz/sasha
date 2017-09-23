@@ -27,10 +27,12 @@ docker-compose up
 ## To Do
 
 - Update the current state
+- Start using Django REST Framework
 
 - Planning/architecture/design
   - Design UI
-  - How are people (users) considered in logic? How are they tracked?
+  - Figure out the best architecture to track humans. Remember, no logic just tracking.
+
 
 ## Notes
 
