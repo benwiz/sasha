@@ -26,13 +26,15 @@ docker-compose up
 
 ## To Do
 
-- Update the current state
 - Start using Django REST Framework
+
+- Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts.
 
 - Planning/architecture/design
   - Design UI
   - Figure out the best architecture to track humans. Remember, no logic just tracking.
 
+- Generic tree traversing algorithm
 
 ## Notes
 

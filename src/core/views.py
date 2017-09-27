@@ -22,7 +22,7 @@ m_current_state = WorldState('current')
 m_desired_state = WorldState('desired')
 
 # Set desired state for testing
-m_desired_state.set_state({'salt_lamp': {'state': 1}})
+m_desired_state.set_state({'salt_lamp': {'state': 'on'}})
 
 
 def status(request):

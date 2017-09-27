@@ -1,6 +1,9 @@
 """
 The file implements a "state-of-the-world" class. All properties must be
 accessed through getter and setter functions.
+
+TODO: Use sqlite database (or other longer term solution) so that the state
+isn't reset every time the webserver restarts.
 """
 
 
