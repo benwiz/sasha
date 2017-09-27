@@ -59,37 +59,35 @@ class WorldState:
 
     def set_property(self, path, value):
         """
-        Set the property at the given, dot separated path. This function should
-        not create new properties. For now, I want the dictionary hardcoded
-        into the class.
-
-        TODO: This needs to become a recursive function that eventually calls
-        `set_state()`. It currently does not work.
+        Set the property at the given, dot separated path. Currently new leaves
+        may be created but not new nodes.
         """
 
         # Get the sequence of keys
         keys = path.split('.')
 
-        # Get the top leve of the state (the whole thing)
+        # Get the top level of the state (the whole thing)
         sub_state = self._state
+        print(sub_state)
 
         # Iterate through sequence of keys
         for key in keys:
-            # Get the next level of the state dictionary
-            sub_state = sub_state.get(key, '&empty')
-
-            # If there was no next level found
-            if sub_state == '&empty':
-                # Raise an exception
-                raise KeyError('Could not find "%s" in provided path "%s"'
-                               % (key, path))
-
             # If the final key
             if key == keys[-1]:
                 # Set the value
-                sub_state = value
+                sub_state[key] = value
+            else:
+                # Get the next level of the state dictionary. We set the value to
+                # `'&empty'` instead of `None` here because it is possible that the
+                # value of the state is `None`.
+                sub_state = sub_state.get(key, '&empty')
+                print(sub_state)
 
-        print('ss:', sub_state)
+                # If there was no next level found
+                if sub_state == '&empty':
+                    # Raise an exception
+                    raise KeyError('Could not find "%s" in provided path "%s"'
+                                   % (key, path))
 
     def get_commands(self, future_state):
         """

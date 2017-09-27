@@ -5,6 +5,9 @@ The core application is for communication with external services and should do
 no more than calcuate differences between the current and desired states.
 
 Probably should not use this application for any front-end work.
+
+TODO: Generic state tree traversing.
+TODO: Use Django REST Framework, it looks amazing.
 """
 
 import json
@@ -61,14 +64,32 @@ def state(request):
                             status=200)
 
     # If PUT state
-    elif request.method == 'PUT':
+    elif request.method == 'PUT' or request.method == 'POST':
 
-        # Get the query string values
+        payload = json.loads(request.body)
 
+        # The states from payload
+        new_current_state = payload.get('current_state')
+        new_desired_state = payload.get('desired_state')
+        print('new_current_state:', new_current_state)
+        print('new_desired_state:', new_desired_state)
 
-        # Update m_desired_state
-        # m_desired_state.set_property('salt_lamp.state', )
+        # TODO: Dynamically parse through the state tree. This is not the first
+        # time dynamic parsing has come up. There should definitely be a
+        # generic.
 
+        # Set state for salt_lamp. This will have to go away in favor of above.
+        if new_current_state:
+            m_current_state.set_property(
+                'salt_lamp.state', new_current_state['salt_lamp']['state'])
+        if new_desired_state:
+            m_desired_state.set_property(
+                'salt_lamp.state', new_desired_state['salt_lamp']['state'])
+
+        response = {
+            'current_state': m_current_state.get_state(),
+            'desired_state': m_desired_state.get_state()
+        }
         response = json.dumps(response)
         return HttpResponse(response,
                             content_type='application/json',
