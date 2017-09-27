@@ -26,15 +26,21 @@ docker-compose up
 
 ## To Do
 
-- Start using Django REST Framework
+- High Priority
+  - Updating state from wemo service
+  - Rudimentary GUI to control light
+  - Rudimentary fb messenger UI to control light
 
-- Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts.
+- Low Priority (medium falls into low)
+  - Start using Django REST Framework
+  - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts.
+  - Generic tree traversing algorithm?
 
 - Planning/architecture/design
-  - Design UI
-  - Figure out the best architecture to track humans. Remember, no logic just tracking.
-
-- Generic tree traversing algorithm
+  - Design GUI
+  - Design Chatbot UI
+  - Design Gestures UI
+  - Figure out the best architecture to track humans (location, name, etc.). Remember, no logic just tracking.
 
 ## Notes
 
