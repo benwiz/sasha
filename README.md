@@ -14,7 +14,7 @@ Basically, my own personal assisant.
 
 ## Relationship to Umbra and Zing
 
-Umbra and Zing are collections of microservices that query Sasha in order to know what action to take. They are also frequently reporting in to Sasha so that the current-state-of-the-world is as up-to-date as possible.
+Umbra and Zing are collections of microservices that query Sasha in order to know what action to take. They are also frequently reporting to Sasha so that the current-state-of-the-world is as up-to-date as possible.
 
 ## Get up and running locally
 
