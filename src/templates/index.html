@@ -41,9 +41,10 @@ even using jQuery. -->
 
     // Add event listeners for all given items
     function addClickEventListener(items) {
-        for (item in items) {
-            items[item].addEventListener('click', function(e) {
-                updateDesiredState();
+        for (key in items) {
+            var item = items[key];
+            item.addEventListener('click', function(e) {
+                updateDesiredState(items);
             });
         }
     }
@@ -52,11 +53,14 @@ even using jQuery. -->
     // update the current state. This is not a very efficient. It is simple
     // to program and add new discrete services to, though. It will suffice
     // for a while.
-    function updateDesiredState() {
-        console.log('updateDesiredState()');
-        desired_state = {
-
+    function updateDesiredState(items) {
+        var desired_state = {
+            salt_lamp: {
+                state: items.salt_lamp.checked ? 'on' : 'off'
+            }
         };
+        console.log(desired_state);
+        // TODO: call setCurrentState using response
     }
 
 </script>
