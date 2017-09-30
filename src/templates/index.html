@@ -28,13 +28,19 @@ even using jQuery. -->
     };
 
     // Prepare
-    setDesiredState(items, desired_state);
+    setDesiredState(items, desired_state, current_state);
     setCurrentState(current_state);
     addClickEventListener(items);
 
     // Set the current desired_state for all items using data passed in context
-    function setDesiredState(items, desired_state) {
-        items.salt_lamp.checked = desired_state.salt_lamp.state === 'on';
+    function setDesiredState(items, desired_state, current_state) {
+        // This if statement sets the checkbox to the current state if the desired
+        // state is unknown.
+        if (desired_state.salt_lamp.state) {
+            items.salt_lamp.checked = desired_state.salt_lamp.state === 'on';
+        } else {
+            items.salt_lamp.checked = current_state.salt_lamp.state === 'on';
+        }
     }
 
     // Set the current_state for all items using data passed in context
