@@ -6,7 +6,6 @@ no more than calcuate differences between the current and desired states.
 
 Probably should not use this application for any front-end work.
 
-TODO: Generic state tree traversing.
 TODO: Use Django REST Framework, it looks amazing.
 """
 
