@@ -21,7 +21,8 @@ from core.worldstate import WorldState
 m_current_state = WorldState('current')
 m_desired_state = WorldState('desired')
 
-# Set desired state for testing
+# Set state for testing
+m_current_state.set_state({'salt_lamp': {'state': 'on'}})
 m_desired_state.set_state({'salt_lamp': {'state': 'on'}})
 
 
@@ -30,7 +31,11 @@ def index(request):
     Main UI.
     """
 
-    return render(request, 'index.html', {})
+    context = {
+        'current_state': json.dumps(m_current_state.get_state()),
+        'desired_state': json.dumps(m_desired_state.get_state())
+    }
+    return render(request, 'index.html', context)
 
 
 def status(request):

@@ -3,16 +3,50 @@ my intention is to use a front-end framework like vue.js. I say vue.js over
 react or angular because I'm under the impression it is lighter wieght. -->
 
 <h2>This is Sasha.</h2>
-<button type="button" onclick="saltLampToggle()">Salt Lamp Toggle</button>
+<div>
+    <input type="checkbox" id="salt-lamp" name="interest" value="salt-lamp">
+    <label for="salt-lamp">Salt Lamp</label>
+</div>
+
 
 <script>
 
-function saltLampToggle() {
-    console.log('salt lamp toggle');
-    // TODO: Ajax call to `/state` and update the desired state to the oppsite.
-    // That may mean get the desired state (which should be put in it's own
-    // function) and set the desired state (which should also be it's own
-    // function).
-}
+    // Get context
+    var current_state = '{{ current_state|escapejs }}'
+    var desired_state = JSON.parse('{{ desired_state|escapejs }}')
+
+    // Collect items
+    var items = {
+        salt_lamp: document.querySelector('#salt-lamp')
+    };
+
+    // Prepare
+    setDesiredState(items, desired_state);
+    addClickEventListener(items);
+
+    // Set the current desired_state for all items using data passed in context
+    function setDesiredState(items, desired_state) {
+        items.salt_lamp.checked = desired_state.salt_lamp.state === 'on';
+    }
+
+    // Add event listeners for all given items
+    function addClickEventListener(items) {
+        for (item in items) {
+            items[item].addEventListener('click', function(e) {
+                updateDesiredState();
+            });
+        }
+    }
+
+    // Call this function any time an input changes to read all inputs and
+    // update the current state. This is not a very efficient. It is simple
+    // to program and add new discrete services to, though. It will suffice
+    // for a while.
+    function updateDesiredState() {
+        console.log('updateDesiredState()');
+        desired_state = {
+
+        };
+    }
 
 </script>
