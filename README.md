@@ -27,13 +27,12 @@ docker-compose up
 ## To Do
 
 - High Priority
-  - Updating state from wemo service
   - Rudimentary GUI to control light
-  - Rudimentary fb messenger UI to control light
+  - Rudimentary fb messenger UI to control light (this is really part of Umbra)
 
 - Low Priority (medium falls into low)
-  - Start using Django REST Framework
-  - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts.
+  - Start using Django REST Framework (I think this allows for auto docs!)
+  - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts. Maybe. There is value in expecting the state to be rebuilt within 10 seconds.
   - Generic tree traversing algorithm?
 
 - Planning/architecture/design
