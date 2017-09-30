@@ -8,5 +8,6 @@ from . import views
 
 urlpatterns = [
     url(r'^api/state', views.state, name='state'),
-    url(r'^$', views.status, name='status'),
+    url(r'^status', views.status, name='status'),
+    url(r'^$', views.index, name='index'),
 ]

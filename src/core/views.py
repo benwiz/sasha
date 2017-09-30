@@ -25,6 +25,14 @@ m_desired_state = WorldState('desired')
 m_desired_state.set_state({'salt_lamp': {'state': 'on'}})
 
 
+def index(request):
+    """
+    Main UI.
+    """
+
+    return render(request, 'index.html', {})
+
+
 def status(request):
     """
     Status. Health.
