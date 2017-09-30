@@ -21,9 +21,9 @@ from core.worldstate import WorldState
 m_current_state = WorldState('current')
 m_desired_state = WorldState('desired')
 
-# Set state for testing
-m_current_state.set_state({'salt_lamp': {'state': 'on'}})
-m_desired_state.set_state({'salt_lamp': {'state': 'on'}})
+# # Set state for testing
+# m_current_state.set_state({'salt_lamp': {'state': 'on'}})
+# m_desired_state.set_state({'salt_lamp': {'state': 'on'}})
 
 
 def index(request):

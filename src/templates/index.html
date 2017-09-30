@@ -1,19 +1,21 @@
-<!-- This is a super rudimentary implementation of a UI for Sasha. I think
-my intention is to use a front-end framework like vue.js. I say vue.js over
-react or angular because I'm under the impression it is lighter wieght. -->
+<!-- This is a very rudimentary implementation of a UI for Sasha. I think
+my intention is to use a front-end framework like vue.js. But first I need
+to design it. This current implementation is supposed to be very minimal, not
+even using jQuery. -->
 
 <h2>This is Sasha.</h2>
 <div>
     <input type="checkbox" id="salt-lamp" name="interest" value="salt-lamp">
-    <label for="salt-lamp">Salt Lamp</label>
+    <label id="salt-lamp-name" for="salt-lamp">Salt Lamp</label>
+    <label id="salt-lamp-state" for="salt-lamp">( )</label>
 </div>
 
 
 <script>
 
     // Get context
-    var current_state = '{{ current_state|escapejs }}'
-    var desired_state = JSON.parse('{{ desired_state|escapejs }}')
+    var desired_state = JSON.parse('{{ desired_state|escapejs }}');
+    var current_state = JSON.parse('{{ current_state|escapejs }}');
 
     // Collect items
     var items = {
@@ -22,11 +24,19 @@ react or angular because I'm under the impression it is lighter wieght. -->
 
     // Prepare
     setDesiredState(items, desired_state);
+    setCurrentState(current_state);
     addClickEventListener(items);
 
     // Set the current desired_state for all items using data passed in context
     function setDesiredState(items, desired_state) {
         items.salt_lamp.checked = desired_state.salt_lamp.state === 'on';
+    }
+
+    // Set the current_state for all items using data passed in context
+    // TODO: This janky label manipulation is not the right approach.
+    function setCurrentState(current_state) {
+        var salt_lamp_state_label = document.querySelector('#salt-lamp-state');
+        salt_lamp_state_label.textContent = '(' + current_state.salt_lamp.state + ')';
     }
 
     // Add event listeners for all given items
