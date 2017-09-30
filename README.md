@@ -27,7 +27,6 @@ docker-compose up
 ## To Do
 
 - High Priority
-  - Rudimentary GUI to control light
   - Rudimentary fb messenger UI to control light (this is really part of Umbra)
 
 - Low Priority (medium falls into low)
