@@ -1,1 +1,18 @@
-this is sasha
+<!-- This is a super rudimentary implementation of a UI for Sasha. I think
+my intention is to use a front-end framework like vue.js. I say vue.js over
+react or angular because I'm under the impression it is lighter wieght. -->
+
+<h2>This is Sasha.</h2>
+<button type="button" onclick="saltLampToggle()">Salt Lamp Toggle</button>
+
+<script>
+
+function saltLampToggle() {
+    console.log('salt lamp toggle');
+    // TODO: Ajax call to `/state` and update the desired state to the oppsite.
+    // That may mean get the desired state (which should be put in it's own
+    // function) and set the desired state (which should also be it's own
+    // function).
+}
+
+</script>
