@@ -75,10 +75,11 @@ def state(request):
                             content_type='application/json',
                             status=200)
 
-    # If PUT state
+    # If PUT state; TODO: Get rid of POST from here.
     elif request.method == 'PUT' or request.method == 'POST':
 
         payload = json.loads(request.body)
+        print(payload)
 
         # The states from payload
         new_current_state = payload.get('current_state')
@@ -86,7 +87,7 @@ def state(request):
 
         # TODO: Dynamically parse through the state tree. This is not the first
         # time dynamic parsing has come up. There should definitely be a
-        # generic.
+        # generic function.
 
         # Set state for salt_lamp. This will have to go away in favor of above.
         if new_current_state:
