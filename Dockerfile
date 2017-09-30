@@ -15,9 +15,9 @@ RUN pip install -r requirements.txt
 # Copy all files
 COPY src ./src
 
-# Run migrations and collectstatic
+# # Run migrations and collectstatic
 # RUN python src/manage.py migrate
-RUN python src/manage.py collectstatic --noinput
+# RUN python src/manage.py collectstatic --noinput
 
 # Start webserver (not fit for production)
 CMD python src/manage.py runserver 0.0.0.0:8000
