@@ -28,11 +28,21 @@ docker-compose up
 
 - High Priority
   - UI needs to be refreshing itself
+  - Python API Wrapper
 
 - Low Priority (medium and low)
   - Start using Django REST Framework (I think this allows for auto docs!)
   - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts. Maybe. There is value in expecting the state to be rebuilt within 10 seconds.
   - Generic tree traversing algorithm?
+
+- API Wrappers (remaining)
+  - Python
+  - Node.js
+  - JavaScript (ajx)
+  - Go
+  - Clojure
+  - Java
+  - Rust
 
 - Planning/architecture/design
   - Design GUI
