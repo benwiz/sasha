@@ -75,8 +75,9 @@ def state(request):
                             content_type='application/json',
                             status=200)
 
-    # If PUT state; TODO: Get rid of POST from here.
-    elif request.method == 'PUT' or request.method == 'POST':
+    # If PUT state; TODO: Get rid of POST from here. And this is actually a
+    # PATCH not a PUT or POST
+    elif request.method == 'PUT' or request.method == 'POST' or request.method == 'PATCH':
 
         payload = json.loads(request.body)
         print(payload)
