@@ -13,10 +13,7 @@ class WorldState:
         self._name = name
 
         # I have chosen to store the state of the world as a single dictionary
-        # rather than as a collection of properties because I think it will be
-        # easier to change in the future.
-        #
-        # For on/off states use 1/0. Use `None` for unknown.
+        # for the beginning while I learn what a better architecture requires.
         self._state = {
             'salt_lamp': {
                 'state': None  # 'on' | 'off'
