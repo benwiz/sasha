@@ -28,8 +28,9 @@ docker-compose up
 
 - High Priority
   - Rudimentary fb messenger UI to control light (this is really part of Umbra)
+  - UI needs to be refreshing itself
 
-- Low Priority (medium falls into low)
+- Low Priority (medium and low)
   - Start using Django REST Framework (I think this allows for auto docs!)
   - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts. Maybe. There is value in expecting the state to be rebuilt within 10 seconds.
   - Generic tree traversing algorithm?
