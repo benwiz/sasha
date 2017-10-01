@@ -40,3 +40,5 @@ docker-compose up
   - Design Chatbot UI
   - Design Gestures UI
   - Figure out the best architecture to track humans (location, name, etc.). Remember, no logic just tracking.
+
+- Look into Git Submodules to discover if that would be a better git architecture for `sasha` and her parts: `brain`, `umbra`, and `zing`.
