@@ -32,6 +32,9 @@ even using jQuery. -->
     setCurrentState(current_state);
     addClickEventListener(items);
 
+    // Start UI updating loop
+    updateStateDisplayLoop();
+
     // Set the current desired_state for all items using data passed in context
     function setDesiredState(items, desired_state, current_state) {
         // This if statement sets the checkbox to the current state if the desired
@@ -81,11 +84,29 @@ even using jQuery. -->
             type: 'POST',
             data: data,
             success: function(res) {
-                console.log('success', res);
+                // console.log('success', res);
                 // TODO: call setCurrentState using response
             },
             error: function(err) {
                 console.log('updateDesiredState() error:', err);
+            }
+        });
+    }
+
+    // Update state display
+    function updateStateDisplayLoop() {
+        // Get state
+        $.ajax({
+            url: '/api/state/',
+            type: 'GET',
+            success: function(res) {
+                setCurrentState(res.current_state);
+                setDesiredState(items, res.desired_state, res.current_state);
+
+                setTimeout(updateStateDisplayLoop, 1000);
+            },
+            error: function(err) {
+                console.log('set  state loop error:', err);
             }
         });
     }
