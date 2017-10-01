@@ -28,7 +28,8 @@ docker-compose up
 
 - High Priority
   - UI needs to be refreshing itself
-  - Python API Wrapper
+  - Python API Wrapper (use the file from Umbra/fbchat)
+  - Clean google stuff out of requirements.txt
 
 - Low Priority (medium and low)
   - Start using Django REST Framework (I think this allows for auto docs!)
