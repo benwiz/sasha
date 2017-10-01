@@ -19,7 +19,7 @@ class WorldState:
         # For on/off states use 1/0. Use `None` for unknown.
         self._state = {
             'salt_lamp': {
-                'state': None
+                'state': None  # 'on' | 'off'
             }
         }
 
