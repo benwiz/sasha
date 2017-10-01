@@ -27,7 +27,6 @@ docker-compose up
 ## To Do
 
 - High Priority
-  - UI needs to be refreshing itself
   - Python API Wrapper (use the file from Umbra/fbchat)
   - Clean google stuff out of requirements.txt
 
