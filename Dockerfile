@@ -1,4 +1,5 @@
-FROM python:3.6
+# FROM python:3.6
+FROM jaymoulin/rpi-python:3.6
 
 # Necessary env var and port
 ENV PYTHONUNBUFFERED 1
