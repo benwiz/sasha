@@ -24,4 +24,4 @@ COPY src ./src
 # RUN python src/manage.py collectstatic --noinput
 
 # Start webserver (not fit for production)
-CMD python src/manage.py runserver 0.0.0.0:8000
+CMD python3 src/manage.py runserver 0.0.0.0:8000
