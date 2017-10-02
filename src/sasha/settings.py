@@ -26,7 +26,7 @@ SECRET_KEY = 'w6z-e3&ixa&prjf4%1ewy6*=r4(lk7v6q*94p_=c4e)n56%0gz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sasha.benwiz.io', 'localhost', '192.168.0.7', '192.168.0.6']
+ALLOWED_HOSTS = ['sasha.benwiz.io', 'localhost', '192.168.0.7', '192.168.0.6', 'raspberrypi.local']
 
 
 # Application definition
