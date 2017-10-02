@@ -51,3 +51,4 @@ docker-compose up
   - Figure out the best architecture to track humans (location, name, etc.). Remember, no logic just tracking.
 
 - Look into Git Submodules to discover if that would be a better git architecture for `sasha` and her parts: `brain`, `umbra`, and `zing`. The major value being in a consolidated to do list as well as containing overall TODOs and TODOs that belong to no repo (e.g. raspberry pi).
+- Raspberry Pi auto deploy
