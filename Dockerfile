@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 # COPY ./requirements.txt .
 # RUN pip3 install -r requirements.txt
 RUN pip3 install mysqlclient psycopg2 django
-RUN pip3 install sqlite3
+RUN pip3 install pysqlite2
 
 # Copy all files
 COPY src ./src
