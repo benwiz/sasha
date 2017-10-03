@@ -12,9 +12,18 @@ EXPOSE 8000
 RUN mkdir -p /sasha
 WORKDIR /sasha
 
+RUN apt-get update && apt-get install -y \
+		gcc \
+		gettext \
+		mysql-client libmysqlclient-dev \
+		postgresql-client libpq-dev \
+		sqlite3 \
+	--no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 # Install requirements
-COPY ./requirements.txt .
-RUN pip3 install -r requirements.txt
+# COPY ./requirements.txt .
+# RUN pip3 install -r requirements.txt
+RUN pip3 install mysqlclient psycopg2 django
 
 # Copy all files
 COPY src ./src
