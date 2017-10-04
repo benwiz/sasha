@@ -29,7 +29,7 @@ docker-compose up
 ### Python
 
 ```bash
-pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=PySasha&subdirectory=api-wrappers/sasha"
+pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=sasha&subdirectory=api-wrappers/sasha"
 ```
 
 ```bash
