@@ -33,9 +33,23 @@ class Sasha:
         """
 
         url = self._host + '/api/state'
-        res = requests.get(url, headers=self._headers)
-        response = res.json()
 
+        try:
+            res = requests.get(url, headers=self._headers)
+        except requests.exceptions.Timeout as e:
+            # Maybe set up for a retry, or continue in a retry loop
+            print(e)
+            return self.get_state(path=path)
+        except requests.exceptions.TooManyRedirects as e:
+            # Tell the user their URL was bad and try a different one
+            print(e)
+            return 'bad url?'
+        except requests.exceptions.RequestException as e:
+            # Catastrophic error. Bail.
+            print(e)
+            sys.exit(1)
+
+        response = res.json()
         return response
 
     def update_state(self, current_state=None, desired_state=None):
@@ -55,19 +69,32 @@ class Sasha:
 
         url = self._host + '/api/state'
         data = json.dumps(state)
-        res = requests.patch(url, headers=self._headers, data=data)
-        response = res.json()
 
+        try:
+            res = requests.patch(url, headers=self._headers, data=data)
+        except requests.exceptions.Timeout as e:
+            # Maybe set up for a retry, or continue in a retry loop
+            print(e)
+            return self.update_state(current_state=current_state,
+                                     desired_state=desired_state)
+        except requests.exceptions.TooManyRedirects as e:
+            # Tell the user their URL was bad and try a different one
+            print(e)
+            return 'bad url?'
+        except requests.exceptions.RequestException as e:
+            # Catastrophic error. Bail.
+            print(e)
+            sys.exit(1)
+
+        response = res.json()
         return response
 
 
-def f():
-    print('hi')
-
 if __name__ == '__main__':
+    print('Run Sasha.')
     sasha = Sasha()
 
-    print('get state:')
+    print('\nget state:')
     state = sasha.get_state()
     pprint(state)
 
@@ -84,3 +111,5 @@ if __name__ == '__main__':
     }
     state = sasha.update_state(current_state=current_state, desired_state=desired_state)
     pprint(state)
+
+
