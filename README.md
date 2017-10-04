@@ -39,7 +39,6 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 ## To Do
 
 - High Priority
-  - Python API Wrapper (use the file from Umbra/fbchat)
   - Deploy to Elastic Beanstalk as the only single instance application
     - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
 
