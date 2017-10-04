@@ -29,7 +29,6 @@ class Sasha:
         commands.
 
         TODO: Once GET /api/state supports it, handle a path.
-        TODO: Error handling.
         """
 
         url = self._host + '/api/state'
@@ -57,8 +56,6 @@ class Sasha:
         Update the state(s) endpoint. It update current_state, desired_sate,
         and commands. Behaves like a patch, so only what is provided will be
         updated.
-
-        TODO: Error handling.
         """
 
         state = {}
