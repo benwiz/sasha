@@ -29,7 +29,11 @@ docker-compose up
 ### Python
 
 ```bash
-pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=PySasha&subdirectory=api-wrappers/PySasha"
+pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=PySasha&subdirectory=api-wrappers/sasha"
+```
+
+```bash
+python -c "import sasha; s = sasha.Sasha(); print(s)"
 ```
 
 ## To Do
