@@ -29,6 +29,7 @@ docker-compose up
 - High Priority
   - Python API Wrapper (use the file from Umbra/fbchat)
   - Deploy to Elastic Beanstalk as the only single instance application
+    - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
 
 - Low Priority (medium and low)
   - Start using Django REST Framework (I think this allows for auto docs!)
