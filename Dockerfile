@@ -9,7 +9,7 @@ RUN mkdir -p /sasha
 WORKDIR /sasha
 
 # Install requirements
-COPY ./requirements.txt .
+COPY ./requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy all files

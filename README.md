@@ -28,7 +28,7 @@ docker-compose up
 
 - High Priority
   - Python API Wrapper (use the file from Umbra/fbchat)
-  - Clean google stuff out of requirements.txt
+  - Deploy to Elastic Beanstalk as the only single instance application
 
 - Low Priority (medium and low)
   - Start using Django REST Framework (I think this allows for auto docs!)
@@ -44,11 +44,13 @@ docker-compose up
   - Java
   - Rust
 
+## General To Do
+
 - Planning/architecture/design
   - Design GUI
   - Design Chatbot UI
   - Design Gestures UI
   - Figure out the best architecture to track humans (location, name, etc.). Remember, no logic just tracking.
 
-- Look into Git Submodules to discover if that would be a better git architecture for `sasha` and her parts: `brain`, `umbra`, and `zing`. The major value being in a consolidated to do list as well as containing overall TODOs and TODOs that belong to no repo (e.g. raspberry pi).
+- Look into Git Submodules and Subtrees to discover if they would be a better git architecture for `sasha` and its parts: `brain`, `umbra`, and `zing`. The major value being in a consolidated to do list as well as containing overall TODOs and TODOs that belong to no repo (e.g. raspberry pi).
 - Raspberry Pi auto deploy
