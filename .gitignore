@@ -5,6 +5,7 @@ db.sqlite3
 assets/secrets/*
 .env
 google-sheets-creds.json
+venv/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
