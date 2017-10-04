@@ -24,6 +24,14 @@ Run Sasha
 docker-compose up
 ```
 
+## API Wrappers
+
+### Python
+
+```bash
+pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=PySasha&subdirectory=api-wrappers/PySasha"
+```
+
 ## To Do
 
 - High Priority

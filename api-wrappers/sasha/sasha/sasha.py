@@ -61,6 +61,9 @@ class Sasha:
         return response
 
 
+def f():
+    print('hi')
+
 if __name__ == '__main__':
     sasha = Sasha()
 
