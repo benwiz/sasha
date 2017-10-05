@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Vendor
+    'rest_framework',
+    # Mine
     'core',
 ]
 
@@ -125,7 +128,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Custom
+# Django REST Framework
 
-# TWILIO_ACCOUT = os.environ['TWILIO_ACCOUNT']
-# TWILIO_TOKEN = os.environ['TWILIO_TOKEN']
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

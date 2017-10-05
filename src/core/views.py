@@ -15,7 +15,14 @@ from pprint import pprint
 
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+
 from core.worldstate import WorldState
+
+# Django rest framework stuff... should be integrated into the above import blocks
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets
+from core.serializers import UserSerializer, GroupSerializer
+
 
 m_current_state = WorldState('current')
 m_desired_state = WorldState('desired')
@@ -49,6 +56,7 @@ def status(request):
     return HttpResponse(response, content_type='application/json', status=200)
 
 
+# TODO: Convert this to use Django REST Framework
 @csrf_exempt  # For development.
 def state(request):
     """
@@ -117,3 +125,25 @@ def state(request):
         return HttpResponse(response,
                             content_type='application/json',
                             status=405)
+
+
+#
+# Stuff from the Django REST Framework tutorial
+#
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    View or edit users.
+    """
+
+    queryset = user.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+
+
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    View or edit groups.
+    """
+
+    queryset = Group.objects.all()
+    serializer_Class = GroupSerializer

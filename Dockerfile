@@ -15,8 +15,7 @@ RUN pip install -r requirements.txt
 # Copy all files
 COPY src ./src
 
-# # Run migrations and collectstatic
-# RUN python src/manage.py migrate
+# # Run collectstatic
 # RUN python src/manage.py collectstatic --noinput
 
 # Start webserver (not fit for production)

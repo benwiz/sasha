@@ -4,6 +4,10 @@ Endpoints for the core app.
 
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+
+# This block are imports for Django REST Framework (from the tutorial)
+
+
 from . import views
 
 urlpatterns = [
