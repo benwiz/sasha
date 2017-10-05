@@ -41,9 +41,9 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 - High Priority
   - Deploy to Elastic Beanstalk as the only single instance application
     - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
+  - Start using Django REST Framework (I think this allows for auto docs!)
 
 - Low Priority (medium and low)
-  - Start using Django REST Framework (I think this allows for auto docs!)
   - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts. Maybe. There is value in expecting the state to be rebuilt within 10 seconds.
   - Generic tree traversing algorithm?
 

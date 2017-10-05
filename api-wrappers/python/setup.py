@@ -1,3 +1,7 @@
+"""
+Install with `pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=sasha&subdirectory=api-wrappers/python"`.
+"""
+
 from setuptools import setup
 
 setup(
