@@ -1,15 +1,15 @@
 branch-defaults:
   master:
-    environment: sasha-prod
+    environment: sasha
 environment-defaults:
-  sasha-prod:
+  sasha:
     branch: null
     repository: null
 global:
   application_name: sasha
   default_ec2_keyname: null
   default_platform: arn:aws:elasticbeanstalk:us-east-1::platform/Docker running on
-    64bit Amazon Linux/2.7.3
+    64bit Amazon Linux/2.7.4
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
