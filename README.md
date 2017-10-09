@@ -58,8 +58,7 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 ## General To Do
 
 - Build APIs to handle controlling music
-  - Some performance may be sacrificed to not require this to be online. If Sasha really has no direct communication with any of its services in Umbra or Zing, Umbra can also be deployed locally (currently not on RPI due the fbchat service).
-  - TL;DR - Replicate the wemo service structure for spotify controls in Umbra
+  - Write a non-containerized script. If possible
 
 - Deploy umbra to raspberrypi or linux computer (and move into my room)
 - Look into wifi speakers/controlling linux computer and second raspberry pi with sasha and via spotify app
