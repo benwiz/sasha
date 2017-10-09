@@ -39,24 +39,30 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 ## To Do
 
 - High Priority
-  - Deploy to Elastic Beanstalk as the only single instance application
-    - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
+  - Add a `.dockerignore` file
+  - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
   - Start using Django REST Framework (I think this allows for auto docs!)
 
 - Low Priority (medium and low)
-  - Use sqlite database (or other longer term solution) so that the state isn't reset every time the webserver restarts. Maybe. There is value in expecting the state to be rebuilt within 10 seconds.
-  - Generic tree traversing algorithm?
+  - Generic login where the user just has to type in a simple password
+  - Generic tree traversing algorithm(s) for `worldstate` class
 
 - API Wrappers (remaining)
-  - Python
   - Node.js
-  - JavaScript (ajx)
+  - JavaScript (ajax)
   - Go
   - Clojure
   - Java
   - Rust
 
 ## General To Do
+
+- Build APIs to handle controlling music
+  - Some performance may be sacrificed to not require this to be online. If Sasha really has no direct communication with any of its services in Umbra or Zing, Umbra can also be deployed locally (currently not on RPI due the fbchat service).
+  - TL;DR - Replicate the wemo service structure for spotify controls in Umbra
+
+- Deploy umbra to raspberrypi or linux computer (and move into my room)
+- Look into wifi speakers/controlling linux computer and second raspberry pi with sasha and via spotify app
 
 - Planning/architecture/design
   - Design GUI
@@ -65,4 +71,4 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
   - Figure out the best architecture to track humans (location, name, etc.). Remember, no logic just tracking.
 
 - Look into Git Submodules and Subtrees to discover if they would be a better git architecture for `sasha` and its parts: `brain`, `umbra`, and `zing`. The major value being in a consolidated to do list as well as containing overall TODOs and TODOs that belong to no repo (e.g. raspberry pi).
-- Raspberry Pi auto deploy
+- Raspberry Pi auto update
