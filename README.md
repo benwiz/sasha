@@ -43,7 +43,7 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
   - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
   - Start using Django REST Framework (I think this allows for auto docs!)
 
-- Low Priority (medium and low)
+- Low Priority (there is no medium priority)
   - Generic login where the user just has to type in a simple password
   - Generic tree traversing algorithm(s) for `worldstate` class
 
@@ -57,11 +57,13 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 
 ## General To Do
 
-- Build APIs to handle controlling music
-  - Write a non-containerized script. If possible
+- High Priority
+  - Move TODOs into a trello board, but it needs a more organized backlog than jira
+  - Deploy umbra to raspberrypi or linux computer (and move into my room)
+  - Figure out how to handle music
+  - Consider bringing a GUI to the raspberry pi in the living room and using the wireless keyboard and mouse.
 
-- Deploy umbra to raspberrypi or linux computer (and move into my room)
-- Look into wifi speakers/controlling linux computer and second raspberry pi with sasha and via spotify app
+- Low Priority
 
 - Planning/architecture/design
   - Design GUI
