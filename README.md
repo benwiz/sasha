@@ -40,13 +40,14 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 
 - High Priority
   - Add a `.dockerignore` file
-  - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
   - Start using Django REST Framework (I think this allows for auto docs!)
+  - Finish node.js wrapper
+    - Delete `api-wrappers/node/node_modules` and reinstall libraries froms scratch
 
 - Low Priority (there is no medium priority)
   - Generic login where the user just has to type in a simple password
   - Generic tree traversing algorithm(s) for `worldstate` class
-  - Delete `api-wrappers/node/node_modules` and reinstall libraries froms scratch.
+  - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
 
 - API Wrappers (remaining)
   - Go
