@@ -6,6 +6,7 @@ assets/secrets/*
 .env
 google-sheets-creds.json
 venv/
+node_modules/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

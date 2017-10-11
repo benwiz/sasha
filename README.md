@@ -46,6 +46,7 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 - Low Priority (there is no medium priority)
   - Generic login where the user just has to type in a simple password
   - Generic tree traversing algorithm(s) for `worldstate` class
+  - Delete `api-wrappers/node/node_modules` and reinstall libraries froms scratch.
 
 - API Wrappers (remaining)
   - Go
