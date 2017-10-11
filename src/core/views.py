@@ -86,6 +86,8 @@ def state(request):
         new_current_state = payload.get('current_state')
         new_desired_state = payload.get('desired_state')
 
+        print('nds:', new_desired_state)
+
         # TODO: Dynamically parse through the state tree. This is not the first
         # time dynamic parsing has come up. There should definitely be a
         # generic function.
