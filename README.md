@@ -48,9 +48,9 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
   - Generic tree traversing algorithm(s) for `worldstate` class
 
 - API Wrappers (remaining)
+  - Go
   - Node.js
   - JavaScript (ajax)
-  - Go
   - Clojure
   - Java
   - Rust
