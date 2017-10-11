@@ -40,21 +40,21 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
 
 - High Priority
   - Add a `.dockerignore` file
-  - Start using Django REST Framework (I think this allows for auto docs!)
   - Finish node.js wrapper
     - Delete `api-wrappers/node/node_modules` and reinstall libraries froms scratch
     - Figure out how to make installable with npm
+  - add next wemo outlet
 
 - Low Priority (there is no medium priority)
   - Generic login where the user just has to type in a simple password
   - Generic tree traversing algorithm(s) for `worldstate` class
+  - Start using Django REST Framework (I think this allows for auto docs!)
   - SSL: https://bluefletch.com/blog/domain-agnostic-letsencrypt-ssl-config-for-elastic-beanstalk-single-instances/
   - Python API wrapper unit tests
   - Node.js API wrapper unit tests
 
-- API Wrappers (remaining)
+- API Wrappers (not yet started)
   - Go
-  - Node.js
   - JavaScript (ajax)
   - Clojure
   - Java
