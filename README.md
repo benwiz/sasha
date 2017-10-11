@@ -54,6 +54,7 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
   - Clojure
   - Java
   - Rust
+  - C
 
 ## General To Do
 
