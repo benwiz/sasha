@@ -60,6 +60,9 @@ python -c "import sasha; s = sasha.Sasha(); print(s)"
   - Java
   - Rust
   - C
+  - Ruby
+  - Elixir
+  - Erlang
 
 ## General To Do
 
