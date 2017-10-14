@@ -12,6 +12,9 @@ Example uses:
 
 Basically, my own personal assisant.
 
+
+TO DO LIST: https://trello.com/b/moFFwWYu/sasha
+
 ## Relationship to Umbra and Zing
 
 Umbra and Zing are collections of microservices that query Sasha in order to know what action to take. They are also frequently reporting to Sasha so that the current-state-of-the-world is as up-to-date as possible.

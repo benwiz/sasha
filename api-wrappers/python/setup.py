@@ -1,5 +1,9 @@
 """
 Install with `pip install git+ssh://git@github.com/benwiz/sasha.git#"egg=sasha&subdirectory=api-wrappers/python"`.
+
+Or try adding the following to requirements.txt:
+
+git+git://github.com/benwiz/sasha.git#"egg=sasha&subdirectory=api-wrappers/python"
 """
 
 from setuptools import setup

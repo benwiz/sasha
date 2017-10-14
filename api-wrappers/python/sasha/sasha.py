@@ -5,7 +5,7 @@ module (not to be deployed publically).
 TODO: Tests should be built in.
 """
 
-
+import sys
 import json
 from pprint import pprint
 
