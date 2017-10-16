@@ -7,6 +7,7 @@ assets/secrets/*
 google-sheets-creds.json
 venv/
 node_modules/
+.vscode/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
