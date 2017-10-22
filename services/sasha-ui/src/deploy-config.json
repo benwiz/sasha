@@ -1,0 +1,9 @@
+{
+  "functionName": "sasha-ui",
+  "config": "deploy-config.json",
+  "outputConfig": "src/deploy-config.json",
+  "aws": {
+      "profile": "personal",
+      "region": "us-east-1"
+  }
+}
