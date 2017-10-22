@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lambda-local -l src/index.js -h handler -e lambda-test-events/test.js",
     "deploy": "node node_modules/lambda-deploy-cli/lambda-deploy-cli.js --config deploy-config.json"
   },
   "author": "Ben Wisialowski",
