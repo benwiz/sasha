@@ -8,9 +8,3 @@ google-sheets-creds.json
 venv/
 node_modules/
 .vscode/
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-!.elasticbeanstalk/config.yml
