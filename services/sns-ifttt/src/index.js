@@ -1,13 +1,38 @@
 const Https = require('https');
-const Querystring = require('querystring');
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
-// 'https://maker.ifttt.com/trigger/' + iftttMakerEventName + '/with/key/' + iftttSecretKey
 
-// Display the contents of the index.html file
+// Pass along the payload to the correct IFTTT action.
 const handler = (event, context) => {
   const message = event.Records[0].Sns.Message;
   console.log('From SNS:', message);
+
+  const data = JSON.parse(message);
+  const action = data.action;
+  const payload = data.payload ? JSON.stringify(data.payload) : null;
+
+  const options = {
+    hostname: 'maker.ifttt.com',
+    port: 443,
+    path: `/trigger/${action}/with/key/${iftttSecretKey}`,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const req = Https.request(options, (res) => {
+    res.on('data', (d) => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on('error', (e) => {
+    console.error(e);
+  });
+
+  req.write(payload);
+  req.end();
 };
 
 exports.handler = handler;
