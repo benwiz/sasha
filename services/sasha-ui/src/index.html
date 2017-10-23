@@ -19,8 +19,8 @@ even using jQuery. -->
 
 <script>
     // Get context
-    var desired_state = JSON.parse('{{ desired_state|escapejs }}');
-    var current_state = JSON.parse('{{ current_state|escapejs }}');
+    var desired_state = JSON.parse('{{ desired_state }}');
+    var current_state = JSON.parse('{{ current_state }}');
     // Collect items
     var items = {
         salt_lamp: document.querySelector('#salt-lamp')
