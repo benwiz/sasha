@@ -9,7 +9,7 @@ const handler = (event, context) => {
 
   const data = JSON.parse(message);
   const action = data.action;
-  const payload = data.payload ? JSON.stringify(data.payload) : null;
+  const payload = data.payload ? JSON.stringify(data.payload) : '';
 
   const options = {
     hostname: 'maker.ifttt.com',
@@ -31,11 +31,8 @@ const handler = (event, context) => {
     console.error(e);
   });
 
-  if (payload) {
-    req.write(payload);
-  } else {
-    req.write();
-  }
+  console.log('payload:', payload);
+  req.write(payload);
   req.end();
 };
 
