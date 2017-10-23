@@ -31,7 +31,11 @@ const handler = (event, context) => {
     console.error(e);
   });
 
-  req.write(payload);
+  if (payload) {
+    req.write(payload);
+  } else {
+    req.write();
+  }
   req.end();
 };
 
