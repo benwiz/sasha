@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+// Replace jinja style double bracket templates in a string. Replacements will also convert data
+// a string if necessary.
 const replaceTemplates = (replacements, html) => {
   let result = html;
   Object.keys(replacements).forEach((key) => {
