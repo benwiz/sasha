@@ -3,7 +3,11 @@ const fs = require('fs');
 const replaceTemplates = (replacements, html) => {
   let result = html;
   Object.keys(replacements).forEach((key) => {
-    result = result.replace(`{{ ${key} }}`, replacements[key]);
+    let replacement = replacements[key];
+    if (typeof replacement === 'object') {
+      replacement = JSON.stringify(replacement);
+    }
+    result = result.replace(`{{ ${key} }}`, replacement);
   });
   return result;
 };
