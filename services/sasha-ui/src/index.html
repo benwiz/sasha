@@ -1,7 +1,6 @@
 <!-- This is a very rudimentary implementation of a UI for Sasha. I think
 my intention is to use a front-end framework like vue.js. But first I need
-to design it. This current implementation is supposed to be very minimal, not
-even using jQuery. -->
+to design it. -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -18,85 +17,14 @@ even using jQuery. -->
 
 
 <script>
+
     // Get context
     var desired_state = JSON.parse('{{ desired_state }}');
     var current_state = JSON.parse('{{ current_state }}');
+
     // Collect items
     var items = {
         salt_lamp: document.querySelector('#salt-lamp')
     };
-    // Prepare
-    setDesiredState(items, desired_state, current_state);
-    setCurrentState(current_state);
-    addClickEventListener(items);
-    // Start UI updating loop
-    updateStateDisplayLoop();
-    // Set the current desired_state for all items using data passed in context
-    function setDesiredState(items, desired_state, current_state) {
-        // This if statement sets the checkbox to the current state if the desired
-        // state is unknown.
-        if (desired_state.salt_lamp.state) {
-            items.salt_lamp.checked = desired_state.salt_lamp.state === 'on';
-        } else {
-            items.salt_lamp.checked = current_state.salt_lamp.state === 'on';
-        }
-    }
-    // Set the current_state for all items using data passed in context
-    // TODO: This janky label manipulation is not the right approach.
-    function setCurrentState(current_state) {
-        var salt_lamp_state_label = document.querySelector('#salt-lamp-state');
-        salt_lamp_state_label.textContent = '(' + current_state.salt_lamp.state + ')';
-    }
-    // Add event listeners for all given items
-    function addClickEventListener(items) {
-        for (key in items) {
-            var item = items[key];
-            item.addEventListener('click', function(e) {
-                updateDesiredState(items);
-            });
-        }
-    }
-    // Call this function any time an input changes to read all inputs and
-    // update the current state. This is not a very efficient. It is simple
-    // to program and add new discrete services to, though. It will suffice
-    // for a while.
-    function updateDesiredState(items) {
-        var desired_state = {
-            salt_lamp: {
-                state: items.salt_lamp.checked ? 'on' : 'off'
-            }
-        };
-        var payload = {
-            desired_state: desired_state
-        };
-        var data = JSON.stringify(payload);
-        $.ajax({
-            url: '/api/state/',
-            type: 'POST',
-            data: data,
-            success: function(res) {
-                // console.log('success', res);
-                // TODO: call setCurrentState using response
-            },
-            error: function(err) {
-                console.log('updateDesiredState() error:', err);
-            }
-        });
-    }
-    // Update state display
-    function updateStateDisplayLoop() {
-        // Get state
-        $.ajax({
-            url: '/api/state/',
-            type: 'GET',
-            success: function(res) {
-                setCurrentState(res.current_state);
-                setDesiredState(items, res.desired_state, res.current_state);
-                setTimeout(updateStateDisplayLoop, 1000);
-            },
-            error: function(err) {
-                console.log('set  state loop error:', err);
-            }
-        });
-    }
+
 </script>
