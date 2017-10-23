@@ -14,7 +14,8 @@ const replaceTemplates = (replacements, html) => {
   return result;
 };
 
-exports.handler = (event, context) => {
+// Display the contents of the index.html file
+const displayView = (event, context) => {
   fs.readFile('index.html', 'utf-8', (err, data) => {
     const replacements = {
       current_state: { salt_lamp: { state: 'on' } },
@@ -24,3 +25,5 @@ exports.handler = (event, context) => {
     context.succeed(html);
   });
 };
+
+exports.handler = displayView;
