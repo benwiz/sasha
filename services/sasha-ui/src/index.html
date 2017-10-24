@@ -20,13 +20,16 @@ to design it. -->
 <script>
 
     $('#salt-lamp').change(function (e) {
-        console.log('e', e);
+        var body = {
+            action: e.target.checked ? 'wemo_switch_1_on' : 'wemo_switch_1_off'
+        };
+        sendMessage('ifttt', body);
     });
 
     // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
     // directly to SNS.
     function sendMessage(topic, body) {
-        var data = JSON.stringify(payload);
+        var data = JSON.stringify(body);
         $.ajax({
             url: `?topic=${topic}`,
             type: 'POST',
