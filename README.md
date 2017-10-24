@@ -18,6 +18,8 @@ npm run deploy
 
 A Node.js Lambda function hooked up via the API Gateway for a POST request. The body of the POST request will be taken exactly as is and placed into the topic noted in the query string.
 
+I chose to use the library `aws-sns-publish` because it just works. I should probably learn `aws-sdk`.
+
 Query string
 
 ```text
