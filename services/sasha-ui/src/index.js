@@ -17,11 +17,9 @@ const replaceTemplates = (replacements, html) => {
 // Display the contents of the index.html file
 const displayView = (event, context, callback) => {
   fs.readFile('index.html', 'utf-8', (err, data) => {
-    const replacements = {
-      current_state: { salt_lamp: { state: 'on' } },
-      desired_state: { salt_lamp: { state: 'on' } },
-    };
-    const html = replaceTemplates(replacements, data);
+    // const replacements = {};
+    // const html = replaceTemplates(replacements, data);
+    const html = data;
     context.succeed(html); // TODO: use callback instead
   });
 };

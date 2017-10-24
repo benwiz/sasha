@@ -19,16 +19,26 @@ to design it. -->
 
 <script>
 
-    // Get context
-    var desired_state = JSON.parse('{{ desired_state }}');
-    var current_state = JSON.parse('{{ current_state }}');
-
-    // Collect items
-    var items = {
-        salt_lamp: document.querySelector('#salt-lamp')
-    };
+    $('#salt-lamp').change(function (e) {
+        console.log('e', e);
+    });
 
     // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
     // directly to SNS.
+    function sendMessage(topic, body) {
+        var data = JSON.stringify(payload);
+        $.ajax({
+            url: `?topic=${topic}`,
+            type: 'POST',
+            data: data,
+            // beforeSend: function () {},
+            success: function (res) {
+                console.log('success:', res);
+            },
+            error: function (err) {
+                console.log('sendMessage() error:', err);
+            }
+        });
+    }
 
 </script>

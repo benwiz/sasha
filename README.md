@@ -63,7 +63,6 @@ npm run deploy
 
 - sasha-ui
   - Hook up toggle
-  - Receive SNS notification for status of toggles??
+  - Receive SNS notification for status of toggles?? or apple notifications?
 - http-sns
-  - make it do everything
-  - don't use root credentials
+  - faster? or is it slow due to sns-ifttt?
