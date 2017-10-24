@@ -8,3 +8,4 @@ google-sheets-creds.json
 venv/
 node_modules/
 .vscode/
+npm-debug.log
