@@ -19,15 +19,27 @@ exports.handler = (event, context, callback) => {
     return callback(null, response);
   }
 
-  const params = { arn: 'arn:aws:sns:us-east-1:778257796245:%s' % queryString.topic };
-  const data = JSON.stringify(body);
-  SnsPublish(data, params).then((messageId) => {
-    console.log('messageId:', messageId);
-  });
+  const arn = `arn:aws:sns:us-east-1:778257796245:${queryString.topic}`;
+  const data = body;
+  const params = { arn };
+  console.log(data, params);
+  SnsPublish(data, params)
+    .then((messageId) => {
+      console.log('messageId:', messageId);
+      const response = {
+        statusCode: 200,
+        body: JSON.stringify({ messageId }),
+      };
+      callback(null, response);
+    })
+    .catch((err) => {
+      console.log(err);
+      const response = {
+        statusCode: 500,
+        body: JSON.stringify(err),
+      };
+      callback(null, response);
+    });
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({ message: 'Hello World!' }),
-  };
-  return callback(null, response);
+  return 0;
 };
