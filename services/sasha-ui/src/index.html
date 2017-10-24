@@ -13,7 +13,9 @@ to design it. -->
 <div>
     <input type="checkbox" id="salt-lamp" name="interest" value="salt-lamp">
     <label id="salt-lamp-name" for="salt-lamp">Salt Lamp</label>
-    <label id="salt-lamp-state" for="salt-lamp">( )</label>
+
+    <input type="checkbox" id="downstairs-lamp" name="interest" value="downstairs-lamp">
+    <label id="downstairs-lamp-name" for="downstairs-lamp">Downstairs Lamp</label>
 </div>
 
 
@@ -22,6 +24,13 @@ to design it. -->
     $('#salt-lamp').change(function (e) {
         var body = {
             action: e.target.checked ? 'wemo_switch_1_on' : 'wemo_switch_1_off'
+        };
+        sendMessage('ifttt', body);
+    });
+
+    $('#salt-lamp').change(function (e) {
+        var body = {
+            action: e.target.checked ? 'wemo_switch_2_on' : 'wemo_switch_2_off'
         };
         sendMessage('ifttt', body);
     });

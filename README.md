@@ -62,7 +62,6 @@ npm run deploy
 ## To Do
 
 - sasha-ui
-  - Hook up toggle
-  - Receive SNS notification for status of toggles?? or apple notifications?
+  - Somehow display the current status of the switch
 - http-sns
   - faster? or is it slow due to sns-ifttt?
