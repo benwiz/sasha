@@ -1,0 +1,8 @@
+{
+  "functionName": "http-sns",
+  "config": "deploy-config.json",
+  "aws": {
+      "profile": "personal",
+      "region": "us-east-1"
+  }
+}

@@ -5,8 +5,8 @@ to design it. -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <head>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.138.0.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.138.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <h2>This is Sasha.</h2>
@@ -28,22 +28,7 @@ to design it. -->
         salt_lamp: document.querySelector('#salt-lamp')
     };
 
-    // AWS SNS
-    var sns = new AWS.SNS();
-
-    var params = {
-        AWSAccountId: [ /* required */
-          'STRING_VALUE',
-        ],
-        ActionName: [ /* required */
-          'STRING_VALUE',
-        ],
-        Label: 'STRING_VALUE', /* required */
-        TopicArn: 'STRING_VALUE' /* required */
-    };
-    sns.addPermission(params, function (err, data) {
-        if (err) console.log(err, err.stack); // an error occurred
-        else     console.log(data);           // successful response
-    });
+    // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
+    // directly to SNS.
 
 </script>
