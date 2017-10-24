@@ -1,7 +1,6 @@
 const SnsPublish = require('aws-sns-publish');
 
 exports.handler = (event, context, callback) => {
-  /*
   const queryString = event.queryStringParameters;
   const body = event.body;
 
@@ -19,12 +18,10 @@ exports.handler = (event, context, callback) => {
     };
     return callback(null, response);
   }
-  */
 
-  const params = { arn: 'arn:aws:sns:us-east-1:778257796245:ifttt' };
-  const data = { action: 'wemo_switch_1_off' };
-  const content = JSON.stringify(data);
-  SnsPublish(content, params).then((messageId) => {
+  const params = { arn: 'arn:aws:sns:us-east-1:778257796245:%s' % queryString.topic };
+  const data = JSON.stringify(body);
+  SnsPublish(data, params).then((messageId) => {
     console.log('messageId:', messageId);
   });
 
