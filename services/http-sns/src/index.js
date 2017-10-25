@@ -44,6 +44,14 @@ exports.handler = (event, context, callback) => {
     SnsPublish(body.message, { phone: body.phone })
       .then((messageId) => {
         console.log(messageId);
+      })
+      .catch((err) => {
+        console.log(err);
+        const response = {
+          statusCode: 500,
+          body: JSON.stringify(err),
+        };
+        callback(null, response);
       });
   }
 
