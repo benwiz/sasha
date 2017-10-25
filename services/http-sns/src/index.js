@@ -20,8 +20,10 @@ exports.handler = (event, context, callback) => {
   }
 
   if (queryString.topic.toLowerCase() === 'sms') {
-    const params = { phone: body.phone };
-    SnsPublish(body.message, params)
+    const payload = JSON.parse(body);
+    const data = payload.message;
+    const params = { phone: payload.phone };
+    SnsPublish(data, params)
       .then((messageId) => {
         console.log(messageId);
         const response = {
