@@ -19,7 +19,7 @@ exports.handler = (event, context, callback) => {
     return callback(null, response);
   }
 
-  if (queryString.topic.lower() === 'sms') {
+  if (queryString.topic.toLowerCase() === 'sms') {
     const data = body;
     const params = { arn: `arn:aws:sns:us-east-1:778257796245:${queryString.topic}` };
     console.log(data, params);
