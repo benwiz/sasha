@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
     return callback('Missing environment variable for PHONE.');
   }
 
-  const message = '🐰🐰🐰🐰🐰🐰🐰🐰🐰🐰🐰\n🐰 Good morning! 🐰\n🐰🐰🐰🐰🐰🐰🐰🐰🐰🐰🐰';
+  const message = ' 🐰🐰🐰🐰🐰🐰🐰\n🐰 Good morning! 🐰\n 🐰🐰🐰🐰🐰🐰🐰';
   const params = { phone: process.env.PHONE };
   SnsPublish(message, params)
     .then((messageId) => {
