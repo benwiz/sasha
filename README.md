@@ -68,3 +68,5 @@ npm run deploy
   + I.E. Figure out state store for human location and switch states
 
 - Get another light that is only on when we are together or we are each at home
+
+- Eventually I'd like to move off of IFTTT. This is important because otherwise I could just use IFTTT and it's webhook features as my entire backend and messaging system. Why? Because I want to do it myself.
