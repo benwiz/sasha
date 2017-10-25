@@ -8,7 +8,7 @@ GUI for interacting with Sasha.
 
 A simple Node.js Lmabda function that reads an html file, handles some string replacements, and serves the resulting html.
 
-https://sasha.benwiz.io
+[https://sasha.benwiz.io](https://sasha.benwiz.io)
 
 ## http-sns
 
