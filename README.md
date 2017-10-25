@@ -67,9 +67,6 @@ All node.js lambda functions:
 - sns-ifttt
 - text-bunny
 
-```text
-```
-
 ```bash
 npm run deploy
 ```
