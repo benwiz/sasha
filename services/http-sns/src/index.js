@@ -20,7 +20,7 @@ exports.handler = (event, context, callback) => {
   }
 
   if (queryString.topic.toLowerCase() === 'sms') {
-      SnsPublish(body.message, { phone: body.phone })
+    SnsPublish(body.message, { phone: body.phone })
       .then((messageId) => {
         console.log(messageId);
       })
