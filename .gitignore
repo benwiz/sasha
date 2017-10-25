@@ -2,9 +2,7 @@
 *.pyc
 *.cpython*
 db.sqlite3
-assets/secrets/*
 .env
-google-sheets-creds.json
 venv/
 node_modules/
 .vscode/
