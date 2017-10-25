@@ -61,7 +61,11 @@ npm run deploy
 
 ## To Do
 
+- Set up PIR watching entries and exits into room
+  - Have it report to a database or redis data store
+  - A cron will periodically check this against my gps location to update another record maintaing my specific location with respect to a list of places (bedroom, kitchen, marg's room, office, rouse's, etc.)
+    - ... maybe it stores two locations... macro using gps and micro using more location specific details beginning with home vs. bedroom
+- Get another light that is only on when we are together or we are each at home
+
 - sasha-ui
-  - Somehow display the current status of the switch
-- http-sns
-  - faster? or is it slow due to sns-ifttt?
+  - Change the wemo toggles to buttons (and back to toggle once we have a datastore and zing is back online)
