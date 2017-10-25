@@ -8,12 +8,6 @@ GUI for interacting with Sasha.
 
 A simple Node.js Lmabda function that reads an html file, handles some string replacements, and serves the resulting html.
 
-Deploy
-
-```bash
-npm run deploy
-```
-
 ## http-sns
 
 A Node.js Lambda function hooked up via the API Gateway for a POST request. The body of the POST request will be taken exactly as is and placed into the topic noted in the query string.
@@ -32,12 +26,6 @@ Payload
 Match desired message content.
 ```
 
-Deploy
-
-```bash
-npm run deploy
-```
-
 ## sns-ifttt
 
 A Node.js Lambda function that consumed the `ifttt` SNS topic. It takes the `action` and optional `payload` from the following message.
@@ -53,7 +41,22 @@ A Node.js Lambda function that consumed the `ifttt` SNS topic. It takes the `act
 }
 ```
 
-Deploy
+## text-bunny
+
+Node.js Lambda function set on a CloudWatch cron with a JSON payload designating the phone number and message to send to.
+
+Payload
+
+```json
+{
+  "phone": "+18881234567",
+  "message": "hey this is your text reminder"
+}
+```
+
+## Deploy
+
+All node.js lambda functions can be deployed using the following:
 
 ```bash
 npm run deploy
@@ -66,7 +69,7 @@ npm run deploy
   - A cron will periodically check this against my gps location to update another record maintaing my specific location with respect to a list of places (bedroom, kitchen, marg's room, office, rouse's, etc.)
     - ... maybe it stores two locations... macro using gps and micro using more location specific details beginning with home vs. bedroom
   + I.E. Figure out state store for human location and switch states
-
+- Slackbot or iMessage bot (unlikely) or email to Marg with a daily bun image using unsplash api
 - Get another light that is only on when we are together or we are each at home
 
 - Eventually I'd like to move off of IFTTT. This is important because otherwise I could just use IFTTT and it's webhook features as my entire backend and messaging system. Why? Because I want to do it myself.
