@@ -19,9 +19,8 @@ exports.handler = (event, context, callback) => {
     return callback(null, response);
   }
 
-  const arn = `arn:aws:sns:us-east-1:778257796245:${queryString.topic}`;
   const data = body;
-  const params = { arn };
+  const params = { arn: `arn:aws:sns:us-east-1:778257796245:${queryString.topic}` };
   console.log(data, params);
   SnsPublish(data, params)
     .then((messageId) => {
@@ -40,6 +39,11 @@ exports.handler = (event, context, callback) => {
       };
       callback(null, response);
     });
+
+  // snsPublish('SMS Message', {phone: '+14155552671'})
+  //  .then(messageId => {
+  //     console.log(messageId);
+  //  });
 
   return 0;
 };
