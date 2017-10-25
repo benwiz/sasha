@@ -20,6 +20,19 @@ exports.handler = (event, context, callback) => {
   }
 
   if (queryString.topic.toLowerCase() === 'sms') {
+      SnsPublish(body.message, { phone: body.phone })
+      .then((messageId) => {
+        console.log(messageId);
+      })
+      .catch((err) => {
+        console.log(err);
+        const response = {
+          statusCode: 500,
+          body: JSON.stringify(err),
+        };
+        callback(null, response);
+      });
+  } else {
     const data = body;
     const params = { arn: `arn:aws:sns:us-east-1:778257796245:${queryString.topic}` };
     console.log(data, params);
@@ -31,19 +44,6 @@ exports.handler = (event, context, callback) => {
           body: JSON.stringify({ messageId }),
         };
         callback(null, response);
-      })
-      .catch((err) => {
-        console.log(err);
-        const response = {
-          statusCode: 500,
-          body: JSON.stringify(err),
-        };
-        callback(null, response);
-      });
-  } else {
-    SnsPublish(body.message, { phone: body.phone })
-      .then((messageId) => {
-        console.log(messageId);
       })
       .catch((err) => {
         console.log(err);
