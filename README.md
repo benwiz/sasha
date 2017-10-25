@@ -54,9 +54,19 @@ Payload
 }
 ```
 
+If this is ever going to blast texts look into publishing to a normal sns topic then having the phone numbers subscribe to that topic. Instead of directly publishing to a specific phone number.
+
 ## Deploy
 
-All node.js lambda functions can be deployed using the following:
+All node.js lambda functions:
+
+- sasha-ui
+- http-sns
+- sns-ifttt
+- text-bunny
+
+```text
+```
 
 ```bash
 npm run deploy
