@@ -28,22 +28,6 @@ to design it. -->
 
 <script>
 
-    /*
-    $('#salt-lamp').change(function (e) {
-        var body = {
-            action: e.target.checked ? 'wemo_switch_1_on' : 'wemo_switch_1_off'
-        };
-        sendMessage('ifttt', body);
-    });
-
-    $('#downstairs-lamp').change(function (e) {
-        var body = {
-            action: e.target.checked ? 'wemo_switch_2_on' : 'wemo_switch_2_off'
-        };
-        sendMessage('ifttt', body);
-    });
-    */
-
     $('#wemo-switch-1-on').click(function (e) {
         var body = { action: 'wemo_switch_1_on' };
         sendMessage('ifttt', body);
