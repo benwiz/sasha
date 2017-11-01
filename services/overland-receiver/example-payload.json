@@ -1,0 +1,26 @@
+{
+    "locations": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.09459834035928,
+                    29.9688134115139
+                ]
+            },
+            "properties": {
+                "motion": [],
+                "speed": -1,
+                "battery_level": 0.4300000071525574,
+                "wifi": "P12-5Ghz",
+                "device_id": "",
+                "vertical_accuracy": 10,
+                "horizontal_accuracy": 65,
+                "timestamp": "2017-11-01T00:22:16Z",
+                "altitude": 0,
+                "battery_state": "unplugged"
+            }
+        }
+    ]
+}
