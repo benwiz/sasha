@@ -18,7 +18,7 @@ exports.handler = (event, context, callback) => {
 
   const response = {
     statusCode: 200,
-    body: JSON.stringify({ result: 'ok' }), // this is specifically what the Overland app expects
+    body: JSON.stringify({ result: 'ok' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
   };
   return callback(null, response);
 
