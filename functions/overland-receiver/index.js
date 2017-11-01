@@ -20,7 +20,7 @@ exports.handle = (event, context, callback) => {
   // TODO: Plenty to clean up here. Mostly turning this into a promisified function.
   const action = 'record_overland_data';
   const payload = { value1: event.body };
-  const data = json.dumps(payload);
+  const data = JSON.stringify(payload);
   Request.get({
     headers: { 'content-type': 'application/json' },
     url: `https://maker.ifttt.com/trigger/${action}/with/key/${iftttSecretKey}`,
