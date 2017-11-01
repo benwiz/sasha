@@ -27,14 +27,18 @@ exports.handle = (event, context, callback) => {
     body: data,
   }, (error, response, body) => {
     if (error) {
-      return reject(error);
+      const reply = {
+        statusCode: 500,
+        body: JSON.stringify({ message: 'Bad response from IFTTT.' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
+      };
+      return callback(null, reply);
     }
     console.log('IFTTT RESPONSE:', body);
     // const obj = JSON.parse(body);
-    const response = {
+    const reply = {
       statusCode: 200,
       body: JSON.stringify({ result: 'ok' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
     };
-    return callback(null, response);
+    return callback(null, reply);
   });
 };
