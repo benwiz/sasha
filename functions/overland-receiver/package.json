@@ -19,6 +19,5 @@
     "lambda-deploy-cli": "^1.0.4"
   },
   "dependencies": {
-    "request": "^2.83.0"
   }
 }

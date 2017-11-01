@@ -1,8 +1,0 @@
-{
-  "functionName": "text-bunny",
-  "config": "deploy-config.json",
-  "aws": {
-      "profile": "personal",
-      "region": "us-east-1"
-  }
-}

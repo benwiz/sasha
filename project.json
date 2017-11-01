@@ -1,0 +1,9 @@
+{
+  "name": "sasha",
+  "description": "Sasha!",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::778257796245:role/sasha_lambda_function",
+  "profile": "personal",
+  "environment": {}
+}
