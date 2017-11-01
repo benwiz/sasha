@@ -22,10 +22,7 @@ exports.handle = (event, context, callback) => {
   const payload = { value1: event.body };
   const data = json.dumps(payload);
   Request.get({
-    headers: {
-      'content-type': 'application/json',
-      Authorization: PROOF_TAP_API_TOKEN,
-    },
+    headers: { 'content-type': 'application/json' },
     url: `https://maker.ifttt.com/trigger/${action}/with/key/${iftttSecretKey}`,
     body: data,
   }, (error, response, body) => {
