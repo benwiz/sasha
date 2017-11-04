@@ -53,7 +53,7 @@ to design it. -->
     function sendMessage(topic, body) {
         var data = JSON.stringify(body);
         $.ajax({
-            url: `?topic=${topic}`,
+            url: `/sns?topic=${topic}`,
             type: 'POST',
             data: data,
             // beforeSend: function () {},
