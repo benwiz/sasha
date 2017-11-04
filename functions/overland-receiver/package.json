@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "node node_modules/lambda-deploy-cli/lambda-deploy-cli.js --config deploy-config.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Wisialowski",
   "license": "ISC",
