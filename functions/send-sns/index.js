@@ -1,6 +1,6 @@
 const SnsPublish = require('aws-sns-publish');
 
-exports.handler = (event, context, callback) => {
+exports.handle = (event, context, callback) => {
   const queryString = event.queryStringParameters;
   const body = event.body;
 

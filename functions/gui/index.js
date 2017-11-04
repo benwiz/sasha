@@ -24,4 +24,4 @@ const displayView = (event, context, callback) => {
   });
 };
 
-exports.handler = displayView;
+exports.handle = displayView;
