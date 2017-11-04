@@ -1,6 +1,6 @@
 const SnsPublish = require('aws-sns-publish');
 
-exports.handler = (event, context, callback) => {
+exports.handle = (event, context, callback) => {
   console.log('event:', event);
   if (!event.phone) {
     return callback('Missing event variable for `phone`.');
