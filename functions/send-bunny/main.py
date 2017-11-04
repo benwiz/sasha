@@ -9,7 +9,7 @@ import os
 import logging
 import json
 
-import requests
+import venv.requests
 
 
 logger = logging.getLogger()
