@@ -43,6 +43,10 @@ A Node.js Lambda function that consumed the `ifttt` SNS topic. It takes the `act
 }
 ```
 
+## send-bunny
+
+A Python function that text's the environment variable `PHONE` a link to a bunny picture.
+
 ## Deploy
 
 All node.js lambda functions:
@@ -58,8 +62,6 @@ npm run deploy
 
 ## To Do
 
-- Port `services` to apex `functions`
-
 - Receive sms
 - Set up PIR watching entries and exits into room
   - Have it report to a database or redis data store
@@ -73,3 +75,4 @@ npm run deploy
 - Eventually I'd like to move off of IFTTT. This is important because otherwise I could just use IFTTT and it's webhook features as my entire backend and messaging system. Why? Because I want to do it myself.
 
 - Use a _single_ permissions role for all of sasha's functions
+- Use an _function.json_ install script for node packages instead of already installing _node_modules/_ locally
