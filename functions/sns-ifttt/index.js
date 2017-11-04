@@ -3,7 +3,7 @@ const Https = require('https');
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
 
 // Pass along the payload to the correct IFTTT action.
-const handler = (event, context, callback) => {
+const handle = (event, context, callback) => {
   const message = event.Records[0].Sns.Message;
   console.log('From SNS:', message);
 

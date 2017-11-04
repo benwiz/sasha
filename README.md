@@ -75,6 +75,7 @@ npm run deploy
 
 - Port `services` to apex `functions`
 
+- Receive sms
 - Set up PIR watching entries and exits into room
   - Have it report to a database or redis data store
   - A cron will periodically check this against my gps location to update another record maintaing my specific location with respect to a list of places (bedroom, kitchen, marg's room, office, rouse's, etc.)

@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "node node_modules/lambda-deploy-cli/lambda-deploy-cli.js --config deploy-config.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Wisialowski",
   "license": "ISC",
@@ -15,7 +14,6 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "lambda-deploy-cli": "^1.0.4"
+    "eslint-plugin-react": "^7.4.0"
   }
 }
