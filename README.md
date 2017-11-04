@@ -43,21 +43,6 @@ A Node.js Lambda function that consumed the `ifttt` SNS topic. It takes the `act
 }
 ```
 
-## text-bunny
-
-Node.js Lambda function set on a CloudWatch cron with a JSON payload designating the phone number and message to send to.
-
-Payload
-
-```json
-{
-  "phone": "+18881234567",
-  "message": "hey this is your text reminder"
-}
-```
-
-If this is ever going to blast texts look into publishing to a normal sns topic then having the phone numbers subscribe to that topic. Instead of directly publishing to a specific phone number.
-
 ## Deploy
 
 All node.js lambda functions:
