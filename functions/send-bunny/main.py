@@ -37,4 +37,9 @@ def handle(event, context):
     response = requests.post(url, headers=headers, data=data)
     logger.info('%s', response)
     result = response.json()
-    return 'ok!'
+
+    reply = {
+      'statusCode': 200,
+      'body': JSON.stringify({'message': 'Sent the text.'}),
+    }
+    return reply
