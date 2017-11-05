@@ -24,18 +24,13 @@ def handle(event, context):
 
     phone = os.environ.get('PHONE_NUMBER')
 
-    # response = client.publish(
-    #     PhoneNumber=phone,
-    #     Message='helllooo!',
-    #     Subject='plz work',
-    #     MessageStructure='string'
-    # )
+    # TODO: Hit unsplash or some other api for a link to an image of a bunny
 
     url = 'https://sasha.benwiz.io/sns?topic=sms'
     headers = {'content-type': 'application/json'}
     payload = {
         'phone': phone,
-        'message': 'poop'
+        'message': 'in the future, this will be a link to a bunny'
     }
     data = json.dumps(payload)
     print(data)
