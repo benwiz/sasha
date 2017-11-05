@@ -40,6 +40,6 @@ def handle(event, context):
 
     reply = {
       'statusCode': 200,
-      'body': JSON.stringify({'message': 'Sent the text.'}),
+      'body': json.dumps({'message': 'Sent the text.'}),
     }
     return reply
