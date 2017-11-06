@@ -7,3 +7,9 @@ venv/
 node_modules/
 .vscode/
 npm-debug.log
+env.json
+
+functions/send-image/*
+!functions/send-image/function.json
+!functions/send-image/main.pyc
+!functions/send-image/requirements.txt

@@ -49,15 +49,32 @@ A Python function that text's the environment variable `PHONE` a link to a bunny
 
 ## Deploy
 
-All node.js lambda functions:
+Create a file called _env.json_ to store environment variables.
 
-- sasha-ui
-- http-sns
-- sns-ifttt
-- text-bunny
+```json
+{
+  "PHONE_NUMBER": "",
+  "UNSPLASH_APPLICATION_ID": ""
+}
+```
+
+Optionally append the function name to deploy just that function.
 
 ```bash
-npm run deploy
+apex deply -E env.json
+```
+
+Useful bash function.
+
+```bash
+apexdeploy() {
+    if [ -z "$1" ]
+    then
+        apex deploy -E env.json
+    else
+        apex deploy -E env.json "$1"
+    fi
+}
 ```
 
 ## To Do
@@ -76,3 +93,4 @@ npm run deploy
 
 - Use a _single_ permissions role for all of sasha's functions
 - Use an _function.json_ install script for node packages instead of already installing _node_modules/_ locally
+- Get all the libs out of `send-bunny` and (probably any other future python functions).

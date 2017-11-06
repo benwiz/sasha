@@ -1,0 +1,6 @@
+{
+  "description": "Consume the IFTTT SNS topic and forward the request onto an IFTTT webhook.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

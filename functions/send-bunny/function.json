@@ -1,6 +1,0 @@
-{
-  "description": "Text a bunny.",
-  "hooks":{
-    "build": "pip install -r requirements.txt -t libs"
-  }
-}

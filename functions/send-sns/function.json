@@ -1,0 +1,6 @@
+{
+  "description": "Send an SNS message to the provided topic with the given payload.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

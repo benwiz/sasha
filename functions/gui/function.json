@@ -1,0 +1,6 @@
+{
+  "description": "Display a UI for controlling Sasha.",
+  "hooks":{
+    "build": "npm install"
+  }
+}
