@@ -11,5 +11,5 @@ env.json
 
 functions/send-image/*
 !functions/send-image/function.json
-!functions/send-image/main.pyc
+!functions/send-image/main.py
 !functions/send-image/requirements.txt
