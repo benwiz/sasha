@@ -12,7 +12,7 @@ import logging
 import json
 import random
 
-from libs import requests
+import requests
 
 PHONE_NUMBER = os.environ.get('PHONE_NUMBER')
 UNSPLASH_APPLICATION_ID = os.environ.get('UNSPLASH_APPLICATION_ID')
@@ -60,12 +60,12 @@ def handle(event, context):
     }
     data = json.dumps(payload)
     response = requests.post(url, headers=headers, data=data)
-    logger.info('%s', response)
     result = response.json()
+    print('sent text response:', result)
 
     body = {
         'message': 'Sent a text with an image of `%s`.' % query,
-        'image': image_url
+        'image': image_url,
     }
     reply = {
       'statusCode': 200,
