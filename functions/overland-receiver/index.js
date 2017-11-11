@@ -1,10 +1,52 @@
+const Promise = require('bluebird');
 const Request = require('request');
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
 
+const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
+  const data = JSON.stringify(payload);
+  Request.get({
+    headers: { 'content-type': 'application/json' },
+    url: `https://maker.ifttt.com/trigger/${action}/with/key/${iftttSecretKey}`,
+    body: data,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    const obj = JSON.parse(body);
+    return resolve(obj);
+  });
+});
+
+const sendSNS = (topic, payload) => new Promise((resolve, reject) => {
+  const data = JSON.stringify(payload);
+  Request.post({
+    headers: { 'content-type': 'application/json' },
+    url: `https://sasha.benwiz.io/sns?topic=${topic}`,
+    body: data,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    const obj = JSON.parse(body);
+    return resolve(obj);
+  });
+});
+
+const getLatestLocation = (data) => {
+  const latestData = data.locations[data.locations.length - 1];
+  const coords = {
+    latitude: latestData.geometry.coordinates[1],
+    longitude: latestData.geometry.coordinates[0],
+    timestamp: latestData.properties.timestamp,
+  };
+  return coords;
+};
+
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', event);
   console.log('BODY:', event.body);
+  const phone = process.env.PHONE;
 
   if (!event.body) {
     const response = {
@@ -14,31 +56,38 @@ exports.handle = (event, context, callback) => {
     return callback(null, response);
   }
 
+  const data = JSON.parse(event.body);
+  const coords = getLatestLocation(data);
+
   // Send data to IFTTT -> Google Spreadsheet.
   // Currently we are just packaing the entirety of payload into a JSON string and storing that.
   // It will need to be extracted and parsed at a later date. This function may change over time.
-  // TODO: Plenty to clean up here. Mostly turning this into a promisified function.
   const action = 'record_overland_data';
   const payload = { value1: event.body };
-  const data = JSON.stringify(payload);
-  Request.get({
-    headers: { 'content-type': 'application/json' },
-    url: `https://maker.ifttt.com/trigger/${action}/with/key/${iftttSecretKey}`,
-    body: data,
-  }, (error, response, body) => {
-    if (error) {
+  getIFTTTWebhook(action, payload)
+    .then((res) => {
+      const payload = {
+        phone,
+        message: `Latitude: ${coords.latitude}\n` +
+                 `Longitude: ${coords.longitude}\n` +
+                 `Timestamp: ${coords.timestamp}`,
+      };
+      return sendSNS('sms', payload);
+    })
+    .then((res) => {
+      const reply = {
+        statusCode: 200,
+        body: JSON.stringify({ result: 'ok' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
+      };
+      callback(null, reply);
+    })
+    .catch((err) => {
       const reply = {
         statusCode: 500,
-        body: JSON.stringify({ message: 'Bad response from IFTTT.' }),
+        body: JSON.stringify({ message: 'Bad response from IFTTT.', error: err }),
       };
-      return callback(null, reply);
-    }
-    console.log('IFTTT RESPONSE:', body);
-    // const obj = JSON.parse(body);
-    const reply = {
-      statusCode: 200,
-      body: JSON.stringify({ result: 'ok' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
-    };
-    return callback(null, reply);
-  });
+      callback(null, reply);
+    });
+
+  return null;
 };

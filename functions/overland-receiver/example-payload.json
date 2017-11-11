@@ -1,26 +1,2128 @@
 {
-    "locations": [
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -90.09459834035928,
-                    29.9688134115139
-                ]
-            },
-            "properties": {
-                "motion": [],
-                "speed": -1,
-                "battery_level": 0.4300000071525574,
-                "wifi": "P12-5Ghz",
-                "device_id": "",
-                "vertical_accuracy": 10,
-                "horizontal_accuracy": 65,
-                "timestamp": "2017-11-01T00:22:16Z",
-                "altitude": 0,
-                "battery_state": "unplugged"
-            }
-        }
-    ]
+  "locations": [
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094572845930315,
+                  29.968645535437361
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:08Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 11,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094580976376392,
+                  29.968637027805642
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:09Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094592543402769,
+                  29.968633591225341
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:10Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094605200076558,
+                  29.968628520173922
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:12Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094627076843835,
+                  29.968630531830684
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:17Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094643505374052,
+                  29.968631621478096
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:18Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094660604456521,
+                  29.968631914844707
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:19Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094675440425135,
+                  29.968630573740199
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:21Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094684325242497,
+                  29.968636189615324
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:24Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094688348556019,
+                  29.968646205989614
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:28Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094704777086235,
+                  29.968641763580933
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:30Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.0947186910455,
+                  29.968638536548212
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:32Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094728581691243,
+                  29.968641679761902
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:34Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094722546720959,
+                  29.968649852117494
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:03:35Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094710476780392,
+                  29.968653917340532
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:06Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094700167039491,
+                  29.968652576236025
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:11Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -4,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094704609448172,
+                  29.96868044606407
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:14Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -4,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094714416274883,
+                  29.968700394993618
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:15Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -4,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094707124019124,
+                  29.96871292593886
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:17Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -3,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094705699095584,
+                  29.968703244840697
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:20Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -4,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.09468692363248,
+                  29.96870341247876
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:25Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094675021329977,
+                  29.968703328659728
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:31Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.09466052063749,
+                  29.968697796603635
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:33Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094672842035152,
+                  29.968692599823669
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:38Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094678038815118,
+                  29.968682583449379
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:43Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094690192574717,
+                  29.968684720834688
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:45Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094702765429474,
+                  29.968680110787943
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:47Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094696311364032,
+                  29.968672525165573
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:50Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.09467862554834,
+                  29.968678350588277
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:52Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094670578921296,
+                  29.968670974513486
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:57Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094659682447173,
+                  29.968680320335523
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:04:58Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094646439040162,
+                  29.968685726663068
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:00Z",
+              "motion": [
+                  "walking"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -2,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094646187583066,
+                  29.968675123555556
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:08Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094637302765705,
+                  29.968670303961233
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:11Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094622382978059,
+                  29.968679901240364
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:13Z",
+              "motion": [],
+              "horizontal_accuracy": 20,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094622047701932,
+                  29.968700939817325
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:15Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 15,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094634201461531,
+                  29.96870290956457
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:17Z",
+              "motion": [],
+              "horizontal_accuracy": 33,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094640655526973,
+                  29.968693144647375
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:18Z",
+              "motion": [],
+              "horizontal_accuracy": 37,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094643086278893,
+                  29.9686823739018
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:19Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 30,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094638727689244,
+                  29.96868459510614
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:20Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094652809286572,
+                  29.968705382226005
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:46Z",
+              "motion": [],
+              "horizontal_accuracy": 12,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094661694103934,
+                  29.968715314781264
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:47Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 12,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094670914197422,
+                  29.968759738868073
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:05:54Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 15,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": -1,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094648283058859,
+                  29.968741466319159
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:03Z",
+              "motion": [],
+              "horizontal_accuracy": 15,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094630932519294,
+                  29.968726923717156
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:04Z",
+              "motion": [],
+              "horizontal_accuracy": 15,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094634285280563,
+                  29.968710537096456
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:05Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094636296937324,
+                  29.968700101627007
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:06Z",
+              "motion": [],
+              "horizontal_accuracy": 13,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094606960276224,
+                  29.968671477427677
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:07Z",
+              "motion": [],
+              "horizontal_accuracy": 32,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094577875072218,
+                  29.968665484366909
+              ]
+          },
+          "properties": {
+              "speed": 2,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:08Z",
+              "motion": [],
+              "horizontal_accuracy": 33,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094547867858864,
+                  29.968687696410313
+              ]
+          },
+          "properties": {
+              "speed": 2,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:09Z",
+              "motion": [],
+              "horizontal_accuracy": 15,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094531020233489,
+                  29.968699221527174
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:10Z",
+              "motion": [],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094523644158699,
+                  29.96871049518694
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:11Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094560189256526,
+                  29.968756511835352
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:14Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094564547846176,
+                  29.968770048608974
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:16Z",
+              "motion": [],
+              "horizontal_accuracy": 13,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094575192863203,
+                  29.968765019467071
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:19Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094583155671216,
+                  29.968746746918157
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:21Z",
+              "motion": [],
+              "horizontal_accuracy": 19,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094592962497927,
+                  29.968747417470411
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:22Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 12,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094605116257526,
+                  29.968744735261396
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:25Z",
+              "motion": [],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094616599464871,
+                  29.96874590872784
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:27Z",
+              "motion": [],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094628166491248,
+                  29.968748632846371
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:28Z",
+              "motion": [],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094640152612783,
+                  29.968755464097455
+              ]
+          },
+          "properties": {
+              "speed": 1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:29Z",
+              "motion": [],
+              "horizontal_accuracy": 14,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094693210059859,
+                  29.96873517989178
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:44Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094701843420125,
+                  29.96871757789512
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:50Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094709135675885,
+                  29.968705005040363
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:53Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094714248636819,
+                  29.96869632977058
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:54Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094704441810109,
+                  29.968702490469411
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:06:59Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094700167039491,
+                  29.96871929618527
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:07:09Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094714332455851,
+                  29.968712255386606
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:08:33Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 3,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094729252243496,
+                  29.968710620915488
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:08:37Z",
+              "motion": [],
+              "horizontal_accuracy": 20,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094741992736317,
+                  29.96871292593886
+              ]
+          },
+          "properties": {
+              "speed": 0,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T02:08:40Z",
+              "motion": [],
+              "horizontal_accuracy": 10,
+              "vertical_accuracy": 4,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.23000000417232513,
+              "wifi": "P12-5Ghz",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 0,
+              "device_id": "benwisialowski"
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "wifi": "P12-5Ghz",
+              "timestamp": "2017-11-09T02:09:01Z",
+              "battery_state": "unplugged",
+              "battery_level": 0.23000000417232513,
+              "device_id": "benwisialowski",
+              "action": "paused_location_updates"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.094741992736317,
+                  29.96871292593886
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "wifi": "",
+              "timestamp": "2017-11-09T14:08:11Z",
+              "battery_state": "unplugged",
+              "battery_level": 0.98000001907348633,
+              "device_id": "benwisialowski",
+              "action": "application_launched_with_location"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.091375194592104,
+                  29.968376568992642
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "wifi": "",
+              "timestamp": "2017-11-09T14:08:12Z",
+              "battery_state": "unplugged",
+              "battery_level": 0.98000001907348633,
+              "device_id": "benwisialowski",
+              "action": "exited_pause_region"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.091375194592104,
+                  29.968376568992642
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  -90.091375194592104,
+                  29.968376568992642
+              ]
+          },
+          "properties": {
+              "speed": -1,
+              "battery_state": "unplugged",
+              "timestamp": "2017-11-09T14:08:10Z",
+              "motion": [
+                  "stationary"
+              ],
+              "horizontal_accuracy": 65,
+              "vertical_accuracy": 17,
+              "pauses": true,
+              "deferred": 100,
+              "significant_change": 1,
+              "locations_in_payload": 1,
+              "battery_level": 0.98000001907348633,
+              "wifi": "",
+              "activity": "other",
+              "desired_accuracy": -1,
+              "altitude": 2,
+              "device_id": "benwisialowski"
+          }
+      }
+  ]
 }
