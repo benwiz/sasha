@@ -62,10 +62,13 @@ exports.handle = (event, context, callback) => {
   // Send data to IFTTT -> Google Spreadsheet.
   // Currently we are just packaing the entirety of payload into a JSON string and storing that.
   // It will need to be extracted and parsed at a later date. This function may change over time.
-  const action = 'record_overland_data';
-  const payload = { value1: event.body };
-  getIFTTTWebhook(action, payload)
-    .then((res) => {
+  Promise.resolve() // TODO: Write coords to database (Redis, Elasticache)
+    .then(() => {
+      const action = 'record_overland_data';
+      const payload = { value1: event.body };
+      return getIFTTTWebhook(action, payload);
+    })
+    .then(() => {
       const snsPayload = {
         phone: phoneNumber,
         message: `Latitude: ${coords.latitude}\n` +
@@ -75,7 +78,7 @@ exports.handle = (event, context, callback) => {
       console.log('Send SMS:', JSON.stringify(snsPayload));
       return sendSNS('sms', snsPayload);
     })
-    .then((res) => {
+    .then(() => {
       const reply = {
         statusCode: 200,
         body: JSON.stringify({ result: 'ok' }), // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
