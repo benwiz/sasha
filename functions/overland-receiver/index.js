@@ -2,6 +2,7 @@ const Promise = require('bluebird');
 const Request = require('request');
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
+const phoneNumber = process.env.PHONE_NUMBER;
 
 const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
   const data = JSON.stringify(payload);
@@ -46,7 +47,6 @@ const getLatestLocation = (data) => {
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', event);
   console.log('BODY:', event.body);
-  const phone = process.env.PHONE;
 
   if (!event.body) {
     const response = {
@@ -66,13 +66,13 @@ exports.handle = (event, context, callback) => {
   const payload = { value1: event.body };
   getIFTTTWebhook(action, payload)
     .then((res) => {
-      const payload = {
-        phone,
+      const snsPayload = {
+        phone: phoneNumber,
         message: `Latitude: ${coords.latitude}\n` +
                  `Longitude: ${coords.longitude}\n` +
                  `Timestamp: ${coords.timestamp}`,
       };
-      return sendSNS('sms', payload);
+      return sendSNS('sms', snsPayload);
     })
     .then((res) => {
       const reply = {
