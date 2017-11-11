@@ -14,8 +14,8 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
-    const obj = JSON.parse(body);
-    return resolve(obj);
+    console.log(body);
+    return resolve(body);
   });
 });
 
