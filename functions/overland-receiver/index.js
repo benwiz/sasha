@@ -72,6 +72,7 @@ exports.handle = (event, context, callback) => {
                  `Longitude: ${coords.longitude}\n` +
                  `Timestamp: ${coords.timestamp}`,
       };
+      console.log('Send SMS:', JSON.stringify(snsPayload));
       return sendSNS('sms', snsPayload);
     })
     .then((res) => {
