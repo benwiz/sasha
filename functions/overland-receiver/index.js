@@ -1,5 +1,14 @@
 const Promise = require('bluebird');
 const Request = require('request');
+const Redis = require('ioredis');
+
+const redis = new Redis({
+  port: 6379,
+  host: '127.0.0.1',
+  // family: 4,
+  // password: 'auth',
+  // db: 0
+});
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
 const phoneNumber = process.env.PHONE_NUMBER;

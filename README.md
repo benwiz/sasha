@@ -79,8 +79,9 @@ apexdeploy() {
 
 ## To Do
 
-- Set up Zing to report wemo switch status to a redis store (probably directly instead of via lambda to minimize costs)
-- overland-receiver needs to write the current location to a record in Redis
+- Write a generic DynamoDB write as a Lambda endpoint in Go
+- Set up Zing to report wemo switch status directly to DynamoDB
+- overland-receiver needs to write the current location to a DynamoDB
 
 - Detect if we don't sleep together
 
