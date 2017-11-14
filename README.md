@@ -77,6 +77,10 @@ apexdeploy() {
 }
 ```
 
+## Notes
+
+`apex invoke write-dynamodb < functions/write-dynamodb/event.json`
+
 ## To Do
 
 - Write a generic DynamoDB write as a Lambda endpoint in Go

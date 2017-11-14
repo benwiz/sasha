@@ -2,8 +2,9 @@ package main
 
 import (
 	"encoding/json"
-
+	"fmt"
 	"github.com/apex/go-apex"
+	"os"
 )
 
 type message struct {
@@ -12,6 +13,7 @@ type message struct {
 
 func main() {
 	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
+		fmt.Fprintf(os.Stderr, "Event: %s", event)
 		var m message
 
 		if err := json.Unmarshal(event, &m); err != nil {
