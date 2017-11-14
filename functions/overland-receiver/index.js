@@ -66,7 +66,7 @@ exports.handle = (event, context, callback) => {
   }
 
   const data = JSON.parse(event.body);
-  const coords = getLatestLocation(data);
+  // const coords = getLatestLocation(data);
 
   // Send data to IFTTT -> Google Spreadsheet.
   // Currently we are just packaing the entirety of payload into a JSON string and storing that.
@@ -77,16 +77,16 @@ exports.handle = (event, context, callback) => {
       const payload = { value1: event.body };
       return getIFTTTWebhook(action, payload);
     })
-    .then(() => {
-      const snsPayload = {
-        phone: phoneNumber,
-        message: `Latitude: ${coords.latitude}\n` +
-                 `Longitude: ${coords.longitude}\n` +
-                 `Timestamp: ${coords.timestamp}`,
-      };
-      console.log('Send SMS:', JSON.stringify(snsPayload));
-      return sendSNS('sms', snsPayload);
-    })
+    // .then(() => {
+    //   const snsPayload = {
+    //     phone: phoneNumber,
+    //     message: `Latitude: ${coords.latitude}\n` +
+    //              `Longitude: ${coords.longitude}\n` +
+    //              `Timestamp: ${coords.timestamp}`,
+    //   };
+    //   console.log('Send SMS:', JSON.stringify(snsPayload));
+    //   return sendSNS('sms', snsPayload);
+    // })
     .then(() => {
       const reply = {
         statusCode: 200,
