@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/apex/go-apex"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/guregu/dynamo"
+	// "github.com/aws/aws-sdk-go/aws"
+	// "github.com/aws/aws-sdk-go/aws/session"
+	// "github.com/guregu/dynamo"
 	"os"
 )
 
@@ -18,6 +18,7 @@ type message struct {
 }
 
 type person struct {
+	Name string `json:"name"`
 }
 
 // https://gobyexample.com/json
@@ -35,10 +36,16 @@ func main() {
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if m.PathParameters.Query == "person" {
-			// TODO: Unmarshal
-		} else {
-			return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query)
+			p := person{
+				Name: m.Body["name"].(string),
+			}
+			if err != nil {
+				return nil, err
+			}
+			return p, nil
 		}
+
+		return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query), nil
 
 		// Connect to dyanamodb
 		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
@@ -49,6 +56,6 @@ func main() {
 		// err := table.Put(w).Run()
 
 		// return message["pathParameters"].(string), nil
-		return m.Body["banana"].(string), nil
+		// return m.Body["banana"].(string), nil
 	})
 }

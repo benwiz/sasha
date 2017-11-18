@@ -3,7 +3,6 @@
     "query": "person"
   },
   "body": {
-    "apple": "red",
-    "banana": "yellow"
+    "name": "ben"
   }
 }
