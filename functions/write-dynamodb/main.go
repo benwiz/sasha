@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/apex/go-apex"
-	// "github.com/aws/aws-sdk-go/aws"
-	// "github.com/aws/aws-sdk-go/aws/session"
-	// "github.com/guregu/dynamo"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/guregu/dynamo"
 	"os"
 )
 
@@ -17,19 +17,14 @@ type message struct {
 	Body map[string]interface{} `json:"body"`
 }
 
+type person struct {
+}
+
 // https://gobyexample.com/json
 
 func main() {
 	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
 		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
-
-		// // Unmarshal generic json into message
-		// var message map[string]interface{} // TODO: Only generically unmarshal the Body
-		// err := json.Unmarshal([]byte(event), &message)
-		// if err != nil {
-		// 	fmt.Fprintf(os.Stderr, "Error: %s\n", err)
-		// 	return nil, err
-		// }
 
 		// Unmarshal event
 		var m message
@@ -38,11 +33,20 @@ func main() {
 			return nil, err
 		}
 
+		// Unmarshal the Body into the correct struct based on the Query
+		if m.PathParameters.Query == "person" {
+			// TODO: Unmarshal
+		} else {
+			return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query)
+		}
+
 		// Connect to dyanamodb
 		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
 		// table := db.Table("sasha.people")
 
-		// TODO: Write to db
+		// Put item
+		// p := person{UserID: 613, Time: time.Now(), Msg: "hello"}
+		// err := table.Put(w).Run()
 
 		// return message["pathParameters"].(string), nil
 		return m.Body["banana"].(string), nil

@@ -1,6 +1,6 @@
 {
   "pathParameters": {
-    "query": "hello"
+    "query": "person"
   },
   "body": {
     "apple": "red",
