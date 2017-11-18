@@ -1,3 +1,9 @@
 {
-  "hello": "ben"
+  "pathParameters": {
+    "query": "hello"
+  },
+  "body": {
+    "apple": "red",
+    "banana": "yellow"
+  }
 }

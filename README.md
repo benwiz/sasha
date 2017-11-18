@@ -43,9 +43,15 @@ A Node.js Lambda function that consumed the `ifttt` SNS topic. It takes the `act
 }
 ```
 
-## send-bunny
+## write-dynamodb
 
-A Python function that text's the environment variable `PHONE` a link to a bunny picture.
+A Go function that takes an undefined JSON message and writes it to the specified key in DynamoDB. As schema's change, the structs defined in this function will have to change. I'm unsure if I like this or if I should use another language so I can submit generic payloads.
+
+Invote the function with
+
+```bash
+apex invoke write-dynamodb < functions/write-dynamodb/event.json
+```
 
 ## Deploy
 
@@ -78,8 +84,6 @@ apexdeploy() {
 ```
 
 ## Notes
-
-`apex invoke write-dynamodb < functions/write-dynamodb/event.json`
 
 ## To Do
 
