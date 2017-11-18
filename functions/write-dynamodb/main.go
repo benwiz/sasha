@@ -43,9 +43,9 @@ func main() {
 				return nil, err
 			}
 			return p, nil
+		} else {
+			return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query), nil
 		}
-
-		return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query), nil
 
 		// Connect to dyanamodb
 		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
