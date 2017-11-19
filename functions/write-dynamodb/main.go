@@ -24,6 +24,11 @@ type person struct {
 	Age    int    `json:"age" dynamo:"age"`
 }
 
+type response struct {
+	StatusCode int    `json:"statusCode"`
+	Body       string `json:"body"`
+}
+
 func main() {
 	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
 		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
@@ -35,6 +40,7 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Message Unmarshal Fail: %s\n", err)
 			return nil, err
 		}
+		fmt.Fprintf(os.Stderr, "Message: %s\n", m)
 
 		// Connect to dyanamodb
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
@@ -57,7 +63,12 @@ func main() {
 				return nil, err
 			}
 
-			return p, nil
+			// TODO: Better response body
+			r := response{
+				StatusCode: 200,
+				Body:       `{"message": "success"}`,
+			}
+			return r, nil
 		}
 
 		return fmt.Sprintf("Unknown table: %v.", m.PathParameters.Query), nil
