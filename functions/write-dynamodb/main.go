@@ -10,50 +10,51 @@ import (
 	"os"
 )
 
-type message struct {
-	PathParameters struct {
-		Query string `json:"query"`
-	} `json:"pathParameters"`
-	Body map[string]interface{} `json:"body"`
+type query struct {
+	Query string `json:"query"`
 }
 
 type person struct {
 	Name string `json:"name"`
 }
 
-// https://gobyexample.com/json
-
 func main() {
 	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
 		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
 
-		// Unmarshal event
-		var m message
-		err := json.Unmarshal(event, &m)
+		// Unmarshal into map so that we can look at query value
+		var message map[string]*json.RawMessage
+		err := json.Unmarshal(event, &message)
 		if err != nil {
 			return nil, err
 		}
 
-		// Unmarshal the Body into the correct struct based on the Query
-		if m.PathParameters.Query == "person" {
-			p := person{
-				Name: m.Body["name"].(string),
-			}
-			if err != nil {
-				return nil, err
-			}
-			return p, nil
-		} else {
-			return fmt.Sprintf("Unknown table: %v, %s", m.PathParameters.Query, m.PathParameters.Query), nil
+		// Unmarshal event
+		var q query
+		err = json.Unmarshal(*message["pathParameters"], &q)
+		if err != nil {
+			return nil, err
 		}
 
 		// Connect to dyanamodb
 		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
-		// table := db.Table("sasha.people")
 
-		// Put item
-		// p := person{UserID: 613, Time: time.Now(), Msg: "hello"}
-		// err := table.Put(w).Run()
+		// Unmarshal the Body into the correct struct based on the Query
+		if q.Query == "person" {
+			var p person
+			err = json.Unmarshal(*message["body"], &p)
+			if err != nil {
+				return nil, err
+			}
+
+			// // Put item into sasha.people table
+			// table := db.Table("sasha.people")
+			// err := table.Put(w).Run()
+
+			return p, nil
+		} else {
+			return fmt.Sprintf("Unknown table: %v", q.Query), nil
+		}
 
 		// return message["pathParameters"].(string), nil
 		// return m.Body["banana"].(string), nil
