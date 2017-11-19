@@ -3,7 +3,8 @@
     "query": "person"
   },
   "body": {
-    "name": "ben"
+    "person": "ben",
+    "age": 24
   },
   "another": "thing"
 }

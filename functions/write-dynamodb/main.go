@@ -15,7 +15,8 @@ type query struct {
 }
 
 type person struct {
-	Name string `json:"name"`
+	Person string `json:"person" dynamo:"person"`
+	Age    int    `json:"age" dynamo:"age"`
 }
 
 func main() {
@@ -37,7 +38,7 @@ func main() {
 		}
 
 		// Connect to dyanamodb
-		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
+		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if q.Query == "person" {
@@ -51,8 +52,10 @@ func main() {
 			table := db.Table("sasha.people")
 			err = table.Put(p).Run()
 			if err != nil {
+				fmt.Fprintf(os.Stderr, "Table Fail: %s\n", table)
 				return nil, err
 			}
+			fmt.Fprintf(os.Stderr, "Table: %s\n", table)
 
 			return p, nil
 		}
