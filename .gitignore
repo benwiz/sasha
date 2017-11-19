@@ -8,6 +8,7 @@ node_modules/
 .vscode/
 npm-debug.log
 env.json
+main  # Go binary
 
 functions/send-image/*
 !functions/send-image/function.json
