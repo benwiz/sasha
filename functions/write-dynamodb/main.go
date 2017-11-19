@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/apex/go-apex"
-	// "github.com/aws/aws-sdk-go/aws"
-	// "github.com/aws/aws-sdk-go/aws/session"
-	// "github.com/guregu/dynamo"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/guregu/dynamo"
 	"os"
 )
 
@@ -37,7 +37,7 @@ func main() {
 		}
 
 		// Connect to dyanamodb
-		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
+		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-west-1")})
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if q.Query == "person" {
@@ -47,16 +47,16 @@ func main() {
 				return nil, err
 			}
 
-			// // Put item into sasha.people table
-			// table := db.Table("sasha.people")
-			// err := table.Put(w).Run()
+			// Put item into sasha.people table
+			table := db.Table("sasha.people")
+			err = table.Put(p).Run()
+			if err != nil {
+				return nil, err
+			}
 
 			return p, nil
-		} else {
-			return fmt.Sprintf("Unknown table: %v", q.Query), nil
 		}
 
-		// return message["pathParameters"].(string), nil
-		// return m.Body["banana"].(string), nil
+		return fmt.Sprintf("Unknown table: %v.", q.Query), nil
 	})
 }
