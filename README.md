@@ -87,7 +87,7 @@ apexdeploy() {
 
 ## To Do
 
-- Write a generic DynamoDB write as a Lambda endpoint in Go
+- Write `get-dynamodb` in Go
 - Set up Zing to report wemo switch status directly to DynamoDB
 - overland-receiver needs to write the current location to a DynamoDB
 

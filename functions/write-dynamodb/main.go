@@ -10,6 +10,11 @@ import (
 	"os"
 )
 
+type message struct {
+	PathParameters query  `json:"pathParameters"`
+	Body           string `json:"body"`
+}
+
 type query struct {
 	Query string `json:"query"`
 }
@@ -24,16 +29,10 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
 
 		// Unmarshal into map so that we can look at query value
-		var message map[string]*json.RawMessage
-		err := json.Unmarshal(event, &message)
+		var m message
+		err := json.Unmarshal(event, &m)
 		if err != nil {
-			return nil, err
-		}
-
-		// Unmarshal event
-		var q query
-		err = json.Unmarshal(*message["pathParameters"], &q)
-		if err != nil {
+			fmt.Fprintf(os.Stderr, "Message Unmarshal Fail: %s\n", err)
 			return nil, err
 		}
 
@@ -41,10 +40,12 @@ func main() {
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
 
 		// Unmarshal the Body into the correct struct based on the Query
-		if q.Query == "person" {
+		if m.PathParameters.Query == "person" {
+			fmt.Fprintf(os.Stderr, "Body: %s\n", m.Body)
 			var p person
-			err = json.Unmarshal(*message["body"], &p)
+			err = json.Unmarshal([]byte(m.Body), &p)
 			if err != nil {
+				fmt.Fprintf(os.Stderr, "Person Unmarshal Fail: %s\n", err)
 				return nil, err
 			}
 
@@ -52,13 +53,13 @@ func main() {
 			table := db.Table("sasha.people")
 			err = table.Put(p).Run()
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Table Fail: %s\n", table)
+				fmt.Fprintf(os.Stderr, "Table Put Fail: %s\n", table)
 				return nil, err
 			}
 
 			return p, nil
 		}
 
-		return fmt.Sprintf("Unknown table: %v.", q.Query), nil
+		return fmt.Sprintf("Unknown table: %v.", m.PathParameters.Query), nil
 	})
 }
