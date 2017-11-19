@@ -55,7 +55,6 @@ func main() {
 				fmt.Fprintf(os.Stderr, "Table Fail: %s\n", table)
 				return nil, err
 			}
-			fmt.Fprintf(os.Stderr, "Table: %s\n", table)
 
 			return p, nil
 		}
