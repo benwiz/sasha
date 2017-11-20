@@ -4,19 +4,19 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/apex/go-apex"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/guregu/dynamo"
+	// "github.com/aws/aws-sdk-go/aws"
+	// "github.com/aws/aws-sdk-go/aws/session"
+	// "github.com/guregu/dynamo"
 	"os"
 )
 
 type message struct {
-	PathParameters query  `json:"pathParameters"`
-	Body           string `json:"body"`
+	PathParameters        table                  `json:"pathParameters"`
+	QueryStringParameters map[string]interface{} `json:"queryStringParameters"`
 }
 
-type query struct {
-	Query string `json:"query"`
+type table struct {
+	Table string `json:"query"`
 }
 
 type response struct {
@@ -37,16 +37,16 @@ func main() {
 		}
 		fmt.Fprintf(os.Stderr, "Message: %s\n", m)
 
-		// Connect to dyanamodb
-		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
+		// // Connect to dyanamodb
+		// db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
 
-		// Query the proper table
-		if m.PathParameters.Query == "person" {
-			var p person
-			table := db.Table("sasha.people")
-			err = table.Get("person", "ben").One(&p)
-		}
+		// // Query the proper table
+		// if m.PathParameters.Query == "person" {
+		// 	var p person
+		// 	table := db.Table("sasha.people")
+		// 	err = table.Get("person", "ben").One(&p)
+		// }
 
-		return 1, nil
+		return m, nil
 	})
 }

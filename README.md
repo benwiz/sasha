@@ -53,6 +53,16 @@ Invote the function with
 apex invoke write-dynamodb < functions/write-dynamodb/event.json
 ```
 
+## get-dynamodb
+
+A Go function that takes a table name in the path paraters and a query string that matches the schema of the table.
+
+Invote the function with
+
+```bash
+apex invoke get-dynamodb < functions/get-dynamodb/event.json
+```
+
 ## Deploy
 
 Create a file called _env.json_ to store environment variables.
@@ -88,6 +98,8 @@ apexdeploy() {
 ## To Do
 
 - Write `get-dynamodb` in Go
+- For write/get to dynamodb, the path parameter should be called `table` and should be the actual table name.
+
 - Set up Zing to report wemo switch status directly to DynamoDB
 - overland-receiver needs to write the current location to a DynamoDB
 
