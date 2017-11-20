@@ -2,7 +2,7 @@
 
 A collection of microservices that combined make Sasha.
 
-## sasha-ui
+## gui
 
 GUI for interacting with Sasha.
 
@@ -62,6 +62,10 @@ Invote the function with
 ```bash
 apex invoke get-dynamodb < functions/get-dynamodb/event.json
 ```
+
+## overland-receiver
+
+Receive the post request from the [Overland iOS app](https://overland.p3k.io/).
 
 ## Deploy
 
