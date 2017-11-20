@@ -19,11 +19,6 @@ type query struct {
 	Query string `json:"query"`
 }
 
-type person struct {
-	Person string `json:"person" dynamo:"person"`
-	Age    int    `json:"age" dynamo:"age"`
-}
-
 type response struct {
 	StatusCode int    `json:"statusCode"`
 	Body       string `json:"body"`
@@ -49,7 +44,7 @@ func main() {
 		if m.PathParameters.Query == "person" {
 			var p person
 			table := db.Table("sasha.people")
-			err = table.Get("person", _).One(&p)
+			err = table.Get("person", "ben").One(&p)
 		}
 
 		return 1, nil
