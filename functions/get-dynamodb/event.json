@@ -1,6 +1,6 @@
 {
   "pathParameters": {
-    "query": "person"
+    "query": "people"
   },
   "queryStringParameters": {
     "person": "ben"
