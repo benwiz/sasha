@@ -1,7 +1,7 @@
 {
   "pathParameters": {
-    "query": "person"
+    "table": "people"
   },
-  "body": "{\"person\": \"ben\",\"age\": 24}",
+  "body": "{\"person\": \"ben\",\"age\": 2}",
   "another": "thing"
 }

@@ -101,15 +101,17 @@ apexdeploy() {
 
 ## To Do
 
-- Write `get-dynamodb` in Go
+- All dynamodb connections must validate the table or handle a bad table better.
+- Add an `update-dynamodb` function. May be able to replace (or just deprecate, or not at all) `write-dynamodb` with this (https://github.com/guregu/dynamo/blob/master/update.go).
 - For write/get to dynamodb, the path parameter should be called `table` and should be the actual table name.
+
+- get-dynamodb: handle record not found error with HTTP response
 
 - Set up Zing to report wemo switch status directly to DynamoDB
 - overland-receiver needs to write the current location to a DynamoDB
 
-- Detect if we don't sleep together
-
-- Use a _single_ permissions role for all of sasha's functions.
-- Better libs strategy for Python functions (see `send-image`).
-- Receive sms
-- Eventually I'd like to move off of IFTTT. This is important because otherwise I could just use IFTTT and it's webhook features as my entire backend and messaging system. Why? Because I want to do it myself. IFTTT is turning out to be kind of slow.
+- Low priority / dependencies haven't been created
+  - Detect if we don't sleep together
+  - Better libs strategy for Python functions (see `send-image`).
+  - Receive sms
+  - Slowly move entirely away from IFTTT

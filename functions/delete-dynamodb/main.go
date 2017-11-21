@@ -19,11 +19,6 @@ type table struct {
 	Table string `json:"table"`
 }
 
-type person struct {
-	Person string `json:"person" dynamo:"person"`
-	Age    int    `json:"age" dynamo:"age"`
-}
-
 type response struct {
 	StatusCode int    `json:"statusCode"`
 	Body       string `json:"body"`
@@ -52,23 +47,13 @@ func main() {
 		// Query the proper table
 		if m.PathParameters.Table == "people" {
 			// Get person record
-			var p person
 			value := m.QueryStringParameters["person"].(string)
-			err = table.Get("person", value).One(&p)
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "Get Error: %s\n", err)
-				// TODO: Handle error: "dynamo: no item found"
-				return nil, err
-			}
-			fmt.Fprintf(os.Stderr, "Person: %#v\n", p)
+			del := table.Delete("person", value).Run()
+			fmt.Fprintf(os.Stderr, "Deleted: %#v\n", del)
 
 			// Prepare success response
 			r.StatusCode = 200
-			responseBody, err := json.Marshal(p)
-			if err != nil {
-				return nil, err
-			}
-			r.Body = string(responseBody)
+			r.Body = fmt.Sprintf(`{"message": "Successfully deleted: %s."}`, value)
 		} else {
 			// Prepare table-not-found response
 			r.StatusCode = 404
