@@ -104,7 +104,7 @@ apexdeploy() {
 - `overland-receiver` needs to respond with an error if we don't get a success from IFTTT
 - `overland-receiver` needs to update person location in dynamodb
 
-- Add an `update-dynamodb` function. May be able to replace (or just deprecate, or not at all) `write-dynamodb` with this (https://github.com/guregu/dynamo/blob/master/update.go).
+- Add an `update-dynamodb` function following [this example](https://github.com/guregu/dynamo/blob/master/update_test.go#L33). It may be more useful than `write-dynamodb`.
 
 - Set up Zing to report wemo switch status directly to DynamoDB
 

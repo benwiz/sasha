@@ -1,0 +1,7 @@
+{
+  "pathParameters": {
+    "table": "people"
+  },
+  "body": "{\"person\": \"ben\",\"gender\": \"male\"}",
+  "another": "thing"
+}
