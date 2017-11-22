@@ -109,6 +109,7 @@ apexdeploy() {
   - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
   - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
 
+- Can `write-dynamodb` and `update-dynamodb` share a model? Maybe I should get rid of `write-dynamodb`, if so doing a delete then update would have the same effect.
 - Set up Zing to report wemo switch status directly to DynamoDB
 
 - Low priority / dependencies haven't been created
