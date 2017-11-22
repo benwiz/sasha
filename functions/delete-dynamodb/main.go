@@ -43,6 +43,7 @@ func main() {
 		// Connect to dyanamodb and get the table
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
 		table := db.Table("sasha." + m.PathParameters.Table)
+		fmt.Fprintf(os.Stderr, "Table: %#v\n", table)
 
 		// Query the proper table
 		if m.PathParameters.Table == "people" {

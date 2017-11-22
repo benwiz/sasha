@@ -47,7 +47,8 @@ func main() {
 
 		// Connect to dyanamodb
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
-		table := db.Table("sasha." + m.PathParameters.Table) // TODO: Need to validate table before trying to get it.
+		table := db.Table("sasha." + m.PathParameters.Table)
+		fmt.Fprintf(os.Stderr, "Table: %#v\n", table)
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if m.PathParameters.Table == "people" {
