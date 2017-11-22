@@ -1,14 +1,6 @@
 const Promise = require('bluebird');
 const Request = require('request');
-const Redis = require('ioredis');
 
-const redis = new Redis({
-  port: 6379,
-  host: '127.0.0.1',
-  // family: 4,
-  // password: 'auth',
-  // db: 0
-});
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
 const phoneNumber = process.env.PHONE_NUMBER;
@@ -71,7 +63,7 @@ exports.handle = (event, context, callback) => {
   // Send data to IFTTT -> Google Spreadsheet.
   // Currently we are just packaing the entirety of payload into a JSON string and storing that.
   // It will need to be extracted and parsed at a later date. This function may change over time.
-  Promise.resolve() // TODO: Write coords to database (Redis, Elasticache)
+  Promise.resolve() // TODO: Write coords to database (DynamoDB, either directly or via api)
     .then(() => {
       const action = 'record_overland_data';
       const payload = { value1: event.body };
