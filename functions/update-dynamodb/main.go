@@ -24,7 +24,6 @@ type table struct {
 type person struct {
 	Person string `json:"person" dynamo:"person"`
 	Age    int    `json:"age" dynamo:"age"`
-	Gender string `json:"gender" dyanmo:"gender"`
 }
 
 type response struct {
