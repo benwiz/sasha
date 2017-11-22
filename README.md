@@ -104,7 +104,10 @@ apexdeploy() {
 - `overland-receiver` needs to respond with an error if we don't get a success from IFTTT
 - `overland-receiver` needs to update person location in dynamodb
 
-- Add an `update-dynamodb` function following [this example](https://github.com/guregu/dynamo/blob/master/update_test.go#L33). It may be more useful than `write-dynamodb`.
+- `update-dynamodb`
+  - In a successful response include properties that do not exist in the struct
+  - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
+  - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
 
 - Set up Zing to report wemo switch status directly to DynamoDB
 

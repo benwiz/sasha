@@ -8,6 +8,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/guregu/dynamo"
 	"os"
+	"reflect"
+	"strings"
 )
 
 type message struct {
@@ -22,6 +24,7 @@ type table struct {
 type person struct {
 	Person string `json:"person" dynamo:"person"`
 	Age    int    `json:"age" dynamo:"age"`
+	Gender string `json:"gender" dyanmo:"gender"`
 }
 
 type response struct {
@@ -54,7 +57,6 @@ func main() {
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if m.PathParameters.Table == "people" {
-			fmt.Fprintf(os.Stderr, "Body: %s\n", m.Body)
 			var p person
 			err = json.Unmarshal([]byte(m.Body), &p)
 			if err != nil {
@@ -64,21 +66,39 @@ func main() {
 				return r, nil
 			}
 
-			// Put item into sasha.people table
-			err = table.Put(p).Run() // TODO: This should be able to return the created record. Use it in response.
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "Table Put Fail: %s\n", table)
-				r.StatusCode = 500
-				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
-				return r, nil
+			// Create a map of the struct so that we may iterate over it
+			v := reflect.ValueOf(p)
+
+			// Iterate over values
+			for i := 0; i < v.NumField(); i++ {
+				key := strings.ToLower(v.Type().Field(i).Name)
+				if key == "person" {
+					continue
+				}
+				value := v.Field(i).Interface()
+				if key == "age" && value == 0 || key == "gender" && value == "" {
+					continue
+				}
+				fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)
+
+				// Update record; TODO: We should not be calling this mulitple times. Instead
+				// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
+				var result person
+				err = table.Update("person", "ben").Set(key, value).Value(&result)
+				if err != nil {
+					r.StatusCode = 500
+					r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+					return r, nil
+				}
+				fmt.Fprintf(os.Stderr, "Updated Person: %#v\n", result)
 			}
 
 			// TODO: Better response body. Use the created record data in response.
 			r.StatusCode = 200
-			r.Body = fmt.Sprintf(`{"message": "Successfully wrote record: %s."}`, p.Person)
+			r.Body = fmt.Sprintf(`{"message": "Successfully updated record: %s."}`, p.Person)
 		} else {
 			r.StatusCode = 404
-			r.Body = fmt.Sprintf("Table not found: %v.", m.PathParameters.Table)
+			r.Body = fmt.Sprintf(`{"message": "Table %s not found."}`, m.PathParameters.Table)
 		}
 
 		return r, nil

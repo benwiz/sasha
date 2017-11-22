@@ -22,6 +22,7 @@ type table struct {
 type person struct {
 	Person string `json:"person" dynamo:"person"`
 	Age    int    `json:"age" dynamo:"age"`
+	Gender string `json:"gender" dynamo:"gender"`
 }
 
 type response struct {
@@ -54,7 +55,6 @@ func main() {
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if m.PathParameters.Table == "people" {
-			fmt.Fprintf(os.Stderr, "Body: %s\n", m.Body)
 			var p person
 			err = json.Unmarshal([]byte(m.Body), &p)
 			if err != nil {
