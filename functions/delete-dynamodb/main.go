@@ -28,17 +28,19 @@ func main() {
 	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
 		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
 
+		// Initialize response
+		r := response{}
+
 		// Unmarshal into map so that we can look at query value
 		var m message
 		err := json.Unmarshal(event, &m)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Message Unmarshal Fail: %s\n", err)
-			return nil, err
+			r.StatusCode = 500
+			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+			return r, nil
 		}
 		fmt.Fprintf(os.Stderr, "Message: %s\n", m)
-
-		// Initialize response
-		r := response{}
 
 		// Connect to dyanamodb and get the table
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
