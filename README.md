@@ -103,12 +103,13 @@ apexdeploy() {
 
 - All dynamodb connections must validate the table or handle a bad table better.
 - Add an `update-dynamodb` function. May be able to replace (or just deprecate, or not at all) `write-dynamodb` with this (https://github.com/guregu/dynamo/blob/master/update.go).
-- For write/get to dynamodb, the path parameter should be called `table` and should be the actual table name.
 
-- get-dynamodb: handle record not found error with HTTP response
+- `overland-receiver` needs to respond with an error if we don't get a success from IFTTT
+- `overland-receiver` needs to update person location in dynamodb
+
+- `get-dynamodb` needs to handle record not found error with HTTP response
 
 - Set up Zing to report wemo switch status directly to DynamoDB
-- overland-receiver needs to write the current location to a DynamoDB
 
 - Low priority / dependencies haven't been created
   - Detect if we don't sleep together
