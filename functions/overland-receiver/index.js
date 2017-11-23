@@ -21,21 +21,6 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
   });
 });
 
-// const sendSNS = (topic, payload) => new Promise((resolve, reject) => {
-//   const data = JSON.stringify(payload);
-//   Request.post({
-//     headers: { 'content-type': 'application/json' },
-//     url: `https://sasha.benwiz.io/sns?topic=${topic}`,
-//     body: data,
-//   }, (error, response, body) => {
-//     if (error) {
-//       return reject(error);
-//     }
-//     const obj = JSON.parse(body);
-//     return resolve(obj);
-//   });
-// });
-
 const getLatestLocation = (data) => {
   const latestData = data.locations[data.locations.length - 1];
   const coords = {
@@ -58,11 +43,15 @@ exports.handle = (event, context, callback) => {
     return callback(null, response);
   }
 
-  // const data = JSON.parse(event.body);
-  // const coords = getLatestLocation(data);
-
   Promise.resolve()
-    // Send data to IFTTT -> Google Spreadsheet.
+    // Update coordinates in DynamoDB
+    .then(() => {
+      const data = JSON.parse(event.body);
+      const coords = getLatestLocation(data);
+      console.log('coords:', coords);
+
+    })
+    // Send data to IFTTT -> Google Spreadsheet
     .then(() => {
       const action = 'record_overland_data';
       const payload = { value1: event.body.replace(/\n/g, '').replace(/ /g, '') };
