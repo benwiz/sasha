@@ -73,7 +73,7 @@ func main() {
 
 				// Update record; TODO: We should not be calling this mulitple times. Instead
 				// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
-				var result person
+				var result Person
 				err = table.Update("person", "ben").Set(key, value).Value(&result)
 				if err != nil {
 					r.StatusCode = 500
