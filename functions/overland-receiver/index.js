@@ -76,8 +76,8 @@ exports.handle = (event, context, callback) => {
       return updateDynamoDB(payload);
     })
     // TODO: Handle updateDynamoDB() repsonse
-    .then(() => {
-
+    .then((res) => {
+      console.log('updateDyanmoDB() response:', res);
     })
     // Send data to IFTTT -> Google Spreadsheet
     .then(() => {
