@@ -11,18 +11,8 @@ import (
 )
 
 type message struct {
-	PathParameters table  `json:"pathParameters"`
+	PathParameters Table  `json:"pathParameters"`
 	Body           string `json:"body"`
-}
-
-type table struct {
-	Table string `json:"table"`
-}
-
-type person struct {
-	Person string `json:"person" dynamo:"person"`
-	Age    int    `json:"age" dynamo:"age"`
-	Gender string `json:"gender" dynamo:"gender"`
 }
 
 type response struct {
@@ -55,7 +45,7 @@ func main() {
 
 		// Unmarshal the Body into the correct struct based on the Query
 		if m.PathParameters.Table == "people" {
-			var p person
+			var p Person
 			err = json.Unmarshal([]byte(m.Body), &p)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "Person Unmarshal Fail: %s\n", err)
