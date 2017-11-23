@@ -101,17 +101,23 @@ apexdeploy() {
 
 ## To Do
 
-- `overland-receiver` needs to respond with an error if we don't get a success from IFTTT
-- `overland-receiver` needs to update person location in dynamodb
+- `overland-receiver` -> `update-dynamodb`
+  - There is something weird in this combo. The records are not appearing in the logs. And age is being written as 0 _only_ from `overland-receiver` _not_ from Postman.
+
+- `overland-receiver`
+  - Handle the response from `updateDynamoDB()`
 
 - `update-dynamodb`
-  - In a successful response include properties that do not exist in the struct
+  - In a successful response include properties that do not (yet) exist in the model and also include the current record, not just the person's name.
   - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
   - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
+  - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
 
-- Set up Zing to report wemo switch status directly to DynamoDB
+- `write-dynamodb`
+  - Handle missing data
 
 - Low priority / dependencies haven't been created
+  - Set up Zing to report wemo switch status directly to DynamoDB
   - Detect if we don't sleep together
   - Better libs strategy for Python functions (see `send-image`).
   - Receive sms

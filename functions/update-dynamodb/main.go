@@ -66,7 +66,21 @@ func main() {
 					continue
 				}
 				value := v.Field(i).Interface()
-				if key == "age" && value == 0 || key == "gender" && value == "" {
+
+				// TODO: This is a bad way of handling the proper key name.
+				if key == "latestcoordstimestamp" {
+					key = "latest_coords_timestamp"
+				}
+
+				if key == "age" {
+					fmt.Fprintf(os.Stderr, "%#v, %#v, %#v\n", key, value, value == 0)
+				}
+
+				// TODO: Need a much better way of handling missing data.
+				if key == "age" && value == 0 ||
+					key == "latitude" && value.(float32) == 0 ||
+					key == "longitude" && value.(float32) == 0 ||
+					key == "latest_coords_timestamp" && value.(string) == "" {
 					continue
 				}
 				fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)
@@ -74,7 +88,7 @@ func main() {
 				// Update record; TODO: We should not be calling this mulitple times. Instead
 				// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
 				var result Person
-				err = table.Update("person", "ben").Set(key, value).Value(&result)
+				err = table.Update("person", p.Person).Set(key, value).Value(&result)
 				if err != nil {
 					r.StatusCode = 500
 					r.Body = fmt.Sprintf(`{"message": "%s"}`, err)

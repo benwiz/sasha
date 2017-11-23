@@ -21,12 +21,29 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
   });
 });
 
+const updateDynamoDB = payload => new Promise((resolve, reject) => {
+  const data = JSON.stringify(payload);
+  Request.post({
+    headers: { 'content-type': 'application/json' },
+    url: 'https://sasha.benwiz.io/dynamo/people',
+    body: data,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    console.log('updateDynamoDB() respnose:', body);
+    const obj = JSON.parse(body);
+    return resolve(obj);
+  });
+});
+
 const getLatestLocation = (data) => {
   const latestData = data.locations[data.locations.length - 1];
   const coords = {
     latitude: latestData.geometry.coordinates[1],
     longitude: latestData.geometry.coordinates[0],
     timestamp: latestData.properties.timestamp,
+    device_id: latestData.properties.device_id,
   };
   return coords;
 };
@@ -49,6 +66,17 @@ exports.handle = (event, context, callback) => {
       const data = JSON.parse(event.body);
       const coords = getLatestLocation(data);
       console.log('coords:', coords);
+
+      const payload = {
+        person: coords.device_id,
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        latest_coords_timestamp: coords.timestamp,
+      };
+      return updateDynamoDB(payload);
+    })
+    // TODO: Handle updateDynamoDB() repsonse
+    .then(() => {
 
     })
     // Send data to IFTTT -> Google Spreadsheet
