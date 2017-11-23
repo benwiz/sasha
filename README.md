@@ -104,21 +104,17 @@ apexdeploy() {
 - `overland-receiver` -> `update-dynamodb`
   - There is something weird in this combo. The records are not appearing in the logs. And age is being written as 0 _only_ from `overland-receiver` _not_ from Postman.
 
-- `overland-receiver`
-  - Handle the response from `updateDynamoDB()`
-
-- `update-dynamodb`
-  - In a successful response include properties that do not (yet) exist in the model and also include the current record, not just the person's name.
-  - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
-  - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
-  - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
-
-- `write-dynamodb`
-  - Handle missing data
+- Set up Zing to report wemo switch status directly to DynamoDB
 
 - Low priority / dependencies haven't been created
-  - Set up Zing to report wemo switch status directly to DynamoDB
+  - `overland-receiver` needs to handle the response from `updateDynamoDB()`
+  - `write-dynamodb` needs to handle missing data
   - Detect if we don't sleep together
   - Better libs strategy for Python functions (see `send-image`).
   - Receive sms
   - Slowly move entirely away from IFTTT
+  - `update-dynamodb`
+    - In a successful response include properties that do not (yet) exist in the model and also include the current record, not just the person's name.
+    - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
+    - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
+    - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
