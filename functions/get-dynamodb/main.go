@@ -11,17 +11,8 @@ import (
 )
 
 type message struct {
-	PathParameters        table                  `json:"pathParameters"`
+	PathParameters        Table                  `json:"pathParameters"`
 	QueryStringParameters map[string]interface{} `json:"queryStringParameters"`
-}
-
-type table struct {
-	Table string `json:"table"`
-}
-
-type person struct {
-	Person string `json:"person" dynamo:"person"`
-	Age    int    `json:"age" dynamo:"age"`
 }
 
 type response struct {
@@ -55,7 +46,7 @@ func main() {
 		// Query the proper table
 		if m.PathParameters.Table == "people" {
 			// Get person record
-			var p person
+			var p Person
 			value := m.QueryStringParameters["person"].(string)
 			err = table.Get("person", value).One(&p)
 			if err != nil {

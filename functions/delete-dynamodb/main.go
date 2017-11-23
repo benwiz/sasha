@@ -11,12 +11,8 @@ import (
 )
 
 type message struct {
-	PathParameters        table                  `json:"pathParameters"`
+	PathParameters        Table                  `json:"pathParameters"`
 	QueryStringParameters map[string]interface{} `json:"queryStringParameters"`
-}
-
-type table struct {
-	Table string `json:"table"`
 }
 
 type response struct {
