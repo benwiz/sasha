@@ -104,6 +104,8 @@ apexdeploy() {
 - `overland-receiver` -> `update-dynamodb`
   - There is something weird in this combo. The records are not appearing in the logs. And age is being written as 0 _only_ from `overland-receiver` _not_ from Postman.
 
+- Secuirty
+
 - Low priority
   - Set up Zing to report wemo switch status directly to DynamoDB
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`
