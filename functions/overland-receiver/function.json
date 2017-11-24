@@ -2,5 +2,6 @@
   "description": "Receive data from Overland and forward to IFTTT to be stored in a Google spreadsheet.",
   "hooks":{
     "build": "npm install"
-  }
+  },
+  "timeout": 15
 }

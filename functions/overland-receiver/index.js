@@ -14,7 +14,8 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
-    // TODO: Should try to parse json and catch an error
+    // TODO: Should try to parse json and catch an error. Not only is that the better way,
+    // it will handle unexpected situations that have come up like html in response.
     console.log('IFTTT Response:', body);
     if (body !== 'Congratulations! You\'ve fired the record_overland_data event' &&
         body !== 'Request Entity Too Large') {
