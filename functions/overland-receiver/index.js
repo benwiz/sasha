@@ -14,6 +14,7 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
+    console.log('IFTTT Response:', body);
     if (body !== 'Congratulations! You\'ve fired the record_overland_data event') {
       body = JSON.parse(body);
     }
