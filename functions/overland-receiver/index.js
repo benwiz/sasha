@@ -14,8 +14,10 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
+    // TODO: Should try to parse json and catch an error
     console.log('IFTTT Response:', body);
-    if (body !== 'Congratulations! You\'ve fired the record_overland_data event') {
+    if (body !== 'Congratulations! You\'ve fired the record_overland_data event' &&
+        body !== 'Request Entity Too Large') {
       body = JSON.parse(body);
     }
     return resolve(body);
@@ -32,7 +34,7 @@ const updateDynamoDB = payload => new Promise((resolve, reject) => {
     if (error) {
       return reject(error);
     }
-    console.log('updateDynamoDB() respnose:', body);
+    console.log('updateDynamoDB() raw response:', body);
     const obj = JSON.parse(body);
     return resolve(obj);
   });
@@ -94,6 +96,9 @@ exports.handle = (event, context, callback) => {
       if (res.errors) {
         reply.statusCode = 500;
         reply.body = JSON.stringify({ message: 'IFTTT errors.', errors: res.errors });
+      } else if (res === 'Request Entity Too Large') {
+        reply.statusCode = 500;
+        reply.body = JSON.stringify({ message: 'IFTTT payload too large.' });
       } else {
         reply.statusCode = 200;
         reply.body = JSON.stringify({ result: 'ok' }); // This is specifically what the Overland app expects (https://github.com/aaronpk/Overland-iOS/blob/e192244a76f3bcb1f495a3aee9cde816ca63de3d/GPSLogger/GLManager.m#L160)
