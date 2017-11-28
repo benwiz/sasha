@@ -18,8 +18,8 @@ const replaceTemplates = (replacements, html) => {
 const displayView = (event, context, callback) => {
   fs.readFile('index.html', 'utf-8', (err, data) => {
     const replacements = {
-      latitude: '20',
-      longitude: '30',
+      latitude: '29',
+      longitude: '90',
     };
     const html = replaceTemplates(replacements, data);
     context.succeed(html); // TODO: use callback instead
