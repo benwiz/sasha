@@ -46,7 +46,8 @@ const getLocations = () => new Promise((resolve, reject) => {
       return reject(error);
     }
     console.log('getLocations() raw response:', body);
-    return resolve(reply);
+    const obj = JSON.parse(body);
+    return resolve(obj);
   });
 });
 
