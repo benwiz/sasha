@@ -67,6 +67,14 @@ apex invoke get-dynamodb < functions/get-dynamodb/event.json
 
 Receive the post request from the [Overland iOS app](https://overland.p3k.io/).
 
+## map
+
+Display a Google map with a pin at my current location. A temporary use for easier monitoring of the `overland-receiver` service.
+
+## docs
+
+Not yet working. Display API Gateway generated Swagger docs.
+
 ## Deploy
 
 Create a file called _env.json_ to store environment variables.
