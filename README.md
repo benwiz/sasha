@@ -109,7 +109,6 @@ apexdeploy() {
 
 ## To Do
 
-- Map to display current location (node.js)
 - Clojure location based actions
 
 - Security
