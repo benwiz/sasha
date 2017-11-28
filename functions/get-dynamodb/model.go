@@ -14,3 +14,12 @@ type Person struct {
 	Longitude             float32 `json:"longitude" dynamo:"longitude"`
 	LatestCoordsTimestamp string  `json:"latest_coords_timestamp" dynamo:"latest_coords_timestamp"`
 }
+
+// Location represents a location record in the DynamoDB table: sasha.locations.
+type Location struct {
+	Name      string  `json:"name" dynamo:"name"`
+	Type      string  `json:"type" dynamo:"type"`
+	Latitude  float32 `json:"latitude" dynamo:"latitude"`
+	Longitude float32 `json:"longitude" dynamo:"longitude"`
+	Radius    float32 `json:"radius" dynamo:"radius"`
+}
