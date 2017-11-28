@@ -65,7 +65,29 @@ func main() {
 
 			// TODO: Better response body. Use the created record data in response.
 			r.StatusCode = 200
-			r.Body = fmt.Sprintf(`{"message": "Successfully wrote record: %s."}`, p.Person)
+			r.Body = fmt.Sprintf(`{"message": "Successfully wrote People record: %s."}`, p.Person)
+		} else if m.PathParameters.Table == "locations" {
+			var l Location
+			err = json.Unmarshal([]byte(m.Body), &l)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Location Unmarshal Fail: %s\n", err)
+				r.StatusCode = 500
+				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+				return r, nil
+			}
+
+			// Put item into sasha.locations table
+			err = table.Put(l).Run() // TODO: This should be able to return the created record. Use it in response.
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Table Put Fail: %s\n", table)
+				r.StatusCode = 500
+				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+				return r, nil
+			}
+
+			// TODO: Better response body. Use the created record data in response.
+			r.StatusCode = 200
+			r.Body = fmt.Sprintf(`{"message": "Successfully wrote Locations record: %s."}`, l.Name)
 		} else {
 			r.StatusCode = 404
 			r.Body = fmt.Sprintf("Table not found: %v.", m.PathParameters.Table)
