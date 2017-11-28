@@ -111,7 +111,7 @@ apexdeploy() {
 
 - Security
 - Location
-  - Update all dynamodb functions to handle `locations` table
+  - Update all dynamodb ofunctions to handle `locations` table
   - Draw _circles_ on the google map
   - Clojure function to check if the given _person_ is inside any _location_
   - Trigger sms with name of location
