@@ -1,0 +1,6 @@
+{
+  "name": "get_location",
+  "description": "Clojure example project using Lein",
+  "runtime": "clojure",
+  "handler": "org.get_location.lambsay::handleRequest"
+}

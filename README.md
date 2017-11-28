@@ -111,10 +111,9 @@ apexdeploy() {
 
 - Security
 - Location
-  - Draw _circles_ on the google map
-  - Clojure function to check if the given _person_ is inside any _location_
-  - Trigger sms with name of location
-    - The final publishing of this information may become more complicated
+  - Clojure `get-location` get current coordinates and known geolocation
+  - Clojre call `get-location` and perform an action
+    - Trigger sms with name of location, for now
 
 - Low priority
   - Finish docs

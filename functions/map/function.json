@@ -1,5 +1,5 @@
 {
-  "description": "Display a map with my current location.",
+  "description": "Display a map with my current location and geofences.",
   "hooks":{
     "build": "npm install"
   }
