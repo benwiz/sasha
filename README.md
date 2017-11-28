@@ -104,11 +104,7 @@ apexdeploy() {
 - Map to display current location (node.js)
 - Clojure location based actions
 
-- `overland-receiver` -> `update-dynamodb`
-  - There is something weird in this combo. The records are not appearing in the logs. And age is being written as 0 _only_ from `overland-receiver` _not_ from Postman.
-  - Nvm, it's happening for Postman too.
-
-- Secuirty
+- Security
 
 - Low priority
   - Finish docs

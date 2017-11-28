@@ -1,0 +1,6 @@
+{
+  "description": "Display a map with my current location.",
+  "hooks":{
+    "build": "npm install"
+  }
+}
