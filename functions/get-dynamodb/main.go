@@ -68,20 +68,19 @@ func main() {
 			r.Body = string(responseBody)
 		} else if m.PathParameters.Table == "locations" {
 			// Get location record
-			var l Location
-			value := m.QueryStringParameters["name"].(string)
-			err = table.Get("name", value).One(&l)
+			var locations []Location
+			err = table.Scan().All(&locations)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "Get Error: %s\n", err)
 				r.StatusCode = 404
 				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
 				return r, nil
 			}
-			fmt.Fprintf(os.Stderr, "Location: %#v\n", l)
+			fmt.Fprintf(os.Stderr, "Location: %#v\n", locations)
 
 			// Prepare success response
 			r.StatusCode = 200
-			responseBody, err := json.Marshal(l)
+			responseBody, err := json.Marshal(locations)
 			if err != nil {
 				r.StatusCode = 500
 				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
