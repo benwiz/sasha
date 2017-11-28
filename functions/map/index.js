@@ -57,11 +57,11 @@ exports.handle = (event, context, callback) => {
     const replacements = {};
 
     getLocations()
-      .then((res => {
+      .then((res) => {
         console.log('getLocations() res:', res);
         return getCoordinates('benwisialowski');
       })
-      .then(res => {
+      .then((res) => {
         replacements.latitude = res.latitude;
         replacements.longitude = res.longitude;
         replacements.timestamp = res.timestamp;
