@@ -15,9 +15,11 @@
     <script>
       var latitude = parseFloat('{{ latitude }}');
       var longitude = parseFloat('{{ longitude }}');
+      var circles = JSON.parse('{{ circles }}');
+      console.log(circles);
       function initMap() {
         var location = { lat: latitude, lng: longitude };
-        console.log('location:', location);
+        console.log('location:', location)
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
           center: location,
@@ -25,6 +27,23 @@
         var marker = new google.maps.Marker({
           position: location,
           map: map,
+        });
+        circles.forEach(function (circle) {
+          var loc = { lat: circle.latitude, lng: circle.longitude };
+          marker = new google.maps.Marker({
+            position: loc,
+            map: map,
+          });
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.20,
+            map: map,
+            center: loc,
+            radius: circle.radius * 1000,
+          });
         });
       }
     </script>
