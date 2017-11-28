@@ -58,13 +58,14 @@ exports.handle = (event, context, callback) => {
 
     getLocations()
       .then((res) => {
-        console.log('getLocations() res:', res);
+        replacements.circles = JSON.stringify(res);
         return getCoordinates('benwisialowski');
       })
       .then((res) => {
         replacements.latitude = res.latitude;
         replacements.longitude = res.longitude;
         replacements.timestamp = res.timestamp;
+        console.log('replacements:', replacements);
 
         const html = replaceTemplates(replacements, data);
         context.succeed(html); // TODO: use callback instead
