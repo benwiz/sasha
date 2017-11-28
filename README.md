@@ -115,6 +115,7 @@ apexdeploy() {
 
 - Security
 - Location
+  - Test out polygon drawing for `map`. All `*-dynamo` functions need to handle polygons first.
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
