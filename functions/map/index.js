@@ -1,3 +1,5 @@
+const Promise = require('bluebird');
+const Request = require('request');
 const fs = require('fs');
 
 // Replace jinja style double bracket templates in a string. Replacements will also convert data
@@ -14,16 +16,41 @@ const replaceTemplates = (replacements, html) => {
   return result;
 };
 
-// Display the contents of the index.html file
-const displayView = (event, context, callback) => {
-  fs.readFile('index.html', 'utf-8', (err, data) => {
-    const replacements = {
-      latitude: '29',
-      longitude: '90',
+// Get the current coordinates from DynamoDB via the API.
+const getCoordinates = person => new Promise((resolve, reject) => {
+  Request.get({
+    headers: { 'content-type': 'application/json' },
+    url: `https://sasha.benwiz.io/dynamo/people?person=${person}`,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    console.log('getCoordinates() raw response:', body);
+    const obj = JSON.parse(body);
+    const reply = {
+      latitude: obj.latitude,
+      longitude: obj.longitude,
+      timestamp: obj.latest_coords_timestamp,
     };
-    const html = replaceTemplates(replacements, data);
-    context.succeed(html); // TODO: use callback instead
+    return resolve(reply);
+  });
+});
+
+// Display the contents of the index.html file
+exports.handle = (event, context, callback) => {
+  fs.readFile('index.html', 'utf-8', (err, data) => {
+    getCoordinates('benwisialowski')
+      .then((res) => {
+        const replacements = {
+          latitude: res.latitude,
+          longitude: res.longitude,
+          timestamp: res.timestamp,
+        };
+        const html = replaceTemplates(replacements, data);
+        context.succeed(html); // TODO: use callback instead
+      })
+      .catch((err) => {
+        console.log('Error:', err);
+      });
   });
 };
-
-exports.handle = displayView;

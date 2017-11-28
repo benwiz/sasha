@@ -128,3 +128,4 @@ apexdeploy() {
     - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
     - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
     - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
+    - `person` in dynamodb table `people` should be changed to `name`
