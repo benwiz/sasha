@@ -28,7 +28,7 @@
     [this is os context]
     (let [w (io/writer os)]
     (-> (json/parse-stream (io/reader is))
-        (get "say")
+        (get-in "queryStringParameters" "person")
         (it-says)
         (str "\n")
         (->> (.write w)))

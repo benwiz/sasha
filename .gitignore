@@ -9,7 +9,7 @@ node_modules/
 npm-debug.log
 env.json
 main  # Go binary
-get-location/target/
+functions/get-location/target/
 
 functions/send-image/*
 !functions/send-image/function.json
