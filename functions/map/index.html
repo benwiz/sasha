@@ -27,6 +27,7 @@
         var marker = new google.maps.Marker({
           position: location,
           map: map,
+          icon: 'http://maps.google.com/mapfiles/marker_green.png',
         });
         circles.forEach(function (circle) {
           var loc = { lat: circle.latitude, lng: circle.longitude };
