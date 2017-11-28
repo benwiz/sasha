@@ -40,7 +40,7 @@ const getCoordinates = person => new Promise((resolve, reject) => {
 const getLocations = () => new Promise((resolve, reject) => {
   Request.get({
     headers: { 'content-type': 'application/json' },
-    url: `https://sasha.benwiz.io/dynamo/locations`,
+    url: 'https://sasha.benwiz.io/dynamo/locations',
   }, (error, response, body) => {
     if (error) {
       return reject(error);
