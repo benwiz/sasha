@@ -72,13 +72,8 @@ func main() {
 					key = "latest_coords_timestamp"
 				}
 
-				if key == "age" {
-					fmt.Fprintf(os.Stderr, "%#v, %#v, %#v\n", key, value, value == 0)
-				}
-
 				// TODO: Need a much better way of handling missing data.
-				if key == "age" && value == 0 ||
-					key == "latitude" && value.(float32) == 0 ||
+				if key == "latitude" && value.(float32) == 0 ||
 					key == "longitude" && value.(float32) == 0 ||
 					key == "latest_coords_timestamp" && value.(string) == "" {
 					continue

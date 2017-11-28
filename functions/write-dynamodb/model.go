@@ -10,7 +10,6 @@ type Table struct {
 // Person represents a person record in the DynamoDB table: sasha.people.
 type Person struct {
 	Person                string  `json:"person" dynamo:"person"`
-	Age                   int     `json:"age" dynamo:"age"`
 	Latitude              float32 `json:"latitude" dynamo:"latitude"`
 	Longitude             float32 `json:"longitude" dynamo:"longitude"`
 	LatestCoordsTimestamp string  `json:"latest_coords_timestamp" dynamo:"latest_coords_timestamp"`
