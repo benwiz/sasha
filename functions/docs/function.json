@@ -1,0 +1,6 @@
+{
+  "description": "Present Swagger JSON.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

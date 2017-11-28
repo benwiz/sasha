@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2017-11-22T21:47:45Z",
+    "title": "sasha"
+  },
+  "host": "sasha.benwiz.io",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "produces": [
+          "text/html"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "headers": {
+              "Content-Type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dynamo/{table}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      },
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      },
+      "patch": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "table",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/marg/{query}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/overland": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/sns": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
