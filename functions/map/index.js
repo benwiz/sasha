@@ -36,16 +36,35 @@ const getCoordinates = person => new Promise((resolve, reject) => {
   });
 });
 
+// Get locations
+const getLocations = () => new Promise((resolve, reject) => {
+  Request.get({
+    headers: { 'content-type': 'application/json' },
+    url: `https://sasha.benwiz.io/dynamo/locations`,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    console.log('getLocations() raw response:', body);
+    return resolve(reply);
+  });
+});
+
 // Display the contents of the index.html file
 exports.handle = (event, context, callback) => {
   fs.readFile('index.html', 'utf-8', (err, data) => {
-    getCoordinates('benwisialowski')
-      .then((res) => {
-        const replacements = {
-          latitude: res.latitude,
-          longitude: res.longitude,
-          timestamp: res.timestamp,
-        };
+    const replacements = {};
+
+    getLocations()
+      .then((res => {
+        console.log('getLocations() res:', res);
+        return getCoordinates('benwisialowski');
+      })
+      .then(res => {
+        replacements.latitude = res.latitude;
+        replacements.longitude = res.longitude;
+        replacements.timestamp = res.timestamp;
+
         const html = replaceTemplates(replacements, data);
         context.succeed(html); // TODO: use callback instead
       })

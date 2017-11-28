@@ -66,6 +66,8 @@ func main() {
 				return r, nil
 			}
 			r.Body = string(responseBody)
+		} else if m.PathParameters.Table == "locations" {
+			// TODO: Get location record
 		} else {
 			// Prepare table-not-found response
 			r.StatusCode = 404

@@ -109,9 +109,13 @@ apexdeploy() {
 
 ## To Do
 
-- Clojure location based actions
-
 - Security
+- Location
+  - Update all dynamodb functions to handle `locations` table
+  - Draw _circles_ on the google map
+  - Clojure function to check if the given _person_ is inside any _location_
+  - Trigger sms with name of location
+    - The final publishing of this information may become more complicated
 
 - Low priority
   - Finish docs
@@ -127,4 +131,4 @@ apexdeploy() {
     - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
     - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
     - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
-    - `person` in dynamodb table `people` should be changed to `name`
+  - `person` in dynamodb table `people` should be changed to `name`
