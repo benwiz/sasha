@@ -1,20 +1,32 @@
-<!-- This is a very rudimentary implementation of a UI for Sasha. I think
-my intention is to use a front-end framework like vue.js. But first I need
-to design it. -->
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<head>
-    <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.138.0.min.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
-</head>
-
-<h2>This is Sasha.</h2>
-<div>
-    hi
-</div>
-
-
-<script>
-console.log('hey');
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 100%;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var location = { lat: -25.363, lng: 131.044 };
+        console.log('location:', location);
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: location
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB-5vkoWaDjzXDyY6RYktu58b3MrpUbBE&callback=initMap">
+    </script>
+  </body>
+</html>
