@@ -101,7 +101,6 @@ apexdeploy() {
 
 ## To Do
 
-- Deploy docs somewhere
 - Map to display current location (node.js)
 - Clojure location based actions
 
@@ -112,6 +111,7 @@ apexdeploy() {
 - Secuirty
 
 - Low priority
+  - Finish docs
   - Set up Zing to report wemo switch status directly to DynamoDB
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`
   - `write-dynamodb` needs to handle missing data
