@@ -71,6 +71,10 @@ Receive the post request from the [Overland iOS app](https://overland.p3k.io/).
 
 Display a Google map with a pin at my current location. A temporary use for easier monitoring of the `overland-receiver` service.
 
+## get-location
+
+Clojure function that returns the coordinates and geolocation of given person.
+
 ## docs
 
 Not yet working. Display API Gateway generated Swagger docs.
