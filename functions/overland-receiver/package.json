@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
-    "ioredis": "^3.2.1",
     "request": "^2.83.0"
   }
 }
