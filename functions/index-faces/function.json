@@ -1,0 +1,6 @@
+{
+  "description": "Use AWS Rekognition to analyze the image.",
+  "hooks":{
+    "build": "npm install"
+  }
+}
