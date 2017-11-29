@@ -1,10 +1,10 @@
 const Promise = require('bluebird');
-// const Request = require('request');
 const AWS = require('aws-sdk');
 
 const rekognition = new AWS.Rekognition();
 
 const indexFaces = records => Promise.map(records, record => new Promise((resolve, reject) => {
+  // TODO: Determine if this will work if `records.length > 1`
   const params = {
     CollectionId: 'faces',
     DetectionAttributes: [
@@ -12,7 +12,7 @@ const indexFaces = records => Promise.map(records, record => new Promise((resolv
     ExternalImageId: record.s3.object.key.split('.')[0],
     Image: {
       S3Object: {
-        Bucket: 'sasha-faces',
+        Bucket: record.s3.bucket.name,
         Name: record.s3.object.key,
       },
     },

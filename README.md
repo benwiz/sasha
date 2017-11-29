@@ -79,7 +79,9 @@ Clojure function that returns the coordinates and geolocation of given person.
 
 Not yet working. Display API Gateway generated Swagger docs.
 
-## analyze-image
+## index-faces
+
+Run `indexFaces` for the faces bucket for Rekogntion.
 
 ```bash
 aws rekognition create-collection --collection-id "faces"
@@ -90,12 +92,10 @@ aws rekognition list-collections
 ```
 
 ```bash
-
+aws rekognition list-faces --collection-id faces
 ```
 
-## index-faces
-
-Run `indexFaces` for the faces bucket for Rekogntion.
+## analyze-image
 
 ## Deploy
 
