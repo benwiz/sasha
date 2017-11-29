@@ -131,6 +131,8 @@ apexdeploy() {
 
 ## To Do
 
+- `index-faces` needs to run based on new object trigger
+
 - Security
 - Location
   - Test out polygon drawing for `map`. All `*-dynamo` functions need to handle polygons first.

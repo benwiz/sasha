@@ -31,10 +31,10 @@ exports.handle = (event, context, callback) => {
   indexFaces()
     .then((res) => {
       console.log('Result:', res);
+      callback(null, res);
     })
     .catch((err) => {
       console.log('Error:', err);
+      callback(null, err);
     });
-  const reply = { message: 'ROFL.' };
-  return callback(null, reply);
 };
