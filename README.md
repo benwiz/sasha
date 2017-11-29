@@ -93,6 +93,10 @@ aws rekognition list-collections
 
 ```
 
+## index-faces
+
+Run `indexFaces` for the faces bucket for Rekogntion.
+
 ## Deploy
 
 Create a file called _env.json_ to store environment variables.

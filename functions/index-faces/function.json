@@ -1,5 +1,5 @@
 {
-  "description": "Use AWS Rekognition to analyze the image.",
+  "description": "Index the `faces` bucket on change.",
   "hooks":{
     "build": "npm install"
   }
