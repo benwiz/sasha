@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const Request = require('request');
+// const Request = require('request');
 const AWS = require('aws-sdk');
 
 const rekognition = new AWS.Rekognition();
@@ -9,6 +9,7 @@ const indexFaces = records => Promise.map(records, record => new Promise((resolv
     CollectionId: 'faces',
     DetectionAttributes: [
     ],
+    ExternalImageId: record.s3.object.key.split('.')[0],
     Image: {
       S3Object: {
         Bucket: 'sasha-faces',
