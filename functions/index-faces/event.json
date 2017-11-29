@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-east-1",
+            "eventTime": "2017-11-29T02:39:52.623Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "AX2FA51TPHMAJ"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "24.120.55.20"
+            },
+            "responseElements": {
+                "x-amz-request-id": "BA3114AA0AF4057A",
+                "x-amz-id-2": "R2zBz3Bltop86qG9jH5ACnFPv/Nw/ZbjwE/0uXtFHrpE7mhrul38iHWyhdw957zl6JyF2nJTYiM="
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "988d52b3-7da4-4f89-86de-174430de9d4f",
+                "bucket": {
+                    "name": "sasha-faces",
+                    "ownerIdentity": {
+                        "principalId": "AX2FA51TPHMAJ"
+                    },
+                    "arn": "arn:aws:s3:::sasha-faces"
+                },
+                "object": {
+                    "key": "ben.jpg",
+                    "size": 152649,
+                    "eTag": "dcfef3e50b91b34740e685657a2ab645",
+                    "sequencer": "005A1E1DF8862C5AD2"
+                }
+            }
+        }
+    ]
+}
