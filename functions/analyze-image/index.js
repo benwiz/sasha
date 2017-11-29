@@ -14,12 +14,13 @@ const searchFacesByImage = records => Promise.map(records, record => new Promise
         Name: record.s3.object.key,
       },
     },
-    MaxFaces: 5,
+    MaxFaces: 1,
   };
   rekognition.searchFacesByImage(params, (err, data) => {
     if (err) {
       reject(err);
     } else {
+      // TODO: Parse `record.s3.object.key` to get location (folder)
       resolve(data);
     }
   });
@@ -31,7 +32,15 @@ exports.handle = (event, context, callback) => {
   searchFacesByImage(event.Records)
     .then((res) => {
       console.log('Result:', JSON.stringify(res));
-      // TODO: Instead of callback, write the learned data somewhere.
+
+      // Extract person's name from response
+      if (res.FaceMatches.length == 0) {
+        return callback(null, 'uh oh, no faces');
+      }
+      const person = res.FaceMatches[0].Face.ExternalImageId;
+
+      // TODO: Update person record with the location of this image. The location will
+      // need to be stored in the file key.
       // TODO: Delete the processed image from S3.
       callback(null, res);
     })
