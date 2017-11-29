@@ -132,6 +132,7 @@ apexdeploy() {
 ## To Do
 
 - `index-faces` needs to run based on new object trigger
+- `analyze-image` needs to _searchFacesByImage()_
 
 - Security
 - Location

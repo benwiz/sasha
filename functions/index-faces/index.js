@@ -12,7 +12,7 @@ const indexFaces = () => new Promise((resolve, reject) => {
     Image: {
       S3Object: {
         Bucket: 'sasha-faces',
-        Name: 'ben.jpg',
+        Name: 'xxx',
       },
     },
   };
@@ -26,15 +26,15 @@ const indexFaces = () => new Promise((resolve, reject) => {
 });
 
 exports.handle = (event, context, callback) => {
-  console.log('EVENT:', event);
-
-  indexFaces()
-    .then((res) => {
-      console.log('Result:', res);
-      callback(null, res);
-    })
-    .catch((err) => {
-      console.log('Error:', err);
-      callback(null, err);
-    });
+  console.log('EVENT:', JSON.stringify(event));
+  callback(null, event);
+  // indexFaces()
+  //   .then((res) => {
+  //     console.log('Result:', res);
+  //     callback(null, res);
+  //   })
+  //   .catch((err) => {
+  //     console.log('Error:', err);
+  //     callback(null, err);
+  //   });
 };
