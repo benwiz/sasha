@@ -119,6 +119,8 @@ apexdeploy() {
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
+- `analyze-image`
+  - Analyze an image and search for known faces. Respond with details about known and unknown faces.
 
 - Low priority
   - Finish docs
