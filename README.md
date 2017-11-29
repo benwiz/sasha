@@ -79,6 +79,20 @@ Clojure function that returns the coordinates and geolocation of given person.
 
 Not yet working. Display API Gateway generated Swagger docs.
 
+## analyze-image
+
+```bash
+aws rekognition create-collection --collection-id "faces"
+```
+
+```bash
+aws rekognition list-collections
+```
+
+```bash
+
+```
+
 ## Deploy
 
 Create a file called _env.json_ to store environment variables.
