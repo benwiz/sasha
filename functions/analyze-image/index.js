@@ -76,10 +76,13 @@ exports.handle = (event, context, callback) => {
       // TODO: Handle a bad response from `searchFacesByImage()`.
       console.log('searchFacesByImage.result:', JSON.stringify(res));
 
-      // Extract person's name
+      // If no matches found
       if (res.FaceMatches.length === 0) {
-        return callback(null, { message: 'uh oh, no faces' });
+        console.log('No face matches found.');
+        return null;
       }
+
+      // Extract person's name
       const name = res.FaceMatches[0].Face.ExternalImageId;
 
       // Get the origin location and timestamp of the image

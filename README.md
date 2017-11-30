@@ -161,3 +161,4 @@ apexdeploy() {
   - `person` in dynamodb table `people` should be changed to `name`
   - All Node.js needs to handle API json response with a try/catch
   - In `analyze-image` handle bad `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
+  - `analyze-image` needs to `searchFacesByImage()` for all faces, not just largest. This requires creating crops.
