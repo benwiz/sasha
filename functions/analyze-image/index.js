@@ -44,7 +44,7 @@ const deleteS3Object = (bucket, key) => new Promise((resolve, reject) => {
 // Update DynamoDB
 const updateDynamoDB = payload => new Promise((resolve, reject) => {
   const data = JSON.stringify(payload);
-  Request.post({
+  Request.patch({
     headers: { 'content-type': 'application/json' },
     url: 'https://sasha.benwiz.io/dynamo/people',
     body: data,

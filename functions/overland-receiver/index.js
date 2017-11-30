@@ -28,7 +28,7 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
 const updateDynamoDB = payload => new Promise((resolve, reject) => {
   const data = JSON.stringify(payload);
   console.log('PAYLOAD:', payload);
-  Request.post({
+  Request.patch({
     headers: { 'content-type': 'application/json' },
     url: 'https://sasha.benwiz.io/dynamo/people',
     body: data,
