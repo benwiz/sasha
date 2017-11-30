@@ -131,8 +131,6 @@ apexdeploy() {
 
 ## To Do
 
-- `analyze-image`
-  - Analyze an image and search for known faces. Respond with details about known and unknown faces.
 - Security
 - Refine SNS strategy
 - Create Alexa Smart Home Skill
@@ -141,15 +139,14 @@ apexdeploy() {
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
-
 - Currently, to add a new field to an existing model the following steps must be performed. This should not be so complex.
   - Update the sylink `models.go`
   - Perform some logic around null values and naming conventions inside `update-dynamodb`
+- Migrate from IFTTT to Zing as the hub. Maybe with Greengrass.
 
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
   - Finish docs
-  - Set up Zing to report wemo switch status directly to DynamoDB
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`
   - `write-dynamodb` needs to handle missing data
   - Detect if we don't sleep together
@@ -163,3 +160,4 @@ apexdeploy() {
     - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
   - `person` in dynamodb table `people` should be changed to `name`
   - All Node.js needs to handle API json response with a try/catch
+  - In `analyze-image` handle bad `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.

@@ -3,6 +3,7 @@ const AWS = require('aws-sdk');
 const Request = require('request');
 
 const rekognition = new AWS.Rekognition();
+const s3 = new AWS.S3();
 
 const searchFacesByImage = (bucket, key) => new Promise((resolve, reject) => {
   const params = {
@@ -17,6 +18,21 @@ const searchFacesByImage = (bucket, key) => new Promise((resolve, reject) => {
     MaxFaces: 1,
   };
   rekognition.searchFacesByImage(params, (err, data) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(data);
+    }
+  });
+});
+
+// Delete S3 Object
+const deleteS3Object = (bucket, key) => new Promise((resolve, reject) => {
+  const params = {
+    Bucket: bucket,
+    Key: key,
+  };
+  s3.deleteObject(params, (err, data) => {
     if (err) {
       reject(err);
     } else {
@@ -52,6 +68,7 @@ exports.handle = (event, context, callback) => {
 
   searchFacesByImage(bucket, key)
     .then((res) => {
+      // TODO: Handle a bad response from `searchFacesByImage()`.
       console.log('searchFacesByImage.result:', JSON.stringify(res));
 
       // Extract person's name
@@ -73,7 +90,12 @@ exports.handle = (event, context, callback) => {
       return updateDynamoDB(payload);
     })
     .then((res) => {
-      // TODO: Delete the processed image from S3.
+      // TODO: If `updateDynamoDB()` was not successful, then make sure I am alerted.
+      // Probably move the image somewhere else so it can be debugged later.
+      return deleteS3Object(bucket, key);
+    })
+    .then((res) => {
+      // TODO: Handle bad response from `deleteS3Object()`
       return callback(null, { message: 'ok' });
     })
     .catch((err) => {
