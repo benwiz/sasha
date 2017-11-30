@@ -4,14 +4,14 @@ const Request = require('request');
 
 const rekognition = new AWS.Rekognition();
 
-const searchFacesByImage = record => new Promise((resolve, reject) => {
+const searchFacesByImage = (bucket, key) => new Promise((resolve, reject) => {
   const params = {
     CollectionId: 'faces',
     FaceMatchThreshold: 95,
     Image: {
       S3Object: {
-        Bucket: record.s3.bucket.name,
-        Name: record.s3.object.key,
+        Bucket: bucket,
+        Name: key,
       },
     },
     MaxFaces: 1,
@@ -50,8 +50,7 @@ exports.handle = (event, context, callback) => {
   const bucket = record.s3.bucket.name;
   const key = record.s3.object.key;
 
-  // TODO: don't pass in entire record, just pass bucket and key.
-  searchFacesByImage(record)
+  searchFacesByImage(bucket, key)
     .then((res) => {
       console.log('searchFacesByImage.result:', JSON.stringify(res));
 
@@ -70,9 +69,8 @@ exports.handle = (event, context, callback) => {
         last_seen_location: location,
         last_seen_timestamp: timestamp,
       };
-      console.log('payload:', payload);
-      // return updateDynamoDB(payload);
-      return callback(null, { location, name, timestamp });
+      console.log('updateDynamoDB() payload:', payload);
+      return updateDynamoDB(payload);
     })
     .then((res) => {
       // TODO: Delete the processed image from S3.
