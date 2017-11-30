@@ -70,11 +70,9 @@ func main() {
 				// TODO: This is a bad way of handling the proper key name.
 				if key == "latestcoordstimestamp" {
 					key = "latest_coords_timestamp"
-				}
-				if key == "lastseenlocation" {
+				} else if key == "lastseenlocation" {
 					key = "last_seen_location"
-				}
-				if key == "lastseentimestamp" {
+				} else if key == "lastseentimestamp" {
 					key = "last_seen_timestamp"
 				}
 
@@ -82,8 +80,8 @@ func main() {
 				if key == "latitude" && value.(float32) == 0 ||
 					key == "longitude" && value.(float32) == 0 ||
 					key == "latest_coords_timestamp" && value.(string) == "" ||
-					key == "last_seen_location" && value.(string) ||
-					key == "last_seen_timestamp" && value.(string) {
+					key == "last_seen_location" && value.(string) == "" ||
+					key == "last_seen_timestamp" && value.(string) == "" {
 					continue
 				}
 				fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)
