@@ -4,7 +4,7 @@ const Request = require('request');
 
 const rekognition = new AWS.Rekognition();
 
-const searchFacesByImage = records => Promise.map(records, record => new Promise((resolve, reject) => {
+const searchFacesByImage = record => new Promise((resolve, reject) => {
   const params = {
     CollectionId: 'faces',
     FaceMatchThreshold: 95,
@@ -23,12 +23,11 @@ const searchFacesByImage = records => Promise.map(records, record => new Promise
       resolve(data);
     }
   });
-}));
+});
 
 // Update DynamoDB
 const updateDynamoDB = payload => new Promise((resolve, reject) => {
   const data = JSON.stringify(payload);
-  console.log('PAYLOAD:', payload);
   Request.post({
     headers: { 'content-type': 'application/json' },
     url: 'https://sasha.benwiz.io/dynamo/people',
@@ -46,27 +45,38 @@ const updateDynamoDB = payload => new Promise((resolve, reject) => {
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', JSON.stringify(event));
 
-  searchFacesByImage(event.Records)
+  // TODO: Handle multiple records.
+  const record = event.Records[0];
+  const bucket = record.s3.bucket.name;
+  const key = record.s3.object.key;
+
+  // TODO: don't pass in entire record, just pass bucket and key.
+  searchFacesByImage(record)
     .then((res) => {
       console.log('searchFacesByImage.result:', JSON.stringify(res));
-      res = res[0];
 
-      // Extract person's name and location from response
-      console.log('res.FaceMatches:', res.FaceMatches);
+      // Extract person's name
       if (res.FaceMatches.length === 0) {
         return callback(null, { message: 'uh oh, no faces' });
       }
-      const externalImageId = res.FaceMatches[0].Face.ExternalImageId;
-      console.log('externalImageId:', externalImageId);
-      if ((externalImageId.match(/_/g) || []).length !== 1) {
-        return callback(null, { message: 'uh oh, not the expected number of forward slashes' });
-      }
-      const [location, name] = externalImageId.split('_');
-      console.log('location, name:', location, name);
+      const name = res.FaceMatches[0].Face.ExternalImageId;
+
+      // Get the origin location and timestamp of the image
+      const [location, timestamp] = key.split('.jpg')[0].split('_');
 
       // TODO: Update person record with the location of this image. Maybe a `last-seen` field as well.
+      const payload = {
+        person: name,
+        last_seen_location: location,
+        last_seen_timestamp: timestamp,
+      };
+      console.log('payload:', payload);
+      // return updateDynamoDB(payload);
+      return callback(null, { location, name, timestamp });
+    })
+    .then((res) => {
       // TODO: Delete the processed image from S3.
-      return callback(null, { location, name });
+      return callback(null, { message: 'ok' });
     })
     .catch((err) => {
       console.log('Error:', JSON.stringify(err));
