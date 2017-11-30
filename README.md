@@ -134,10 +134,7 @@ apexdeploy() {
 - Security
 - Refine SNS strategy
 - Create Alexa Smart Home Skill
-- Location
-  - Clojure `get-location` get current coordinates and known geolocation
-  - Clojre call `get-location` and perform an action
-    - Trigger sms with name of location, for now
+- Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)
   - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
