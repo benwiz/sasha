@@ -58,7 +58,7 @@ exports.handle = (event, context, callback) => {
 
     getLocations()
       .then((res) => {
-        replacements.circles = JSON.stringify(res);
+        replacements.shapes = JSON.stringify(res);
         return getCoordinates('benwisialowski');
       })
       .then((res) => {

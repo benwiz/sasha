@@ -135,14 +135,13 @@ apexdeploy() {
 - Refine SNS strategy
 - Create Alexa Smart Home Skill
 - Location
-  - Test out polygon drawing for `map`. All `*-dynamo` functions need to handle polygons first.
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)
   - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
-- Migrate from IFTTT to Zing as the hub. Maybe with Greengrass.
+- Migrate from IFTTT to Zing as the hub. Maybe with Greengrass. An intermediary step (pre-AWS-Greengrass and pre-AWS-IoT) would be to use SNS messaging.
 
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.

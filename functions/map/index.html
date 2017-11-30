@@ -15,8 +15,8 @@
     <script>
       var latitude = parseFloat('{{ latitude }}');
       var longitude = parseFloat('{{ longitude }}');
-      var circles = JSON.parse('{{ circles }}');
-      console.log(circles);
+      var shapes = JSON.parse('{{ shapes }}');
+      console.log(shapes);
       function initMap() {
         var location = { lat: latitude, lng: longitude };
         console.log('location:', location)
@@ -29,22 +29,52 @@
           map: map,
           icon: 'http://maps.google.com/mapfiles/marker_green.png',
         });
-        circles.forEach(function (circle) {
-          var loc = { lat: circle.latitude, lng: circle.longitude };
-          marker = new google.maps.Marker({
-            position: loc,
-            map: map,
-          });
-          var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.20,
-            map: map,
-            center: loc,
-            radius: circle.radius * 1000,
-          });
+        shapes.forEach(function (shape) {
+          // If points.length == 1, then we have a circle
+          if (shape.points.length === 1) {
+            var circle = shape.points[0];
+            var latitude = circle[0];
+            var longitude = circle[1];
+            var radius = circle[2];
+            var loc = { lat: latitude, lng: longitude };
+            marker = new google.maps.Marker({
+              position: loc,
+              map: map,
+            });
+            var cityCircle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.20,
+              map: map,
+              center: loc,
+              radius: radius * 1000,
+            });
+          } else {
+            // If >1, then we have a polygon
+            // Define the LatLng coordinates for the polygon's path.
+            var coords = [];
+            shape.points.forEach((point) => {
+              var coord = {
+                lat: point[0],
+                lng: point[1],
+              };
+              coords.push(coord);
+            });
+
+            // Construct the polygon.
+            var polygon = new google.maps.Polygon({
+              paths: coords,
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.2,
+              map: map,
+            });
+            // polygon.setMap(map);
+          }
         });
       }
     </script>
