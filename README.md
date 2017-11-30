@@ -139,9 +139,9 @@ apexdeploy() {
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
-- Currently, to add a new field to an existing model the following steps must be performed. This should not be so complex.
-  - Update the sylink `models.go`
-  - Perform some logic around null values and naming conventions inside `update-dynamodb`
+- Currently, to add a new field to an existing model the following steps must be performed:
+  - Update the sylink `models.go` (this is okay)
+  - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
 - Migrate from IFTTT to Zing as the hub. Maybe with Greengrass.
 
 - Low priority
@@ -151,8 +151,7 @@ apexdeploy() {
   - `write-dynamodb` needs to handle missing data
   - Detect if we don't sleep together
   - Better libs strategy for Python functions (see `send-image`).
-  - Receive sms
-  - Slowly move entirely away from IFTTT
+  - Receive sms, this may mean a twilio integration.
   - `update-dynamodb`
     - In a successful response include properties that do not (yet) exist in the model and also include the current record, not just the person's name.
     - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
@@ -160,5 +159,5 @@ apexdeploy() {
     - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
   - `person` in dynamodb table `people` should be changed to `name`
   - All Node.js needs to handle API json response with a try/catch
-  - In `analyze-image` handle bad `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
+  - In `analyze-image` handle failure `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
   - `analyze-image` needs to `searchFacesByImage()` for all faces, not just largest. This requires creating crops.

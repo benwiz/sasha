@@ -57,6 +57,10 @@ func main() {
 			value := m.QueryStringParameters["name"].(string)
 			del := table.Delete("name", value).Run()
 			fmt.Fprintf(os.Stderr, "Deleted: %#v\n", del)
+
+			// Prepare success response
+			r.StatusCode = 200
+			r.Body = fmt.Sprintf(`{"message": "Successfully deleted: %s."}`, value)
 		} else {
 			// Prepare table-not-found response
 			r.StatusCode = 404

@@ -122,34 +122,26 @@ func main() {
 				}
 				value := v.Field(i).Interface()
 
-				if l.Type == "circle" {
-					// TODO: Need a much better way of handling missing data.
-					if key == "latitude" && value.(float32) == 0 ||
-						key == "longitude" && value.(float32) == 0 ||
-						key == "radius" && value.(float32) == 0 ||
-						key == "type" && value.(string) == "" {
-						continue
-					}
-					fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)
-
-					// Update record; TODO: We should not be calling this mulitple times. Instead
-					// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
-					var result Location
-					err = table.Update("name", l.Name).Set(key, value).Value(&result)
-					if err != nil {
-						r.StatusCode = 500
-						r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
-						return r, nil
-					}
-					fmt.Fprintf(os.Stderr, "Updated Person: %#v\n", result)
-
-					// TODO: Better response body. Use the created record data in response.
-					r.StatusCode = 200
-					r.Body = fmt.Sprintf(`{"message": "Successfully updated Location record: %s."}`, l.Name)
-				} else {
-					r.StatusCode = 400
-					r.Body = fmt.Sprintf(`{"message": "Unknown Location type: %s."}`, l.Type)
+				// TODO: Need a much better way of handling missing data.
+				if key == "points" && value.([][3]float32) == nil {
+					continue
 				}
+				fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)
+
+				// Update record; TODO: We should not be calling this mulitple times. Instead
+				// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
+				var result Location
+				err = table.Update("name", l.Name).Set(key, value).Value(&result)
+				if err != nil {
+					r.StatusCode = 500
+					r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+					return r, nil
+				}
+				fmt.Fprintf(os.Stderr, "Updated Person: %#v\n", result)
+
+				// TODO: Better response body. Use the created record data in response.
+				r.StatusCode = 200
+				r.Body = fmt.Sprintf(`{"message": "Successfully updated Location record: %s."}`, l.Name)
 			}
 		} else {
 			r.StatusCode = 404
