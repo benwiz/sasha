@@ -131,19 +131,19 @@ apexdeploy() {
 
 ## To Do
 
-- `index-faces` needs to run based on new object trigger
-- `analyze-image` needs to _searchFacesByImage()_
-
+- `analyze-image`
+  - Analyze an image and search for known faces. Respond with details about known and unknown faces.
 - Security
+- Refine SNS strategy
+- Create Alexa Smart Home Skill
 - Location
   - Test out polygon drawing for `map`. All `*-dynamo` functions need to handle polygons first.
   - Clojure `get-location` get current coordinates and known geolocation
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
-- `analyze-image`
-  - Analyze an image and search for known faces. Respond with details about known and unknown faces.
 
 - Low priority
+  - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
   - Finish docs
   - Set up Zing to report wemo switch status directly to DynamoDB
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`

@@ -4,12 +4,11 @@ const AWS = require('aws-sdk');
 const rekognition = new AWS.Rekognition();
 
 const indexFaces = records => Promise.map(records, record => new Promise((resolve, reject) => {
-  // TODO: Determine if this will work if `records.length > 1`
   const params = {
     CollectionId: 'faces',
     DetectionAttributes: [
     ],
-    ExternalImageId: record.s3.object.key.split('.')[0],
+    ExternalImageId: record.s3.object.key.split('.jpg')[0],
     Image: {
       S3Object: {
         Bucket: record.s3.bucket.name,
