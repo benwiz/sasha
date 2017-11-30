@@ -129,10 +129,16 @@ apexdeploy() {
 
 ## Notes
 
+Quick brainstorm:
+
+- I need to leverage SNS more.
+  - For example, `overland-receiver` should do nothing other than turn the overland payload into an SNS message. Then, one Lambda function will pick that up and write it to DynamoDB (or some other data store). Other lambda functions will be triggered by that message.
+  - Another example: `analyze-image` publish a message with _person_ and _location_. One Lambda function will write that data to a data store. Other lambda functions will be triggered by that message.
+
 ## To Do
 
 - Security
-- Refine SNS strategy
+- Refine SNS strategy (alexa will call an endpoint that will trigger one of infinite sns messages)
 - Create Alexa Smart Home Skill
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
