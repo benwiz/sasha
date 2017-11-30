@@ -71,11 +71,19 @@ func main() {
 				if key == "latestcoordstimestamp" {
 					key = "latest_coords_timestamp"
 				}
+				if key == "lastseenlocation" {
+					key = "last_seen_location"
+				}
+				if key == "lastseentimestamp" {
+					key = "last_seen_timestamp"
+				}
 
 				// TODO: Need a much better way of handling missing data.
 				if key == "latitude" && value.(float32) == 0 ||
 					key == "longitude" && value.(float32) == 0 ||
-					key == "latest_coords_timestamp" && value.(string) == "" {
+					key == "latest_coords_timestamp" && value.(string) == "" ||
+					key == "last_seen_location" && value.(string) ||
+					key == "last_seen_timestamp" && value.(string) {
 					continue
 				}
 				fmt.Fprintf(os.Stderr, "Update Person: %#v, %#v\n", key, value)

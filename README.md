@@ -142,6 +142,10 @@ apexdeploy() {
   - Clojre call `get-location` and perform an action
     - Trigger sms with name of location, for now
 
+- Currently, to add a new field to an existing model the following steps must be performed. This should not be so complex.
+  - Update the sylink `models.go`
+  - Perform some logic around null values and naming conventions inside `update-dynamodb`
+
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
   - Finish docs
