@@ -58,6 +58,11 @@ const updateDynamoDB = payload => new Promise((resolve, reject) => {
   });
 });
 
+// Insert a substring into the string.
+const insertSubstring = (sourceString, index, subString) => {
+  return sourceString.slice(0, index) + subString + sourceString.slice(index);
+};
+
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', JSON.stringify(event));
 
@@ -78,7 +83,15 @@ exports.handle = (event, context, callback) => {
       const name = res.FaceMatches[0].Face.ExternalImageId;
 
       // Get the origin location and timestamp of the image
-      const [location, timestamp] = key.split('.jpg')[0].split('_');
+      let [location, timestamp] = key.split('.jpg')[0].split('_');
+
+      // Insert the missing colons into the timestamp.
+      // The timestamp currently looks like `2008-09-15T1553000500` but
+      // it needs to look like `2008-09-15T155300+0500`. So add colons into
+      // the _th and _th indices. From back to front so indices don't change.
+      timestamp = insertSubstring(timestamp, 17, '+');
+      timestamp = insertSubstring(timestamp, 15, ':');
+      timestamp = insertSubstring(timestamp, 13, ':');
 
       // TODO: Update person record with the location of this image. Maybe a `last-seen` field as well.
       const payload = {
