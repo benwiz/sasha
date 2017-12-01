@@ -137,13 +137,15 @@ Quick brainstorm:
 
 ## To Do
 
-- Security
-- Refine SNS strategy (alexa will call an endpoint that will trigger one of infinite sns messages)
+- Look into Lambda prod pull
+- Security on `send-sns` and `map` and `gui`
+- Refine SNS strategy. Update all inter-function communication to be via SNS excluding the `send-sns` message for an alternative to using AWS SDK. Just enough to tide over until
 - Create Alexa Smart Home Skill
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)
   - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
+- Switch to serverless.com or AWS SAM
 - Migrate from IFTTT to Zing as the hub. Maybe with Greengrass. An intermediary step (pre-AWS-Greengrass and pre-AWS-IoT) would be to use SNS messaging.
 
 - Low priority
@@ -154,11 +156,6 @@ Quick brainstorm:
   - Detect if we don't sleep together
   - Better libs strategy for Python functions (see `send-image`).
   - Receive sms, this may mean a twilio integration.
-  - `update-dynamodb`
-    - In a successful response include properties that do not (yet) exist in the model and also include the current record, not just the person's name.
-    - Don't run mulitple updates, create multiple `Set()` or use `SetExpr()`
-    - Need a much better way of not including some properties in the update (e.g. age=0, gender="")
-    - Don't do the thing where I get the key and make it lowercase. Instead get the json keyname.
   - `person` in dynamodb table `people` should be changed to `name`
   - All Node.js needs to handle API json response with a try/catch
   - In `analyze-image` handle failure `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
