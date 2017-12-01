@@ -150,7 +150,7 @@ Quick brainstorm:
 
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
-  - Finish docs
+  - Docs
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`
   - `write-dynamodb` needs to handle missing data
   - Detect if we don't sleep together
