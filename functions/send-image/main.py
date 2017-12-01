@@ -16,6 +16,7 @@ import requests
 
 PHONE_NUMBER = os.environ.get('PHONE_NUMBER')
 UNSPLASH_APPLICATION_ID = os.environ.get('UNSPLASH_APPLICATION_ID')
+API_KEY = os.environ.get('API_KEY')
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -53,7 +54,10 @@ def handle(event, context):
 
     # Send text
     url = 'https://sasha.benwiz.io/sns?topic=sms'
-    headers = {'content-type': 'application/json'}
+    headers = {
+        'content-type': 'application/json',
+        'x-api-key': API_KEY,
+    }
     payload = {
         'phone': PHONE_NUMBER,
         'message': image_url

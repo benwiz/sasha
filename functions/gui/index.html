@@ -49,7 +49,7 @@ to design it. -->
     });
 
     // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
-    // directly to SNS.
+    // directly to SNS. This is insecure and must change before enable an api key on the `/sns` endpoint
     function sendMessage(topic, body) {
         var data = JSON.stringify(body);
         $.ajax({

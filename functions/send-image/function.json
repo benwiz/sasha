@@ -1,6 +1,3 @@
 {
-  "description": "Text an image of the given subject to the provided phone number.",
-  "hooks":{
-    "build": "pip install -r requirements.txt -t ."
-  }
+  "description": "Text an image of the given subject to the provided phone number."
 }

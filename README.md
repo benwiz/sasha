@@ -137,8 +137,8 @@ Quick brainstorm:
 
 ## To Do
 
-- Look into Lambda prod pull
-- Security on `send-sns` and `map` and `gui`
+- Cognito on `map` and `gui`
+- To enable `/sns` api key, the key must not be displayed in _gui_.
 - Refine SNS strategy. Update all inter-function communication to be via SNS excluding the `send-sns` message for an alternative to using AWS SDK. Just enough to tide over until
 - Create Alexa Smart Home Skill
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
@@ -151,6 +151,7 @@ Quick brainstorm:
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
   - Docs
+  - `overland-receiver` needs query string based api key
   - `overland-receiver` needs to handle the response from `updateDynamoDB()`
   - `write-dynamodb` needs to handle missing data
   - Detect if we don't sleep together
