@@ -1,0 +1,6 @@
+{
+  "description": "Redirect to Cognito login UI.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

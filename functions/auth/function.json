@@ -1,0 +1,6 @@
+{
+  "description": "Redirect to root with correct Authorization header.",
+  "hooks":{
+    "build": "npm install"
+  }
+}
