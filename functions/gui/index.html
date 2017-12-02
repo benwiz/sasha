@@ -1,69 +1,148 @@
-<!-- This is a very rudimentary implementation of a UI for Sasha. I think
-my intention is to use a front-end framework like vue.js. But first I need
-to design it. -->
+<!doctype html>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+<html lang="en">
 <head>
-    <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.138.0.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-</head>
+  <meta charset="utf-8">
 
-<h2>This is Sasha.</h2>
-<div>
-    <!-- <input type="checkbox" id="salt-lamp" name="interest" value="salt-lamp"> -->
-    <!-- <label id="salt-lamp-name" for="salt-lamp">Salt Lamp</label> -->
-    <p>Salt Lamp</p>
-    <button id="wemo-switch-1-on">On</button>
-    <button id="wemo-switch-1-off">Off</button>
+  <title>The HTML5 Herald</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/fosterloginstage/aws-sdk.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/fosterloginstage/aws-cognito-sdk.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/fosterloginstage/amazon-cognito-auth.js"></script>
 
-    <br>
-    <!-- <input type="checkbox" id="downstairs-lamp" name="interest" value="downstairs-lamp"> -->
-    <!-- <label id="downstairs-lamp-name" for="downstairs-lamp">Downstairs Lamp</label> -->
-    <p>Downstairs Lamp</p>
-    <button id="wemo-switch-2-on">On</button>
-    <button id="wemo-switch-2-off">Off</button>
-</div>
+  <script type="text/javascript">
+    // Set your AWS environment specific variables here
+    // the signinRedirect must match exactly what you have set for the Cognito App Client
+    var auth = null;
+    var config = {
+      userPoolRegion: 'YOUR REGION',
+      userPoolId: 'USER POOL ID',
+      clientId: 'APP CLIENT ID',
+      domain: 'USER POOL APP DOMAIN..NO HTTP/HTTPS',
+      signinRedirect: 'FULL APP CLIENT REDIRECT URL'
+    };
 
+    function initCognitoSDK() {
+      var authData = {
+        ClientId: config.clientId,
+        AppWebDomain: config.domain,
+        TokenScopesArray: ['openid', 'profile', 'email', 'phone'],
+        RedirectUriSignIn: config.signinRedirect,
+        RedirectUriSignOut: 'https://google.com'
+      };
 
-<script>
+      var auth = new AWSCognito.CognitoIdentityServiceProvider.CognitoAuth(authData);
 
-    $('#wemo-switch-1-on').click(function (e) {
-        var body = { action: 'wemo_switch_1_on' };
-        sendMessage('ifttt', body);
-    });
+      auth.userhandler = {
+        onSuccess: function(result) {
+          console.log('Sign in success', result);
+        },
+        onFailure: function(error) {
+          console.error('Sign in error', error);
+        }
+      };
 
-    $('#wemo-switch-1-off').click(function (e) {
-        var body = { action: 'wemo_switch_1_off' };
-        sendMessage('ifttt', body);
-    });
-
-    $('#wemo-switch-2-on').click(function (e) {
-        var body = { action: 'wemo_switch_2_on' };
-        sendMessage('ifttt', body);
-    });
-
-    $('#wemo-switch-2-off').click(function (e) {
-        var body = { action: 'wemo_switch_2_off' };
-        sendMessage('ifttt', body);
-    });
-
-    // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
-    // directly to SNS. This is insecure and must change before enable an api key on the `/sns` endpoint
-    function sendMessage(topic, body) {
-        var data = JSON.stringify(body);
-        $.ajax({
-            url: `/sns?topic=${topic}`,
-            type: 'POST',
-            data: data,
-            // beforeSend: function () {},
-            success: function (res) {
-                console.log('success:', res);
-            },
-            error: function (err) {
-                console.log('sendMessage() error:', err);
-            }
-        });
+      // The default response_type is "token", uncomment the next line to make it be "code" instead.
+      // auth.useCodeGrantFlow();
+      return auth;
     }
 
-</script>
+    // Perform user operations.
+    function login() {
+      var state = $('#loginLink').innerHTML;
+      if (state === "Sign Out") {
+        $('loginLink').innerHTML = "Sign In";
+        auth.signOut();
+        clearTokens();
+      } else {
+        auth.getSession();
+      }
+    }
+
+    function currentSession() {
+      var session = auth.getSignInUserSession();
+
+      // the actual user
+      var idToken = session.getIdToken().getJwtToken();
+      if (idToken) {
+        var payload = idToken.split('.')[1];
+        var formatted = JSON.parse(atob(payload));
+        console.log('Id Token Info', formatted);
+      }
+
+      var accessToken = session.getAccessToken().getJwtToken();
+      if (accessToken) {
+        var payload = accessToken.split('.')[1];
+        var formatted = JSON.parse(atob(payload));
+        console.log('Access Token Info', formatted);
+      }
+
+      var refreshToken = session.getRefreshToken().getToken();
+      if (refreshToken) {
+        var payload = refreshToken.split('.')[1];
+        var formatted = JSON.parse(atob(payload));
+        console.log('Refresh Token Info', formatted);
+      }
+    }
+
+    function apiGateway() {
+      var cognitoUser = auth.getSignInUserSession();
+      var token = cognitoUser.idToken.jwtToken;
+
+      $.ajax({
+        url: $('#apiGatewayEndpoint').val(),
+        dataType: "json",
+        contentType: 'application/json',
+        beforeSend: function(request) {
+          request.setRequestHeader("Authorization", token);
+        },
+        success: function(data, textStatus, xhr) {
+          console.log('API xhr', xhr);
+          console.log('API text status', textStatus);
+          console.log('API body', data);
+        },
+        error: function(xhr, textStatus, error) {
+          console.log('API ERROR', error);
+          console.log(textStatus, xhr);
+        }
+      });
+    }
+
+    window.onload = function authorize() {
+      auth = initCognitoSDK();
+      var curUrl = window.location.href;
+      auth.parseCognitoWebResponse(curUrl);
+    }
+  </script>
+</head>
+<body>
+  <h1>AWS Cognito Auth</h1>
+
+  <p> This example is very similar to the example in the <a href="https://github.com/aws/amazon-cognito-auth-js">official SDK</a>.  It is intended to be used while following along in <a href="https://github.com/UWFosterIT/aws-cognito/wiki/Step-3:-AWS-S3-Static-Web-Site-with-JS-SDK">the wiki</a>. This page is designed to be served from a publicly accessable URL (S3 for example)</p>
+
+  <h2>Instructions</h2>
+  <ul>
+  <li>Make sure you have a fully working Cognito User Pool with SAML Federation</li>
+  <li>Edit the script tags to come from the same domain that this page will be served from</li>
+  <li>The scripts can be found [here](https://github.com/aws/amazon-cognito-auth-js/tree/master/dist)</li>
+  <li>Edit the JavaScript so that it's config var has settings specific to your AWS environment</li>
+  <li>Put this file and the accompaning scripts on a server (or S3 bucket)</li>
+  <li>OPEN THE JS CONSOLE IN YOUR BROWSER</li>
+  </ul>
+
+  <div style="margin-left: 15px">
+
+  <hr>
+  <b>Make sure you have your JS console open to see output/results</b></br>
+  <a href="javascript:void(0)" id="loginLink" onclick="login();">Sign In</a> |
+  <a href="javascript:void(0)" onclick="currentSession();">Get Signed In Session</a>
+  <hr>
+
+  <h3>AWS API Gateway</h3>
+  <p>Enter a working endpoint that implements a Cognito User Pool Authorizer.  <a href="https://github.com/UWFosterIT/aws-cognito/wiki/Step-2:-AWS-API-Gateway-Cognito-User-Pool-Authorizer">See step 2</a> for instructions on setting up and testing API Gateway with Cognito.  Once authenticated here you can  </p>
+  <input type="text" id="apiGatewayEndpoint" size="100"></input>
+  <a href="javascript:void(0)" onclick="apiGateway();">Call API</a>
+
+  </div>
+</body>
+</html>

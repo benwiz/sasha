@@ -1,0 +1,69 @@
+<!-- This is a very rudimentary implementation of a UI for Sasha. I think
+my intention is to use a front-end framework like vue.js. But first I need
+to design it. -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<head>
+    <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.138.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+
+<h2>This is Sasha.</h2>
+<div>
+    <!-- <input type="checkbox" id="salt-lamp" name="interest" value="salt-lamp"> -->
+    <!-- <label id="salt-lamp-name" for="salt-lamp">Salt Lamp</label> -->
+    <p>Salt Lamp</p>
+    <button id="wemo-switch-1-on">On</button>
+    <button id="wemo-switch-1-off">Off</button>
+
+    <br>
+    <!-- <input type="checkbox" id="downstairs-lamp" name="interest" value="downstairs-lamp"> -->
+    <!-- <label id="downstairs-lamp-name" for="downstairs-lamp">Downstairs Lamp</label> -->
+    <p>Downstairs Lamp</p>
+    <button id="wemo-switch-2-on">On</button>
+    <button id="wemo-switch-2-off">Off</button>
+</div>
+
+
+<script>
+
+    $('#wemo-switch-1-on').click(function (e) {
+        var body = { action: 'wemo_switch_1_on' };
+        sendMessage('ifttt', body);
+    });
+
+    $('#wemo-switch-1-off').click(function (e) {
+        var body = { action: 'wemo_switch_1_off' };
+        sendMessage('ifttt', body);
+    });
+
+    $('#wemo-switch-2-on').click(function (e) {
+        var body = { action: 'wemo_switch_2_on' };
+        sendMessage('ifttt', body);
+    });
+
+    $('#wemo-switch-2-off').click(function (e) {
+        var body = { action: 'wemo_switch_2_off' };
+        sendMessage('ifttt', body);
+    });
+
+    // Hit lambda function that will generate an SNS message. In the future I will consider sending a message
+    // directly to SNS. This is insecure and must change before enable an api key on the `/sns` endpoint
+    function sendMessage(topic, body) {
+        var data = JSON.stringify(body);
+        $.ajax({
+            url: `/sns?topic=${topic}`,
+            type: 'POST',
+            data: data,
+            // beforeSend: function () {},
+            success: function (res) {
+                console.log('success:', res);
+            },
+            error: function (err) {
+                console.log('sendMessage() error:', err);
+            }
+        });
+    }
+
+</script>
