@@ -137,12 +137,10 @@ Quick brainstorm:
 
 ## To Do
 
-- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
-
-- Remodel function structure to SNS more.
-
 - Create Alexa Smart Home Skill
 - RaspiCam to S3 bucket
+
+- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
 
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
