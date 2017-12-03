@@ -25,13 +25,6 @@ type sns struct {
 	Message  string `json:"Message"`
 }
 
-// type message struct {
-// 	Action string `json:"action"`
-// 	Table  string `json:"table"`
-// 	Key    string `json:"key"`
-// 	Items  string `json:"items"`
-// }
-
 type response struct {
 	StatusCode int    `json:"statusCode"`
 	Body       string `json:"body"`
