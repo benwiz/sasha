@@ -137,11 +137,13 @@ Quick brainstorm:
 
 ## To Do
 
-- Cognito authorizer, may have to be custom (`/`, `/map`, and `/sns` need to be secured).
+- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
 
-- Refine SNS strategy. Update all inter-function communication to be via SNS excluding the `send-sns` message for an alternative to using AWS SDK. Just enough to tide over until
+- Remodel function structure to SNS more.
 
 - Create Alexa Smart Home Skill
+- RaspiCam to S3 bucket
+
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)

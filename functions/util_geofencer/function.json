@@ -1,0 +1,6 @@
+{
+  "name": "util_geofencer",
+  "description": "For the provided coordinates determine if they fall within any Locaion.",
+  "runtime": "clojure",
+  "handler": "org.get_location.lambsay::handleRequest"
+}
