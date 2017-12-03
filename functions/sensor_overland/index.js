@@ -39,6 +39,7 @@ const getLatestLocation = (data) => {
 
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', JSON.stringify(event));
+  console.log('BODY:', JSON.stringify(event.body));
 
   if (!event.body) {
     const response = {
