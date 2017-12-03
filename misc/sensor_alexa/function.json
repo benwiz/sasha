@@ -1,0 +1,6 @@
+{
+  "description": "Handle Alexa Smart Home API requests.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

@@ -138,6 +138,7 @@ Quick brainstorm:
 ## To Do
 
 - Create Alexa Smart Home Skill
+  - Allow async response message (`Send Alexa Events`). This should hopefully enable being able to use Alexa as my hub. A geofence message could send Alexa a message.
 - RaspiCam to S3 bucket
 
 - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
