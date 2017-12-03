@@ -138,6 +138,7 @@ Quick brainstorm:
 ## To Do
 
 - Cognito authorizer, may have to be custom (`/`, `/map`, and `/sns` need to be secured).
+
 - Refine SNS strategy. Update all inter-function communication to be via SNS excluding the `send-sns` message for an alternative to using AWS SDK. Just enough to tide over until
 
 - Create Alexa Smart Home Skill
