@@ -88,7 +88,6 @@ func main() {
 				return r, nil
 			}
 			p.Person = m.Key
-			fmt.Fprintf(os.Stderr, "Person: %s\n", p)
 
 			// Create a map of the struct so that we may iterate over it
 			v := reflect.ValueOf(p)
