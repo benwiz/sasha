@@ -1,0 +1,22 @@
+{
+  "Records": [
+      {
+          "EventSource": "aws:sns",
+          "EventVersion": "1.0",
+          "EventSubscriptionArn": "arn:aws:sns:us-east-1:778257796245:dynamo:ce1246af-6c0e-4d4b-884f-7a5aecd7088c",
+          "Sns": {
+              "Type": "Notification",
+              "MessageId": "d7d90def-4ca3-5c6b-9e67-5f72e3896775",
+              "TopicArn": "arn:aws:sns:us-east-1:778257796245:dynamo",
+              "Subject": null,
+              "Message": "{\"action\": \"delete\",\"table\": \"people\",\"key\": \"benwisialowski\",\"items\": {\"latitude\":30,\"longitude\":90}}",
+              "Timestamp": "2017-12-03T07:51:06.499Z",
+              "SignatureVersion": "1",
+              "Signature": "X7i7mHbyvW/cvtjNxK4WsPcbiklnfDpb7W87u/Y0guzogOKKMhnxNR7jdHjSrrpIBdmFQlFuEIFk37dfI+lRRfEKWktaWsD+3nZOaDuSo0JG8xbDhg5miJjspM4dvxRXZNmTJou/qdoaqU4gLWm2tzSVobIMyaXdYWCxM+GteCW8rqxFkfNVinhZ+2B5N9KjDj1cCOx70KaSva/uHBfF8C/GtOs3p6w81PLsscUztzOHIESG/gfDctXTP649E1HPPHnpDHAkCLh21umzT1skziwaUh8ZsU7WNzcUtN5LllMpnbg8fMNUCJyzKsFdgVo7cV1VZIMp2mYzNbkkskSe8Q==",
+              "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-433026a4050d206028891664da859041.pem",
+              "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:778257796245:dynamo:ce1246af-6c0e-4d4b-884f-7a5aecd7088c",
+              "MessageAttributes": {}
+          }
+      }
+  ]
+}

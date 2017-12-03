@@ -12,9 +12,23 @@ import (
 	"strings"
 )
 
+type event struct {
+	Records []record `json:"Records"`
+}
+
+type record struct {
+	Sns sns `json:"Sns"`
+}
+
+type sns struct {
+	Message string `json:"Message"`
+}
+
 type message struct {
-	PathParameters Table  `json:"pathParameters"`
-	Body           string `json:"body"`
+	Action string `json:"action"`
+	Table  string `json:"table"`
+	Key    string `json:"key"`
+	Items  string `json:"items"`
 }
 
 type response struct {
@@ -23,38 +37,58 @@ type response struct {
 }
 
 func main() {
-	apex.HandleFunc(func(event json.RawMessage, ctx *apex.Context) (interface{}, error) {
-		fmt.Fprintf(os.Stderr, "Event: %s\n", event)
+	apex.HandleFunc(func(ev json.RawMessage, ctx *apex.Context) (interface{}, error) {
+		fmt.Fprintf(os.Stderr, "Event: %s\n", ev)
 
 		// Initialize response
 		r := response{}
 
-		// Unmarshal into map so that we can look at query value
+		// Unmarshal event
+		var e event
+		err := json.Unmarshal(ev, &e)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Event Unmarshal Fail: %s\n", err)
+			r.StatusCode = 500
+			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+			return r, nil
+		}
+		fmt.Fprintf(os.Stderr, "Parsed Event: %s\n", e)
+
+		// Parse message
 		var m message
-		err := json.Unmarshal(event, &m)
+		err = json.Unmarshal([]byte(e.Records[0].Sns.Message), &m)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Message Unmarshal Fail: %s\n", err)
 			r.StatusCode = 500
 			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
 			return r, nil
 		}
-		fmt.Fprintf(os.Stderr, "Message: %s\n", m)
+		fmt.Fprintf(os.Stderr, "Parsed Message: %s\n", m)
 
-		// Connect to dyanamodb
+		// If not "update" action then end function
+		if m.Action != "update" {
+			r.StatusCode = 200
+			r.Body = fmt.Sprintf(`{"message": "Not an update action."`)
+			return r, nil
+		}
+
+		// Connect to dyanamodb and get the table
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
-		table := db.Table("sasha." + m.PathParameters.Table)
+		table := db.Table("sasha." + m.Table)
 		fmt.Fprintf(os.Stderr, "Table: %#v\n", table)
 
-		// Unmarshal the Body into the correct struct based on the Query
-		if m.PathParameters.Table == "people" {
+		// Unmarshal the Items into the correct struct based on the Query
+		if m.Table == "people" {
 			var p Person
-			err = json.Unmarshal([]byte(m.Body), &p)
+			err = json.Unmarshal([]byte(m.Items), &p)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "Person Unmarshal Fail: %s\n", err)
 				r.StatusCode = 500
 				r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
 				return r, nil
 			}
+			p.Person = m.Key
+			fmt.Fprintf(os.Stderr, "Person: %s\n", p)
 
 			// Create a map of the struct so that we may iterate over it
 			v := reflect.ValueOf(p)
@@ -101,9 +135,9 @@ func main() {
 			// TODO: Better response body. Use the created record data in response.
 			r.StatusCode = 200
 			r.Body = fmt.Sprintf(`{"message": "Successfully updated People record: %s."}`, p.Person)
-		} else if m.PathParameters.Table == "locations" {
+		} else if m.Table == "locations" {
 			var l Location
-			err = json.Unmarshal([]byte(m.Body), &l)
+			err = json.Unmarshal([]byte(m.Items), &l)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "Locations Unmarshal Fail: %s\n", err)
 				r.StatusCode = 500
@@ -145,7 +179,7 @@ func main() {
 			}
 		} else {
 			r.StatusCode = 404
-			r.Body = fmt.Sprintf(`{"message": "Table %s not found."}`, m.PathParameters.Table)
+			r.Body = fmt.Sprintf(`{"message": "Table %s not found."}`, m.Table)
 		}
 
 		return r, nil

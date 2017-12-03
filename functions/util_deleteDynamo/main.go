@@ -62,6 +62,13 @@ func main() {
 		}
 		fmt.Fprintf(os.Stderr, "Parsed Message: %s\n", m)
 
+		// If not "delete" action then end function
+		if m.Action != "delete" {
+			r.StatusCode = 200
+			r.Body = fmt.Sprintf(`{"message": "Not a delete action."`)
+			return r, nil
+		}
+
 		// Connect to dyanamodb and get the table
 		db := dynamo.New(session.New(), &aws.Config{Region: aws.String("us-east-1")})
 		table := db.Table("sasha." + m.Table)
