@@ -137,11 +137,14 @@ Quick brainstorm:
 
 ## To Do
 
-- Create Alexa Smart Home Skill
-  - Allow async response message (`Send Alexa Events`). This should hopefully enable being able to use Alexa as my hub. A geofence message could send Alexa a message.
-- RaspiCam to S3 bucket
+- `sensor_overland` needs to produce a Person message.
+- RaspiCam to S3 bucket. Then `util_analyzeImage` will procude a Person message.
+- A Zing service needs to consume the Person topic and toggle lights accordingly.
+- Update README for new model. Include all inputs and outputs either as files or in README.
 
 - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
+- Alexa skill: what voice actions are Sasha specific?
+  - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
 
 - Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
@@ -163,5 +166,6 @@ Quick brainstorm:
   - All Node.js needs to handle API json response with a try/catch
   - In `analyze-image` handle failure `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
   - `analyze-image` needs to `searchFacesByImage()` for all faces, not just largest. This requires creating crops.
+  - Must `util_updateDyanmo` have it's own SNS topic? Can it not subscribe to all SNS model topics instead?
 
 https://sasha.auth.us-east-1.amazoncognito.com/login?response_type=token&client_id=5nak3f7i74nijenes3ec3un9bg&redirect_uri=https://sasha.benwiz.io/?

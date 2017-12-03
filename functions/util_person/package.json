@@ -1,5 +1,5 @@
 {
-  "name": "analyze-image",
+  "name": "util_person",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,9 +17,8 @@
     "eslint-plugin-react": "^7.4.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.157.0",
+    "aws-sns-publish": "^3.1.0",
     "bluebird": "^3.5.1",
-    "request": "^2.83.0",
-    "aws-sns-publish": "^3.1.0"
+    "request": "^2.83.0"
   }
 }

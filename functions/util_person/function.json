@@ -1,0 +1,6 @@
+{
+  "description": "Perform logic on provided Person data. Maybe have to augment with database data.",
+  "hooks":{
+    "build": "npm install"
+  }
+}

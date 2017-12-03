@@ -1,10 +1,12 @@
 const Promise = require('bluebird');
 const AWS = require('aws-sdk');
+const SnsPublish = require('aws-sns-publish');
 const Request = require('request');
 
 const rekognition = new AWS.Rekognition();
 const s3 = new AWS.S3();
 
+// Use AWS Rekognition to identify faces
 const searchFacesByImage = (bucket, key) => new Promise((resolve, reject) => {
   const params = {
     CollectionId: 'faces',
@@ -38,23 +40,6 @@ const deleteS3Object = (bucket, key) => new Promise((resolve, reject) => {
     } else {
       resolve(data);
     }
-  });
-});
-
-// Update DynamoDB
-const updateDynamoDB = payload => new Promise((resolve, reject) => {
-  const data = JSON.stringify(payload);
-  Request.patch({
-    headers: { 'content-type': 'application/json' },
-    url: 'https://sasha.benwiz.io/dynamo/people',
-    body: data,
-  }, (error, response, body) => {
-    if (error) {
-      return reject(error);
-    }
-    console.log('updateDynamoDB() raw response:', body);
-    const obj = JSON.parse(body);
-    return resolve(obj);
   });
 });
 
@@ -96,16 +81,19 @@ exports.handle = (event, context, callback) => {
       timestamp = insertSubstring(timestamp, 15, ':');
       timestamp = insertSubstring(timestamp, 13, ':');
 
-      // TODO: Update person record with the location of this image. Maybe a `last-seen` field as well.
-      const payload = {
+      // Create the SNS message
+      const body = {
         person: name,
         last_seen_location: location,
         last_seen_timestamp: timestamp,
       };
-      console.log('updateDynamoDB() payload:', payload);
-      return updateDynamoDB(payload);
+      const topic = 'people';
+      const data = JSON.stringify(body);
+      const params = { arn: `arn:aws:sns:us-east-1:778257796245:${topic}` };
+      return SnsPublish(data, params);
     })
     .then((res) => {
+      console.log('SnsPublish result:', res);
       // TODO: If `updateDynamoDB()` was not successful, then make sure I am alerted.
       // Probably move the image somewhere else so it can be debugged later.
       return deleteS3Object(bucket, key);
