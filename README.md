@@ -137,9 +137,8 @@ Quick brainstorm:
 
 ## To Do
 
-- `sensor_overland` needs to produce a Person message.
-- `sensor_overland` must call `util_geofencer`
-- RaspiCam to S3 bucket. Then `util_analyzeImage` will procude a Person message.
+- RaspiCam to S3 bucket.
+- `sensor_overland` must call `util_geofencer` (clojure) and include a `calculated_location` property in the person object.
 - A Zing service needs to consume the People topic and toggle lights (and music) accordingly.
 - Update README for new model. Include all inputs and outputs either as files or in README.
 
