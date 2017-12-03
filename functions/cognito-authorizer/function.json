@@ -1,6 +1,0 @@
-{
-  "description": "Cognito custom authorizer because the built in one wasn't working for UI.",
-  "hooks":{
-    "build": "npm install"
-  }
-}
