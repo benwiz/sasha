@@ -9,9 +9,8 @@ node_modules/
 npm-debug.log
 env.json
 main
-functions/get-location/target/
 
-functions/send-image/*
-!functions/send-image/function.json
-!functions/send-image/main.py
-!functions/send-image/requirements.txt
+misc/send-image/*
+!misc/send-image/function.json
+!misc/send-image/main.py
+!misc/send-image/requirements.txt
