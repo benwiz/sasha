@@ -86,12 +86,15 @@ func main() {
 					key = "last_seen_location"
 				} else if key == "lastseentimestamp" {
 					key = "last_seen_timestamp"
+				} else if key == "calculatedlocation" {
+					key = "calculated_location"
 				}
 
 				// TODO: Need a much better way of handling missing data.
 				if key == "latitude" && value.(float32) == 0 ||
 					key == "longitude" && value.(float32) == 0 ||
 					key == "latest_coords_timestamp" && value.(string) == "" ||
+					key == "calculated_location" && value.(string) == "" ||
 					key == "last_seen_location" && value.(string) == "" ||
 					key == "last_seen_timestamp" && value.(string) == "" {
 					continue

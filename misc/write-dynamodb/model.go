@@ -13,6 +13,7 @@ type Person struct {
 	Latitude              float32 `json:"latitude" dynamo:"latitude"`
 	Longitude             float32 `json:"longitude" dynamo:"longitude"`
 	LatestCoordsTimestamp string  `json:"latest_coords_timestamp" dynamo:"latest_coords_timestamp"`
+	CalculatedLocation    string  `json:"calculated_location" dynamo:"calculated_location"`
 	LastSeenLocation      string  `json:"last_seen_location" dynamo:"last_seen_location"`
 	LastSeenTimestamp     string  `json:"last_seen_timestamp" dynamo:"last_seen_timestamp"`
 }

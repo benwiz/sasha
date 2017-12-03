@@ -129,12 +129,6 @@ apexdeploy() {
 
 ## Notes
 
-Quick brainstorm:
-
-- I need to leverage SNS more.
-  - For example, `overland-receiver` should do nothing other than turn the overland payload into an SNS message. Then, one Lambda function will pick that up and write it to DynamoDB (or some other data store). Other lambda functions will be triggered by that message.
-  - Another example: `analyze-image` publish a message with _person_ and _location_. One Lambda function will write that data to a data store. Other lambda functions will be triggered by that message.
-
 ## To Do
 
 - RaspiCam to S3 bucket.
