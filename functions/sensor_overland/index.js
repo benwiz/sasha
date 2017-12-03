@@ -1,5 +1,6 @@
 const Promise = require('bluebird');
 const Request = require('request');
+const SnsPublish = require('aws-sns-publish');
 
 
 const iftttSecretKey = process.env.IFTTT_SECRET_KEY;
@@ -22,23 +23,6 @@ const getIFTTTWebhook = (action, payload) => new Promise((resolve, reject) => {
       body = JSON.parse(body);
     }
     return resolve(body);
-  });
-});
-
-const updateDynamoDB = payload => new Promise((resolve, reject) => {
-  const data = JSON.stringify(payload);
-  console.log('PAYLOAD:', payload);
-  Request.patch({
-    headers: { 'content-type': 'application/json' },
-    url: 'https://sasha.benwiz.io/dynamo/people',
-    body: data,
-  }, (error, response, body) => {
-    if (error) {
-      return reject(error);
-    }
-    console.log('updateDynamoDB() raw response:', body);
-    const obj = JSON.parse(body);
-    return resolve(obj);
   });
 });
 
@@ -68,21 +52,27 @@ exports.handle = (event, context, callback) => {
   Promise.resolve()
     // Update coordinates in DynamoDB
     .then(() => {
-      const data = JSON.parse(event.body);
-      const coords = getLatestLocation(data);
+      const overlandData = JSON.parse(event.body);
+      const coords = getLatestLocation(overlandData);
       console.log('coords:', coords);
 
-      const payload = {
+      const body = {
         person: coords.device_id,
         latitude: coords.latitude,
         longitude: coords.longitude,
         latest_coords_timestamp: coords.timestamp,
       };
-      return updateDynamoDB(payload);
+      const topic = 'people';
+      const data = JSON.stringify(body);
+      const params = { arn: `arn:aws:sns:us-east-1:778257796245:${topic}` };
+      return SnsPublish(data, params);
     })
-    // TODO: Handle updateDynamoDB() repsonse
     .then((res) => {
-      console.log('updateDyanmoDB() response:', res);
+      // TODO: SnsPublish() response
+      console.log('SnsPublish() response:', res);
+    })
+    .then((res) => {
+      // TODO: Calculate geofence location by making API request to util_geofencer.
     })
     // Send data to IFTTT -> Google Spreadsheet
     .then(() => {
@@ -90,7 +80,7 @@ exports.handle = (event, context, callback) => {
       const payload = { value1: event.body.replace(/\n/g, '').replace(/ /g, '') };
       return getIFTTTWebhook(action, payload);
     })
-    // HTTP Response
+    // HTTP Response via API Gateway
     .then((res) => {
       console.log('IFTTT RES:', res, typeof res);
       const reply = {};
