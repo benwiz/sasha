@@ -167,5 +167,6 @@ Quick brainstorm:
   - In `analyze-image` handle failure `searchFacesByImage()`, `updateDynamoDB()`, and `deleteS3Object()` responses.
   - `analyze-image` needs to `searchFacesByImage()` for all faces, not just largest. This requires creating crops.
   - Must `util_updateDyanmo` have it's own SNS topic? Can it not subscribe to all SNS model topics instead?
+  - `util_deleteDynamo` as an SNS consumer may not be the most useful case. But don't worry about this until it becomes a problem, I have a feeling deleting stuff from the database programmatically is going to be very uncommon.
 
 https://sasha.auth.us-east-1.amazoncognito.com/login?response_type=token&client_id=5nak3f7i74nijenes3ec3un9bg&redirect_uri=https://sasha.benwiz.io/?
