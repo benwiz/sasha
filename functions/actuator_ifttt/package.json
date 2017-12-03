@@ -1,5 +1,5 @@
 {
-  "name": "sns-ifttt",
+  "name": "actuator_ifttt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
