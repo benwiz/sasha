@@ -148,7 +148,6 @@ apexdeploy() {
 - Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
   - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
 
-- Location: Perform action based on current location of requested (or all?) people. Use Clojure.
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)
   - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
