@@ -21,7 +21,11 @@ const searchFacesByImage = (bucket, key) => new Promise((resolve, reject) => {
   };
   rekognition.searchFacesByImage(params, (err, data) => {
     if (err) {
-      reject(err);
+      if (err.message === 'There are no faces in the image. Should be at least 1.') {
+        resolve(err);
+      } else {
+        reject(err);
+      }
     } else {
       resolve(data);
     }
@@ -62,7 +66,7 @@ exports.handle = (event, context, callback) => {
       console.log('searchFacesByImage.result:', JSON.stringify(res));
 
       // If no matches found
-      if (res.FaceMatches.length === 0) {
+      if (res.FaceMatches === undefined || res.FaceMatches.length === 0) {
         console.log('No face matches found.');
         return null;
       }

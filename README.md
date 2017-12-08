@@ -92,6 +92,10 @@ aws rekognition list-collections
 ```
 
 ```bash
+aws rekognition delete-collection --collection-id faces
+```
+
+```bash
 aws rekognition list-faces --collection-id faces
 ```
 
@@ -132,12 +136,13 @@ apexdeploy() {
 ## To Do
 
 - Write `util_geofencer` API in Clojure to accept a pair of coordinates, query the locations table, and figure out within which (if any) location the coordinates reside.
-- RaspiCam to S3 bucket.
 - `sensor_overland` must call `util_geofencer` and include a `calculated_location` (or similarly named) property in the person object.
 
 - A Zing service needs to consume the People topic and toggle lights (and music) accordingly.
   - Which location to trust? The data will probably be in chunks. Do we need an intermediate service to augment the person message with all known data?
 - Update README for new structre. Include all inputs and outputs either as files or in README.
+
+- Handle multiple training faces for each person.
 
 - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
 - Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
