@@ -9,6 +9,7 @@ node_modules/
 npm-debug.log
 env.json
 main
+target/
 
 misc/send-image/*
 !misc/send-image/function.json
