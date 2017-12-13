@@ -7,8 +7,10 @@
 
 (defn -handleRequest
     [this input-stream output-stream context]
-    (let [handle (io/writer output-stream)]
-        ; (json/parse-stream (io/reader is))
-        (println (json/parse-stream (io/reader input-stream)))
+    (let [handle (io/writer output-stream)
+          is (json/parse-stream (io/reader input-stream))]
+        (println is)
+        (println (get is "mykey"))
         (.write handle (str "hello" " world"))
+        (.write handle "!")
         (.flush handle)))
