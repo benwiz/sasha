@@ -9,8 +9,13 @@
     [this input-stream output-stream context]
     (let [handle (io/writer output-stream)
           is (json/parse-stream (io/reader input-stream))]
-        (println is)
-        (println (get is "mykey"))
+        ; (println is)
+        (println (get is "queryStringParameters"))
         (.write handle (str "hello" " world"))
         (.write handle "!")
         (.flush handle)))
+
+
+; TODO: Write a correct api response in json
+; TODO: Write a function to get location records via https
+; TODO: Write function that finds coordindates within location

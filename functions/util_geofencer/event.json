@@ -1,0 +1,9 @@
+{
+  "pathParameters": {
+    "table": "people"
+  },
+  "queryStringParameters": {
+    "test": "thing"
+  },
+  "another": "thing"
+}
