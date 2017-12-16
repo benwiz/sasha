@@ -83,8 +83,8 @@ func (p point) isInPolygon(polygonPoints []point) bool {
 	for i, polygonPoint := range polygonPoints {
 		// Select index of second point in edge
 		nextIndex := i + 1
-		if i >= len(polygonPoints) {
-			nextIndex = 1
+		if i >= len(polygonPoints)-1 {
+			nextIndex = 0
 		}
 		fmt.Fprintf(os.Stderr, "nextIndex: %d", nextIndex)
 
