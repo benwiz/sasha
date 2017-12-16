@@ -7,7 +7,10 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"math"
 )
+
+// NOTE: This can be extended with the Google Places API.
 
 var sashaURL = "https://sasha.benwiz.io"
 
@@ -46,7 +49,7 @@ func main() {
 			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
 			return r, nil
 		}
-		fmt.Fprintf(os.Stderr, "Message: %s\n", m)
+		fmt.Fprintf(os.Stderr, "Message: %#v\n", m)
 
 		// Get lat and lng from message
 		lat := m.QueryStringParameters.Lat
@@ -83,11 +86,43 @@ func main() {
 			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
 			return r, nil
 		}
-		fmt.Fprintf(os.Stderr, "Locations slice:%s\n", locations)
+		fmt.Fprintf(os.Stderr, "Locations slice:%#v\n", locations)
+
+		// Initialize current location name variable
+		var currentLocations []string
+
+		// Loop through locations slice
+		for _, location := range locations {
+			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Name)
+			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Points)
+
+			// If one point, then it's a circle
+			if len(location.Points) == 1 {
+				// Get circle coordinates and radius
+				circleLat := location.Points[0]
+				circleLng := location.Points[1]
+				circleRadius := location.Points[2]
+
+				// Get distance between person and circle center. That is, `sqrt( [lat-lat]^2 + [lng-lng]^2 )`.
+				distance := math.Sqrt( math.Pow(lat - circleLat, 2) + math.Pow(lng - circleLng, 2) )
+				// If distance is smaller than radius
+				if distance <= circleRadius {
+					// Add location to the list of "currentLocations"
+					currentLocations = append(currentLocation, location.Name)
+				} else {
+					// TODO: Calculate if point lies inside polygon using ray method.
+				}
+
+			}
+			// Else, it is a polygon
+			else {
+				// TODO: Determine if lat,lng is inside the polygon
+			}
+		}
 
 		// Respond
 		r.StatusCode = 200
-		r.Body = "{\"lat\": -1, \"lng\": -1}"
+		r.Body = fmt.Sprintf("%v", currentLocations)
 		return r, nil
 	})
 }
