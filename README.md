@@ -151,6 +151,7 @@ apexdeploy() {
   - AWS Greengrass
 
 - Low priority
+  - Rename all apex functions to reflect their triggers (sns, api, s3)
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
   - Docs
   - `overland-receiver` needs query string based api key
