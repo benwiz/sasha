@@ -137,10 +137,10 @@ apexdeploy() {
 
 - Write `util_geofencer` API in Clojure to accept a pair of coordinates, query the locations table, and figure out within which (if any) location the coordinates reside.
 - `sensor_overland` must call `util_geofencer` and include a `calculated_location` (or similarly named) property in the person object.
-
 - A Zing service needs to consume the People topic and toggle lights (and music) accordingly.
-  - Which location to trust? The data will probably be in chunks. Do we need an intermediate service to augment the person message with all known data?
-- Update README for new structre. Include all inputs and outputs either as files or in README.
+  - Toggle on camera when home.
+  - Trust visual data over gps data.
+- Update README for new structure. Include all inputs and outputs either as files or in README.
 
 - Handle multiple training faces for each person.
 
