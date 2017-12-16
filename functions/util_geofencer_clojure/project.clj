@@ -8,5 +8,6 @@
                                                                               com.amazonaws/aws-java-sdk-kinesis
                                                                               com.amazonaws/aws-java-sdk-dynamodb]]
                    [org.clojure/clojure "1.8.0"]
-                   [clj-http "3.7.0"]]
+                   [clj-http "3.7.0"]
+                   [http-kit "2.2.0"]]
     :aot :all)

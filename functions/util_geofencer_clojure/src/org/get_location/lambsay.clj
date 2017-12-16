@@ -1,22 +1,28 @@
 (ns org.get_location.lambsay
     (:gen-class :implements [com.amazonaws.services.lambda.runtime.RequestStreamHandler])
     (:require [cheshire.core :as json]
-              [cheshire.core :refer [generate-string]] ; could probably include parse-stream here and get rid of above line
+            ;   [cheshire.core :refer [generate-string]] ; could probably include parse-stream here and get rid of above line
               [clojure.java.io :as io]
               [clojure.string :as str]
-              [clj-http.client :as client])
+              [clj-http.client :as client]
+              [org.httpkit.client :as http])
     (:import (com.amazonaws.services.lambda.runtime Context)))
 
 (defn locations
     []
-    (println "hey") ; something is wrong after this line
-    ; (json/parse-stream (client/get "https://sasha.benwiz.io/dynamo/locations")))
-    (client/get "https://sasha.benwiz.io/dynamo/locations"))
+    (println "BBB")
+    (:body (client/get "https://sasha.benwiz.io/dynamo/locations?from=lambda" {:as :json})))
+    ; (let [{:keys [status headers body error] :as resp} @(http/get "http://sasha.benwiz.io/dynamo/locations?from=lambda")]
+    ;     (if error
+    ;       (println "Failed, exception: " error)
+    ;       (println "HTTP GET success: " status))))
 
 (defn location
     [lat lng]
+    (println "AAA")
     (println (locations))
-    (generate-string {:statusCode 200 :body (generate-string {:hi {:deeper "deepest!" :lat lat :lng lng}})}))
+    (println "CCC")
+    (json/generate-string {:statusCode 200 :body (json/generate-string {:hi {:deeper "deepest!" :lat lat :lng lng}})}))
 
 (defn -handleRequest
     [this input-stream output-stream context]
@@ -29,7 +35,3 @@
         (println response)
         (.write handle response)
         (.flush handle)))
-
-
-; TODO: Write a function to get location records via https
-; TODO: Write function that finds coordindates within location
