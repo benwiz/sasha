@@ -86,6 +86,7 @@ func (p point) isInPolygon(polygonPoints []point) bool {
 		if i >= len(polygonPoints) {
 			nextIndex = 1
 		}
+		fmt.Fprintf(os.Stderr, "nextIndex: %d", nextIndex)
 
 		// Create edge using `nextIndex`
 		edge := segment{
