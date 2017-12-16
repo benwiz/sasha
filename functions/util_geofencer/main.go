@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"github.com/apex/go-apex"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"os"
-	"math"
 )
 
 // NOTE: This can be extended with the Google Places API.
@@ -19,13 +19,13 @@ type message struct {
 }
 
 type queryStringParameters struct {
-	Lat float32 `json:"lat,string"`
-	Lng float32 `json:"lng,string"`
+	Lat float64 `json:"lat,string"`
+	Lng float64 `json:"lng,string"`
 }
 
 type location struct {
 	Name   string       `json:"name"`
-	Points [][3]float32 `json:"points"`
+	Points [][3]float64 `json:"points"`
 }
 
 type response struct {
@@ -96,23 +96,22 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Name)
 			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Points)
 
+			// TODO: If no points, skip.
 			// If one point, then it's a circle
 			if len(location.Points) == 1 {
 				// Get circle coordinates and radius
-				circleLat := location.Points[0]
-				circleLng := location.Points[1]
-				circleRadius := location.Points[2]
+				circleLat := location.Points[0][0]
+				circleLng := location.Points[0][1]
+				circleRadius := location.Points[0][2]
 
 				// Get distance between person and circle center. That is, `sqrt( [lat-lat]^2 + [lng-lng]^2 )`.
-				distance := math.Sqrt( math.Pow(lat - circleLat, 2) + math.Pow(lng - circleLng, 2) )
+				distance := math.Sqrt(math.Pow(lat-circleLat, 2) + math.Pow(lng-circleLng, 2))
 				// If distance is smaller than radius
 				if distance <= circleRadius {
-					// Add location to the list of "currentLocations"
-					currentLocations = append(currentLocation, location.Name)
+					// Add location to the list of `currentLocations`
+					currentLocations = append(currentLocations, location.Name)
 				}
-			}
-			// Else, it is a polygon
-			else {
+			} else {
 				// TODO: Calculate if point lies inside polygon using ray method.
 			}
 		}
