@@ -142,15 +142,15 @@ apexdeploy() {
   - Trust visual data over gps data.
 - Update README for new structure. Include all inputs and outputs either as files or in README.
 
-- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
-- Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
-  - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
-
 - Currently, to add a new field to an existing model the following steps must be performed:
   - Update the sylink `models.go` (this is okay)
   - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
-- Switch to serverless.com or AWS SAM
 - Migrate from IFTTT to Zing as the hub. Maybe with Greengrass. An intermediary step (pre-AWS-Greengrass and pre-AWS-IoT) would be to use SNS messaging.
+
+- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
+- Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
+  - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
+- Switch to AWS SAM
 
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.

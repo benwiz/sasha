@@ -116,49 +116,6 @@ func main() {
 			// TODO: Better response body. Use the created record data in response.
 			r.StatusCode = 200
 			r.Body = fmt.Sprintf(`{"message": "Successfully updated People record: %s."}`, p.Person)
-			// } else if topicName == "locations" {
-			// 	// NOTE: Probably don't need to be programmatically updating the locations table.
-			// 	var l Location
-			// 	err = json.Unmarshal([]byte(e.Records[0].Sns.Message), &l)
-			// 	if err != nil {
-			// 		fmt.Fprintf(os.Stderr, "Locations Unmarshal Fail: %s\n", err)
-			// 		r.StatusCode = 500
-			// 		r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
-			// 		return r, nil
-			// 	}
-
-			// 	// Create a map of the struct so that we may iterate over it
-			// 	v := reflect.ValueOf(l)
-
-			// 	// Iterate over values
-			// 	for i := 0; i < v.NumField(); i++ {
-			// 		key := strings.ToLower(v.Type().Field(i).Name)
-			// 		if key == "name" {
-			// 			continue
-			// 		}
-			// 		value := v.Field(i).Interface()
-
-			// 		// TODO: Need a much better way of handling missing data.
-			// 		if key == "points" && value.([][3]float32) == nil {
-			// 			continue
-			// 		}
-			// 		fmt.Fprintf(os.Stderr, "Update Location: %#v, %#v\n", key, value)
-
-			// 		// Update record; TODO: We should not be calling this mulitple times. Instead
-			// 		// the struct should somehow expand multiple `Set()` or use `SetExpr()` cleverly.
-			// 		var result Location
-			// 		err = table.Update("name", l.Name).Set(key, value).Value(&result)
-			// 		if err != nil {
-			// 			r.StatusCode = 500
-			// 			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
-			// 			return r, nil
-			// 		}
-			// 		fmt.Fprintf(os.Stderr, "Updated Person: %#v\n", result)
-
-			// 		// TODO: Better response body. Use the created record data in response.
-			// 		r.StatusCode = 200
-			// 		r.Body = fmt.Sprintf(`{"message": "Successfully updated Location record: %s."}`, l.Name)
-			// 	}
 		} else {
 			r.StatusCode = 404
 			r.Body = fmt.Sprintf(`{"message": "Table %s not found."}`, topicName)
