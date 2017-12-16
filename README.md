@@ -142,15 +142,13 @@ apexdeploy() {
   - Trust visual data over gps data.
 - Update README for new structure. Include all inputs and outputs either as files or in README.
 
-- Currently, to add a new field to an existing model the following steps must be performed:
-  - Update the sylink `models.go` (this is okay)
-  - Perform some logic around null values and naming conventions inside `update-dynamodb` (this should not be necessary).
-- Migrate from IFTTT to Zing as the hub. Maybe with Greengrass. An intermediary step (pre-AWS-Greengrass and pre-AWS-IoT) would be to use SNS messaging.
-
-- Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
-- Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
-  - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
-- Switch to AWS SAM
+- Important "nice-to-have" stuff
+  - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
+  - Don't require extra logic in `update-dynamo` for string formatting and null handling
+  - Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
+    - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
+  - Switch to AWS SAM
+  - AWS Greengrass
 
 - Low priority
   - The `updateDynamoDB()` function is used in 2 places and should be shared in a symlink file.
