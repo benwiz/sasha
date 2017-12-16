@@ -220,9 +220,18 @@ func main() {
 			}
 		}
 
+		// JSONify the response
+		currentLocationsJson, err := json.Marshal(currentLocations)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Marshal currentLocation error: %s\n", err)
+			r.StatusCode = 500
+			r.Body = fmt.Sprintf(`{"message": "%s"}`, err)
+			return r, nil
+		}
+
 		// Respond
 		r.StatusCode = 200
-		r.Body = fmt.Sprintf("%v", currentLocations)
+		r.Body = fmt.Sprintf("%s", currentLocationsJson)
 		fmt.Fprintf(os.Stderr, "Response: %#v\n", r)
 		return r, nil
 	})

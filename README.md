@@ -133,6 +133,8 @@ apexdeploy() {
 
 ## Notes
 
+https://www.latlong.net/
+
 ## To Do
 
 - Write `util_geofencer` API in Clojure to accept a pair of coordinates, query the locations table, and figure out within which (if any) location the coordinates reside.
