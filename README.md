@@ -142,8 +142,6 @@ apexdeploy() {
   - Trust visual data over gps data.
 - Update README for new structure. Include all inputs and outputs either as files or in README.
 
-- Handle multiple training faces for each person.
-
 - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
 - Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
   - Do not handle stuff Alexa can do already, like toggle Wemo outlets.
