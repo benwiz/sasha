@@ -8,7 +8,7 @@ const indexFaces = records => Promise.map(records, record => new Promise((resolv
     CollectionId: 'faces',
     DetectionAttributes: [
     ],
-    ExternalImageId: record.s3.object.key.split('.jpg')[0],
+    ExternalImageId: record.s3.object.key.split('-')[0],  // Split on '-' because every name should be appended with an index so that we can keep all images in the s3 bucket for reference.
     Image: {
       S3Object: {
         Bucket: record.s3.bucket.name,
