@@ -109,14 +109,11 @@ func main() {
 				if distance <= circleRadius {
 					// Add location to the list of "currentLocations"
 					currentLocations = append(currentLocation, location.Name)
-				} else {
-					// TODO: Calculate if point lies inside polygon using ray method.
 				}
-
 			}
 			// Else, it is a polygon
 			else {
-				// TODO: Determine if lat,lng is inside the polygon
+				// TODO: Calculate if point lies inside polygon using ray method.
 			}
 		}
 
