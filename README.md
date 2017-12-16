@@ -136,6 +136,7 @@ apexdeploy() {
 ## To Do
 
 - Write `util_geofencer` API in Clojure to accept a pair of coordinates, query the locations table, and figure out within which (if any) location the coordinates reside.
+  - Not confident it will work in the southern hemisphere or straddling the equator or the western hemisphere.
 - `sensor_overland` must call `util_geofencer` and include a `calculated_location` (or similarly named) property in the person object.
 - A Zing service needs to consume the People topic and toggle lights (and music) accordingly.
   - Toggle on camera when home.

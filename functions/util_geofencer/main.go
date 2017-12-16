@@ -28,9 +28,97 @@ type location struct {
 	Points [][3]float64 `json:"points"`
 }
 
+type point struct {
+	Lat float64
+	Lng float64
+}
+
+type segment struct {
+	Points [2]point
+}
+
 type response struct {
 	StatusCode int    `json:"statusCode"`
 	Body       string `json:"body"`
+}
+
+// intersects algorithm taken from https://stackoverflow.com/questions/3838329/how-can-i-check-if-two-segments-intersect
+func (segment1 segment) intersects(segment2 segment) bool {
+	// I1 = []float64{math.Min(segment1[0].Lat, segment1[1].Lat), math.Max(segment1[0].Lat, segment1[1].Lat)}
+	// I2 = []float64{math.Min(segment2[0].Lat, segment2[1].Lng), math.Max(segment2[0].Lat, segment2[1].Lat)}
+
+	// If abcess does not exist
+	if math.Max(segment1.Points[0].Lat, segment1.Points[1].Lat) < math.Min(segment2.Points[0].Lat, segment2.Points[1].Lat) {
+		return false
+	}
+	// We have proved existence of mutual interval
+
+	// Calculate A1, A2, b1, b2
+	A1 := (segment1.Points[0].Lng - segment1.Points[1].Lng) / (segment1.Points[0].Lat - segment1.Points[1].Lat) // TODO: Handle divide by 0
+	A2 := (segment2.Points[0].Lng - segment2.Points[1].Lng) / (segment2.Points[0].Lat - segment2.Points[1].Lat) // TODO: Handle divide by 0
+	b1 := segment1.Points[0].Lng - A1*segment1.Points[0].Lat
+	b2 := segment2.Points[0].Lng - A2*segment2.Points[0].Lat
+
+	// If parallel
+	if A1 == A2 {
+		return false
+	}
+
+	// Calculate Xa
+	Xa := (b2 - b1) / (A1 - A2)
+
+	// Check that Xa is not included in the mutual interval
+	Ia := []float64{math.Max(math.Min(segment1.Points[0].Lat, segment1.Points[1].Lat), math.Min(segment2.Points[0].Lat, segment2.Points[0].Lat)),
+		math.Min(math.Max(segment1.Points[0].Lat, segment1.Points[1].Lat), math.Max(segment2.Points[0].Lat, segment2.Points[1].Lat))}
+	if Xa < Ia[0] || Xa > Ia[1] {
+		return false
+	}
+	return true
+}
+
+func (p point) isInPolygon(polygonPoints []point) bool {
+	crossCount := 0
+
+	// Loop through all edges of the polygon
+	for i, polygonPoint := range polygonPoints {
+		// Select index of second point in edge
+		nextIndex := i + 1
+		if i >= len(polygonPoints) {
+			nextIndex = 1
+		}
+
+		// Create edge using `nextIndex`
+		edge := segment{
+			Points: [2]point{polygonPoint, polygonPoints[nextIndex]},
+		}
+		fmt.Fprintf(os.Stderr, "Edge: %#v\n", edge)
+
+		// Check if an upward (90 deg) or downward (-90 def) line crosses the polygon
+		upwardLine := segment{
+			Points: [2]point{p, point{p.Lat, 90}},
+		}
+		downwardLine := segment{
+			Points: [2]point{p, point{p.Lat, -90}},
+		}
+		// If there is an intersection in either direction, and that intersection
+		if edge.intersects(upwardLine) || edge.intersects(downwardLine) {
+			// I think I'm missing an IF statement here (the edge-ray intersection point must be strictly right of the point P.)
+			crossCount++
+		}
+
+		// Break loop if this is the final element
+		if i >= len(polygonPoints) {
+			fmt.Fprintf(os.Stderr, "Break")
+			break
+		}
+	}
+
+	// If even
+	if crossCount%2 == 0 {
+		return false
+	}
+	// Else, if odd
+	return true
 }
 
 func main() {
@@ -51,9 +139,10 @@ func main() {
 		}
 		fmt.Fprintf(os.Stderr, "Message: %#v\n", m)
 
-		// Get lat and lng from message
+		// Get lat and lng from message and current point
 		lat := m.QueryStringParameters.Lat
 		lng := m.QueryStringParameters.Lng
+		currentPoint := point{Lat: lat, Lng: lng}
 		fmt.Fprintf(os.Stderr, "Lat: %f\n", lat)
 		fmt.Fprintf(os.Stderr, "Lng: %f\n", lng)
 
@@ -92,33 +181,48 @@ func main() {
 		var currentLocations []string
 
 		// Loop through locations slice
-		for _, location := range locations {
-			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Name)
-			fmt.Fprintf(os.Stderr, "Name: %#v\n", location.Points)
+		for _, loc := range locations {
+			fmt.Fprintf(os.Stderr, "Name: %#v\n", loc.Name)
+			fmt.Fprintf(os.Stderr, "Name: %#v\n", loc.Points)
 
 			// TODO: If no points, skip.
 			// If one point, then it's a circle
-			if len(location.Points) == 1 {
+			if len(loc.Points) == 1 {
 				// Get circle coordinates and radius
-				circleLat := location.Points[0][0]
-				circleLng := location.Points[0][1]
-				circleRadius := location.Points[0][2]
+				circleLat := loc.Points[0][0]
+				circleLng := loc.Points[0][1]
+				circleRadius := loc.Points[0][2]
 
 				// Get distance between person and circle center. That is, `sqrt( [lat-lat]^2 + [lng-lng]^2 )`.
 				distance := math.Sqrt(math.Pow(lat-circleLat, 2) + math.Pow(lng-circleLng, 2))
 				// If distance is smaller than radius
 				if distance <= circleRadius {
-					// Add location to the list of `currentLocations`
-					currentLocations = append(currentLocations, location.Name)
+					// Add loc to the list of `currentLocations`
+					currentLocations = append(currentLocations, loc.Name)
 				}
 			} else {
-				// TODO: Calculate if point lies inside polygon using ray method.
+				// Iterate through `loc.Points` to craft a polygon
+				var polygon []point
+				for _, locationPoint := range loc.Points {
+					p := point{
+						Lat: locationPoint[0],
+						Lng: locationPoint[1],
+					}
+					polygon = append(polygon, p)
+				}
+
+				// Compare current point against the polygon
+				if currentPoint.isInPolygon(polygon) {
+					// Add loc to the list of `currentLocations`
+					currentLocations = append(currentLocations, loc.Name)
+				}
 			}
 		}
 
 		// Respond
 		r.StatusCode = 200
 		r.Body = fmt.Sprintf("%v", currentLocations)
+		fmt.Fprintf(os.Stderr, "Response: %#v\n", r)
 		return r, nil
 	})
 }
