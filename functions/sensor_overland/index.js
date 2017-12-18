@@ -86,9 +86,12 @@ exports.handle = (event, context, callback) => {
       // Calculate geofence location by making API request to util_geofencer.
       return getGeofence(coords);
     })
-    // Send data to IFTTT -> Google Spreadsheet
     .then((locations) => {
+      // TODO: Handle locations by sending an SNS `Person` message to update DynamoDB as well
+      // as be picked up by another service that runs logic.
       console.log('locations:', locations);
+
+      // Send data to IFTTT -> Google Spreadsheet
       const action = 'record_overland_data';
       const payload = { value1: event.body.replace(/\n/g, '').replace(/ /g, '') };
       return getIFTTTWebhook(action, payload);
