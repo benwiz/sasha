@@ -141,9 +141,10 @@ https://www.latlong.net/
 - A Zing service needs to consume the People topic and toggle lights (and music) accordingly.
   - Toggle on camera when home.
   - Trust visual data over gps data.
-- Update README for new structure. Include all inputs and outputs either as files or in README.
+  - Maybe ony turn on camera when GPS is at home.
 
 - Important "nice-to-have" stuff
+  - Update README for new structure. Include all inputs and outputs either as files or in README.
   - Cognito authorizer, might have to be a custom authorizer. For: `/`, `/map`, and `/sns`.
   - Don't require extra logic in `update-dynamo` for string formatting and null handling
   - Alexa skill: what voice actions are Sasha specific? "Come here" for a autonomous vehicle.
