@@ -49,6 +49,7 @@ func (segment1 segment) intersects(segment2 segment) bool {
 
 	// If abcess does not exist
 	if math.Max(segment1.Points[0].Lat, segment1.Points[1].Lat) < math.Min(segment2.Points[0].Lat, segment2.Points[1].Lat) {
+		fmt.Fprintf(os.Stderr, "abcess does not exist: %#v %#v\n", segment1.Points, segment2.Points)
 		return false
 	}
 	// We have proved existence of mutual interval
@@ -61,6 +62,7 @@ func (segment1 segment) intersects(segment2 segment) bool {
 
 	// If parallel
 	if A1 == A2 {
+		fmt.Fprintf(os.Stderr, "parallel: %#v %#v\n", segment1.Points, segment2.Points)
 		return false
 	}
 
@@ -71,6 +73,7 @@ func (segment1 segment) intersects(segment2 segment) bool {
 	Ia := []float64{math.Max(math.Min(segment1.Points[0].Lat, segment1.Points[1].Lat), math.Min(segment2.Points[0].Lat, segment2.Points[0].Lat)),
 		math.Min(math.Max(segment1.Points[0].Lat, segment1.Points[1].Lat), math.Max(segment2.Points[0].Lat, segment2.Points[1].Lat))}
 	if Xa < Ia[0] || Xa > Ia[1] {
+		fmt.Fprintf(os.Stderr, "not in mutual interval: %#v %#v\n", segment1.Points, segment2.Points)
 		return false
 	}
 	return true
@@ -86,7 +89,7 @@ func (p point) isInPolygon(polygonPoints []point) bool {
 		if i >= len(polygonPoints)-1 {
 			nextIndex = 0
 		}
-		fmt.Fprintf(os.Stderr, "nextIndex: %d", nextIndex)
+		fmt.Fprintf(os.Stderr, "nextIndex: %d\n", nextIndex)
 
 		// Create edge using `nextIndex`
 		edge := segment{
@@ -103,7 +106,8 @@ func (p point) isInPolygon(polygonPoints []point) bool {
 		}
 		// If there is an intersection in either direction, and that intersection
 		if edge.intersects(upwardLine) || edge.intersects(downwardLine) {
-			// I think I'm missing an IF statement here (the edge-ray intersection point must be strictly right of the point P.)
+			// TODO: Only increment count if intersection point is to the right of Px
+			fmt.Fprintf(os.Stderr, "increase count\n")
 			crossCount++
 		}
 
@@ -114,12 +118,27 @@ func (p point) isInPolygon(polygonPoints []point) bool {
 		}
 	}
 
+	fmt.Fprintf(os.Stderr, "CrossCount: %#v\n", crossCount)
 	// If even
 	if crossCount%2 == 0 {
 		return false
 	}
 	// Else, if odd
 	return true
+}
+
+func (p point) isInPolygonPIP(polygonPoints []point) bool {
+	// Create slice of Points from slice of points
+	points := []Point{}
+	for _, polygonPoint := range polygonPoints {
+		points = append(points, Point{X: polygonPoint.Lat, Y: polygonPoint.Lng})
+	}
+
+	// Use pip.go
+	rectangle := Polygon{Points: points}
+	pt := Point{X: p.Lat, Y: p.Lng}
+
+	return PointInPolygon(pt, rectangle)
 }
 
 func main() {
@@ -203,7 +222,7 @@ func main() {
 				}
 			} else {
 				// Iterate through `loc.Points` to craft a polygon
-				var polygon []point
+				polygon := []point{}
 				for _, locationPoint := range loc.Points {
 					p := point{
 						Lat: locationPoint[0],
@@ -213,8 +232,9 @@ func main() {
 				}
 
 				// Compare current point against the polygon
-				if currentPoint.isInPolygon(polygon) {
+				if currentPoint.isInPolygonPIP(polygon) {
 					// Add loc to the list of `currentLocations`
+					fmt.Fprintf(os.Stderr, "Add to list: %#v\n", loc.Name)
 					currentLocations = append(currentLocations, loc.Name)
 				}
 			}
