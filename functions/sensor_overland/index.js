@@ -37,6 +37,19 @@ const getLatestLocation = (data) => {
   return coords;
 };
 
+const getGeofence = coords => new Promise((resolve, reject) => {
+  Request.get({
+    headers: { 'content-type': 'application/json' },
+    url: `https://sasha.benwiz.io/geofencer?lat=${coords.latitude}&lng=${coords.longitude}`,
+  }, (error, response, body) => {
+    if (error) {
+      return reject(error);
+    }
+    body = JSON.parse(body);
+    return resolve(body);
+  });
+});
+
 exports.handle = (event, context, callback) => {
   console.log('EVENT:', JSON.stringify(event));
   console.log('BODY:', JSON.stringify(event.body));
@@ -49,13 +62,13 @@ exports.handle = (event, context, callback) => {
     return callback(null, response);
   }
 
+  const overlandData = JSON.parse(event.body);
+  const coords = getLatestLocation(overlandData);
+  console.log('coords:', coords);
+
   Promise.resolve()
     // Update coordinates in DynamoDB
     .then(() => {
-      const overlandData = JSON.parse(event.body);
-      const coords = getLatestLocation(overlandData);
-      console.log('coords:', coords);
-
       const body = {
         person: coords.device_id,
         latitude: coords.latitude,
@@ -68,14 +81,14 @@ exports.handle = (event, context, callback) => {
       return SnsPublish(data, params);
     })
     .then((res) => {
-      // TODO: SnsPublish() response
+      // TODO: Handle SnsPublish() response
       console.log('SnsPublish() response:', res);
-    })
-    .then((res) => {
-      // TODO: Calculate geofence location by making API request to util_geofencer.
+      // Calculate geofence location by making API request to util_geofencer.
+      return getGeofence(coords);
     })
     // Send data to IFTTT -> Google Spreadsheet
-    .then(() => {
+    .then((locations) => {
+      console.log('locations:', locations);
       const action = 'record_overland_data';
       const payload = { value1: event.body.replace(/\n/g, '').replace(/ /g, '') };
       return getIFTTTWebhook(action, payload);
