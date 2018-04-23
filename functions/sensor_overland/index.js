@@ -40,7 +40,7 @@ const getLatestLocation = (data) => {
 const getGeofence = coords => new Promise((resolve, reject) => {
   Request.get({
     headers: { 'content-type': 'application/json' },
-    url: `https://sasha.benwiz.io/geofencer?lat=${coords.latitude}&lng=${coords.longitude}`,
+    url: `https://j635jiwp94.execute-api.us-east-1.amazonaws.com/prod/geofencer?lat=${coords.latitude}&lng=${coords.longitude}`,
   }, (error, response, body) => {
     if (error) {
       return reject(error);
