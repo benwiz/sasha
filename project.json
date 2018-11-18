@@ -4,6 +4,7 @@
   "memory": 128,
   "timeout": 5,
   "role": "arn:aws:iam::778257796245:role/sasha_lambda_function",
-  "profile": "personal",
+  "profile": "default",
+  "region": "us-east-1",
   "environment": {}
 }

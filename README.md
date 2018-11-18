@@ -115,7 +115,7 @@ Create a file called _env.json_ to store environment variables.
 Optionally append the function name to deploy just that function.
 
 ```bash
-apex deply -E env.json
+apex deploy -E env.json
 ```
 
 Useful bash function.
